@@ -1,7 +1,7 @@
 {
   "pages":[
-    "pages/index/index",
     "pages/tm/clock/set/set",
+    "pages/index/index",
     "pages/tm/clock/countdown/countdown",
     "pages/tm/loc/loc",
     "pages/logs/logs",
@@ -16,10 +16,10 @@
     "tabBar": {
       "list": [
         {
-          "pagePath": "pages/index/index",
-          "iconPath": "./images/find.png",
-          "selectedIconPath": "images/find-selected.png",
-          "text": "首页"
+          "pagePath": "pages/tm/clock/set/set",
+          "iconPath": "./images/home.png",
+          "selectedIconPath": "images/home-selected.png",
+          "text": "计时器"
         },
         {
           "pagePath": "pages/tm/loc/loc",
@@ -28,10 +28,10 @@
           "text": "头马俱乐部"
         },
         {
-          "pagePath": "pages/tm/clock/set/set",
-          "iconPath": "./images/home.png",
-          "selectedIconPath": "images/home-selected.png",
-          "text": "计时器"
+          "pagePath": "pages/index/index",
+          "iconPath": "./images/find.png",
+          "selectedIconPath": "images/find-selected.png",
+          "text": "我的"
         }
       ]
     }
