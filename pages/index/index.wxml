@@ -1,8 +1,8 @@
 <!--pages/my/my.wxml-->
 <view class="page">
     <view class="page__hd">
-        <view class="page__title">头马助手</view>
-        <view class="page__desc">头马（Toastmasters）是沟通力和领导力发展领域的世界级领导者。作为一个非盈利组织，头马遍布全世界143个国家，拥有超过16600个俱乐部和357000名会员。头马助手是头马领域最好的小程序，希望可以提供给头马会员和对头马感兴趣的来宾更加便利的使用体验。</view>
+        <!-- <view class="page__title">头马助手</view> -->
+        <view class="page__desc">\r\n\r\n\r\n\r\n\r\n\r\n\r\n头马（Toastmasters）是沟通力和领导力发展领域的世界级领导者。作为一个非盈利组织，头马遍布全世界143个国家，拥有超过16600个俱乐部和357000名会员。"头马助手"是头马领域最好的小程序，希望可以提供给头马会员和对头马感兴趣的来宾更加便利的使用体验。</view>
     </view>
 </view>
 
