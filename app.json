@@ -2,6 +2,7 @@
   "pages":[
     "pages/index/index",
     "pages/tm/clock/set/set",
+    "pages/tm/clock/countdown/countdown",
     "pages/tm/loc/loc",
     "pages/logs/logs",
     "pages/contact/contact"

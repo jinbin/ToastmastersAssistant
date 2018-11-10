@@ -12,6 +12,8 @@ Page({
       fail: function(res) {},
       complete: function(res) {},
     })
+  },
+  onShareAppMessage: function () {
   }
 })
 
