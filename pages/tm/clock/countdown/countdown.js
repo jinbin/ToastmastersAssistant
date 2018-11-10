@@ -62,6 +62,13 @@ Page({
       xmin: zeroFill(this.data.min, 2),
       xsec: zeroFill(this.data.sec, 2),
     })
+  },
+
+  onShareAppMessage: function () {
+    return {
+      title: this.data.time+"分钟演讲计时器",
+      path: "/pages/tm/clock/countdown/countdown?time=" + this.data.time
+    }
   }
 
 })
