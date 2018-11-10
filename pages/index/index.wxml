@@ -1,0 +1,52 @@
+<!--pages/my/my.wxml-->
+<view class="page">
+    <view class="page__hd">
+        <view class="page__title">头马助手</view>
+        <view class="page__desc">头马（Toastmasters）是沟通力和领导力发展领域的世界级领导者。作为一个非盈利组织，头马遍布全世界143个国家，拥有超过16600个俱乐部和357000名会员。头马助手是头马领域最好的小程序，希望可以提供给头马会员和对头马感兴趣的来宾更加便利的使用体验。</view>
+    </view>
+</view>
+
+    <view class="page__hd">
+      <!-- <view class="page__title">关于头马</view> -->
+      <navigator url="/pages/tm/loc/loc" open-type="switchTab">
+      <view class="page__desc" style="font-size:25px">\r\n\r\n\r\n\r\n\r\n\r\n\r\n
+      <p style="color:#00BFFF">西子双语演讲俱乐部</p>
+      </view>
+      </navigator>
+      <navigator url="/pages/tm/clock/set/set" open-type="switchTab">
+      <view class="page__desc" style="font-size:25px">\r\n\r\n\r\n\r\n\r\n\r\n\r\n
+      <p style="color:#00BFFF">时间官工具</p>
+      </view>
+      </navigator>
+    </view>
+
+    <!-- <view class="page__hd">
+      <view class="page__title">头马助手</view> -->
+      <navigator url="/pages/contact/contact">
+      <view class="page__desc">\r\n\r\n\r\n\r\n\r\n\r\n\r\nPowered by 
+      <p style="color:#00BFFF">可能性工作室</p></view>
+      </navigator>
+    <!-- </view> -->
+
+  <!-- <view class="page__hd">
+      <view class="page__title">清单广场</view>
+      <navigator url="/pages/about/about?key=aboutkoudai">
+      <view class="page__desc">\r\n\r\n\r\n\r\n\r\n\r\n\r\n清单就是这样的有益约束下的产物。清单提供了一些列的观点，这些观点之间有联系性，而且具有可操作性。口袋清单希望可以收集到足够的优质清单，也有能力产出高质量的清单。
+      <p style="color:#00BFFF">【更多介绍请点击】</p>
+      </view>
+      </navigator>
+  </view> -->
+
+	<!-- <view class="page-body">
+		<view class="weui-cells weui-cells_after-title">
+			<block wx:for="{{ components }}" wx:key="">
+          <navigator url="{{ item.url }}" class="weui-cell weui-cell_access" hover-class="weui-cell_active" open-type="{{item.isTab ? 'switchTab':'navigate'}}"> 
+			        <view class="weui-cell__hd">
+			            <image src="{{ item.icon }}" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+			        </view>
+			        <view class="weui-cell__bd">{{ item.title }}</view>
+			        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+			    </navigator>
+		    </block>
+		</view>
+  </view> -->

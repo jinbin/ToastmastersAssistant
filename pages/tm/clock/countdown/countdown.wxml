@@ -1,0 +1,15 @@
+<view class="{{color}}">
+
+  <view class="container">
+    <view class="userinfo">
+      <view class="usermotto">{{xhour}}:{{xmin}}:{{xsec}}</view>
+    </view>
+  </view>
+
+  <view class="button-sp-area">
+    <button class="weui-btn mini-btn" style="border:1px solid #DAA520;color:#DAA520" bindtap="startBtn" type="primary" plain="true">开始  </button>
+    <button class="weui-btn mini-btn" style="border:1px solid #DAA520;color:#DAA520" bindtap="resetBtn" type="primary" plain="true">RESET</button>
+    <button class="weui-btn mini-btn" style="border:1px solid #DAA520;color:#DAA520" bindtap="pauseBtn" type="primary" plain="true">暂停  </button>
+  </view>
+
+</view>

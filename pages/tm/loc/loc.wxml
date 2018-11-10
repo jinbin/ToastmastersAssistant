@@ -1,0 +1,41 @@
+ <view class="page">
+    <view class="page__hd">
+        <view class="summary__title">西子双语演讲俱乐部</view>
+        <view class="summary__title">WESTLAKE BILINGUAL</view>
+        <view class="summary__title">WHERE LEADERS BORN</view>
+          <view class="page__desc">
+          \r\n\r\n\r\n\r\n\r\n\r\n\r\n西子双语演讲俱乐部成立于2008年，是杭州成立最早的Toastmasters分会。我们的使命是让每一个会员通过公众演讲，提升领导力，帮助会员将在俱乐部的所学融合到自身的工作、学习以及生活中，成为自己的领导者。
+          </view>
+          <view class="page__desc">
+          \r\n\r\n\r\n\r\n\r\n\r\n\r\n俱乐部地址：文二路188号（文二路和教工路交叉口）浙江省团校内 浙江青年创业学院教学楼202室。<p style="color:#4169E1">(友情提示：开车的朋友从教工路的西门进)</p>
+          </view>
+          <view class="page__desc">
+          \r\n\r\n\r\n\r\n\r\n\r\n\r\n会议时间：每周三晚19:10 - 21:20，每月第一、三、五周为英文，第二、四周为中文。
+          </view>
+
+    <image id = "{{id}}" style="width: 100%; height: 300px;" src="../../../images/wlbroad.png"></image>
+
+<map bindtap='intoMap'
+  id="myMap"
+  style="width: 100%; height: 300px;"
+  longitude="120.1367318630" latitude="30.2839508306"
+  scale='16'
+  subkey="YZDBZ-2UFCV-4CNPW-UHDQA-6FSTS-ISFTA"
+  polyline="{{polyline}}"
+  markers="{{markers}}"
+  show-location
+>
+  <!-- <cover-view bindtap='gps'> -->
+    <cover-image bindtap='gps' style="width: 40px; height: 40px;" src='../../../images/focus.png'></cover-image>
+  <!-- </cover-view> -->
+</map>
+
+  <image id = "{{id}}" style="width: 100%; height: 300px;" src="../../../images/wlbgate.png"></image>
+
+  <image id = "{{id}}" style="width: 100%; height: 300px;" src="../../../images/mapinschool.jpeg"></image>
+
+  <ad unit-id="adunit-40fd02f5d90be6aa"></ad>
+
+    </view>
+</view> 
+

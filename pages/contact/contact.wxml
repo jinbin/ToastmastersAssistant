@@ -1,0 +1,44 @@
+<!--pages/contact/contact.wxml-->
+ <official-account></official-account>
+ <view class="page">
+    <view class="page__hd">
+        <view class="summary__title">作者介绍</view>
+          <!-- <view class="page__desc">
+          \r\n\r\n\r\n\r\n\r\n\r\n\r\n独立投资者，10年以上投资经验 ，在雪球财经社区拥有近万粉丝 / 支付宝蚂蚁财富社区签约入驻作者 / 在个人微信公众号"<p bindtap='copyText' data-text="可能性工作室" style="color:#8B0000">可能性工作室</p>"发表过上百篇原创文章 / 前阿里巴巴技术专家 / <p bindtap='navToMap' data-text="可能性工作室" style="color:#8B0000">西子双语演讲俱乐部</p>教育副主席。 文章、思路皆原创，知行合一。 
+          </view> -->
+          <view class="page__desc">
+          \r\n\r\n\r\n\r\n\r\n\r\n\r\n独立投资者，10年以上投资经验 ，在雪球财经社区拥有近万粉丝 / 支付宝蚂蚁财富社区签约入驻作者 / 在个人微信公众号"<p bindtap='copyText' data-text="可能性工作室" style="color:#8B0000">可能性工作室</p>"发表过上百篇原创文章 / 前阿里巴巴技术专家 / <p bindtap='navToMap' data-text="可能性工作室" style="color:#8B0000">西子双语演讲俱乐部</p>教育副主席。 文章、思路皆原创，知行合一。 
+          </view>
+        <!-- </block> -->
+    </view>
+</view> 
+
+<view class="container">
+  <view class="userinfo">
+      <image bindtap="imgPre" data-src="/pages/my/officialAccount/weframe1.png" style="width: 300px; height: 350px" src="/images/weframe1.png"></image>
+      <view style="text-align:center;font-family:Times;color:#aaa;">* 点击查看大图，保存图片，打开微信扫一扫</view>
+    </view>
+</view>
+
+ <!-- <view class="page">
+    <view class="page__hd">
+        <view class="summary__title">{{motto}}</view>
+          <view class="page__desc">\r\n\r\n\r\n\r\n\r\n\r\n\r\n合作及建议请联系, 加好友请备注:</view>
+          <view class="page__desc">
+          \r\n\r\n\r\n\r\n\r\n\r\n\r\n微信号: just_as_always
+          【<p bindtap='copyText' data-text="just_as_always" style="color:#00BFFF">复制</p>】
+          </view>
+          <view class="page__desc">
+          \r\n\r\n\r\n\r\n\r\n\r\n\r\n微信公众号: 可能性工作室
+          【<p bindtap='copyText' data-text="可能性工作室" style="color:#00BFFF">复制</p>】
+          </view>
+          <view class="page__desc">\r\n\r\n\r\n\r\n\r\n\r\n\r\n邮箱: bin.jinb@qq.com
+          【<p bindtap='copyText' data-text="bin.jinb@qq.com"
+style="color:#00BFFF">复制</p>】
+          </view>
+    </view>
+</view>  -->
+
+<view class="contact_view">
+  <contact-button type="default-light" size="20" session-from="about"></contact-button>
+</view>

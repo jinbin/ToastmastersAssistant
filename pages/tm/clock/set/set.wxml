@@ -1,0 +1,28 @@
+<!-- <view class="page"> -->
+    <view class="page__hd">
+      
+      <view class="container">
+        <view class="userinfo">
+          <view class="usermotto">演讲计时器⏳</view>
+        </view>
+      </view>
+
+      <view class="page__desc">根据演讲者事先设定的时间，进行倒计时。</view>
+      <view class="page__desc">当剩余时间为2分钟时，背景颜色被置为<p style="color:OliveDrab">绿色</p>。</view>
+      <view class="page__desc">当剩余时间为1分钟时，背景颜色被置为<p style="color:Gold">黄色</p>。</view>
+      <view class="page__desc">当剩余时间为15秒时，背景颜色被置为<p style="color:red">红色</p>。</view>
+    </view>
+
+    <view class="button-sp-area">
+
+      <button class="weui-btn mini-btn" style="border:1px solid #DAA520;color:#DAA520" bindtap="countdown" id="6" type="primary" plain="true">6分钟演讲</button>
+      <button class="weui-btn mini-btn" style="border:1px solid #DAA520;color:#DAA520" bindtap="countdown" id="7" type="primary" plain="true">7分钟演讲</button>
+      <button class="weui-btn mini-btn" style="border:1px solid #DAA520;color:#DAA520" bindtap="countdown" id="10" type="primary" plain="true">10分钟演讲</button>
+
+    </view>
+
+  <!-- <view style="margin: 0 auto;padding-top: 15px;">
+    <ad unit-id="adunit-a13bd903f2e4a182"></ad>
+  </view> -->
+
+<!-- </view> -->

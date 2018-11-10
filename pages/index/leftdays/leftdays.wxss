@@ -1,0 +1,25 @@
+.usermotto {
+  font-size: 300%;
+  font-family:'Courier New', Courier, monospace
+}
+
+.userinfo {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+
+.bottom {
+  position:fixed; bottom:0;
+}

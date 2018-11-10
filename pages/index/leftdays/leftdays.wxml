@@ -1,0 +1,11 @@
+<view class="container">
+  {{title}}
+  <view class="userinfo">
+    <view class="usermotto">{{content}}</view>
+    <view class="usermotto">
+      只剩{{leftdays}}天
+    </view>
+  </view>
+</view>
+
+<ad class="bottom" unit-id="adunit-fd34e4ee4f24cdc8"></ad>
