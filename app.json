@@ -1,7 +1,7 @@
 {
   "pages":[
     "pages/tm/clock/set/set",
-    "pages/index/index",
+    "pages/index/index", 
     "pages/tm/clock/countdown/countdown",
     "pages/tm/loc/loc",
     "pages/logs/logs",
@@ -34,5 +34,8 @@
           "text": "我的"
         }
       ]
-    }
+    },
+    "navigateToMiniProgramAppIdList": [
+      "wx09a49d05a365a4e6"
+    ]
 }

@@ -40,6 +40,60 @@ Page({
     ]
   },
 
+  toMiniProgram: function(e) {
+    console.log("toMiniProgram")
+    wx.navigateToMiniProgram({
+      appId: 'wx09a49d05a365a4e6',
+      path: "pages/my/my",
+      // envVersion: 'trial',
+      success(res) {
+        console.log("SUCCESS")
+      }
+    })
+  },
+
+  // imgload: function(ev) {
+  //   let src = ev.currentTarget.dataset.src
+  //   let width = ev.detail.width
+  //   let height = ev.detail.height
+  //   let ratio = width / height
+
+  //   let windowWidth 
+  //   let windowHeight 
+  //   let after_height 
+
+  //   //获取屏幕宽高 
+  //   wx.getSystemInfo({
+  //     success: function (res) {
+  //       windowWidth = res.windowWidth;
+  //       windowHeight = res.windowHeight;
+  //       after_height = windowHeight / ratio;
+  //       console.log(windowWidth)
+  //       console.log(windowHeight)
+  //       // var windowscale = windowHeight / windowWidth;//屏幕高宽比 
+  //       // if (originalScale < windowscale) {//图片高宽比小于屏幕高宽比 
+  //       //   //图片缩放后的宽为屏幕宽 
+  //       //   imageSize.imageWidth = windowWidth;
+  //       //   imageSize.imageHeight = (windowWidth * originalHeight) / originalWidth;
+  //       // } else {//图片高宽比大于屏幕高宽比 
+  //       //   //图片缩放后的高为屏幕高 
+  //       //   imageSize.imageHeight = windowHeight;
+  //       //   imageSize.imageWidth = (windowHeight * originalWidth) / originalHeight;
+  //       // }
+  //       // imageSize.imageWidth = windowWidth;
+  //       // imageSize.imageHeight = windowHeight;
+  //     }
+  //   })
+
+  //   console.log(width)
+  //   console.log(height)
+
+  //   this.setData({
+  //     height: windowWidth,
+  //     width: after_height
+  //   })
+  // },
+
   copyText: function (e) {
     wx.setClipboardData({
       data: e.currentTarget.dataset.text,
