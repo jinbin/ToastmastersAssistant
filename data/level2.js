@@ -10,7 +10,7 @@ module.exports = [
     },
     {
       id: 2,
-      name: '',
+      name: '了解你的领导风格',
       desc: '本项目旨在介绍不同的领导力风格，并帮助你确定自己喜欢的领导力风格。',
       purpose: '本项目的目的是确定你的主要领导力风格。',
       overview: '完成“发现你的领导力风格”调查问卷。考虑你的领导力风格如何影响你周围的人，以及你如何用不同于自己风格的其它风格调整自己的领导力，从而更有效地领导他人。在俱乐部会议上发表5-7分钟的演讲，分享你的领导力风格或领导力风格的某些方面。你可以选择讨论与他人合作时你的领导力风格偏好，你的领导力风格以及如何使其适应各种情况，或一般的领导力风格以及它们如何影响团队。',
@@ -18,7 +18,7 @@ module.exports = [
       open: false
     },
     {
-      id: ,
+      id: 3,
       name: '',
       desc: '',
       purpose: '',
@@ -27,7 +27,7 @@ module.exports = [
       open: false
     },
     {
-      id: ,
+      id: 4,
       name: '',
       desc: '',
       purpose: '',
@@ -36,7 +36,7 @@ module.exports = [
       open: false
     },
     {
-      id: ,
+      id: 5,
       name: '',
       desc: '',
       purpose: '',
@@ -45,7 +45,7 @@ module.exports = [
       open: false
     },
     {
-      id: ,
+      id: 6,
       name: '',
       desc: '',
       purpose: '',
@@ -54,7 +54,7 @@ module.exports = [
       open: false
     },
     {
-      id: ,
+      id: 7,
       name: '',
       desc: '',
       purpose: '',
@@ -63,7 +63,7 @@ module.exports = [
       open: false
     },
     {
-      id: ,
+      id: 8,
       name: '',
       desc: '',
       purpose: '',
@@ -72,7 +72,7 @@ module.exports = [
       open: false
     },
     {
-      id: ,
+      id: 9,
       name: '',
       desc: '',
       purpose: '',

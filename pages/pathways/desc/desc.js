@@ -36,10 +36,10 @@ Page({
       this.setData({
         level: app.level1
       })
-    } else{
-      // this.setData({
-      //   level: app.level1
-      // })
+    } else if (options.level == 2){
+      this.setData({
+        level: app.level2
+      })
     }
   },
 
