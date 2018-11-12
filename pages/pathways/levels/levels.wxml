@@ -1,0 +1,26 @@
+<!--menu.wxml-->
+<official-account></official-account>
+<image src="../../../images/Pathwayslogo.jpg" style="height: 200px; width: 100%" />
+
+    <view class="button-sp-area">
+
+        <button class="weui-btn mini-btn" style="border:1px solid black;color:black" bindtap="countdown" id="6" type="primary" plain="true">
+        <navigator id="1">阶段一：掌握基础</navigator>
+        </button>
+      
+        <button class="weui-btn mini-btn" style="border:1px solid black;color:black" bindtap="countdown" id="7" type="primary" plain="true"> 
+        <navigator id="2">阶段二：学习风格</navigator>
+        </button>
+       
+        <button class="weui-btn mini-btn" style="border:1px solid black;color:black" bindtap="countdown" id="10" type="primary" plain="true">
+        <navigator id="3">阶段三：丰富知识</navigator>
+        </button>
+       
+        <button class="weui-btn mini-btn" style="border:1px solid black;color:black" bindtap="countdown" id="7" type="primary" plain="true">
+        <navigator id="4">阶段四：培养技能</navigator>
+        </button>   
+      
+        <button class="weui-btn mini-btn" style="border:1px solid black;color:black" bindtap="countdown" id="10" type="primary" plain="true">
+        <navigator id="5">阶段五：专业展示</navigator></button>
+      
+    </view>
