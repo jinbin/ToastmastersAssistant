@@ -4,20 +4,22 @@ const app = getApp()
 
 Page({
   data: {
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    intro: app.levels,
-    heart_image_path: false
   },
 
   onLoad: function (options) {
   },
 
+  toLevel: function (options) {
+    wx.navigateTo({
+      url: '/pages/pathways/desc/desc?level=' + options.currentTarget.id,
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
+  },
+
   onShareAppMessage: function () {
     return {
-      title: '看看有你喜欢的清单吗?',
-      path: '/pages/menu/menu'
     }
   }
 })

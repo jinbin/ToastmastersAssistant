@@ -1,5 +1,7 @@
 {
   "pages":[
+    "pages/pathways/levels/levels",
+    "pages/pathways/desc/desc",
     "pages/tm/clock/set/set",
     "pages/index/index", 
     "pages/tm/clock/countdown/countdown",
@@ -15,6 +17,12 @@
   },
     "tabBar": {
       "list": [
+        {
+          "pagePath": "pages/pathways/levels/levels",
+          "iconPath": "./images/account.png",
+          "selectedIconPath": "images/account-selected.png",
+          "text": "Pathways"
+        },
         {
           "pagePath": "pages/tm/clock/set/set",
           "iconPath": "./images/home.png",
