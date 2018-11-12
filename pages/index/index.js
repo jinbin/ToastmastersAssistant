@@ -44,7 +44,7 @@ Page({
     console.log("toMiniProgram")
     wx.navigateToMiniProgram({
       appId: 'wx09a49d05a365a4e6',
-      path: "pages/my/my",
+      path: "pages/contact/contact",
       // envVersion: 'trial',
       success(res) {
         console.log("SUCCESS")
