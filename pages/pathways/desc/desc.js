@@ -26,6 +26,9 @@ Page({
     } else if (options.level == 5) {
       name_en = "Level 5: Demonstrating Expertise"
       name_cn = "阶段五：专业展示"
+    } else if (options.level == 6) {
+      name_en = "Competent Communication"
+      name_cn = "胜任沟通"
     }
     this.setData({
       level_name_en: name_en,
@@ -39,6 +42,10 @@ Page({
     } else if (options.level == 2){
       this.setData({
         level: app.level2
+      })
+    } else if (options.level == 6){
+      this.setData({
+        level: app.CC
       })
     }
   },

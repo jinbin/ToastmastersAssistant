@@ -17,8 +17,8 @@
                     </view>
                     <view class="kind-list__item-bd {{item.open ? 'kind-list__item-bd_show' : ''}}">
                         <view class="weui-cells {{item.open ? 'weui-cells_show' : ''}}">
-                            <text wx:if="{{item.id % 2 == 1}}" class="pageItem" space="ensp" selectable='true'>        {{item.desc}}\n        Purpose:\n       {{item.purpose}} \n        Overview:\n        {{item.overview}}\n        This project includes:\n        {{item.includes}} </text>
-                            <text wx:if="{{item.id % 2 == 0}}" class="pageItem" space="ensp" selectable='true'>       {{item.desc}}\n       目的:\n        {{item.purpose}} \n       概述:\n        {{item.overview}} \n       这个项目包括:\n       {{item.includes}}</text>
+                            <text wx:if="{{item.id % 2 == 1}}" class="pageItem" space="ensp" selectable='true'>        {{item.desc}}\n        Purpose:\n        {{item.purpose}} \n        Overview:\n        {{item.overview}}\n        This project includes:\n        {{item.includes}} </text>
+                            <text wx:if="{{item.id % 2 == 0}}" class="pageItem" space="ensp" selectable='true'>       {{item.desc}}\n       目的:\n       {{item.purpose}} \n       概述:\n       {{item.overview}} \n       这个项目包括:\n       {{item.includes}}</text>
                         </view>
                     </view>
                 </view>

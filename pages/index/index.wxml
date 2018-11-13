@@ -29,7 +29,7 @@
 </view>
 
 <!-- <navigator url="/pages/contact/contact"> -->
-  <view class="page__ft" bindtap='toMiniProgram'>\r\n\r\n\r\n\r\n\r\n\r\n\r\nPowered by 
+  <view class="page__ft" bindtap='toMiniProgram'>Powered by 
     <p style="color:#00BFFF">可能性工作室</p>
   </view>
 <!-- </navigator> -->

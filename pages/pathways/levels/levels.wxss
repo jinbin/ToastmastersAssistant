@@ -4,7 +4,15 @@
     margin: 0 auto;
     padding-top: 15px;
     width: 90%;
+    /* height: 60%; */
 }
 .mini-btn{
     margin-right: 5px;
+}
+
+.page__ft{
+    padding-bottom: 10px;
+    text-align: center;
+    font-size: 14px;
+    color: #888888;
 }
