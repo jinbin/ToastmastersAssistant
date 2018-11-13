@@ -12,19 +12,19 @@ Page({
     console.log(options.level)
 
     if(options.level == 1){
-      name_en = "Level1: Mastering Fundamentals"
+      name_en = "Level 1: Mastering Fundamentals"
       name_cn = "阶段一: 掌握基础"
     } else if (options.level == 2){
-      name_en = "Learning Your Style"
+      name_en = "Level 2: Learning Your Style"
       name_cn = "阶段二：学习风格"
     } else if (options.level == 3) {
-      name_en = "Increasing Knowledge"
+      name_en = "Level 3: Increasing Knowledge"
       name_cn = "阶段三：丰富知识"
     } else if (options.level == 4) {
-      name_en = "Building Skills"
+      name_en = "Level 4: Building Skills"
       name_cn = "阶段四：培养技能"
     } else if (options.level == 5) {
-      name_en = "Demonstrating Expertise"
+      name_en = "Level 5: Demonstrating Expertise"
       name_cn = "阶段五：专业展示"
     }
     this.setData({
