@@ -17,7 +17,7 @@ Page({
         hour: 0,
         min: options.time,
         sec: 0,
-        color: ""
+        color: "white"
       })
     }else{
       this.setData({
@@ -25,7 +25,7 @@ Page({
         hour: 0,
         min: 3,
         sec: 0,
-        color: ""
+        color: "white"
       })
     }
 
@@ -67,23 +67,39 @@ Page({
   },
 
   changebg: function(){
-  //green -> yellow -> red -> ""
-    if(this.data.color == ""){
+  //green -> yellow -> red -> white
+    if(this.data.color == "white"){
       this.setData({
         color: "green"
+      }),
+      wx.setNavigationBarColor({
+        frontColor: '#ffffff',
+        backgroundColor: '#6b8e23',
       })
     } else if (this.data.color == "green"){
       this.setData({
         color: "yellow"
+      }),
+      wx.setNavigationBarColor({
+        frontColor: '#ffffff',
+        backgroundColor: '#ffd700',
       })
     } else if (this.data.color == "yellow") {
       this.setData({
         color: "red"
+      }),
+      wx.setNavigationBarColor({
+        frontColor: '#ffffff',
+        backgroundColor: '#FF0000',
       })
     } else if (this.data.color == "red") {
       this.setData({
-        color: ""
-      })
+        color: "white"
+      }),
+      wx.setNavigationBarColor({
+        frontColor: '#ffffff',
+        backgroundColor: '#F8F8F8',
+      })  
     }
   },
 
