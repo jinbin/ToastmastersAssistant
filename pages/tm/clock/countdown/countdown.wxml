@@ -10,6 +10,7 @@
     <button class="weui-btn mini-btn" style="border:1px solid #DAA520;color:#DAA520" bindtap="startBtn" type="primary" plain="true">开始  </button>
     <button class="weui-btn mini-btn" style="border:1px solid #DAA520;color:#DAA520" bindtap="resetBtn" type="primary" plain="true">RESET</button>
     <button class="weui-btn mini-btn" style="border:1px solid #DAA520;color:#DAA520" bindtap="pauseBtn" type="primary" plain="true">暂停  </button>
+    <button class="weui-btn mini-btn" style="border:1px solid #DAA520;color:#DAA520" bindtap="changebg" type="primary" plain="true">自定义背景色  </button>
   </view>
 
 </view>

@@ -16,14 +16,16 @@ Page({
         time: options.time,
         hour: 0,
         min: options.time,
-        sec: 0
+        sec: 0,
+        color: ""
       })
     }else{
       this.setData({
         time: 3,
         hour: 0,
         min: 3,
-        sec: 0
+        sec: 0,
+        color: ""
       })
     }
 
@@ -62,6 +64,27 @@ Page({
       xmin: zeroFill(this.data.min, 2),
       xsec: zeroFill(this.data.sec, 2),
     })
+  },
+
+  changebg: function(){
+  //green -> yellow -> red -> ""
+    if(this.data.color == ""){
+      this.setData({
+        color: "green"
+      })
+    } else if (this.data.color == "green"){
+      this.setData({
+        color: "yellow"
+      })
+    } else if (this.data.color == "yellow") {
+      this.setData({
+        color: "red"
+      })
+    } else if (this.data.color == "red") {
+      this.setData({
+        color: ""
+      })
+    }
   },
 
   onShareAppMessage: function () {
