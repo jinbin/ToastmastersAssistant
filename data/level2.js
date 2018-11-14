@@ -88,5 +88,59 @@ module.exports = [
       overview: '选择任一话题发表一个5-7分钟的演讲。当你发表你的演讲时，记录每项任务所需的时间，以帮助你决定如何改进你的时间管理策略。在俱乐部会议上发表你的演讲。最后，提交项目完成表给你的教育副主席。',
       includes: '时间和任务日志; 项目完成表; 1个5-7分钟的演讲',
       open: false
+    },
+    {
+      id: 11,
+      name: 'Active Listening',
+      desc: 'This project covers the difference between hearing and listening, and steps for exploring the ways listening helps build strong, lasting connections.',
+      purpose: 'The purpose of this project is to demonstrate your ability to listen to what others say.',
+      overview: 'At a club meeting, fulfill the role of Topicsmaster. As Topicsmaster, comment on each speaker’s Table Topics® speech to demonstrate your active listening skills. For example, you might say, "Thank you. That was a compelling opinion on the benefits of gardening. I understand you feel strongly that everyone needs to spend some time doing something they love."',
+      includes: 'Serving as Topicsmaster at a club meeting',
+      open: false
+    },
+    {
+      id: 12,
+      name: '主动倾听',
+      desc: '这个项目包括区分听力与倾听的区别，以及探索有助于建立牢固、持久的联系的倾听方法的步骤。',
+      purpose: '这个项目的目的是展示你倾听别人意见的能力。',
+      overview: '在俱乐部会议上，扮演即兴演讲主持人的角色。作为即兴演讲主持人，对每位演讲者的演讲主题发表评论，以展示你积极的听力技巧。例如，你可能会说：“谢谢。关于园艺的好处，这是一个令人信服的意见。我理解你强烈地感觉到每个人都需要花一些时间做他们喜欢的事情。”',
+      includes: '在俱乐部会议上担任即兴演讲主持人',
+      open: false
+    },
+    {
+      id: 13,
+      name: 'Effective Body Language',
+      desc: 'This project focuses on how to recognize body language used when speaking publicly and how to use gestures to enhance speech content.',
+      purpose: 'The purpose of this project is to deliver a speech with awareness of your intentional and unintentional body language, as well as to learn, practice, and refine how you use nonverbal communication when delivering a speech.',
+      overview: 'Prepare a 5- to 7-minute speech on a topic that lends itself to expression through your movement and gestures. Video record your presentation and get feedback from your mentor or another reviewer before speaking to your club. If you do not have access to a recording device, perform your speech in front of a mirror and make adjustments before your scheduled speech.',
+      includes: 'A 5- to 7-minute speech',
+      open: false
+    },
+    {
+      id: 14,
+      name: '有效的肢体语言',
+      desc: '本项目的重点是如何识别公开演讲时使用的肢体语言，以及如何使用手势来增强演讲内容。',
+      purpose: '这个项目的目的是在演讲时意识到你有意和无意的肢体语言，以及学习、练习和完善你在演讲时如何使用非语言交流。',
+      overview: '准备5-7分钟的演讲，通过你的动作和手势来表达自己的主题。在俱乐部演讲前，先视频录制你的演讲，并从你的导师或其他评阅者处获得反馈。如果你无法访问录制设备，请在镜子前演练并在安排俱乐部演讲之前进行调整。',
+      includes: '1个5-7分钟的演讲',
+      open: false
+    },
+    {
+      id: 15,
+      name: 'Cross-Cultural Understanding',
+      desc: 'This project focuses on understanding the cultures with which you identify and the impact of stereotypes associated with your cultures and others.',
+      purpose: "The purpose of this project is to identify your own cultural identities and the stereotypes that impact others' perceptions of you.",
+      overview: 'Develop a 5- to 7-minute speech about the cultures with which you most closely identify and the personal impact of the stereotypes commonly associated with those cultures. You may need to spend some time researching the stereotypes believed about your cultures, especially if you are a member of the most dominant cultures in your geographic area. Be aware that all cultural identities have some sort of affiliated stereotype, even if it is obscure or uncommon.',
+      includes: 'The Defining Your Cultural Identity resource;  A 5- to 7-minute speech',
+      open: false
+    },
+    {
+      id: 16,
+      name: '跨文化理解',
+      desc: '本项目的重点是了解你所认同的文化以及将你所认同的文化和其他文化相联系的对陈旧观念的冲击。',
+      purpose: '这个项目的目的是确定你自己的文化认同以及影响别人对你的看法的陈旧观念。',
+      overview: '发表5-7分钟的演讲，了解与你最密切相关的文化以及与这些文化相关的陈旧观念对个人的影响。如果你是你所在地区最主要的文化的一员时，你可能需要花一些时间去研究那些关于你的文化中的陈旧观念。请注意，所有的文化认同都有某种从属的刻板印象，即使它是模糊的或不常见的。',
+      includes: '明确你的文化认同的资源; 1个5-7分钟的演讲',
+      open: false
     }
   ]

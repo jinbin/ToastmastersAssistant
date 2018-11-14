@@ -4,16 +4,16 @@
     <view class="page__hd">
         <!-- <view class="page__title">头马助手</view> -->
         <view class="page__desc">\r\n\r\n\r\n\r\n\r\n\r\n\r\nToastmasters（头马）是非盈利的国际教育组织之一，致力于提高会员的公众演说能力、沟通技巧以及领导力。自1924年成立以来，Toastmasters已有91年的历史，并在全球126个国家拥有约16600个分会，357000个会员。</view>
-                <view class="page__desc">\r\n\r\n\r\n\r\n\r\n\r\n\r\n"头马助手"是头马领域最好的小程序，希望可以提供给头马会员、对头马感兴趣的来宾更加便利的使用体验。</view>
+                <view class="page__desc">\r\n\r\n\r\n\r\n\r\n\r\n\r\n"头马助手"是头马领域最好的小程序，希望可以提供给头马会员、对头马感兴趣的来宾更多的帮助。</view>
     </view>
 </view>
 
 <view class="page">
     <view class="page__hd">
-        <view class="page__title">西子双语演讲俱乐部</view>
+        <view class="page__title">Pathways指导</view>
 
-        <navigator url="/pages/tm/loc/loc" open-type="switchTab">
-          <view class="page__desc">\r\n\r\n\r\n\r\n\r\n\r\n\r\n西子双语演讲俱乐部成立于2008年，是杭州成立最早的Toastmasters俱乐部。西子提供了一个开放的平台，让每一位会员通过公众演讲，学会聆听、反馈、项目管理等能力。<p style="color:#00BFFF">点击了解更多</p></view>
+        <navigator url="/pages/pathways/levels/levels" open-type="switchTab">
+          <view class="page__desc">\r\n\r\n\r\n\r\n\r\n\r\n\r\nPathways是Toastmasters（头马）2018年上线的新教育体系，帮助你更好的提升沟通和领导力能力。本工具将Pathways各个Level项目的目的和概述进行了整理。在这里你可以一览所有Pathways的项目，复制所需项目的目的和概述，不用再翻阅厚重的文档。<p style="color:#00BFFF">点击直达</p></view>
         </navigator>
 
     </view>
@@ -23,7 +23,7 @@
     <view class="page__hd">
         <view class="page__title">时间官工具</view>
         <navigator url="/pages/tm/clock/set/set" open-type="switchTab">
-          <view class="page__desc">\r\n\r\n\r\n\r\n\r\n\r\n\r\n时间官的职责是提示、提醒演讲人是否充分利用规定的时间进行演讲，并在规定时间内结束演讲。通过红、黄、绿色示意牌来提醒演讲人控制好时间。本工具可以帮助时间官更好的进行时间管理。<p style="color:#00BFFF">点击直达</p></view>
+          <view class="page__desc">\r\n\r\n\r\n\r\n\r\n\r\n\r\n时间官的职责是提示、提醒演讲人是否充分利用规定的时间进行演讲，并在规定时间内结束演讲。通过红、黄、绿色示意牌来提醒演讲人控制好时间。本工具可以帮助时间官更好的进行时间管理, 根据演讲时间在到达特定时间时通过更换背景颜色起到提醒作用，并有振动提醒；或者可以将其作为红黄绿牌替代工具，直接手动自定义背景色。<p style="color:#00BFFF">点击直达</p></view>
         </navigator>
     </view>
 </view>
@@ -34,4 +34,3 @@
   </view>
 <!-- </navigator> -->
 
-    

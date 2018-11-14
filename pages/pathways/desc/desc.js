@@ -19,13 +19,13 @@ Page({
       name_cn = "阶段二：学习风格"
     } else if (options.level == 3) {
       name_en = "Level 3: Increasing Knowledge"
-      name_cn = "阶段三：丰富知识"
+      name_cn = "阶段三：丰富知识" + "(未完待续)"
     } else if (options.level == 4) {
       name_en = "Level 4: Building Skills"
-      name_cn = "阶段四：培养技能"
+      name_cn = "阶段四：培养技能" + "(未完待续)"
     } else if (options.level == 5) {
       name_en = "Level 5: Demonstrating Expertise"
-      name_cn = "阶段五：专业展示"
+      name_cn = "阶段五：专业展示" + "(未完待续)"
     } else if (options.level == 6) {
       name_en = "Competent Communication"
       name_cn = "胜任沟通"
