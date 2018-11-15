@@ -2,7 +2,7 @@
 <official-account></official-account>
 <view class="page">
     <view class="page__hd">
-      <navigator url="/pages/menu/menu" open-type="switchTab">
+      <navigator url="/pages/pathways/levels/levels" open-type="switchTab">
         <view class="page__title">{{level_name_ch}}</view>
         <view class="page__desc">{{level_name_en}}</view>
       </navigator>

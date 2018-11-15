@@ -2,6 +2,7 @@
   "pages":[
     "pages/pathways/levels/levels",
     "pages/pathways/desc/desc",
+    "pages/pathways/article/article",
     "pages/tm/clock/set/set",
     "pages/index/index", 
     "pages/tm/clock/countdown/countdown",

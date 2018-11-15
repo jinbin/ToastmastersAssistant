@@ -1,4 +1,4 @@
-/* pages/pathways/desc/desc.wxss */
+/* pages/pathways/article/article.wxss */
 
 .weui-flex {
 	-webkit-box-align:center;
