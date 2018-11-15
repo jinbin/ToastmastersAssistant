@@ -1,12 +1,27 @@
 //desc.js
 //获取应用实例
 const app = getApp()
+var sliderWidth = 96; 
 
 Page({
   data: {
+    tabs: ["中文", "英文"],
+    activeIndex: 0,
+    sliderOffset: 0,
+    sliderLeft: 0
   },
 
   onLoad: function (options) {
+    var that = this;
+    wx.getSystemInfo({
+      success: function (res) {
+        that.setData({
+          sliderLeft: (res.windowWidth / that.data.tabs.length - sliderWidth) / 2,
+          sliderOffset: res.windowWidth / that.data.tabs.length * that.data.activeIndex
+        });
+      }
+    });
+
     let name_en
     let name_cn
     console.log(options.level)
@@ -55,6 +70,13 @@ Page({
         level: app.level7
       })
     }
+  },
+
+  tabClick: function (e) {
+    this.setData({
+      sliderOffset: e.currentTarget.offsetLeft,
+      activeIndex: e.currentTarget.id
+    });
   },
 
   copyText: function (e) {

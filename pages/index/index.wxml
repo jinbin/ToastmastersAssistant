@@ -7,6 +7,19 @@
     </view>
 </view>
 
+<!-- <view class="page">
+    <view class="page__bd">
+        <view class="weui-grids">
+            <block wx:for="{{grids}}" wx:key="*this">
+                <navigator url="" class="weui-grid" hover-class="weui-grid_active">
+                    <image class="weui-grid__icon" src="../images/icon_tabbar.png" />
+                    <view class="weui-grid__label">反馈与建议</view>
+                </navigator>
+            </block>
+        </view>
+    </view>
+</view> -->
+
 <view class="page">
     <view class="page__hd">
         <view class="page__title">Pathways指导</view>
@@ -39,5 +52,6 @@
 
 <view class="page__ft" bindtap='toMiniProgram'>Powered by 
   <p style="color:#00BFFF">可能性工作室</p>
+  <view class="weui-footer__text">Copyright © 2018-2018 jinbin</view>
 </view>
 
