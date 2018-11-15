@@ -4,6 +4,8 @@ const app = getApp()
 
 Page({
   data: {
+    array: ['西子双语演讲俱乐部'],
+    index: 0,
     markers: [{
       iconPath: "/images/location.png",
       id: 0,
@@ -23,6 +25,24 @@ Page({
 
   onReady: function (e) {
     this.mapCtx = wx.createMapContext('myMap')
+  },
+
+  bindPickerChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      index: e.detail.value
+    })
+  },
+
+  copyText: function (e) {
+    wx.setClipboardData({
+      data: e.currentTarget.dataset.text,
+      success: function (res) {
+        wx.showToast({
+          title: "内容已复制"
+        })
+      }
+    })
   },
     
   intoMap: function () {
