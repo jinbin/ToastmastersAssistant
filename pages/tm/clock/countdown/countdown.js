@@ -35,6 +35,11 @@ Page({
       xsec: zeroFill(this.data.sec, 2),
     })
 
+    wx.setNavigationBarColor({
+      frontColor: '#ffffff',
+      backgroundColor: '#F8F8F8',
+    })  
+
   },
 
   // 自定义的开始按钮
