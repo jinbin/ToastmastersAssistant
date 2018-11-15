@@ -28,6 +28,15 @@
     </view>
 </view>
 
+<view class="page">
+    <view class="page__hd">
+        <view class="page__title">建议反馈</view>
+        <navigator target="miniProgram" open-type="navigate" app-id="{{ appId }}" extra-data="{{ extraData }}" version="release">
+          <view class="page__desc">\r\n\r\n\r\n\r\n\r\n\r\n\r\n点击进入<p style="color:#00BFFF">头马助手反馈专区</p></view>
+        </navigator>
+    </view>
+</view>
+
 <view class="page__ft" bindtap='toMiniProgram'>Powered by 
   <p style="color:#00BFFF">可能性工作室</p>
 </view>

@@ -5,6 +5,15 @@ Page({
    * 页面的初始数据
    */
   data: {
+    appId: "wx8abaf00ee8c3202e",
+    extraData: {
+      id: "43654",
+      // 自定义参数，具体参考文档
+      customData: {
+        clientInfo: '',
+        imei: ''
+      }
+    },
     components: [
       // {
       //   title: '收藏夹',

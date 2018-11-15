@@ -9,6 +9,10 @@
 .mini-btn{
     margin-right: 5px;
 }
+.mini-btn50{
+    margin-right: 5px;
+    width: 50%
+}
 
 .page__ft{
     padding-bottom: 10px;

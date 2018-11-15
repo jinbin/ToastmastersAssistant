@@ -3,6 +3,7 @@
 App({
   level1: require('./data/level1'),
   level2: require('./data/level2'),
+  level7: require('./data/level7'),
   CC: require('./data/CC'),
 
   onLaunch: function () {

@@ -29,6 +29,9 @@ Page({
     } else if (options.level == 6) {
       name_en = "Competent Communication"
       name_cn = "胜任沟通"
+    } else if (options.level == 7) {
+      name_en = "Pathways资料"
+      name_cn = "Pathways Resources"
     }
     this.setData({
       level_name_en: name_en,
@@ -46,6 +49,10 @@ Page({
     } else if (options.level == 6){
       this.setData({
         level: app.CC
+      })
+    } else if (options.level == 7){
+      this.setData({
+        level: app.level7
       })
     }
   },

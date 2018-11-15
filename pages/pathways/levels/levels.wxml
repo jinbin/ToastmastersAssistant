@@ -19,7 +19,9 @@
         <button id="5" class="weui-btn mini-btn" style="border:1px solid black;color:black" type="primary" plain="true" bindtap="toLevel">
         阶段五：专业展示
         </button>
-        <button id="6" class="weui-btn mini-btn" style="border:1px solid #D9D9D9;color:#D9D9D9" type="primary" plain="true" bindtap="toLevel">
-        旧教育体系：CC
-        </button>
+        <!-- <button id="6" class="weui-btn mini-btn" style="border:1px solid #D9D9D9;color:#D9D9D9" type="primary" plain="true" bindtap="toLevel">
+        旧教育体系CC
+        </button> -->
+        <button id="6" class="weui-btn mini-btn" style="border:1px solid #D9D9D9;color:#D9D9D9; width:48%" type="default" size="mini" bindtap="toLevel">旧教育体系CC</button>
+        <button id="7" class="weui-btn mini-btn" style="width:49%" type="primary" size="mini" bindtap="toLevel">更多资料</button>
     </view>
