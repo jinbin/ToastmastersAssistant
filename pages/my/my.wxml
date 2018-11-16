@@ -6,9 +6,9 @@
   <image src="https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/images/wordmark.jpg?sign=96493e305a60a730248c17bbac0582e4&t=1542367082" style="height: 80px; width: 100%" />
 </view>
 
-<navigator url="/pages/contact/contact">
-  <image src="https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/images/learnmore.jpg?sign=724100720ef0ddd30c216dcec6655a62&t=1542367040" style="height: 160px; width: 100%" />
-</navigator>
+<!-- <navigator url="/pages/contact/contact"> -->
+  <image bindtap="login" src="https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/images/learnmore.jpg?sign=724100720ef0ddd30c216dcec6655a62&t=1542367040" style="height: 160px; width: 100%" />
+<!-- </navigator> -->
 
 <!-- <view class="page">
     <view class="page__hd">
@@ -34,6 +34,13 @@
 			    <view class="weui-cell__bd">建议与反馈</view>
 			    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
         </navigator>
+        <view target="miniProgram" class="weui-cell weui-cell_access" hover-class="weui-cell_active" bindtap='toMiniProgram'>
+          <view class="weui-cell__hd">
+			      <image src="../../images/find-selected.png" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+			    </view>
+			    <view class="weui-cell__bd">友情链接</view>
+			    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </view>
 		</view>
   </view>
 
