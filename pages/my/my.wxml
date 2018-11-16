@@ -6,15 +6,9 @@
   <image src="https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/images/wordmark.jpg?sign=96493e305a60a730248c17bbac0582e4&t=1542367082" style="height: 80px; width: 100%" />
 </view>
 
-<!-- <navigator url="/pages/contact/contact"> -->
-  <image bindtap="login" src="https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/images/learnmore.jpg?sign=724100720ef0ddd30c216dcec6655a62&t=1542367040" style="height: 160px; width: 100%" />
-<!-- </navigator> -->
+  <image src="https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/images/learnmore.jpg?sign=724100720ef0ddd30c216dcec6655a62&t=1542367040" style="height: 160px; width: 100%" />
 
-<!-- <view class="page">
-    <view class="page__hd">
-        <view class="page__desc">\r\n\r\n\r\n\r\n\r\n\r\n\r\n"头马助手", 头马领域最好的小程序。</view>
-    </view>
-</view> -->
+  <button open-type='getUserInfo' type="default" bindtap="login" bindgetuserinfo="bindGetUserInfo">{{isLogin}}</button>
 
 	<view class="page-body">
 		<view class="weui-cells weui-cells_after-title">

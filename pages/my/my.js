@@ -53,14 +53,64 @@ Page({
       },
       fail: console.error
     })
-    console.log("OK")
+    ///isLogin
+    var that = this
+    wx.getSetting({
+      success: res => {
+        if (res.authSetting['scope.userInfo']) {
+          console.log("true")
+          that.setData({
+            isLogin: "已登录"
+          })
+        } else {
+          console.log("false")
+          that.setData({
+            isLogin: "登录了解更多"
+          })
+        }
+      }
+    })
+  },
+
+  login: function(e) {
+    var that = this
+    wx.getSetting({
+      success: res => {
+        if (res.authSetting['scope.userInfo']) {
+          console.log("true")
+          that.setData({
+            isLogin: "已登录"
+          })
+        } else {
+          console.log("false")
+          that.setData({
+            isLogin: "登录了解更多"
+          })
+        }
+      }
+    })
+  },
+
+  bindGetUserInfo: function (e) {
+    var that = this
+    if (e.detail.userInfo) {
+      //用户按了允许按钮
+      that.setData({
+        isLogin: "已登录"
+      })
+    } else {
+      //用户按了拒绝按钮
+      that.setData({
+        isLogin: "登录了解更多"
+      })
+    }
   },
 
   toMiniProgram: function (e) {
     console.log("toMiniProgram")
     wx.navigateToMiniProgram({
       appId: 'wx09a49d05a365a4e6',
-      path: "pages/contact/contact",
+      path: "pages/my/leftdays/leftdays",
       // envVersion: 'trial',
       success(res) {
         console.log("SUCCESS")

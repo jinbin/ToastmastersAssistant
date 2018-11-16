@@ -1,6 +1,7 @@
 {
   "pages":[
     "pages/pathways/levels/levels",
+    "pages/community/community",
     "pages/tm/loc/loc",
     "pages/my/my",
     "pages/article/article",
@@ -33,9 +34,15 @@
           "text": "计时器"
         },
         {
-          "pagePath": "pages/tm/loc/loc",
+          "pagePath": "pages/community/community",
           "iconPath": "./images/account.png",
           "selectedIconPath": "images/account-selected.png",
+          "text": "社区"
+        },
+        {
+          "pagePath": "pages/tm/loc/loc",
+          "iconPath": "./images/home.png",
+          "selectedIconPath": "images/home-selected.png",
           "text": "头马俱乐部"
         },
         {
