@@ -23,6 +23,21 @@ Page({
     }],
   },
 
+  onLoad: function (e) {
+    const db = wx.cloud.database({
+      env: "tmassistant-5275ad"
+    })
+    const clubs = db.collection('clubs').doc('westlake').get({
+      success: function (res) {
+        console.log(res.data.location.longitude)
+        this.setData({
+          longitude: res.data.location.longitude,
+          latitude: res.data.location.latitude
+        })
+      }
+    })
+  },
+
   onReady: function (e) {
     this.mapCtx = wx.createMapContext('myMap')
   },
