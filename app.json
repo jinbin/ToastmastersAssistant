@@ -1,18 +1,20 @@
 {
   "pages":[
     "pages/pathways/levels/levels",
+    "pages/tm/loc/loc",
+    "pages/my/my",
+    "pages/article/article",
     "pages/pathways/desc/desc",
     "pages/pathways/article/article",
     "pages/tm/clock/set/set",
     "pages/index/index", 
     "pages/tm/clock/countdown/countdown",
-    "pages/tm/loc/loc",
     "pages/logs/logs",
     "pages/contact/contact"
   ],
   "window":{
     "backgroundTextStyle":"black",
-    "navigationBarBackgroundColor": "096ee0",
+    "navigationBarBackgroundColor": "#096ee0",
     "navigationBarTitleText": "头马助手",
     "navigationBarTextStyle":"#DAA520"
   },
@@ -37,7 +39,7 @@
           "text": "头马俱乐部"
         },
         {
-          "pagePath": "pages/index/index",
+          "pagePath": "pages/my/my",
           "iconPath": "./images/find.png",
           "selectedIconPath": "images/find-selected.png",
           "text": "我的"
