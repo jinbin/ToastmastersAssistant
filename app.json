@@ -1,7 +1,9 @@
 {
   "pages":[
     "pages/pathways/levels/levels",
+    "pages/community/forum/forum",
     "pages/community/community",
+    "pages/community/post/post",
     "pages/tm/loc/loc",
     "pages/my/my",
     "pages/article/article",
@@ -34,7 +36,7 @@
           "text": "计时器"
         },
         {
-          "pagePath": "pages/community/community",
+          "pagePath": "pages/community/forum/forum",
           "iconPath": "./images/account.png",
           "selectedIconPath": "images/account-selected.png",
           "text": "社区"

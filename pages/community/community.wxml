@@ -1,2 +1,13 @@
-<!--pages/community/community.wxml-->
-<text>pages/community/community.wxml</text>
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <open-data class="userinfo-avatar" type="userAvatarUrl" background-size="cover"></open-data>
+        <open-data class="userinfo-nickname" type="userNickName"></open-data>
+    </block>
+  </view>
+  <button open-type='getUserInfo' type="default" bindtap="goToForum" bindgetuserinfo="bindGetUserInfo">{{isLogin}}</button>
+  <view class="userinfo-nickname">
+    点击开启惊喜！
+  </view>
+</view>

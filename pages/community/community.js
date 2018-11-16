@@ -12,8 +12,43 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this
+    wx.getSetting({
+      success: res => {
+        if (res.authSetting['scope.userInfo']) {
+          console.log("true")
+          that.setData({
+            isLogin: "点击进入"
+          })
+          wx.navigateTo({
+            url: '/pages/community/forum/forum',
+            success: function(res) {},
+            fail: function(res) {},
+            complete: function(res) {},
+          })
+        } else {
+          console.log("false")
+          that.setData({
+            isLogin: "登录头马助手"
+          })
+        }
+      }
+    })
+  },
+
+  goToForum: function(e) {
+    wx.navigateTo({
+      url: '/pages/community/forum/forum',
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
+
+  bindGetUserInfo: function(e){
 
   },
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成

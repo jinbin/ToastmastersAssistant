@@ -1,0 +1,72 @@
+<!--index.wxml-->
+<view class="body">
+  <view class="border-slice">
+    <view class="head">
+      <view class="index-head-logo">
+        <image class="index-head-logo-img" src="../../../images/zan.png"></image>
+        <text class="index-head-logo-f">
+          头马社区
+        </text>
+      </view>
+      <view class="head-banner"></view>
+    </view>
+</view>
+
+  <view wx:if="{{!hasUserInfo}}">
+
+<view class="container">
+    <view class="userinfo">
+      <!-- <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+      <block wx:else> -->
+      <open-data class="userinfo-avatar" type="userAvatarUrl" background-size="cover"></open-data>
+      <open-data class="userinfo-nickname" type="userNickName"></open-data>
+      <!-- </block> -->
+    </view>
+    <button class="usermotto" open-type='getUserInfo' type="default" bindtap="goToForum" bindgetuserinfo="bindGetUserInfo">点击登录进入互动社区</button>
+    <view class="userinfo-nickname">
+    点击开启惊喜！
+    </view>
+</view>
+
+  </view>
+
+  <view wx:if="{{hasUserInfo}}">
+  <!-- 帖子内容 -->
+  <scroll-view class="art-content" scroll-y="true" scroll-x="false" 
+  bindscrolltolower="moreArticle" data-page-index="{{pageIndex}}" style="height: 900px;width:100%;">
+    <block wx:for="{{articles}}" wx:for-index="idx" wx:for-item="item" wx:key="Id">
+      <view class="border-slice">
+        <!-- 贴主信息-->
+        <view>
+            <!-- 用户头像-->
+            <view style="padding:30rpx 24rpx 16rpx; float:left">
+              <image style="width:40px;height:40px;overflow:hidden;" src="{{item.User.Headimgurl}}"></image>
+            </view>
+            <view style="padding:30rpx 0px 0px; overflow:hidden; height:110rpx;">
+              <view class="aricle-user-wrap">
+                <text class="index-poster-name">{{item.User.NickName}}</text>
+                <view class="index-poster-arrow" catchtap="openArrow" data-user-id="{{item.User.Id}}"></view>
+              </view>
+            </view>
+        </view>
+        <view style="clear:both"></view>
+        <!-- 帖子正文 -->
+        <view>
+          <view class="article-content-container">
+            <view href="../logs" class="article-content-title" >{{item.Title}}</view>
+            <view>
+                <a class="article-content">{{item.ContentDesc}}</a>
+            </view>
+            <!-- <block wx:for="{{item.Images}}" wx:for-item="image" wx:key="thumbnail"> -->
+              <view>
+                <image src="{{item.ContentImgUrl}}" class="article-image"></image>
+              </view>
+            <!-- </block> -->
+          </view>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+</view>
+
+</view>
