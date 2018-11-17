@@ -1,2 +1,63 @@
-<!--pages/community/post/post.wxml-->
-<text>pages/community/post/post.wxml</text>
+
+<form bindsubmit="formSubmit" bindreset="formReset"> 
+
+<div class="weui-cells weui-cells_form">
+        <div class="weui-cell">
+          <div class="weui-cell__bd">
+              <p class="weui-uploader__title">写点文字记录吧
+              <span style="color:red;">*</span>
+              </p>
+
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell">
+                <view class="weui-cell__bd">
+                    <textarea class="weui-textarea" bindinput="bindDesInput" placeholder="请输入文本" style="height: 3.3em" />
+                </view>
+            </view>
+        </view>
+          </div>
+        </div> 
+      </div>
+
+      <div class="page__bd">
+        <div class="weui-gallery" id="gallery">
+            <span class="weui-gallery__img" id="galleryImg"></span>
+            <div class="weui-gallery__opr">
+                <a href="javascript:" class="weui-gallery__del">
+                    <i class="weui-icon-delete weui-icon_gallery-delete"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="weui-cells weui-cells_form">
+            <div class="weui-cell">
+                <div class="weui-cell__bd">
+                    <div class="weui-uploader">
+                        <div class="weui-uploader__hd">
+                            <p class="weui-uploader__title">图片上传</p>
+                            <!-- <div class="weui-uploader__info">{{upload_count}}/4</div> -->
+                        </div>
+                        <view class="weui-uploader__bd">
+                            <view class="weui-uploader__files" id="uploaderFiles">
+                                <block wx:for="{{tempFilePaths}}" wx:key="*this">
+                                    <view class="weui-uploader__file" bindtap="previewImage" id="{{item}}">
+                                        <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+                                    </view>
+                                </block>
+                            </view>
+                            <view class="weui-uploader__input-box">
+                              <view class="weui-uploader__input" bindtap="chooseImage"></view>
+                            </view>
+                        </view>  
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>  
+
+     <view class="section btn-area">  
+      <!-- <button class="hide{{show?'show':''}}" formType="submit" >提交</button>  -->
+      <button class="fixed_btn" type="primary" plain="true" formType="submit"  style="width: 80px">提交</button> 
+    </view> 
+
+</form>

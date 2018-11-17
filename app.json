@@ -2,8 +2,8 @@
   "pages":[
     "pages/pathways/levels/levels",
     "pages/community/forum/forum",
-    "pages/community/community",
     "pages/community/post/post",
+    "pages/community/community",
     "pages/tm/loc/loc",
     "pages/my/my",
     "pages/article/article",

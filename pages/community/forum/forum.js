@@ -25,7 +25,6 @@ Page({
     })
   },
   onShow: function () {
-    console.log('onLoad')
     var that = this
     //调用应用实例的方法获取全局数据
     // app.getUserInfo(function (userInfo) {
@@ -51,6 +50,20 @@ Page({
             hasUserInfo: false
           })
         }
+      }
+    })
+
+    const db = wx.cloud.database({
+      env: "tmassistant-5275ad"
+    })
+
+    db.collection('posts').orderBy('create_time', 'desc').get({
+      success: function (res) {
+        // res.data 包含该记录的数据
+        console.log(res.data)
+        that.setData({
+          posts: res.data
+        })
       }
     })
 

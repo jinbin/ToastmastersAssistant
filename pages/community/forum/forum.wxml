@@ -35,18 +35,18 @@
   <!-- 帖子内容 -->
   <scroll-view class="art-content" scroll-y="true" scroll-x="false" 
   bindscrolltolower="moreArticle" data-page-index="{{pageIndex}}" style="height: 900px;width:100%;">
-    <block wx:for="{{articles}}" wx:for-index="idx" wx:for-item="item" wx:key="Id">
+    <block wx:for="{{posts}}" wx:for-index="idx" wx:for-item="item" wx:key="Id">
       <view class="border-slice">
         <!-- 贴主信息-->
         <view>
             <!-- 用户头像-->
             <view style="padding:30rpx 24rpx 16rpx; float:left">
-              <image style="width:40px;height:40px;overflow:hidden;" src="{{item.User.Headimgurl}}"></image>
+              <image style="width:40px;height:40px;overflow:hidden;" src="{{item.avatarUrl}}"></image>
             </view>
             <view style="padding:30rpx 0px 0px; overflow:hidden; height:110rpx;">
               <view class="aricle-user-wrap">
-                <text class="index-poster-name">{{item.User.NickName}}</text>
-                <view class="index-poster-arrow" catchtap="openArrow" data-user-id="{{item.User.Id}}"></view>
+                <text class="index-poster-name">{{item.nickName}}</text>
+                <view class="index-poster-arrow" catchtap="openArrow" data-user-id="{{item.id}}"></view>
               </view>
             </view>
         </view>
@@ -56,11 +56,11 @@
           <view class="article-content-container">
             <view href="../logs" class="article-content-title" >{{item.Title}}</view>
             <view>
-                <a class="article-content">{{item.ContentDesc}}</a>
+                <a class="article-content">{{item.text}}</a>
             </view>
             <!-- <block wx:for="{{item.Images}}" wx:for-item="image" wx:key="thumbnail"> -->
               <view>
-                <image src="{{item.ContentImgUrl}}" class="article-image"></image>
+                <image src="{{item.imageUrl}}" class="article-image"></image>
               </view>
             <!-- </block> -->
           </view>
