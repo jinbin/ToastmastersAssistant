@@ -20,6 +20,13 @@
   margin-top: 40px;
 }
 
+.post {
+  background:greenyellow;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .index-head-logo-f{
   font-family:"微软雅黑";
   font-size: 28rpx;
@@ -53,6 +60,7 @@ page {
 }
 .index-head-logo {
   padding-left: 18px;
+  padding-right: 18px;
   padding-top: 30px;
   display: flex;
 }

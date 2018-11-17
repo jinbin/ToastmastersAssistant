@@ -24,7 +24,7 @@ Page({
       url: '../logs/logs'
     })
   },
-  onLoad: function () {
+  onShow: function () {
     console.log('onLoad')
     var that = this
     //调用应用实例的方法获取全局数据
@@ -66,6 +66,16 @@ Page({
         hasUserInfo: true
       })
     }
+  },
+
+  post: function(){
+    console.log("post")
+    wx.navigateTo({
+      url: "/pages/community/post/post",
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
   },
 
   // 加载数据

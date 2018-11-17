@@ -7,6 +7,7 @@
         <text class="index-head-logo-f">
           头马社区
         </text>
+        <button class="post" bindtap="post">发帖</button>
       </view>
       <view class="head-banner"></view>
     </view>
