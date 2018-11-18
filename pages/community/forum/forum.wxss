@@ -51,7 +51,7 @@ page {
   position: relative;
 }
 .border-slice {
-  border-bottom: 10px solid #eee;
+  border-bottom: 0px solid #eee;
 }
 .head {
   height: 110px;

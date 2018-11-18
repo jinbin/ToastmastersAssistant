@@ -27,7 +27,19 @@ Page({
     show: true,
     files: [],
     tempFilePaths: [],
-    resInfo: {}
+    resInfo: {},
+    isOpen: "open",
+    items: [
+      { name: 'open', value: '公开', checked: 'true' },
+      { name: 'private', value: '私藏' }
+    ]
+  },
+
+  radioChange: function (e) {
+    console.log('radio发生change事件，携带value值为：', e.detail.value)
+    this.setData({
+      isOpen: e.detail.value
+    })
   },
 
   toast1Change: function (e) {
@@ -196,7 +208,8 @@ Page({
             create_time: new Date(),
             imageUrl: that.data.imageUrl,
             text: describe,
-            nickName: that.data.nickName
+            nickName: that.data.nickName,
+            isOpen: that.data.isOpen
           },
           success: function (res) {
             console.log("结束了" + res)
@@ -216,7 +229,8 @@ Page({
           create_time: new Date(),
           imageUrl: that.data.imageUrl,
           text: describe,
-          nickName: that.data.nickName
+          nickName: that.data.nickName,
+          isOpen: that.data.isOpen
         },
         success: function (res) {
           console.log("结束了" + res)

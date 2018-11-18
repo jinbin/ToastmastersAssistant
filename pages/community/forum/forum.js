@@ -3,9 +3,14 @@ var util = require("../../../utils/util.js")
 //index.js
 //获取应用实例
 var app = getApp()
+var sliderWidth = 96; 
+
 Page({
   data: {
-    motto: 'Hello World',
+    tabs: ["公开", "私藏"],
+    activeIndex: 0,
+    sliderOffset: 0,
+    sliderLeft: 0,
     articles: [],
     pageIndex: 1,
     pageSize: 2,
@@ -24,6 +29,27 @@ Page({
       url: '../logs/logs'
     })
   },
+
+  onLoad: function (options) {
+    var that = this;
+    wx.getSystemInfo({
+      success: function (res) {
+        that.setData({
+          sliderLeft: (res.windowWidth / that.data.tabs.length - sliderWidth) / 2,
+          sliderOffset: res.windowWidth / that.data.tabs.length * that.data.activeIndex
+        });
+      }
+    });
+  },
+
+  tabClick: function (e) {
+    console.log(this.data.activeIndex)
+    this.setData({
+      sliderOffset: e.currentTarget.offsetLeft,
+      activeIndex: e.currentTarget.id
+    });
+  },
+
   onShow: function () {
     var that = this
     //调用应用实例的方法获取全局数据
@@ -57,7 +83,9 @@ Page({
       env: "tmassistant-5275ad"
     })
 
-    db.collection('posts').orderBy('create_time', 'desc').get({
+    db.collection('posts').where({
+      isOpen: "open",
+    }).orderBy('create_time', 'desc').get({
       success: function (res) {
         // res.data 包含该记录的数据
 
@@ -65,14 +93,43 @@ Page({
         for (var index in res.data){
           res.data[index]["create_time"] = res.data[index]["create_time"].toLocaleDateString() + " " + res.data[index]["create_time"].toLocaleTimeString()
         }
-        
+
         that.setData({
           posts: res.data
         })
       }
     })
 
-    console.log("hello world")
+    wx.cloud.callFunction({
+      name: 'getOpenid',
+      complete: res => {
+
+      }
+    }),
+
+    wx.cloud.callFunction({
+      name: 'getOpenid',
+      complete: res => {
+        db.collection('posts').where({
+          isOpen: "private",
+          _openid: res.result.openid,
+        }).orderBy('create_time', 'desc').get({
+          success: function (res) {
+            // res.data 包含该记录的数据
+
+            //时间转换CST时间
+            for (var index in res.data) {
+              res.data[index]["create_time"] = res.data[index]["create_time"].toLocaleDateString() + " " + res.data[index]["create_time"].toLocaleTimeString()
+            }
+
+            that.setData({
+              private_posts: res.data
+            })
+          }
+        })
+      }
+    })
+
     //console.log(this.data.hasUserInfo)
     this.ready()
   },
@@ -282,7 +339,8 @@ Page({
   },
 
   onShareAppMessage: function (options) {
-    var text = "欢迎来到头马社区,体验不一样的精彩"
+    console.log(app.globalData.userInfo)
+    var text = app.globalData.userInfo.nickName + "邀请你来头马社区围观讨论"
 
     return {
       title: text
