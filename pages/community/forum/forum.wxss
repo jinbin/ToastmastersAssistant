@@ -27,6 +27,14 @@
   align-items: center;
 }
 
+.page__ft{
+    padding: 50rpx 0;
+    padding-bottom: 20px;
+    text-align: center;
+    font-size: 14px;
+    color: #888888;
+}
+
 .index-head-logo-f{
   font-family:"微软雅黑";
   font-size: 28rpx;

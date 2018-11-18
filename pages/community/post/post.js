@@ -3,11 +3,7 @@
 const app = getApp()
 // 定义全局变量，用于接收选择的图片
 var tempFilePaths
-var deptname
-var functionName
-var owner
-var deptId
-var projectId
+var util = require("../../../utils/util.js")
 var describe
 var reporter
 var key
@@ -170,6 +166,10 @@ Page({
   uploadImg: function (i) {
     var that = this
 
+    const db = wx.cloud.database({
+      env: "tmassistant-5275ad"
+    })
+
     if (that.data.tempFilePaths.length != 0) {
 
       //路径：that.data.tempFilePaths[i],
@@ -187,12 +187,12 @@ Page({
         this.setData({
           imageUrl: res.fileID
         })
-
         //插入
         db.collection('posts').add({
           // data 字段表示需新增的 JSON 数据
           data: {
             avatarUrl: that.data.avatarUrl,
+            // create_time: util.formatTime(new Date()),
             create_time: new Date(),
             imageUrl: that.data.imageUrl,
             text: describe,
@@ -201,17 +201,31 @@ Page({
           success: function (res) {
             console.log("结束了" + res)
             wx.navigateBack({
-              
+
             })
           }
         })
       }
       })
-    }
+    } else if(describe != undefined){
+      //插入
+      db.collection('posts').add({
+        // data 字段表示需新增的 JSON 数据
+        data: {
+          avatarUrl: that.data.avatarUrl,
+          create_time: new Date(),
+          imageUrl: that.data.imageUrl,
+          text: describe,
+          nickName: that.data.nickName
+        },
+        success: function (res) {
+          console.log("结束了" + res)
+          wx.navigateBack({
 
-    const db = wx.cloud.database({
-      env: "tmassistant-5275ad"
-    })
+          })
+        }
+      })
+    }
 
     // wx.uploadFile({
     //   // vip线上和日常的格式不同，此处写死线上

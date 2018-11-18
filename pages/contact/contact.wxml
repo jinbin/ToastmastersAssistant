@@ -7,7 +7,7 @@
           \r\n\r\n\r\n\r\n\r\n\r\n\r\n2018年4月加入西子双语演讲俱乐部，7月份开始担任俱乐部下半年度教育副主席。 2018年9月获得CL（Competent Leader）头衔，当月完成Pathways Level 1。
           </view>
           <view class="page__desc">
-          \r\n\r\n\r\n\r\n\r\n\r\n\r\n微信：<p bindtap='copyText' data-text="just_as_always" style="color:#8B0000">just_as_always</p>
+          \r\n\r\n\r\n\r\n\r\n\r\n\r\n合作及建议请加微信：<p bindtap='copyText' data-text="just_as_always" style="color:#8B0000">just_as_always</p>
           </view>
         <!-- </block> -->
     </view>

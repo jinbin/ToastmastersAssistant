@@ -47,6 +47,7 @@
               <view class="aricle-user-wrap">
                 <text class="index-poster-name">{{item.nickName}}</text>
                 <view class="index-poster-arrow" catchtap="openArrow" data-user-id="{{item.id}}"></view>
+                <view>{{item.create_time}}</view>
               </view>
             </view>
         </view>
@@ -60,7 +61,7 @@
             </view>
             <!-- <block wx:for="{{item.Images}}" wx:for-item="image" wx:key="thumbnail"> -->
               <view>
-                <image src="{{item.imageUrl}}" class="article-image"></image>
+                <image wx:if="{{item.imageUrl}}" src="{{item.imageUrl}}" class="article-image"></image>
               </view>
             <!-- </block> -->
           </view>
@@ -70,4 +71,9 @@
   </scroll-view>
 </view>
 
+</view>
+
+<view class="page__ft" bindtap='toMiniProgram'>Powered by 
+  <p style="color:#00BFFF">可能性工作室</p>
+  <view class="weui-footer__text">Copyright © 2018-2018 jinbin</view>
 </view>

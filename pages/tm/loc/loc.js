@@ -78,8 +78,7 @@ Page({
     var text = "西子双语演讲俱乐部介绍"
 
     return {
-      title: text,
-      path: "/pages/map/map"
+      title: text
     }
   }
 })

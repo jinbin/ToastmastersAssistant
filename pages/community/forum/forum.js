@@ -60,7 +60,12 @@ Page({
     db.collection('posts').orderBy('create_time', 'desc').get({
       success: function (res) {
         // res.data 包含该记录的数据
-        console.log(res.data)
+
+        //时间转换CST时间
+        for (var index in res.data){
+          res.data[index]["create_time"] = res.data[index]["create_time"].toLocaleDateString() + " " + res.data[index]["create_time"].toLocaleTimeString()
+        }
+        
         that.setData({
           posts: res.data
         })
@@ -262,5 +267,25 @@ Page({
       scrollLeft: -900
     })
     console.log(this.data.currentTypeId);
+  },
+
+  toMiniProgram: function (e) {
+    console.log("toMiniProgram")
+    wx.navigateToMiniProgram({
+      appId: 'wx09a49d05a365a4e6',
+      path: "pages/my/leftdays/leftdays",
+      // envVersion: 'trial',
+      success(res) {
+        console.log("SUCCESS")
+      }
+    })
+  },
+
+  onShareAppMessage: function (options) {
+    var text = "欢迎来到头马社区,体验不一样的精彩"
+
+    return {
+      title: text
+    }
   }
 })
