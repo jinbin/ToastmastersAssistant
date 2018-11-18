@@ -68,8 +68,8 @@
         <!-- 帖子正文 -->
         <view>
           <view class="article-content-container">
-            <view href="../logs" class="article-content-title" >{{item.Title}}</view>
-            <view>
+            <!-- <view href="../logs" class="article-content-title" >{{item.Title}}</view> -->
+            <view wx:if="{{item.text}}">
                 <a class="article-content">{{item.text}}</a>
             </view>
             <!-- <block wx:for="{{item.Images}}" wx:for-item="image" wx:key="thumbnail"> -->
