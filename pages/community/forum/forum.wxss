@@ -37,7 +37,7 @@
 
 .index-head-logo-f{
   font-family:"微软雅黑";
-  font-size: 38rpx;
+  font-size: 28rpx;
   color: white;
 }
 

@@ -7,8 +7,8 @@ var sliderWidth = 96;
 
 Page({
   data: {
-    tabs: ["公开", "私藏"],
-    activeIndex: 0,
+    tabs: ["活动通知", "动态", "私藏"],
+    activeIndex: 1,
     sliderOffset: 0,
     sliderLeft: 0,
     articles: [],
@@ -31,6 +31,12 @@ Page({
   },
 
   onLoad: function (options) {
+
+    if (options.activeIndex in [0,1,2]){
+      this.setData({
+        activeIndex: options.activeIndex
+      })
+    }
     var that = this;
     wx.getSystemInfo({
       success: function (res) {
@@ -52,12 +58,72 @@ Page({
 
   onShow: function () {
     var that = this
-    //调用应用实例的方法获取全局数据
-    // app.getUserInfo(function (userInfo) {
-    //   //更新数据
-    //   that.setData({
-    //     userInfo: userInfo
-    //   })
+
+    const db = wx.cloud.database({
+      env: "tmassistant-5275ad"
+    })
+
+    // db.collection("information").doc('pageViewNum').update({
+    //   data: {
+    //     value: 105
+    //   }
+    // })
+
+    // //读取pageViewNum
+    // db.collection("information").doc('pageViewNum').get({
+    //   success: function (res) {
+    //     console.log(res.data["value"] + 1)
+    //     this.setData({
+    //       pageViewNum: res.data["value"] + 1
+    //     })
+    //     db.collection("information").doc('pageViewNum').update({
+    //       data: {
+    //         value: pres.data["value"] + 1
+    //       },
+    //       success: function (res) {
+    //         console.log("finish update")
+    //       }
+    //     })
+    //   }
+    // })
+
+
+    // console.log("ssssssss")
+    // console.log(that.data.pageViewNum)
+    // db.collection("information").doc('pageViewNum').update({
+    //   data: {
+    //     value: that.data.pageViewNum + 1
+    //   },
+    //   success: function (res) {
+    //     console.log("update")
+    //     console.log(res.data)
+    //     that.setData({
+    //       pageViewNum: that.data.pageViewNum + 1
+    //     })
+    //   }
+    // })
+
+    db.collection("information").doc('pageViewNum').get({
+      success: function (res) {
+        // this.setData({
+        //   pageViewNum: res.data["value"]
+        // })
+        console.log("after")
+        console.log(res.data["value"])
+      }
+    })
+
+    // var pageViewNum = 
+
+    // db.collection('information').doc('').update({
+    //   // data 传入需要局部更新的数据
+    //   data: {
+    //     // 表示将 done 字段置为 true
+    //     done: true
+    //   },
+    //   success: function (res) {
+    //     console.log(res.data)
+    //   }
     // })
 
     console.log(this.data.hasUserInfo)
@@ -77,10 +143,6 @@ Page({
           })
         }
       }
-    })
-
-    const db = wx.cloud.database({
-      env: "tmassistant-5275ad"
     })
 
     db.collection('posts').where({
@@ -103,13 +165,6 @@ Page({
     wx.cloud.callFunction({
       name: 'getOpenid',
       complete: res => {
-
-      }
-    }),
-
-    wx.cloud.callFunction({
-      name: 'getOpenid',
-      complete: res => {
         db.collection('posts').where({
           isOpen: "private",
           _openid: res.result.openid,
@@ -124,6 +179,29 @@ Page({
 
             that.setData({
               private_posts: res.data
+            })
+          }
+        })
+      }
+    })
+
+    wx.cloud.callFunction({
+      name: 'getOpenid',
+      complete: res => {
+        db.collection('posts').where({
+          isOpen: "activity",
+          // _openid: res.result.openid,
+        }).orderBy('create_time', 'desc').get({
+          success: function (res) {
+            // res.data 包含该记录的数据
+
+            //时间转换CST时间
+            for (var index in res.data) {
+              res.data[index]["create_time"] = res.data[index]["create_time"].toLocaleDateString() + " " + res.data[index]["create_time"].toLocaleTimeString()
+            }
+
+            that.setData({
+              activity_posts: res.data
             })
           }
         })
@@ -338,11 +416,29 @@ Page({
     })
   },
 
+  imgPre: function (e) {
+    var current = e.currentTarget.dataset.src
+    wx.previewImage({
+      current: current, // 当前显示图片的http链接  
+      urls: [current], // 需要预览的图片http链接列表
+    })
+  },
+
   onShareAppMessage: function (options) {
     console.log(app.globalData.userInfo)
-    var text = app.globalData.userInfo.nickName + "邀请你来头马社区围观讨论"
+    var text
+    var path
+    //"活动通知":0, "动态":1, "私藏":2
+    if (this.data.activeIndex == 0){
+      text = app.globalData.userInfo.nickName + "邀请你来头马社区查看最新活动信息"
+      path = "pages/community/forum/forum?activeIndex=0"
+    } else {
+      text = app.globalData.userInfo.nickName + "邀请你来头马社区围观讨论"
+      path = "pages/community/forum/forum?activeIndex=" + this.data.activeIndex
+    }
 
     return {
+      path: path,
       title: text
     }
   }
