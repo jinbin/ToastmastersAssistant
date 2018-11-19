@@ -43,13 +43,27 @@ Page({
   },
 
   onShow: function (options) {
+
     wx.cloud.callFunction({
-      name: "getOpenid",
-      success: function (res) {
-        console.log(res.result) // 3
-      },
-      fail: console.error
+      name: "isOwner",
+      complete: owner_res => {
+        console.log(owner_res.result.data.owners)
+        wx.cloud.callFunction({
+          name: 'getOpenid',
+          complete: res => {
+            //牛逼哄哄的作者openid
+            for (var index in owner_res.result.data.owners) {
+              if (res.result.openid == owner_res.result.data.owners[index]){
+                this.setData({
+                  isOwner: true
+                })
+              }
+            }
+          }
+        })
+      }
     })
+
     ///isLogin
     var that = this
     wx.getSetting({
