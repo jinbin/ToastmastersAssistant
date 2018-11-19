@@ -15,6 +15,13 @@ var IssueId
 var ownerData = app.ownerData
 var imageUrl = ""
 
+var QQMapWX = require('../../../utils/qqmap-wx-jssdk.min.js')
+var qqmapsdk
+
+const db = wx.cloud.database({
+  env: "tmassistant-5275ad"
+})
+
 Page({
   data: {
     dept: app.dept,
@@ -30,9 +37,26 @@ Page({
     resInfo: {},
     isOpen: "open",
     items: [
-      { name: 'open', value: '公开', checked: 'true' },
-      { name: 'private', value: '私藏' }
+      { name: 'open', value: '动态', checked: 'true' },
+      { name: 'private', value: '私藏' },
+      { name: 'activity', value: '活动通知' }
     ]
+  },
+
+  onShow: function() {
+    qqmapsdk.search({
+      keyword: '酒店',
+      success: function (res) {
+        console.log("keyword");
+        console.log(res);
+      },
+      fail: function (res) {
+        console.log(res);
+      },
+      complete: function (res) {
+        console.log(res);
+      }
+    });
   },
 
   radioChange: function (e) {
@@ -110,6 +134,29 @@ Page({
 
   //选择图片附件后，按下提交按钮
   formSubmit: function (e) {
+
+    wx.cloud.callFunction({
+      name: 'getOpenid',
+      complete: res => {
+        this.setData({
+          openid: res.result.openid
+        })
+      }
+    })
+
+    var timestamp = Date.parse(new Date()) / 1000
+    var newtimestamp = timestamp + 24 * 60 * 60 * 7 
+    var n7_to = newtimestamp * 1000
+
+    db.collection("formIds").add({
+      data: {
+        openid: this.data.openid,
+        formId: e.detail.formId,
+        expire: new Date(n7_to),
+        available: true 
+      }
+    })
+
     var isSubmit = false
     var that = this
     wx.showModal({
@@ -177,10 +224,6 @@ Page({
 
   uploadImg: function (i) {
     var that = this
-
-    const db = wx.cloud.database({
-      env: "tmassistant-5275ad"
-    })
 
     if (that.data.tempFilePaths.length != 0) {
 
@@ -305,6 +348,26 @@ Page({
   },
 
   onLoad: function (options) {
+
+    qqmapsdk = new QQMapWX({
+      key: 'SEIBZ-7HZW3-LGL3T-YSPDA-DAMWT-3HFFE'
+    });
+
+    qqmapsdk.reverseGeocoder({
+      location: {
+        latitude: 30.2839508306,
+        longitude: 120.1367318630
+      },
+      success: function (res) {
+        console.log("reverseGeocoder")
+        console.log(res);
+      },
+      fail: function (res) {
+        console.log(res);
+      },
+      complete: function (res) {}
+    });
+
     console.log("options: " + options.key)
     console.log("e.detail.userInfo: " + app.globalData.userInfo)
 

@@ -1,11 +1,11 @@
 
-<form bindsubmit="formSubmit" bindreset="formReset"> 
+<form bindsubmit="formSubmit" bindreset="formReset" report-submit="true"> 
 
 <div class="weui-cells weui-cells_form">
         <div class="weui-cell">
           <div class="weui-cell__bd">
               <p class="weui-uploader__title">写点文字记录吧
-              <span style="color:red;">*</span>
+              <!-- <span style="color:red;">*</span> -->
               </p>
 
         <view class="weui-cells weui-cells_after-title">
