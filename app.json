@@ -1,7 +1,9 @@
 {
   "pages":[
-    "pages/pathways/levels/levels",
     "pages/community/forum/forum",
+    "pages/manage/manage",
+    "pages/tm/clock/set/set",
+    "pages/pathways/levels/levels",
     "pages/community/post/post",
     "pages/community/community",
     "pages/tm/loc/loc",
@@ -9,11 +11,11 @@
     "pages/article/article",
     "pages/pathways/desc/desc",
     "pages/pathways/article/article",
-    "pages/tm/clock/set/set",
     "pages/index/index", 
     "pages/tm/clock/countdown/countdown",
     "pages/logs/logs",
-    "pages/contact/contact"
+    "pages/contact/contact",
+    "pages/reward/reward"
   ],
   "window":{
     "backgroundTextStyle":"black",

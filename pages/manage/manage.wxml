@@ -1,0 +1,85 @@
+<!--pages/manage/manage.wxml-->
+<form bindsubmit="postMessage" bindreset="formReset" report-submit="true"> 
+
+      <div class="weui-cells weui-cells_form">
+        <div class="weui-cell">
+          <div class="weui-cell__bd">
+              <p class="weui-uploader__title">活动名称
+              <span style="color:red;">*</span>
+              </p>
+
+    <view class='form-group'>  
+        <input type="text" bindinput="bindActivityName" class="input-text" name="activityName" placeholder="请输入活动名称" />  
+    </view>
+          </div>
+        </div> 
+      </div> 
+
+      <div class="weui-cells weui-cells_form">
+        <div class="weui-cell">
+          <div class="weui-cell__bd">
+              <p class="weui-uploader__title">活动地点
+              <span style="color:red;">*</span>
+              </p>
+
+    <view class='form-group'>  
+        <input type="text" bindinput="bindActivityLocation" class="input-text" name="activityLocation" placeholder="请输入活动地点" />  
+    </view>
+          </div>
+        </div> 
+      </div> 
+
+<div class="weui-cells weui-cells_form">
+
+        <div class="weui-cell">
+          <div class="weui-cell__bd">
+              <p class="weui-uploader__title">活动说明
+              <span style="color:red;">*</span>
+              </p>
+              
+
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell">
+                <view class="weui-cell__bd">
+                    <textarea class="weui-textarea" bindinput="bindDesInput" name="activityDesc" placeholder="请输入活动说明" style="height: 3.3em" />
+                </view>
+            </view>
+        </view>
+          </div>
+        </div> 
+</div>
+
+      <!-- <div class="weui-cells weui-cells_form">
+        <div class="weui-cell">
+          <div class="weui-cell__bd">
+              <p class="weui-uploader__title">开始时间
+              </p>
+
+    <view class='form-group'>  
+        <input type="text" class="input-text" name="reporter" placeholder="请输入开始时间" />  
+    </view>
+          </div>
+        </div> 
+      </div> 
+
+            <div class="weui-cells weui-cells_form">
+        <div class="weui-cell">
+          <div class="weui-cell__bd">
+              <p class="weui-uploader__title">结束时间
+              </p>
+
+    <view class='form-group'>  
+        <input type="text" class="input-text" name="reporter" placeholder="请输入结束时间" />  
+    </view>
+          </div>
+        </div> 
+      </div>  -->
+
+
+
+     <view class="section btn-area">  
+      <!-- <button class="hide{{show?'show':''}}" formType="submit" >提交</button>  -->
+      <button class="fixed_btn" type="primary" plain="true" formType="submit"  style="width: 80px">发送</button> 
+    </view> 
+
+</form>

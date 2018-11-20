@@ -1,0 +1,7 @@
+<!--pages/reward/reward.wxml-->
+<view class="container">
+  <view class="userinfo">
+      <image bindtap="imgPre" data-src="/images/zanshang.jpeg" style="width: 350px; height: 350px" src="/images/zanshang.jpeg"></image>
+      <view style="text-align:center;font-family:Times;color:#aaa;">* 点击查看大图，长按识别小程序码</view>
+    </view>
+</view>
