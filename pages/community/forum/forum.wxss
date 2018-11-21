@@ -50,6 +50,11 @@ page {
 .rel {
   position: relative;
 }
+
+button::after {
+  border: none
+}
+
 .border-slice {
   border-bottom: 0px solid #eee;
 }

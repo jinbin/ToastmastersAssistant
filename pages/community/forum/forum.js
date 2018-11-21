@@ -5,6 +5,10 @@ var util = require("../../../utils/util.js")
 var app = getApp()
 var sliderWidth = 96; 
 
+const db = wx.cloud.database({
+  env: "tmassistant-5275ad"
+})
+
 Page({
   data: {
     tabs: ["活动通知", "动态", "私藏"],
@@ -56,12 +60,35 @@ Page({
     });
   },
 
+  formHandler: function (e){
+    console.log("formHandler")
+    console.log(e.detail.formId)
+    console.log(this.data.activeIndex)
+    this.setData({
+      sliderOffset: e.currentTarget.offsetLeft,
+      activeIndex: e.currentTarget.id
+    });
+
+    var timestamp = Date.parse(new Date()) / 1000
+    var newtimestamp = timestamp + 24 * 60 * 60 * 7
+    var n7_to = newtimestamp * 1000
+
+    db.collection("formIds").add({
+      data: {
+        openid: this.data.openid,
+        formId: e.detail.formId,
+        expire: new Date(n7_to),
+        available: true
+      }
+    })
+  },
+
   onShow: function () {
     var that = this
 
-    const db = wx.cloud.database({
-      env: "tmassistant-5275ad"
-    })
+    // const db = wx.cloud.database({
+    //   env: "tmassistant-5275ad"
+    // })
 
     // db.collection("information").doc('pageViewNum').update({
     //   data: {
@@ -221,7 +248,24 @@ Page({
     }
   },
 
-  post: function(){
+  post: function(options){
+
+    console.log(options.detail.target.id)
+    console.log(options.detail.formId)
+
+    var timestamp = Date.parse(new Date()) / 1000
+    var newtimestamp = timestamp + 24 * 60 * 60 * 7
+    var n7_to = newtimestamp * 1000
+
+    db.collection("formIds").add({
+      data: {
+        openid: this.data.openid,
+        formId: options.detail.formId,
+        expire: new Date(n7_to),
+        available: true
+      }
+    })
+
     console.log("post")
     wx.navigateTo({
       url: "/pages/community/post/post",

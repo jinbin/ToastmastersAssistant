@@ -7,8 +7,11 @@
         <image class="index-head-logo-img" src="https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/images/TMColorLogo.jpg?sign=fccc06e549a5d61356fb865de737a063&t=1542528828"></image>
         <text class="index-head-logo-f">
           头马黑板报
+          <!-- 头马黑板报 | 访问 {{pageViewNum}} -->
         </text>
-        <button class="post" bindtap="post">发帖</button>
+        <form report-submit="true" bindsubmit="post">
+          <button class="post" formType="submit">发帖</button>
+        </form> 
       </view>
       <view class="head-banner"></view>
     </view>
@@ -24,9 +27,12 @@
       <open-data class="userinfo-nickname" type="userNickName"></open-data>
       <!-- </block> -->
     </view>
-    <button class="usermotto" open-type='getUserInfo' type="default" bindtap="goToForum" bindgetuserinfo="bindGetUserInfo">点击登录进入互动社区</button>
+    <button class="post" open-type='getUserInfo' bindgetuserinfo="bindGetUserInfo">点击登录进入互动社区</button>
     <view class="userinfo-nickname">
-    点击开启惊喜！
+    “里面有各大俱乐部的实时会议照片
+    </view>
+    <view class="userinfo-nickname">
+    还不赶紧来围观😆😆😆”
     </view>
 </view>
 
@@ -36,15 +42,19 @@
         <view class="weui-tab">
             <view class="weui-navbar">
                 <block wx:for="{{tabs}}" wx:key="*this">
-                    <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
-                        <view class="weui-navbar__title">{{item}}</view>
-                    </view>
+                    <!-- <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick"> -->
+                      <form id="{{index}}" report-submit="true" bindsubmit="formHandler" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}">
+                        <button class="weui-navbar__title" formType="submit">{{item}}</button>
+                        <!-- <view class="weui-navbar__title">{{item}}</view> -->
+                      </form>
+                    <!-- </view> -->
                 </block>
                 <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
             </view>
             <view class="weui-tab__panel">
+
                 <!-- 公开 activeIndex == 1-->
-              <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+              <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
   <!-- 帖子内容 -->
   <scroll-view class="art-content" scroll-y="true" scroll-x="false" 
   bindscrolltolower="moreArticle" data-page-index="{{pageIndex}}" style="height: 900px;width:100%;">
@@ -68,13 +78,12 @@
         <!-- 帖子正文 -->
         <view>
           <view class="article-content-container">
-            <!-- <view href="../logs" class="article-content-title" >{{item.Title}}</view> -->
             <view wx:if="{{item.text}}">
                 <a class="article-content">{{item.text}}</a>
             </view>
             <!-- <block wx:for="{{item.Images}}" wx:for-item="image" wx:key="thumbnail"> -->
               <view>
-                <image wx:if="{{item.imageUrl}}" src="{{item.imageUrl}}" class="article-image"></image>
+                <image wx:if="{{item.imageUrl}}" src="{{item.imageUrl}}" class="article-image" bindtap="imgPre" data-src="{{item.imageUrl}}" mode="widthFix"></image>
               </view>
             <!-- </block> -->
           </view>
@@ -88,8 +97,8 @@
   </scroll-view>
     </view>
 
-<!-- 公开 activeIndex == 1-->
-    <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+<!-- 私藏 activeIndex == 2-->
+    <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
   <!-- 帖子内容 -->
   <scroll-view class="art-content" scroll-y="true" scroll-x="false" 
   bindscrolltolower="moreArticle" data-page-index="{{pageIndex}}" style="height: 900px;width:100%;">
@@ -113,13 +122,12 @@
         <!-- 帖子正文 -->
         <view>
           <view class="article-content-container">
-            <view href="../logs" class="article-content-title" >{{item.Title}}</view>
-            <view>
+            <view wx:if="{{item.text}}">
                 <a class="article-content">{{item.text}}</a>
             </view>
             <!-- <block wx:for="{{item.Images}}" wx:for-item="image" wx:key="thumbnail"> -->
               <view>
-                <image wx:if="{{item.imageUrl}}" src="{{item.imageUrl}}" class="article-image"></image>
+                <image wx:if="{{item.imageUrl}}" src="{{item.imageUrl}}" class="article-image" bindtap="imgPre" data-src="{{item.imageUrl}}" mode="widthFix"></image>
               </view>
             <!-- </block> -->
           </view>
@@ -132,6 +140,50 @@
 </view>
   </scroll-view>
     </view>
+
+<!-- 活动 activeIndex == 0-->
+<view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+  <!-- 帖子内容 -->
+  <scroll-view class="art-content" scroll-y="true" scroll-x="false" 
+  bindscrolltolower="moreArticle" data-page-index="{{pageIndex}}" style="height: 900px;width:100%;">
+    <block wx:for="{{activity_posts}}" wx:for-index="idx" wx:for-item="item" wx:key="Id">
+      <view class="border-slice">
+        <!-- 贴主信息-->
+        <view>
+            <!-- 用户头像-->
+            <view style="padding:30rpx 24rpx 16rpx; float:left">
+              <image style="width:40px;height:40px;overflow:hidden;" src="{{item.avatarUrl}}"></image>
+            </view>
+            <view style="padding:30rpx 0px 0px; overflow:hidden; height:110rpx;">
+              <view class="aricle-user-wrap">
+                <text class="index-poster-name">{{item.nickName}}</text>
+                <view class="index-poster-arrow" catchtap="openArrow" data-user-id="{{item.id}}"></view>
+                <view>{{item.create_time}}</view>
+              </view>
+            </view>
+        </view>
+        <view style="clear:both"></view>
+        <!-- 帖子正文 -->
+        <view>
+          <view class="article-content-container">
+            <view wx:if="{{item.text}}">
+                <a class="article-content">{{item.text}}</a>
+            </view>
+            <!-- <block wx:for="{{item.Images}}" wx:for-item="image" wx:key="thumbnail"> -->
+              <view>
+                <image wx:if="{{item.imageUrl}}" src="{{item.imageUrl}}" class="article-image" bindtap="imgPre" data-src="{{item.imageUrl}}" mode="widthFix"></image>
+              </view>
+            <!-- </block> -->
+          </view>
+        </view>
+      </view>
+    </block>
+  <view class="page__ft" bindtap='toMiniProgram'>Powered by 
+  <p style="color:#00BFFF">可能性工作室</p>
+  <view class="weui-footer__text">Copyright © 2018-2018 jinbin</view>
+</view>
+</scroll-view>
+</view>
 
     </view>
     </view>
