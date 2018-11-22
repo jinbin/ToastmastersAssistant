@@ -3,27 +3,36 @@
 <image src="https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/images/Pathwayslogo.jpg?sign=5c747f9bea6059a6b680c034704a1abe&t=1542366288" style="height: 200px; width: 100%" />
 
     <view class="button-sp-area">
+    <form report-submit="true" bindsubmit="levelHandler">
 
-        <button id="1" class="weui-btn mini-btn" style="border:1px solid black;color:black" type="primary" plain="true" bindtap="toLevel">
+        <button id="1" class="weui-btn mini-btn" style="border:1px solid black;color:black" type="primary" plain="true" formType="submit">
         阶段一：掌握基础
         </button>
-        <button id="2" class="weui-btn mini-btn" style="border:1px solid black;color:black" type="primary" plain="true" bindtap="toLevel"> 
+        <button id="2" class="weui-btn mini-btn" style="border:1px solid black;color:black" type="primary" plain="true" formType="submit"> 
         阶段二：学习风格
         </button>
-        <button id="3" class="weui-btn mini-btn" style="border:1px solid black;color:black" type="primary" plain="true" bindtap="toLevel">
+        <button id="3" class="weui-btn mini-btn" style="border:1px solid black;color:black" type="primary" plain="true" formType="submit">
         阶段三：丰富知识
         </button>
-        <button id="4" class="weui-btn mini-btn" style="border:1px solid black;color:black" type="primary" plain="true" bindtap="toLevel">
+        <button id="4" class="weui-btn mini-btn" style="border:1px solid black;color:black" type="primary" plain="true" formType="submit">
         阶段四：培养技能
         </button>   
-        <button id="5" class="weui-btn mini-btn" style="border:1px solid black;color:black" type="primary" plain="true" bindtap="toLevel">
+        <button id="5" class="weui-btn mini-btn" style="border:1px solid black;color:black" type="primary" plain="true" formType="submit">
         阶段五：专业展示
         </button>
-        <!-- <button id="6" class="weui-btn mini-btn" style="border:1px solid #D9D9D9;color:#D9D9D9" type="primary" plain="true" bindtap="toLevel">
+        <!-- <button id="6" class="weui-btn mini-btn" style="border:1px solid #D9D9D9;color:#D9D9D9" type="primary" plain="true" formType="submit">
         旧教育体系CC
         </button> -->
         <view class="container">
-        <button id="6" class="weui-btn mini-btn" style="border:1px solid #D9D9D9;color:#D9D9D9; width:180px" type="default" size="mini" bindtap="toLevel">旧教育体系CC</button>
-        <button id="7" class="weui-btn mini-btn" style="width:180px" type="primary" size="mini" bindtap="toLevel">更多资料</button>
+        <button id="6" class="weui-btn mini-btn" style="border:1px solid #D9D9D9;color:#D9D9D9; width:180px" type="default" size="mini" formType="submit">旧教育体系CC</button>
+        <button id="7" class="weui-btn mini-btn" style="width:180px" type="primary" size="mini" formType="submit">更多资料</button>
         </view>
+    </form>
     </view>
+
+<view class="page__ft">
+  <navigator url="/pages/reward/reward">
+  <p style="color:#00BFFF">gratuity</p>
+  <view class="weui-footer__text">Copyright © 2018-2018 jinbin</view>
+  </navigator>
+</view>

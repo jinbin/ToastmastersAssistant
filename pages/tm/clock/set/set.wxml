@@ -15,9 +15,13 @@
 
     <view class="button-sp-area">
 
-      <button class="weui-btn mini-btn" style="border:1px solid #DAA520;color:#DAA520" bindtap="countdown" id="6" type="primary" plain="true">6分钟演讲</button>
-      <button class="weui-btn mini-btn" style="border:1px solid #DAA520;color:#DAA520" bindtap="countdown" id="7" type="primary" plain="true">7分钟演讲</button>
-      <button class="weui-btn mini-btn" style="border:1px solid #DAA520;color:#DAA520" bindtap="countdown" id="10" type="primary" plain="true">10分钟演讲</button>
+      <form report-submit="true" bindsubmit="timeHandler">
+
+      <button class="weui-btn mini-btn" style="border:1px solid #DAA520;color:#DAA520" id="6" type="primary" plain="true" formType="submit">6分钟演讲</button>
+      <button class="weui-btn mini-btn" style="border:1px solid #DAA520;color:#DAA520" id="7" type="primary" plain="true" formType="submit">7分钟演讲</button>
+      <button class="weui-btn mini-btn" style="border:1px solid #DAA520;color:#DAA520" id="10" type="primary" plain="true" formType="submit">10分钟演讲</button>
+
+      </form>
 
     </view>
 

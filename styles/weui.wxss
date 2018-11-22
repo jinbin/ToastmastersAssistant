@@ -904,7 +904,7 @@ icon {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
           flex: 1;
-  padding: 13px 0;
+  padding: 5px 0;
   text-align: center;
   font-size: 0;
 }

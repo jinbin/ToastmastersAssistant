@@ -1,5 +1,9 @@
 /* pages/pathways/levels/levels.wxss */
 
+button::after {
+  border: none
+}
+
 .button-sp-area{
     margin: 0 auto;
     padding-top: 15px;
@@ -7,10 +11,13 @@
     /* height: 60%; */
 }
 .mini-btn{
-    margin-right: 5px;
+  margin-right: 10px;
+  margin-left: 10px;
+  /* width: 80% */
 }
 .mini-btn50{
-    margin-right: 5px;
+    margin-right: 100px;
+    margin-left: 100px;
     width: 50%
 }
 
