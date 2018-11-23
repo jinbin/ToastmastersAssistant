@@ -28,9 +28,9 @@ Page({
         icon: '../../images/find-selected.png',
       },
       {
-        title: '公众号关联小程序',
-        remark: '公众号关联小程序',
-        url: '/pages/article/article?id=associate',
+        title: '更新记录',
+        remark: '更新记录',
+        url: '/pages/article/article?id=updates',
         icon: '../../images/find-selected.png',
       },
       // {

@@ -5,7 +5,9 @@
     <view class="page__bd">
         <view class="weui-article">
             <view class="weui-article__p">
-              {{content}}
+              <block wx:for="{{content}}">
+                {{item}}
+              </block> 
             </view>
         </view> 
     </view>
