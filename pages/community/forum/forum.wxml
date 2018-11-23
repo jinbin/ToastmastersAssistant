@@ -58,7 +58,7 @@
   <!-- 帖子内容 -->
   <scroll-view class="art-content" scroll-y="true" scroll-x="false" 
   bindscrolltolower="moreArticle" data-page-index="{{pageIndex}}" style="height: 900px;width:100%;">
-    <block wx:for="{{posts}}" wx:for-index="idx" wx:for-item="item" wx:key="Id">
+    <block wx:for="{{open_posts}}" wx:for-index="idx" wx:for-item="item" wx:key="Id">
       <view class="border-slice">
         <!-- 贴主信息-->
         <view>

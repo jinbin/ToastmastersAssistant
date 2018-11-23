@@ -130,15 +130,15 @@ Page({
     //   }
     // })
 
-    db.collection("information").doc('pageViewNum').get({
-      success: function (res) {
-        // this.setData({
-        //   pageViewNum: res.data["value"]
-        // })
-        console.log("after")
-        console.log(res.data["value"])
-      }
-    })
+    // db.collection("information").doc('pageViewNum').get({
+    //   success: function (res) {
+    //     // this.setData({
+    //     //   pageViewNum: res.data["value"]
+    //     // })
+    //     console.log("after")
+    //     console.log(res.data["value"])
+    //   }
+    // })
 
     // var pageViewNum = 
 
@@ -172,68 +172,105 @@ Page({
       }
     })
 
-    db.collection('posts').where({
-      isOpen: "open",
-    }).orderBy('create_time', 'desc').get({
-      success: function (res) {
-        // res.data 包含该记录的数据
+    var that = this
+    wx.cloud.callFunction({
+      name: 'getPostsNew',
+      success: result => {
+        var open_posts = []
+        var activity_posts = []
+        var private_posts = []
+        var openid = result.result.openid
+        var res = result.result
+        for (var index in res.result.data) {
+          
+          res.result.data[index]["create_time"] = new Date(res.result.data[index]["create_time"]).toLocaleDateString() + new Date(res.result.data[index]["create_time"]).toLocaleTimeString()
 
-        //时间转换CST时间
-        for (var index in res.data){
-          res.data[index]["create_time"] = res.data[index]["create_time"].toLocaleDateString() + " " + res.data[index]["create_time"].toLocaleTimeString()
+          if (res.result.data[index].isOpen == "open") {
+            open_posts.push(res.result.data[index])
+          }
+
+          if (res.result.data[index].isOpen == "activity"){
+            activity_posts.push(res.result.data[index]) 
+          }
+
+          console.log(res.result)
+          console.log(res.result.data[index])
+
+          if (res.result.data[index].isOpen == "private" && res.result.data[index]._openid == openid) {
+            private_posts.push(res.result.data[index])
+          }
+
         }
-
         that.setData({
-          posts: res.data
+          open_posts: open_posts,
+          activity_posts: activity_posts,
+          private_posts: private_posts
         })
       }
     })
 
-    wx.cloud.callFunction({
-      name: 'getOpenid',
-      complete: res => {
-        db.collection('posts').where({
-          isOpen: "private",
-          _openid: res.result.openid,
-        }).orderBy('create_time', 'desc').get({
-          success: function (res) {
-            // res.data 包含该记录的数据
+    // db.collection('posts').where({
+    //   isOpen: "open",
+    // }).orderBy('create_time', 'desc').get({
+    //   success: function (res) {
+    //     // res.data 包含该记录的数据
 
-            //时间转换CST时间
-            for (var index in res.data) {
-              res.data[index]["create_time"] = res.data[index]["create_time"].toLocaleDateString() + " " + res.data[index]["create_time"].toLocaleTimeString()
-            }
+    //     //时间转换CST时间
+    //     for (var index in res.data){
+    //       res.data[index]["create_time"] = res.data[index]["create_time"].toLocaleDateString() + " " + res.data[index]["create_time"].toLocaleTimeString()
+    //     }
 
-            that.setData({
-              private_posts: res.data
-            })
-          }
-        })
-      }
-    })
+    //     that.setData({
+    //       posts: res.data
+    //     })
+    //   }
+    // })
 
-    wx.cloud.callFunction({
-      name: 'getOpenid',
-      complete: res => {
-        db.collection('posts').where({
-          isOpen: "activity",
-          // _openid: res.result.openid,
-        }).orderBy('create_time', 'desc').get({
-          success: function (res) {
-            // res.data 包含该记录的数据
+    // wx.cloud.callFunction({
+    //   name: 'getOpenid',
+    //   complete: res => {
+    //     db.collection('posts').where({
+    //       isOpen: "private",
+    //       _openid: res.result.openid,
+    //     }).orderBy('create_time', 'desc').get({
+    //       success: function (res) {
+    //         // res.data 包含该记录的数据
 
-            //时间转换CST时间
-            for (var index in res.data) {
-              res.data[index]["create_time"] = res.data[index]["create_time"].toLocaleDateString() + " " + res.data[index]["create_time"].toLocaleTimeString()
-            }
+    //         //时间转换CST时间
+    //         for (var index in res.data) {
+    //           res.data[index]["create_time"] = res.data[index]["create_time"].toLocaleDateString() + " " + res.data[index]["create_time"].toLocaleTimeString()
+    //         }
 
-            that.setData({
-              activity_posts: res.data
-            })
-          }
-        })
-      }
-    })
+    //         that.setData({
+    //           private_posts: res.data
+    //         })
+    //       }
+    //     })
+    //   }
+    // })
+
+    // wx.cloud.callFunction({
+    //   name: 'getOpenid',
+    //   complete: res => {
+    //     db.collection('posts').where({
+    //       isOpen: "activity",
+    //       // _openid: res.result.openid,
+    //     }).orderBy('create_time', 'desc').get({
+    //       success: function (res) {
+    //         // res.data 包含该记录的数据
+
+    //         //时间转换CST时间
+    //         for (var index in res.data) {
+    //           res.data[index]["create_time"] = res.data[index]["create_time"].toLocaleDateString() + " " + res.data[index]["create_time"].toLocaleTimeString()
+    //         }
+
+    //         that.setData({
+    //           activity_posts: res.data
+    //         })
+    //       }
+    //     })
+    //   }
+    // })
 
     //console.log(this.data.hasUserInfo)
     this.ready()
@@ -285,6 +322,7 @@ Page({
     })
     console.log("ready " + this.data.articles);
   },
+
   moreArticle: function (event) {
     console.log("moreArticle: 加载更多");
     console.log("moreArticle: pageIndex: " + event.currentTarget.dataset.pageIndex);
@@ -292,6 +330,7 @@ Page({
     var first = (this.data.pageIndex) * this.data.pageSize;
     this.getArticle(first);
   },
+  
   getArticle: function (first) {
     console.info(first);
     if ((first == "undefined") || (first == null)) {
