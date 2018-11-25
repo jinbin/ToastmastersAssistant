@@ -61,3 +61,7 @@
   .weui-cell weui-cell_access{
     align-content: center;
   }
+
+text.bold100{
+  font-weight:900
+}

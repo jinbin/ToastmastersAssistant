@@ -26,12 +26,17 @@
             <block wx:for="{{level}}" wx:key="id">
                 <view wx:if="{{item.id % 2 == 0}}" class="kind-list__item">
                     <view  id="{{item.id}}" class="weui-flex kind-list__item-hd {{item.open ? 'kind-list__item-hd_show' : ''}}" bindtap="kindToggle">
-                        <view class="titleItem">{{item.name}}</view>
+                        <view class="titleItem">
+                        {{item.name}}
+                        <p bindtap='copyText' data-text="       {{item.desc}}\n       目的:\n       {{item.purpose}} \n       概述:\n       {{item.overview}} \n       这个项目包括:\n       {{item.includes}}" style="color:opacity:.4">{{item.open ? '(点击复制)': ''}}</p>
+                        </view>
                     </view>
                     <view class="kind-list__item-bd {{item.open ? 'kind-list__item-bd_show' : ''}}">
                         <view class="weui-cells {{item.open ? 'weui-cells_show' : ''}}">
-                            <!-- <text wx:if="{{item.id % 2 == 1}}" class="pageItem" space="ensp" selectable='true'>        {{item.desc}}\n        Purpose:\n        {{item.purpose}} \n        Overview:\n        {{item.overview}}\n        This project includes:\n        {{item.includes}} </text> -->
-                            <text wx:if="{{item.id % 2 == 0}}" class="pageItem" space="ensp" selectable='true'>       {{item.desc}}\n       目的:\n       {{item.purpose}} \n       概述:\n       {{item.overview}} \n       这个项目包括:\n       {{item.includes}}</text>
+<text space="ensp" selectable='true'>{{item.desc}}\n\n</text>
+<text selectable='true' class="bold100" space="ensp">目的: </text><text selectable='true'>{{item.purpose}}\n\n</text>
+<text selectable='true' class="bold100" space="ensp">概述: </text><text selectable='true'>{{item.overview}}\n\n</text>
+<text selectable='true' class="bold100" space="ensp">这个项目包括: </text><text selectable='true'>{{item.includes}}\n</text>
                         </view>
                     </view>
                 </view>
@@ -46,12 +51,17 @@
             <block wx:for="{{level}}" wx:key="id">
                 <view wx:if="{{item.id % 2 == 1}}" class="kind-list__item">
                     <view id="{{item.id}}" class="weui-flex kind-list__item-hd {{item.open ? 'kind-list__item-hd_show' : ''}}" bindtap="kindToggle">
-                        <view class="titleItem">{{item.name}}</view>
+                        <view class="titleItem">
+                        {{item.name}}
+                        <p bindtap='copyText' data-text="       {{item.desc}}\n       Purpose:\n       {{item.purpose}} \n       Overview:\n       {{item.overview}} \n       This project includes:\n       {{item.includes}}" style="color:opacity:.4">{{item.open ? '(点击复制)': ''}}</p>
+                        </view>
                     </view>
                     <view class="kind-list__item-bd {{item.open ? 'kind-list__item-bd_show' : ''}}">
                         <view class="weui-cells {{item.open ? 'weui-cells_show' : ''}}">
-                            <text wx:if="{{item.id % 2 == 1}}" class="pageItem" space="ensp" selectable='true'>        {{item.desc}}\n        Purpose:\n        {{item.purpose}} \n        Overview:\n        {{item.overview}}\n        This project includes:\n        {{item.includes}} </text>
-                            <!-- <text wx:if="{{item.id % 2 == 0}}" class="pageItem" space="ensp" selectable='true'>       {{item.desc}}\n       目的:\n       {{item.purpose}} \n       概述:\n       {{item.overview}} \n       这个项目包括:\n       {{item.includes}}</text> -->
+<text space="ensp" selectable='true'>{{item.desc}}\n\n</text>
+<text selectable='true' class="bold100" space="ensp">Purpose: </text><text selectable='true'>{{item.purpose}}\n\n</text>
+<text selectable='true' class="bold100" space="ensp">Overview: </text><text selectable='true'>{{item.overview}}\n\n</text>
+<text selectable='true' class="bold100" space="ensp">This project includes: </text><text selectable='true'>{{item.includes}}\n</text>
                         </view>
                     </view>
                 </view>
