@@ -17,6 +17,7 @@
 
       <form report-submit="true" bindsubmit="timeHandler">
 
+      <!-- <button class="weui-btn mini-btn" style="border:1px solid #DAA520;color:#DAA520" id="2" type="primary" plain="true" formType="submit">2分钟即兴</button> -->
       <button class="weui-btn mini-btn" style="border:1px solid #DAA520;color:#DAA520" id="6" type="primary" plain="true" formType="submit">6分钟演讲</button>
       <button class="weui-btn mini-btn" style="border:1px solid #DAA520;color:#DAA520" id="7" type="primary" plain="true" formType="submit">7分钟演讲</button>
       <button class="weui-btn mini-btn" style="border:1px solid #DAA520;color:#DAA520" id="10" type="primary" plain="true" formType="submit">10分钟演讲</button>

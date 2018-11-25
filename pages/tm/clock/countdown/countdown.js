@@ -3,6 +3,8 @@ const app = getApp()
 
 var timer
 
+var isStart = 0
+
 Page({
   data: {
     hour: 0,
@@ -17,6 +19,9 @@ Page({
         hour: 0,
         min: options.time,
         sec: 0,
+        green_time: 2,
+        yellow_time: 1,
+        red_time: 15,
         color: "white"
       })
     }else{
@@ -44,8 +49,11 @@ Page({
 
   // 自定义的开始按钮
   startBtn: function() {
-    console.log("开始按钮");
-    Countdown(this);
+    if (!isStart){
+      console.log("开始按钮")
+      Countdown(this)
+      isStart = 1
+    }
   },
 
   // 自定义的暂停按钮  
@@ -126,10 +134,18 @@ function Countdown(pointer) {
         pointer.setData({
           color: "green"
         })
+        wx.setNavigationBarColor({
+          frontColor: '#ffffff',
+          backgroundColor: '#6b8e23',
+        })
         wx.vibrateLong()
       } else if (pointer.data.min == 1){
         pointer.setData({
           color: "yellow"
+        })
+        wx.setNavigationBarColor({
+          frontColor: '#ffffff',
+          backgroundColor: '#ffd700',
         })
         wx.vibrateLong()
       }
@@ -147,12 +163,20 @@ function Countdown(pointer) {
         pointer.setData({
           color: ""
         })
+        wx.setNavigationBarColor({
+          frontColor: '#ffffff',
+          backgroundColor: '#F8F8F8',
+        }) 
         wx.vibrateLong()
       }
     }else{
       if (pointer.data.sec == 15 && pointer.data.min == 0){
         pointer.setData({
           color: "red"
+        })
+        wx.setNavigationBarColor({
+          frontColor: '#ffffff',
+          backgroundColor: '#FF0000',
         })
       }
       pointer.setData({
