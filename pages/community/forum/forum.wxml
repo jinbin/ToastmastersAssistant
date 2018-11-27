@@ -1,13 +1,11 @@
 <!--index.wxml-->
 <view class="body">
-  <view class="border-slice">
+  <!-- <view class="border-slice">
     <view class="head">
       <view class="index-head-logo">
-        <!-- <image class="index-head-logo-img" src="../../../images/zan.png"></image> -->
         <image class="index-head-logo-img" src="https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/images/TMColorLogo.jpg?sign=fccc06e549a5d61356fb865de737a063&t=1542528828"></image>
         <text class="index-head-logo-f">
           头马黑板报
-          <!-- 头马黑板报 | 访问 {{pageViewNum}} -->
         </text>
         <form report-submit="true" bindsubmit="post">
           <button class="post" formType="submit">发帖</button>
@@ -15,7 +13,7 @@
       </view>
       <view class="head-banner"></view>
     </view>
-</view>
+</view> -->
 
 <view wx:if="{{!hasUserInfo}}">
 
@@ -27,13 +25,21 @@
       <open-data class="userinfo-nickname" type="userNickName"></open-data>
       <!-- </block> -->
     </view>
-    <button class="post" open-type='getUserInfo' bindgetuserinfo="bindGetUserInfo">点击登录进入互动社区</button>
+    <button class="post" open-type='getUserInfo' bindgetuserinfo="bindGetUserInfo">
+      <image src="../../../images/play-button.png" style="margin-right: 5px;vertical-align: middle;width:25px; height: 25px;"></image>
+      点击登录进入互动社区
+    </button>
     <view class="userinfo-nickname">
     “里面有各大俱乐部的实时会议照片
     </view>
     <view class="userinfo-nickname">
     还不赶紧来围观😆😆😆”
     </view>
+</view>
+
+<view class="page__ft" bindtap='toMiniProgram'>Powered by 
+  <p style="color:#00BFFF">可能性工作室</p>
+  <view class="weui-footer__text">Copyright © 2018-2018 jinbin</view>
 </view>
 
 </view>
@@ -44,7 +50,12 @@
                 <block wx:for="{{tabs}}" wx:key="*this">
                     <!-- <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick"> -->
                       <form id="{{index}}" report-submit="true" bindsubmit="formHandler" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}">
-                        <button class="weui-navbar__title" formType="submit">{{item}}</button>
+                        <button class="weui-navbar__title" formType="submit">
+                          <image wx:if="{{item == '动态'}}" src="../../../images/open.png" style="margin-right: 5px;vertical-align: middle;width:25px; height: 25px;"></image>
+                          <image wx:if="{{item == '私藏'}}" src="../../../images/private.png" style="margin-right: 5px;vertical-align: middle;width:25px; height: 25px;"></image>                          
+                          <image wx:if="{{item == '通知'}}" src="../../../images/activity.png" style="margin-right: 5px;vertical-align: middle;width:25px; height: 25px;"></image>
+                          {{item}}
+                        </button>
                         <!-- <view class="weui-navbar__title">{{item}}</view> -->
                       </form>
                     <!-- </view> -->
@@ -59,6 +70,7 @@
   <scroll-view class="art-content" scroll-y="true" scroll-x="false" 
   bindscrolltolower="moreArticle" data-page-index="{{pageIndex}}" style="height: 900px;width:100%;">
     <block wx:for="{{open_posts}}" wx:for-index="idx" wx:for-item="item" wx:key="Id">
+      
       <view class="border-slice">
         <!-- 贴主信息-->
         <view>
@@ -69,7 +81,8 @@
             <view style="padding:30rpx 0px 0px; overflow:hidden; height:110rpx;">
               <view class="aricle-user-wrap">
                 <text class="index-poster-name">{{item.nickName}}</text>
-                <view class="index-poster-arrow" catchtap="openArrow" data-user-id="{{item.id}}"></view>
+                <!-- <view class="index-poster-arrow" catchtap="openArrow" data-user-id="{{item.id}}"></view> -->
+                <!-- <image src="../../../images/forward.png" style="margin-right: 5px;vertical-align: middle;width:25px; height: 25px;"></image> -->
                 <view>{{item.create_time}}</view>
               </view>
             </view>
@@ -78,17 +91,34 @@
         <!-- 帖子正文 -->
         <view>
           <view class="article-content-container">
+          <!-- <navigator url="/pages/community/detail/detail?id={{item._id}}&type=activity"> -->
+            <navigator url="/pages/community/detail/detail?id={{item._id}}&type=open">
             <view wx:if="{{item.text}}">
                 <a class="article-content">{{item.text}}</a>
             </view>
+            </navigator>
+            <!-- </navigator> -->
             <!-- <block wx:for="{{item.Images}}" wx:for-item="image" wx:key="thumbnail"> -->
               <view>
-                <image wx:if="{{item.imageUrl}}" src="{{item.imageUrl}}" class="article-image" bindtap="imgPre" data-src="{{item.imageUrl}}" mode="widthFix"></image>
+                <image wx:if="{{item.imageUrl}}" src="{{item.imageUrl}}" class="article-image" catchtap="imgPre" data-src="{{item.imageUrl}}" mode="widthFix"></image>
               </view>
             <!-- </block> -->
           </view>
+          <!-- <view class="cps-icon-share">
+          <button open-type="share" plain="true" type="primary">
+          i 
+          </button>
+          </view> -->
+          <!-- <image src="../../../images/forward.png" style="margin-right: 5px;width:25px; height: 25px;right:30px;position: absolute;">      
+          </image> -->
+          
+
         </view>
       </view>
+      <button id="{{item._id}}" size="mini" style="float:right; right:20px" open-type="share" plain="true">
+        分享
+      </button>
+      
     </block>
     <view class="page__ft" bindtap='toMiniProgram'>Powered by 
   <p style="color:#00BFFF">可能性工作室</p>
@@ -133,6 +163,7 @@
           </view>
         </view>
       </view>
+      
     </block>
   <view class="page__ft" bindtap='toMiniProgram'>Powered by 
   <p style="color:#00BFFF">可能性工作室</p>
@@ -147,6 +178,7 @@
   <scroll-view class="art-content" scroll-y="true" scroll-x="false" 
   bindscrolltolower="moreArticle" data-page-index="{{pageIndex}}" style="height: 900px;width:100%;">
     <block wx:for="{{activity_posts}}" wx:for-index="idx" wx:for-item="item" wx:key="Id">
+    
       <view class="border-slice">
         <!-- 贴主信息-->
         <view>
@@ -166,17 +198,22 @@
         <!-- 帖子正文 -->
         <view>
           <view class="article-content-container">
+            <navigator url="/pages/community/detail/detail?id={{item._id}}&type=activity">
             <view wx:if="{{item.text}}">
                 <a class="article-content">{{item.text}}</a>
             </view>
+            </navigator>
             <!-- <block wx:for="{{item.Images}}" wx:for-item="image" wx:key="thumbnail"> -->
               <view>
-                <image wx:if="{{item.imageUrl}}" src="{{item.imageUrl}}" class="article-image" bindtap="imgPre" data-src="{{item.imageUrl}}" mode="widthFix"></image>
+                <image wx:if="{{item.imageUrl}}" src="{{item.imageUrl}}" class="article-image" catchtap="imgPre" data-src="{{item.imageUrl}}" mode="widthFix"></image>
               </view>
             <!-- </block> -->
           </view>
         </view>
       </view>
+      <button id="{{item._id}}" size="mini" style="float:right; right:20px" open-type="share" plain="true">
+        分享
+      </button>
     </block>
   <view class="page__ft" bindtap='toMiniProgram'>Powered by 
   <p style="color:#00BFFF">可能性工作室</p>
@@ -187,7 +224,19 @@
 
     </view>
     </view>
-  
+
+<!-- <view class="circle-float"> -->
+<!-- <view class="circle-float1"> -->
+  <!-- <form report-submit="true" bindsubmit="post">
+    <button style="background-color: #096ee0" formType="submit">+</button>
+  </form>  -->
+  <!-- <image src="../../../images/fatie.png"></image> -->
+<!-- </view> -->
+
+<view class="cps-icon-share" bindtap="post">
+  <!-- <button></button> -->
+</view>
+
 </view>
 
 </view>
