@@ -6,7 +6,8 @@ module.exports = [
       purpose: ' The purpose of this project is to introduce yourself to the club and learn the basic structure of a public speech.',
       overview: 'Write and deliver a speech about any topic to introduce yourself to the club. Your speech may be humorous informational, or any other style that appeals to you.',
       includes: 'A 4- to 6-minute speech',
-      open: false
+      open: false,
+    resource: 'https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/tmcResources/Evaluation Resource/Evaluation Resource English/8101E Ice Breaker Evaluation Resource FFE.pdf?sign=a92aacb05bd41a838e2a73575e4e86eb&t=1543388797'
     },
     {
       id: 2,

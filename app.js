@@ -6,6 +6,13 @@ App({
   level7: require('./data/level7'),
   CC: require('./data/CC'),
 
+  globalData: {
+    userInfo: null,
+    open_posts: [],
+    activity_posts: [],
+    private_posts: []
+  },
+
   onLaunch: function () {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
@@ -45,7 +52,4 @@ App({
       }
     })
   },
-  globalData: {
-    userInfo: null
-  }
 })

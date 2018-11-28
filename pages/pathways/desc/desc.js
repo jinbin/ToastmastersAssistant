@@ -3,6 +3,10 @@
 const app = getApp()
 var sliderWidth = 96; 
 
+const db = wx.cloud.database({
+  env: "tmassistant-5275ad"
+})
+
 Page({
   data: {
     tabs: ["中文", "英文"],
@@ -54,8 +58,14 @@ Page({
     })
 
     if (options.level == 1) {
-      this.setData({
-        level: app.level1
+      db.collection('pathways').where({
+        level: 1
+      }).get({
+        success: res => {
+          this.setData({
+            level: res.data
+          })
+        }
       })
     } else if (options.level == 2){
       this.setData({

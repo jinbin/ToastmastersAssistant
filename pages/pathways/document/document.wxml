@@ -1,0 +1,2 @@
+<!--pages/pathways/document/document.wxml-->
+<p bindtap='copyText' data-text="{{downloadUrl}}" style="color:#00BFFF">【点击复制评估资料地址】</p>

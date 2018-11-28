@@ -36,7 +36,8 @@
 <text space="ensp" selectable='true'>{{item.desc}}\n\n</text>
 <text selectable='true' class="bold100" space="ensp">目的: </text><text selectable='true'>{{item.purpose}}\n\n</text>
 <text selectable='true' class="bold100" space="ensp">概述: </text><text selectable='true'>{{item.overview}}\n\n</text>
-<text selectable='true' class="bold100" space="ensp">这个项目包括: </text><text selectable='true'>{{item.includes}}\n</text>
+<text selectable='true' class="bold100" space="ensp">这个项目包括: </text><text selectable='true'>{{item.includes}}\n\n</text>
+                        <navigator wx:if="{{item.resource}}" style="right: 20px; color:#00BFFF" url="/pages/pathways/document/document?url={{item.resource}}">【评估资料】</navigator>
                         </view>
                     </view>
                 </view>
@@ -61,7 +62,8 @@
 <text space="ensp" selectable='true'>{{item.desc}}\n\n</text>
 <text selectable='true' class="bold100" space="ensp">Purpose: </text><text selectable='true'>{{item.purpose}}\n\n</text>
 <text selectable='true' class="bold100" space="ensp">Overview: </text><text selectable='true'>{{item.overview}}\n\n</text>
-<text selectable='true' class="bold100" space="ensp">This project includes: </text><text selectable='true'>{{item.includes}}\n</text>
+<text selectable='true' class="bold100" space="ensp">This project includes: </text><text selectable='true'>{{item.includes}}\n\n</text>
+                        <navigator wx:if="{{item.resource}}" style="right: 20px; color:#00BFFF" url="/pages/pathways/document/document?url={{item.resource}}">【Evaluation Resource】</navigator>
                         </view>
                     </view>
                 </view>
