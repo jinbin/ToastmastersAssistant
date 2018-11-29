@@ -103,6 +103,9 @@
                 <image wx:if="{{item.imageUrl}}" src="{{item.imageUrl}}" class="article-image" catchtap="imgPre" data-src="{{item.imageUrl}}" mode="widthFix"></image>
               </view>
             <!-- </block> -->
+            <button id="{{item._id}}" size="mini" style="float:right; right:20px" open-type="share" plain="true">
+            分享
+            </button>
           </view>
           <!-- <view class="cps-icon-share">
           <button open-type="share" plain="true" type="primary">
@@ -111,13 +114,9 @@
           </view> -->
           <!-- <image src="../../../images/forward.png" style="margin-right: 5px;width:25px; height: 25px;right:30px;position: absolute;">      
           </image> -->
-          
-
+        
         </view>
       </view>
-      <button id="{{item._id}}" size="mini" style="float:right; right:20px" open-type="share" plain="true">
-        分享
-      </button>
       
     </block>
     <view class="page__ft" bindtap='toMiniProgram'>Powered by 
@@ -208,12 +207,14 @@
                 <image wx:if="{{item.imageUrl}}" src="{{item.imageUrl}}" class="article-image" catchtap="imgPre" data-src="{{item.imageUrl}}" mode="widthFix"></image>
               </view>
             <!-- </block> -->
+              <button id="{{item._id}}" size="mini" style="float:right; right:20px" open-type="share" plain="true">
+        分享
+              </button>
           </view>
         </view>
+
       </view>
-      <button id="{{item._id}}" size="mini" style="float:right; right:20px" open-type="share" plain="true">
-        分享
-      </button>
+
     </block>
   <view class="page__ft" bindtap='toMiniProgram'>Powered by 
   <p style="color:#00BFFF">可能性工作室</p>
@@ -234,7 +235,6 @@
 <!-- </view> -->
 
 <view class="cps-icon-share" bindtap="post">
-  <!-- <button></button> -->
 </view>
 
 </view>

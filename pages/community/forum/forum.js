@@ -11,17 +11,13 @@ const db = wx.cloud.database({
 
 Page({
   data: {
-    tabs: ["活动通知", "动态", "私藏"],
+    tabs: ["通知", "动态", "私藏"],
     activeIndex: 1,
     sliderOffset: 0,
     sliderLeft: 0,
     articles: [],
     pageIndex: 1,
     pageSize: 2,
-    audioIcon: "http://i.pengxun.cn/content/images/voice/voiceplaying.png",
-    css: {
-      "bankuaiSelected": ""
-    },
     typeList: [],
     currentTypeId: 0,
     hot: 0,
@@ -35,13 +31,15 @@ Page({
   },
 
   onLoad: function (options) {
-
+    
     if (options.activeIndex in [0,1,2]){
       this.setData({
         activeIndex: options.activeIndex
       })
     }
+
     var that = this;
+
     wx.getSystemInfo({
       success: function (res) {
         that.setData({
@@ -50,6 +48,66 @@ Page({
         });
       }
     });
+
+    wx.getSetting({
+      success(res) {
+        console.log("success")
+        if (res.authSetting['scope.userInfo']) {
+          console.log("hasUserInfo")
+          that.setData({
+            hasUserInfo: true
+          })
+        } else {
+          console.log("!hasUserInfo")
+          that.setData({
+            hasUserInfo: false
+          })
+        }
+      }
+    })
+
+    wx.showLoading({
+      title: '精彩马上呈现',
+    })
+
+    wx.cloud.callFunction({
+      name: 'getPostsNew',
+      success: result => {
+        var open_posts = []
+        var activity_posts = []
+        var private_posts = []
+        var openid = result.result.openid
+        var res = result.result
+        for (var index in res.result.data) {
+
+          res.result.data[index]["create_time"] = new Date(res.result.data[index]["create_time"]).toLocaleDateString() + new Date(res.result.data[index]["create_time"]).toLocaleTimeString()
+
+          if (res.result.data[index].isOpen == "open") {
+            open_posts.push(res.result.data[index])
+          }
+
+          if (res.result.data[index].isOpen == "activity") {
+            activity_posts.push(res.result.data[index])
+          }
+
+          if (res.result.data[index].isOpen == "private" && res.result.data[index]._openid == openid) {
+            private_posts.push(res.result.data[index])
+          }
+
+        }
+        that.setData({
+          open_posts: open_posts,
+          activity_posts: activity_posts,
+          private_posts: private_posts,
+        })
+        wx.hideLoading()
+        app.globalData.open_posts = open_posts
+        app.globalData.activity_posts = activity_posts,
+        app.globalData.private_posts = private_posts
+      }
+    })
+
+    this.ready()
   },
 
   tabClick: function (e) {
@@ -84,196 +142,11 @@ Page({
   },
 
   onShow: function () {
-    var that = this
-
-    // const db = wx.cloud.database({
-    //   env: "tmassistant-5275ad"
-    // })
-
-    // db.collection("information").doc('pageViewNum').update({
-    //   data: {
-    //     value: 105
-    //   }
-    // })
-
-    // //读取pageViewNum
-    // db.collection("information").doc('pageViewNum').get({
-    //   success: function (res) {
-    //     console.log(res.data["value"] + 1)
-    //     this.setData({
-    //       pageViewNum: res.data["value"] + 1
-    //     })
-    //     db.collection("information").doc('pageViewNum').update({
-    //       data: {
-    //         value: pres.data["value"] + 1
-    //       },
-    //       success: function (res) {
-    //         console.log("finish update")
-    //       }
-    //     })
-    //   }
-    // })
-
-
-    // console.log("ssssssss")
-    // console.log(that.data.pageViewNum)
-    // db.collection("information").doc('pageViewNum').update({
-    //   data: {
-    //     value: that.data.pageViewNum + 1
-    //   },
-    //   success: function (res) {
-    //     console.log("update")
-    //     console.log(res.data)
-    //     that.setData({
-    //       pageViewNum: that.data.pageViewNum + 1
-    //     })
-    //   }
-    // })
-
-    // db.collection("information").doc('pageViewNum').get({
-    //   success: function (res) {
-    //     // this.setData({
-    //     //   pageViewNum: res.data["value"]
-    //     // })
-    //     console.log("after")
-    //     console.log(res.data["value"])
-    //   }
-    // })
-
-    // var pageViewNum = 
-
-    // db.collection('information').doc('').update({
-    //   // data 传入需要局部更新的数据
-    //   data: {
-    //     // 表示将 done 字段置为 true
-    //     done: true
-    //   },
-    //   success: function (res) {
-    //     console.log(res.data)
-    //   }
-    // })
-
-    console.log(this.data.hasUserInfo)
-
-    wx.getSetting({
-      success(res) {
-        console.log("success")
-        if (res.authSetting['scope.userInfo'])  {
-          console.log("hasUserInfo")
-          that.setData({
-            hasUserInfo: true
-          })
-        }else{
-          console.log("!hasUserInfo")
-          that.setData({
-            hasUserInfo: false
-          })
-        }
-      }
+    this.setData({
+      open_posts: app.globalData.open_posts,
+      activity_posts: app.globalData.activity_posts,
+      private_posts: app.globalData.private_posts,
     })
-
-    var that = this
-    wx.cloud.callFunction({
-      name: 'getPostsNew',
-      success: result => {
-        var open_posts = []
-        var activity_posts = []
-        var private_posts = []
-        var openid = result.result.openid
-        var res = result.result
-        for (var index in res.result.data) {
-          
-          res.result.data[index]["create_time"] = new Date(res.result.data[index]["create_time"]).toLocaleDateString() + new Date(res.result.data[index]["create_time"]).toLocaleTimeString()
-
-          if (res.result.data[index].isOpen == "open") {
-            open_posts.push(res.result.data[index])
-          }
-
-          if (res.result.data[index].isOpen == "activity"){
-            activity_posts.push(res.result.data[index]) 
-          }
-
-          console.log(res.result)
-          console.log(res.result.data[index])
-
-          if (res.result.data[index].isOpen == "private" && res.result.data[index]._openid == openid) {
-            private_posts.push(res.result.data[index])
-          }
-
-        }
-        that.setData({
-          open_posts: open_posts,
-          activity_posts: activity_posts,
-          private_posts: private_posts
-        })
-      }
-    })
-
-    // db.collection('posts').where({
-    //   isOpen: "open",
-    // }).orderBy('create_time', 'desc').get({
-    //   success: function (res) {
-    //     // res.data 包含该记录的数据
-
-    //     //时间转换CST时间
-    //     for (var index in res.data){
-    //       res.data[index]["create_time"] = res.data[index]["create_time"].toLocaleDateString() + " " + res.data[index]["create_time"].toLocaleTimeString()
-    //     }
-
-    //     that.setData({
-    //       posts: res.data
-    //     })
-    //   }
-    // })
-
-    // wx.cloud.callFunction({
-    //   name: 'getOpenid',
-    //   complete: res => {
-    //     db.collection('posts').where({
-    //       isOpen: "private",
-    //       _openid: res.result.openid,
-    //     }).orderBy('create_time', 'desc').get({
-    //       success: function (res) {
-    //         // res.data 包含该记录的数据
-
-    //         //时间转换CST时间
-    //         for (var index in res.data) {
-    //           res.data[index]["create_time"] = res.data[index]["create_time"].toLocaleDateString() + " " + res.data[index]["create_time"].toLocaleTimeString()
-    //         }
-
-    //         that.setData({
-    //           private_posts: res.data
-    //         })
-    //       }
-    //     })
-    //   }
-    // })
-
-    // wx.cloud.callFunction({
-    //   name: 'getOpenid',
-    //   complete: res => {
-    //     db.collection('posts').where({
-    //       isOpen: "activity",
-    //       // _openid: res.result.openid,
-    //     }).orderBy('create_time', 'desc').get({
-    //       success: function (res) {
-    //         // res.data 包含该记录的数据
-
-    //         //时间转换CST时间
-    //         for (var index in res.data) {
-    //           res.data[index]["create_time"] = res.data[index]["create_time"].toLocaleDateString() + " " + res.data[index]["create_time"].toLocaleTimeString()
-    //         }
-
-    //         that.setData({
-    //           activity_posts: res.data
-    //         })
-    //       }
-    //     })
-    //   }
-    // })
-
-    //console.log(this.data.hasUserInfo)
-    this.ready()
   },
 
   bindGetUserInfo: function(e){
@@ -285,25 +158,25 @@ Page({
     }
   },
 
-  post: function(options){
+  post: function(){
 
-    console.log(options.detail.target.id)
-    console.log(options.detail.formId)
+    // console.log(options.detail.target.id)
+    // console.log(options.detail.formId)
 
-    var timestamp = Date.parse(new Date()) / 1000
-    var newtimestamp = timestamp + 24 * 60 * 60 * 7
-    var n7_to = newtimestamp * 1000
+    // var timestamp = Date.parse(new Date()) / 1000
+    // var newtimestamp = timestamp + 24 * 60 * 60 * 7
+    // var n7_to = newtimestamp * 1000
 
-    db.collection("formIds").add({
-      data: {
-        openid: this.data.openid,
-        formId: options.detail.formId,
-        expire: new Date(n7_to),
-        available: true
-      }
-    })
+    // db.collection("formIds").add({
+    //   data: {
+    //     openid: this.data.openid,
+    //     formId: options.detail.formId,
+    //     expire: new Date(n7_to),
+    //     available: true
+    //   }
+    // })
 
-    console.log("post")
+    // console.log("post")
     wx.navigateTo({
       url: "/pages/community/post/post",
       success: function(res) {},
@@ -330,7 +203,7 @@ Page({
     var first = (this.data.pageIndex) * this.data.pageSize;
     this.getArticle(first);
   },
-  
+
   getArticle: function (first) {
     console.info(first);
     if ((first == "undefined") || (first == null)) {
@@ -508,21 +381,85 @@ Page({
   },
 
   onShareAppMessage: function (options) {
-    console.log(app.globalData.userInfo)
     var text
     var path
-    //"活动通知":0, "动态":1, "私藏":2
-    if (this.data.activeIndex == 0){
-      text = app.globalData.userInfo.nickName + "邀请你来头马社区查看最新活动信息"
-      path = "pages/community/forum/forum?activeIndex=0"
-    } else {
-      text = app.globalData.userInfo.nickName + "邀请你来头马社区围观讨论"
-      path = "pages/community/forum/forum?activeIndex=" + this.data.activeIndex
+    var type
+    if (options.from === 'button') {
+      if (this.data.activeIndex == 0){
+        type = "activity"
+      } else if (this.data.activeIndex == 1){
+        type = "open"
+      }
+      path = "/pages/community/detail/detail?id=" + options.target.id + "&type=" + type,
+      text = app.globalData.userInfo.nickName + "给你分享的头马新鲜事"
+    }else {
+      //"活动通知":0, "动态":1, "私藏":2
+      if (this.data.activeIndex == 0){
+        text = app.globalData.userInfo.nickName + "邀请你来头马社区查看最新活动信息"
+        path = "pages/community/forum/forum?activeIndex=0"
+      } else if (this.data.activeIndex == 1){
+        text = app.globalData.userInfo.nickName + "邀请你来头马社区围观讨论"
+        path = "pages/community/forum/forum?activeIndex=" + this.data.activeIndex
+      } else if (this.data.activeIndex == 2){
+        //todo
+      }
     }
 
     return {
       path: path,
       title: text
     }
-  }
+  },
+
+  onPullDownRefresh: function () {
+    wx.showLoading({
+      title: '精彩马上呈现',
+    })
+
+    var that = this
+
+    wx.cloud.callFunction({
+      name: 'getPostsNew',
+      success: result => {
+        var open_posts = []
+        var activity_posts = []
+        var private_posts = []
+        var openid = result.result.openid
+        var res = result.result
+        for (var index in res.result.data) {
+
+          res.result.data[index]["create_time"] = new Date(res.result.data[index]["create_time"]).toLocaleDateString() + new Date(res.result.data[index]["create_time"]).toLocaleTimeString()
+
+          if (res.result.data[index].isOpen == "open") {
+            open_posts.push(res.result.data[index])
+          }
+
+          if (res.result.data[index].isOpen == "activity") {
+            activity_posts.push(res.result.data[index])
+          }
+
+          console.log(res.result)
+          console.log(res.result.data[index])
+
+          if (res.result.data[index].isOpen == "private" && res.result.data[index]._openid == openid) {
+            private_posts.push(res.result.data[index])
+          }
+
+        }
+        that.setData({
+          open_posts: open_posts,
+          activity_posts: activity_posts,
+          private_posts: private_posts,
+        })
+        wx.hideLoading()
+        app.globalData.open_posts = open_posts
+        app.globalData.activity_posts = activity_posts,
+        app.globalData.private_posts = private_posts
+      }
+    })
+
+    this.ready()
+
+    wx.stopPullDownRefresh()
+  },
 })

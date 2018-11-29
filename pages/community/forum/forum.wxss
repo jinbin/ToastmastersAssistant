@@ -418,3 +418,45 @@ button::after {
     display: inline-block;
 }
 
+.circle-float{
+  color: #ffffff;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 20rpx;
+  right: 20rpx;
+  width: 135rpx;
+  height: 135rpx;
+  border-radius: 50%;
+  font-size: 100rpx;
+  background:#096ee0;
+}
+
+.cps-icon-share {
+  position: fixed;
+  text-align: center;
+  bottom: 100rpx;
+  right: 44rpx;
+  z-index: 1000;
+  color: #9a9a9a;
+  font-size: 24rpx;
+  width: 125rpx;
+  height: 115rpx;
+  background-image: url('https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/images/write.png?sign=e13a4c52d7e21a10f4f110d742a5dd7d&t=1543247620');
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+  font-size: 0;
+}
+
+.btn-status {
+  flex: auto;
+  font-family: PingFangSC-Medium;
+  font-size: 30rpx;
+  line-height: 60rpx;
+  text-align: center;
+  position: relative;
+  border-radius: 0;
+  /* background-image: linear-gradient(77deg, blue 17%, #FE694C 100%); */
+}
