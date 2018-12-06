@@ -34,6 +34,12 @@ Page({
         icon: '../../images/find-selected.png',
       },
       // {
+      //   title: '问卷调查',
+      //   remark: '问卷调查',
+      //   url: "/pages/gd-component/gd-component?id=1",
+      //   icon: '../../images/find-selected.png',
+      // },
+      // {
       //   title: '建议与反馈',
       //   remark: '打赏开发者',
       //   url: '/pages/reward/reward',
@@ -47,7 +53,6 @@ Page({
     wx.cloud.callFunction({
       name: "isOwner",
       complete: owner_res => {
-        console.log(owner_res.result.data.owners)
         wx.cloud.callFunction({
           name: 'getOpenid',
           complete: res => {
@@ -121,7 +126,7 @@ Page({
     console.log("toMiniProgram")
     wx.navigateToMiniProgram({
       appId: 'wx09a49d05a365a4e6',
-      path: "pages/my/leftdays/leftdays",
+      path: "pages/contact/contact",
       // envVersion: 'trial',
       success(res) {
         console.log("SUCCESS")

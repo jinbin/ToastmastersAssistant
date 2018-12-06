@@ -1,6 +1,7 @@
 /**app.wxss**/
 
 @import 'styles/weui.wxss';
+@import "utils/wxParse/wxParse.wxss";
 
 .page__hd {
     padding: 20px;
@@ -108,6 +109,7 @@ page{
     margin: 0 auto;
     padding-top: 15px;
     width: 60%;
+    
 }
 .mini-btn{
     margin-right: 5px;

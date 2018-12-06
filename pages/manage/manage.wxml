@@ -82,4 +82,9 @@
       <button class="fixed_btn" type="primary" plain="true" formType="submit"  style="width: 80px">发送</button> 
     </view> 
 
+
+     <view class="section btn-area">  
+      <button class="fixed_btn" type="primary" plain="true" bindtap='upFormIds' style="width: 80px">更新</button> 
+    </view> 
+
 </form>

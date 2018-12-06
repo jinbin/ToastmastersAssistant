@@ -47,6 +47,18 @@ Page({
     }
   },
 
+  toMiniProgram: function (e) {
+    console.log("toMiniProgram")
+    wx.navigateToMiniProgram({
+      appId: 'wx09a49d05a365a4e6',
+      path: "pages/contact/contact",
+      // envVersion: 'trial',
+      success(res) {
+        console.log("SUCCESS")
+      }
+    })
+  },
+
   onShareAppMessage: function () {
     return {
     }

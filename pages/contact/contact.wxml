@@ -3,24 +3,26 @@
  <view class="page">
     <view class="page__hd">
         <view class="summary__title">开发者介绍</view>
-          <view class="page__desc">
-          \r\n\r\n\r\n\r\n\r\n\r\n\r\n2018年4月加入西子双语演讲俱乐部，7月份开始担任俱乐部下半年度教育副主席。 2018年9月获得CL（Competent Leader）头衔，当月完成Pathways Level 1。
-          </view>
-          <view class="page__desc">
-          \r\n\r\n\r\n\r\n\r\n\r\n\r\n合作及建议请加微信：<p bindtap='copyText' data-text="just_as_always" style="color:#8B0000">just_as_always</p>
-          </view>
+          <text space="ensp" decode="true" class="page__desc">
+          2018.4—至今: 西子双语演讲俱乐部会员
+          2018.7—2018.12: 担任俱乐部教育副主席
+          2018.9: 获得CL（Competent Leader）和 Pathways IP1头衔
+          2019.1—2019.7: 担任俱乐部主席
+          合作及建议请加微信：
+          </text>
+          <p bindtap='copyText' data-text="just_as_always" style="color:#8B0000">just_as_always</p>
         <!-- </block> -->
     </view>
 </view> 
 
-<view class="container">
-  <view class="userinfo">
-      <image bindtap="imgPre" data-src="https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/images/personalQRCode.jpg?sign=54210271e197d447b5e43f550b5dfaf9&t=1542812333" style="width: 300px; height: 350px" src="https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/images/personalQRCode.jpg?sign=54210271e197d447b5e43f550b5dfaf9&t=1542812333"></image>
+<!-- <view class="container"> -->
+  <view class="userinfo" style="text-align:center;">
+      <image bindtap="imgPre" data-src="{{myQR}}" style="width: 300px; height: 350px" src="{{myQR}}"></image>
       <view style="text-align:center;font-family:Times;color:#aaa;">* 点击查看大图，保存图片，打开微信扫一扫</view>
     </view>
 
-    <view class="userinfo">
-      <image bindtap="imgPre" data-src="/pages/my/officialAccount/weframe1.png" style="width: 300px; height: 350px" src="/images/weframe1.png"></image>
+    <view class="userinfo" style="text-align:center;">
+      <image bindtap="imgPre" data-src="{{weFrameQR}}" style="width: 300px; height: 350px" src="{{weFrameQR}}"></image>
       <view style="text-align:center;font-family:Times;color:#aaa;">* 点击查看大图，保存图片，打开微信扫一扫</view>
     </view>
-</view>
+<!-- </view> -->

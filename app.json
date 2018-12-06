@@ -1,20 +1,18 @@
 {
   "pages":[
-    "pages/community/forum/forum",
-    "pages/manage/manage",
-    "pages/tm/clock/set/set",
     "pages/pathways/levels/levels",
-    "pages/community/post/post",
-    "pages/community/community",
+    "pages/contact/contact",
+    "pages/tm/loc/enroll/enroll",
     "pages/tm/loc/loc",
+    "pages/manage/manage",
+    "pages/pathways/document/document",
     "pages/my/my",
+    "pages/tm/clock/set/set",
     "pages/article/article",
     "pages/pathways/desc/desc",
     "pages/pathways/article/article",
     "pages/index/index", 
     "pages/tm/clock/countdown/countdown",
-    "pages/logs/logs",
-    "pages/contact/contact",
     "pages/reward/reward"
   ],
   "window":{
@@ -27,32 +25,26 @@
       "list": [
         {
           "pagePath": "pages/pathways/levels/levels",
-          "iconPath": "./images/account.png",
-          "selectedIconPath": "images/account-selected.png",
+          "iconPath": "./images/tabBar/path.png",
+          "selectedIconPath": "images/tabBar/path-sel.png",
           "text": "Pathways"
         },
         {
           "pagePath": "pages/tm/clock/set/set",
-          "iconPath": "./images/home.png",
-          "selectedIconPath": "images/home-selected.png",
+          "iconPath": "./images/tabBar/timer.png",
+          "selectedIconPath": "./images/tabBar/timer-sel.png",
           "text": "计时器"
         },
         {
-          "pagePath": "pages/community/forum/forum",
-          "iconPath": "./images/account.png",
-          "selectedIconPath": "images/account-selected.png",
-          "text": "社区"
-        },
-        {
           "pagePath": "pages/tm/loc/loc",
-          "iconPath": "./images/home.png",
-          "selectedIconPath": "images/home-selected.png",
+          "iconPath": "./images/tabBar/homepage-sel.png",
+          "selectedIconPath": "images/tabBar/homepage.png",
           "text": "头马俱乐部"
         },
         {
           "pagePath": "pages/my/my",
-          "iconPath": "./images/find.png",
-          "selectedIconPath": "images/find-selected.png",
+          "iconPath": "images/tabBar/me-sel.png",
+          "selectedIconPath": "images/tabBar/me.png",
           "text": "我的"
         }
       ]
@@ -60,5 +52,11 @@
     "navigateToMiniProgramAppIdList": [
       "wx09a49d05a365a4e6",
       "wx8abaf00ee8c3202e"
-    ]
+    ],
+    "plugins": {
+      "gdPlugin": {
+        "version": "0.2.3",
+        "provider": "wx34b0738d0eef5f78"
+      }
+    }
 }

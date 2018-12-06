@@ -1,6 +1,10 @@
 // pages/manage/manage.js
-Page({
 
+const db = wx.cloud.database({
+  env: "tmassistant-5275ad"
+})
+
+Page({
   /**
    * 页面的初始数据
    */
@@ -76,11 +80,31 @@ Page({
     // console.log(e.detail.value)
   },
 
+  upFormIds: function(e) {
+    var used = []
+
+    wx.cloud.callFunction({
+      name: "upFormIds",
+      data: {
+        used: used
+      },
+      success: res => {
+        console.log("upFormIds")
+      }
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    // wx.cloud.callFunction({
+    //   name: "broadcast",
+    //   complete: res => {
+    //     console.log("broadcast")
+    //     console.log(res.result)
+    //   }
+    // })
   },
 
   /**
