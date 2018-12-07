@@ -6,7 +6,8 @@ module.exports = [
       purpose: 'The purpose of this project is to identify your primary leadership style or styles.',
       overview: 'Complete the Discover Your Leadership Style questionnaire. Consider how your leadership style impacts the people around you and how you can adjust it to more effectively lead people with styles different from your own. Deliver a 5- to 7-minute speech at a club meeting to share some aspect of your leadership style or leadership styles in general. You may choose to discuss your style preferences when working with others, your style and how you can adapt it to situations, or leadership styles in general and how they impact a group.',
       includes: 'The Discover Your Leadership Style questionnaire; A 5- to 7-minute speech',
-      open: false
+      open: false,
+    resource: 'https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/tmcResources/Evaluation Resource/en/8207E.pdf?sign=0e84543a9761f6e16948fddfaa353296&t=1544187191'
     },
     {
       id: 2,
@@ -15,7 +16,8 @@ module.exports = [
       purpose: '本项目的目的是确定你的主要领导力风格。',
       overview: '完成“发现你的领导力风格”调查问卷。考虑你的领导力风格如何影响你周围的人，以及你如何用不同于自己风格的其它风格调整自己的领导力，从而更有效地领导他人。在俱乐部会议上发表5-7分钟的演讲，分享你的领导力风格或领导力风格的某些方面。你可以选择讨论与他人合作时你的领导力风格偏好，你的领导力风格以及如何使其适应各种情况，或一般的领导力风格以及它们如何影响团队。',
       includes: '发现你的领导力风格问卷; 1个5-7分钟的演讲',
-      open: false
+      open: false,
+      resource: 'https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/tmcResources/Evaluation Resource/cn/CS8207E.pdf?sign=bb17f7a8956e9bf859c062313df4248b&t=1544186807'
     },
     {
       id: 3,
@@ -24,7 +26,8 @@ module.exports = [
       purpose: 'The purpose of this project is to learn about different communication styles and identify your primary style.',
       overview: 'Complete the Discover Your Communication Style questionnaire to help you identify your style. Deliver a 5- to 7-minute speech at a club meeting about your communication style and its impact on your professional and/or personal relationships. If you are uncomfortable discussing your communication style, you may speak about the communication styles you have encountered and how they impact you. Your speech should not be a report of the content of this project.',
       includes: 'The Discover Your Communication Style questionnaire; A 5- to 7-minute speech',
-      open: false
+      open: false,
+      resource: 'https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/tmcResources/Evaluation Resource/en/8206E.pdf?sign=4ac099585cbdd4de78dc2b92d18cd88e&t=1544187155'
     },
     {
       id: 4,
@@ -33,7 +36,8 @@ module.exports = [
       purpose: '本项目的目的是了解不同的沟通风格，并确定你的主要风格。',
       overview: '完成“发现你的沟通风格”调查问卷，以帮助确定你的风格。在俱乐部会议上发表一个5-7分钟的演讲，内容是介绍你的沟通风格及其对你的职业和/或个人关系的影响。如果你在讨论你的沟通风格时感到不舒服，你可以谈谈你遇到的沟通风格以及它们对你的影响。这个演讲不应该是这个项目内容的报告。',
       includes: '“发现你的沟通风格”调查问卷; 1个5-7分钟的演讲',
-      open: false
+      open: false,
+      resource: 'https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/tmcResources/Evaluation Resource/cn/CS8206E.pdf?sign=5b709974aad7ae08d4615e05ee64a476&t=1544186793'
     },
     {
       id: 5,
@@ -42,7 +46,8 @@ module.exports = [
       purpose: 'The purpose of this project is to practice the skills needed to connect with an unfamiliar audience.',
       overview: 'Develop a 5- to 7-minute speech on a topic that is unfamiliar to the majority of your audience. Because you deliver this speech in your Toastmasters club, you are familiar with the audience members’ preferences and personalities. Selecting a topic that is new or unfamiliar to your club members will allow you to practice adapting as you present. As you speak, monitor the audience’s reaction to your topic and adapt as necessary to maintain engagement.',
       includes: 'A 5- to 7-minute speech',
-      open: false
+      open: false,
+      resource: 'https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/tmcResources/Evaluation Resource/en/8201E.pdf?sign=d38c73c849d245fb34ce27accf2c1915&t=1544186890'
     },
     {
       id: 6,
@@ -51,7 +56,8 @@ module.exports = [
       purpose: '本项目的目的是练习与不熟悉的听众建立联系所需的技能。',
       overview: '就一个大多数听众都不熟悉的话题发表一个5-7分钟的演讲。因为你在俱乐部演讲，所以你熟悉听众的喜好和个性。选择一个你的俱乐部成员不熟悉的话题，你就可以练习如何适应现场状态。在演讲时，观察听众对你的话题的反应，并根据需要进行调整以保持参与度。',
       includes: '1个5-7分钟的演讲',
-      open: false
+      open: false,
+      resource: 'https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/tmcResources/Evaluation Resource/cn/CS8201E.pdf?sign=07393911790fe42a39603f3438986a96&t=1544186581'
     },
     {
       id: 7,
@@ -60,7 +66,8 @@ module.exports = [
       purpose: 'The purpose of this project is to clearly define how Toastmasters envisions mentoring.',
       overview: ' Write and present a 5- to 7-minute speech about a time when you were a protégé. Share the impact and importance of having a mentor. This speech is not a report on the content of this project. Note: Every member in Toastmasters Pathways must complete this project.',
       includes: 'A 5- to 7-minute speech',
-      open: false
+      open: false,
+      resource: 'https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/tmcResources/Evaluation Resource/en/8204E.pdf?sign=a6c1b17c077913b071ec7b9dfab8f275&t=1544187101'
     },
     {
       id: 8,
@@ -69,7 +76,8 @@ module.exports = [
       purpose: '本项目的目的是明确界定头马如何设想辅导体系。',
       overview: '作为被指导者，写一个5-7分钟的演讲，并进行讲述。分享拥有导师的影响和重要性。这篇演讲不是关于这个项目内容的报告。注意：头马Pathways路径中的每个成员都必须完成这个项目。',
       includes: '1个5-7分钟的演讲',
-      open: false
+      open: false,
+      resource: 'https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/tmcResources/Evaluation Resource/cn/CS8204E.pdf?sign=e55178b8481713d1f8b32580cd5bdd3d&t=1544186712'
     },
     {
       id: 9,
@@ -78,7 +86,8 @@ module.exports = [
       purpose: 'The purpose of this project is to observe your own time management patterns.',
       overview: ' Develop a 5- to 7-minute speech on any topic. As you develop your speech, record the time required for each task in order to help you determine how you can improve your time management strategies. Present your speech at a club meeting. Finally, submit the Project Completion Form to your vice president education.',
       includes: 'The Time and Task Log;  The Project Completion Form; A 5- to 7-minute speech',
-      open: false
+      open: false,
+      resource: 'https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/tmcResources/Evaluation Resource/en/8205E.pdf?sign=8f7a5b3fc4f6feb42678ac84139f7014&t=1544187511'
     },
     {
       id: 10,
@@ -87,7 +96,8 @@ module.exports = [
       purpose: '这个项目的目的是观察你自己的时间管理模式。',
       overview: '选择任一话题发表一个5-7分钟的演讲。当你发表你的演讲时，记录每项任务所需的时间，以帮助你决定如何改进你的时间管理策略。在俱乐部会议上发表你的演讲。最后，提交项目完成表给你的教育副主席。',
       includes: '时间和任务日志; 项目完成表; 1个5-7分钟的演讲',
-      open: false
+      open: false,
+      resource: 'https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/tmcResources/Evaluation Resource/cn/CS8205E.pdf?sign=58a627c63855169bd4074b3f338782e4&t=1544186723'
     },
     {
       id: 11,
@@ -96,7 +106,8 @@ module.exports = [
       purpose: 'The purpose of this project is to demonstrate your ability to listen to what others say.',
       overview: 'At a club meeting, fulfill the role of Topicsmaster. As Topicsmaster, comment on each speaker’s Table Topics® speech to demonstrate your active listening skills. For example, you might say, "Thank you. That was a compelling opinion on the benefits of gardening. I understand you feel strongly that everyone needs to spend some time doing something they love."',
       includes: 'Serving as Topicsmaster at a club meeting',
-      open: false
+      open: false,
+      resource: 'https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/tmcResources/Evaluation Resource/en/8200E.pdf?sign=9426f1db2aab9adc8faaa0abf1509077&t=1544186840'
     },
     {
       id: 12,
@@ -105,7 +116,8 @@ module.exports = [
       purpose: '这个项目的目的是展示你倾听别人意见的能力。',
       overview: '在俱乐部会议上，扮演即兴演讲主持人的角色。作为即兴演讲主持人，对每位演讲者的演讲主题发表评论，以展示你积极的听力技巧。例如，你可能会说：“谢谢。关于园艺的好处，这是一个令人信服的意见。我理解你强烈地感觉到每个人都需要花一些时间做他们喜欢的事情。”',
       includes: '在俱乐部会议上担任即兴演讲主持人',
-      open: false
+      open: false,
+      resource: 'https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/tmcResources/Evaluation Resource/cn/CS8200E.pdf?sign=20b6e6a7bfd275814e1d8b58c58ab6f5&t=1544186492'
     },
     {
       id: 13,
@@ -114,7 +126,8 @@ module.exports = [
       purpose: 'The purpose of this project is to deliver a speech with awareness of your intentional and unintentional body language, as well as to learn, practice, and refine how you use nonverbal communication when delivering a speech.',
       overview: 'Prepare a 5- to 7-minute speech on a topic that lends itself to expression through your movement and gestures. Video record your presentation and get feedback from your mentor or another reviewer before speaking to your club. If you do not have access to a recording device, perform your speech in front of a mirror and make adjustments before your scheduled speech.',
       includes: 'A 5- to 7-minute speech',
-      open: false
+      open: false,
+      resource: 'https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/tmcResources/Evaluation Resource/en/8203E.pdf?sign=e227c6503512a65aba678cb31e07067b&t=1544187068'
     },
     {
       id: 14,
@@ -123,7 +136,8 @@ module.exports = [
       purpose: '这个项目的目的是在演讲时意识到你有意和无意的肢体语言，以及学习、练习和完善你在演讲时如何使用非语言交流。',
       overview: '准备5-7分钟的演讲，通过你的动作和手势来表达自己的主题。在俱乐部演讲前，先视频录制你的演讲，并从你的导师或其他评阅者处获得反馈。如果你无法访问录制设备，请在镜子前演练并在安排俱乐部演讲之前进行调整。',
       includes: '1个5-7分钟的演讲',
-      open: false
+      open: false,
+      resource: 'https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/tmcResources/Evaluation Resource/cn/CS8203E.pdf?sign=3dd55699527302febc26b34ba6c5db53&t=1544186642'
     },
     {
       id: 15,
@@ -132,7 +146,8 @@ module.exports = [
       purpose: "The purpose of this project is to identify your own cultural identities and the stereotypes that impact others' perceptions of you.",
       overview: 'Develop a 5- to 7-minute speech about the cultures with which you most closely identify and the personal impact of the stereotypes commonly associated with those cultures. You may need to spend some time researching the stereotypes believed about your cultures, especially if you are a member of the most dominant cultures in your geographic area. Be aware that all cultural identities have some sort of affiliated stereotype, even if it is obscure or uncommon.',
       includes: 'The Defining Your Cultural Identity resource;  A 5- to 7-minute speech',
-      open: false
+      open: false,
+      resource: 'https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/tmcResources/Evaluation Resource/en/8202E.pdf?sign=4737e661ccb82a90570859ea8c3f3ad5&t=1544187355'
     },
     {
       id: 16,
@@ -141,6 +156,7 @@ module.exports = [
       purpose: '这个项目的目的是确定你自己的文化认同以及影响别人对你的看法的陈旧观念。',
       overview: '发表5-7分钟的演讲，了解与你最密切相关的文化以及与这些文化相关的陈旧观念对个人的影响。如果你是你所在地区最主要的文化的一员时，你可能需要花一些时间去研究那些关于你的文化中的陈旧观念。请注意，所有的文化认同都有某种从属的刻板印象，即使它是模糊的或不常见的。',
       includes: '明确你的文化认同的资源; 1个5-7分钟的演讲',
-      open: false
+      open: false,
+      resource: 'https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/tmcResources/Evaluation Resource/cn/CS8202E.pdf?sign=275a1af3aaba198e3ede630ea89d41a5&t=1544187401'
     }
   ]
