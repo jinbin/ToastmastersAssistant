@@ -19,32 +19,27 @@ Page({
       //   title: '收藏夹',
       //   remark: '收藏夹',
       //   url: '/pages/collect/collect',
-      //   icon: '../../images/find-selected.png',
       //   isTab: true 
       // },
       // {
       //   title: '联系作者',
       //   remark: '联系作者',
       //   url: '/pages/contact/contact',
-      //   icon: '../../images/find-selected.png',
       // },
       // {
       //   title: '公众号',
       //   remark: '公众号',
       //   url: '/pages/my/officialAccount/offcialAccount',
-      //   icon: '../../images/find-selected.png',
       // },
       {
         title: '设置',
         remark: '设置',
         url: '/pages/settings/settings',
-        icon: '../../images/find-selected.png',
       }
       // {
       //   title: '有钱任性',
       //   remark: '有钱任性',
       //   url: '/pages/reward/reward',
-      //   icon: '../../images/find-selected.png',
       // }
     ]
   },

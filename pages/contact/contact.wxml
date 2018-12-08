@@ -3,7 +3,7 @@
  <view class="page">
     <view class="page__hd">
         <view class="summary__title">开发者介绍</view>
-          <text space="ensp" decode="true" class="page__desc">
+          <text decode="true" class="page__desc">
           2018.4—至今: 西子双语演讲俱乐部会员
           2018.7—2018.12: 担任俱乐部教育副主席
           2018.9: 获得CL（Competent Leader）和 Pathways IP1头衔

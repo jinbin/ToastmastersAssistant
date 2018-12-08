@@ -1,2 +1,9 @@
 <!--pages/pathways/document/document.wxml-->
+<view>
+  <ad unit-id="adunit-ab171e6bb49115c5"></ad>
+</view>
+
 <p bindtap='copyText' data-text="{{downloadUrl}}" style="color:#00BFFF">【点击复制评估资料地址】</p>
+
+
+

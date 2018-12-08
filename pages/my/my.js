@@ -19,31 +19,26 @@ Page({
         title: '关于头马助手',
         remark: '关于头马助手',
         url: '/pages/index/index',
-        icon: '../../images/find-selected.png',
       },
       {
         title: '联系作者',
         remark: '联系作者',
         url: '/pages/contact/contact',
-        icon: '../../images/find-selected.png',
       },
       {
         title: '更新记录',
         remark: '更新记录',
         url: '/pages/article/article?id=updates',
-        icon: '../../images/find-selected.png',
       },
       // {
       //   title: '问卷调查',
       //   remark: '问卷调查',
       //   url: "/pages/gd-component/gd-component?id=1",
-      //   icon: '../../images/find-selected.png',
       // },
       // {
       //   title: '建议与反馈',
       //   remark: '打赏开发者',
       //   url: '/pages/reward/reward',
-      //   icon: '../../images/find-selected.png',
       // },
     ]
   },

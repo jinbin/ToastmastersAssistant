@@ -28,4 +28,8 @@
     </view>
 </view>
 
+<navigator url="/pages/tm/loc/loc">
+          <view class="page__desc">\r\n\r\n\r\n\r\n\r\n\r\n\r\n西子双语演讲俱乐部</view>
+          </navigator>
+
 

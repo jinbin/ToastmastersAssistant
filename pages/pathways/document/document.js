@@ -37,7 +37,7 @@ Page({
       data: e.currentTarget.dataset.text,
       success: function (res) {
         wx.showToast({
-          title: "评估资料地址已复制"
+          title: "资料地址已复制"
         })
       }
     })
