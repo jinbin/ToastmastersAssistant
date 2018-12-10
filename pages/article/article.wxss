@@ -1,1 +1,9 @@
 /* pages/article/article.wxss */
+
+.page__ft{
+    padding: 50rpx 0;
+    padding-bottom: 20px;
+    text-align: center;
+    font-size: 14px;
+    color: #888888;
+}

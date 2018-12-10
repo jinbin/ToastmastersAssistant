@@ -257,7 +257,52 @@ Page({
           success: function (res) {
             console.log("结束了" + res)
             wx.navigateBack({
+              success: res => {
+                wx.cloud.callFunction({
+                  name: 'getPostsNew',
+                  success: result => {
+                    var open_posts = []
+                    var activity_posts = []
+                    var private_posts = []
+                    var openid = result.result.openid
+                    var res = result.result
+                    for (var index in res.result.data) {
 
+                      res.result.data[index]["create_time"] = new Date(res.result.data[index]["create_time"]).toLocaleDateString() + new Date(res.result.data[index]["create_time"]).toLocaleTimeString()
+
+                      if (res.result.data[index].isOpen == "open") {
+                        open_posts.push(res.result.data[index])
+                      }
+
+                      if (res.result.data[index].isOpen == "activity") {
+                        activity_posts.push(res.result.data[index])
+                      }
+
+                      console.log(res.result)
+                      console.log(res.result.data[index])
+
+                      if (res.result.data[index].isOpen == "private" && res.result.data[index]._openid == openid) {
+                        private_posts.push(res.result.data[index])
+                      }
+
+                    }
+
+                    var pages = getCurrentPages();
+                    var currPage = pages[pages.length - 1]; //当前页面
+
+                    currPage.setData({
+                      open_posts: open_posts,
+                      activity_posts: activity_posts,
+                      private_posts: private_posts,
+                    })
+
+                    wx.hideLoading()
+                    app.globalData.open_posts = open_posts
+                    app.globalData.activity_posts = activity_posts,
+                    app.globalData.private_posts = private_posts
+                  }
+                })
+              }
             })
           }
         })
@@ -278,7 +323,51 @@ Page({
         success: function (res) {
           console.log("结束了" + res)
           wx.navigateBack({
+            success: res => {
+              wx.cloud.callFunction({
+                name: 'getPostsNew',
+                success: result => {
+                  var open_posts = []
+                  var activity_posts = []
+                  var private_posts = []
+                  var openid = result.result.openid
+                  var res = result.result
+                  for (var index in res.result.data) {
 
+                    res.result.data[index]["create_time"] = new Date(res.result.data[index]["create_time"]).toLocaleDateString() + new Date(res.result.data[index]["create_time"]).toLocaleTimeString()
+
+                    if (res.result.data[index].isOpen == "open") {
+                      open_posts.push(res.result.data[index])
+                    }
+
+                    if (res.result.data[index].isOpen == "activity") {
+                      activity_posts.push(res.result.data[index])
+                    }
+
+                    console.log(res.result)
+                    console.log(res.result.data[index])
+
+                    if (res.result.data[index].isOpen == "private" && res.result.data[index]._openid == openid) {
+                      private_posts.push(res.result.data[index])
+                    }
+
+                  }
+
+                  var pages = getCurrentPages();
+                  var currPage = pages[pages.length - 1]; //当前页面
+
+                  currPage.setData({
+                    open_posts: open_posts,
+                    activity_posts: activity_posts,
+                    private_posts: private_posts,
+                  })
+                  wx.hideLoading()
+                  app.globalData.open_posts = open_posts
+                  app.globalData.activity_posts = activity_posts,
+                  app.globalData.private_posts = private_posts
+                }
+              })
+            }
           })
         }
       })
@@ -338,13 +427,6 @@ Page({
   formReset: function () {
     console.log('form发生了reset事件')
     this.modalTap2()
-  },
-
-  // 事件处理函数
-  bindViewTap: function () {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
   },
 
   onLoad: function (options) {

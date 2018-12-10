@@ -1,0 +1,8 @@
+<!--pages/tm/loc/enroll/enroll.wxml-->
+<text class="page__desc">
+【Step1】2个月内担任至少两次三官角色（时间官、哼哈官、语法官），参加一次桌面讨论，确定自己真的对提升公众演讲能力及沟通领导能力有兴趣；
+【Step2】联系VPM会员副主席团队，接受VPM面试，填写入会申请表，并预约破冰演讲；
+【Step3】根据演讲要求（参考"头马助手"Pathways相关说明），完成破冰演讲；
+【Step4】参加新会员入会仪式，超过半数以上会员投票即可通过；
+【Step5】缴纳会费（会费用于官网注册及俱乐部日常运营）交给会员副主席，俱乐部官员会把入会申请表及会费交与美国总部，完成会员注册。不要止步！有趣的学习旅程才刚刚开始！
+【了解更多，请加微信】</text><p bindtap='copyText' data-text="just_as_always" style="color:#8B0000">just_as_always</p><text class="page__desc">(点击复制)</text>

@@ -1,7 +1,6 @@
 /**app.wxss**/
 
 @import 'styles/weui.wxss';
-@import "utils/wxParse/wxParse.wxss";
 
 .page__hd {
     padding: 20px;
@@ -32,6 +31,10 @@ page{
     background-color: #F8F8F8;
     font-size: 16px;
     font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.page-body {
+  padding: 20rpx 0;
 }
 
 .pageItem{
@@ -113,4 +116,12 @@ page{
 }
 .mini-btn{
     margin-right: 5px;
+}
+
+.tc{
+  text-align: center;
+}
+
+input {
+  font-family: "PingFang-SC-Regular","SimSun","Microsoft Yahei";
 }

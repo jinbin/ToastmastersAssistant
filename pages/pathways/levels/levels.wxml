@@ -1,6 +1,6 @@
 <!--menu.wxml-->
 <official-account></official-account>
-<image src="https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/images/Pathwayslogo.jpg?sign=5c747f9bea6059a6b680c034704a1abe&t=1542366288" style="height: 200px; width: 100%" />
+<image src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/Pathwayspurelogo.jpg" style="height: 200px; width: 100%" />
 
     <view class="button-sp-area">
     <form report-submit="true" bindsubmit="levelHandler">
@@ -44,7 +44,7 @@
   </navigator>
 </view> -->
 
-<view class="page__ft" bindtap='toMiniProgram'>Powered by 
+<!-- <view class="page__ft" bindtap='toMiniProgram'>Powered by 
   <p style="color:#00BFFF">可能性工作室</p>
   <view class="weui-footer__text">Copyright © 2018-2018 jinbin</view>
-</view>
+</view> -->

@@ -16,6 +16,13 @@
           <view class="page__desc">
           \r\n\r\n\r\n\r\n\r\n\r\n\r\n俱乐部地址：文二路188号（文二路和教工路交叉口）浙江省团校内 浙江青年创业学院教学楼202室。<p style="color:#4169E1">(友情提示：开车的朋友从教工路的西门进)</p>
           </view>
+    </view>
+    <view style="box">
+      <navigator url="/pages/tm/loc/enroll/enroll">
+        <button style="width:180px">如何加入西子</button>
+      </navigator>
+    </view>
+    <view class="page__hd">
           <view class="page__desc">
           \r\n\r\n\r\n\r\n\r\n\r\n\r\n会议时间：每周三晚19:10 - 21:20，每月第一、三、五周为英文，第二、四周为中文。
           </view>
@@ -47,4 +54,3 @@
 
     </view>
 </view> 
-

@@ -34,6 +34,18 @@ Page({
     })
   },
 
+  toMiniProgram: function (e) {
+    console.log("toMiniProgram")
+    wx.navigateToMiniProgram({
+      appId: 'wx09a49d05a365a4e6',
+      path: "pages/my/leftdays/leftdays",
+      // envVersion: 'trial',
+      success(res) {
+        console.log("SUCCESS")
+      }
+    })
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

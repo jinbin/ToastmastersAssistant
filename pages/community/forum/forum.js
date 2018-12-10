@@ -23,12 +23,6 @@ Page({
     hot: 0,
     scrollLeft: 0
   },
-  //事件处理函数
-  bindViewTap: function () {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
 
   onLoad: function (options) {
     
@@ -99,6 +93,7 @@ Page({
           open_posts: open_posts,
           activity_posts: activity_posts,
           private_posts: private_posts,
+          openid: openid
         })
         wx.hideLoading()
         app.globalData.open_posts = open_posts
@@ -246,21 +241,42 @@ Page({
     });
   },
   // 展开箭头 举报
-  openArrow: function (event) {
-    console.info("openArrow: ");
-    var user = event.currentTarget.dataset.userId;
-    console.log(user)
+  openArrow: function (e) {
+    console.log("openArrow: ");
+    console.log(e)
+    var id = e.currentTarget.id
     wx.showActionSheet({
-      itemList: ["举报", "取消"],
+      itemList: ["设为私藏", "设为动态"],
       success: function (res) {
         if (res.tapIndex == 0) {
-          // 举报
-          console.info("举报");
-          util.tipOff(user);
+          // 设为私藏
+          console.info("设为私藏")
+          console.log(id)
+          db.collection("posts").doc(id).update({
+            data: {
+              isOpen: "private"
+            },
+            success: result => {
+              console.log(result)
+            }
+          })
+        }else if(res.tapIndex == 1) {
+          // 设为动态
+          console.info("设为动态")
+          console.log(id)
+          db.collection("posts").doc(id).update({
+            data: {
+              isOpen: "open"
+            },
+            success: result => {
+              console.log(result)
+            }
+          })
         }
       }
     });
   },
+
   // 播放声音
   playAudio: function (event) {
     console.info("播放声音");
@@ -438,8 +454,8 @@ Page({
             activity_posts.push(res.result.data[index])
           }
 
-          console.log(res.result)
-          console.log(res.result.data[index])
+          // console.log(res.result)
+          // console.log(res.result.data[index])
 
           if (res.result.data[index].isOpen == "private" && res.result.data[index]._openid == openid) {
             private_posts.push(res.result.data[index])

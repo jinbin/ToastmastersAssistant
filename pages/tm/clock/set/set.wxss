@@ -27,3 +27,19 @@
   font-size: 14px;
   position:relative;
 }
+
+.page__ft{
+    padding-bottom: 10px;
+    text-align: center;
+    font-size: 14px;
+    color: #888888;
+}
+
+.share{
+  margin: 50px auto;
+  width: 60%;
+  height: 100rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

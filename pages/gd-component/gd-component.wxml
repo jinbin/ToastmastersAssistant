@@ -1,0 +1,2 @@
+<!--pages/gd-component/gd-component.wxml-->
+<gd-form token="{{token}}" userinfo="{{userinfo}}" openid="{{openid}}" bind:submit="submit"></gd-form>

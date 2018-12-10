@@ -1,0 +1,9 @@
+            box{
+                display: flex;
+                display: -webkit-flex;
+                border: 1px solid #0000FF;
+                height: 200px;
+                width: 400px;
+                align-items:center;
+                justify-content:center;
+            }

@@ -3,16 +3,18 @@
 	"packOptions": {
 		"ignore": []
 	},
-  "cloudfunctionRoot": "./functions/",
+	"cloudfunctionRoot": "functions/",
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
-		"newFeature": true
+		"newFeature": true,
+		"autoAudits": false,
+		"uglifyFileName": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.3.2",
+	"libVersion": "2.2.5",
 	"appid": "wx16c76d4762cbe0b3",
 	"projectname": "tmUtils",
 	"debugOptions": {

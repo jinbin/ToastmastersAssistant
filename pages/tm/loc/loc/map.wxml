@@ -1,0 +1,2 @@
+<!--pages/tm/loc/loc/map.wxml-->
+<map-route route-info="{{routeInfo}}"></map-route>

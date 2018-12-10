@@ -1,9 +1,14 @@
 {
   "pages":[
     "pages/pathways/levels/levels",
+    "pages/translator/translator",
+    "pages/community/wall/wall",
+    "pages/edit/edit",
+    "pages/video/video",
     "pages/contact/contact",
     "pages/tm/loc/enroll/enroll",
     "pages/tm/loc/loc",
+    "pages/tm/loc/loc/map",
     "pages/manage/manage",
     "pages/pathways/document/document",
     "pages/my/my",
@@ -24,22 +29,22 @@
     "tabBar": {
       "list": [
         {
-          "pagePath": "pages/pathways/levels/levels",
-          "iconPath": "./images/tabBar/path.png",
-          "selectedIconPath": "images/tabBar/path-sel.png",
-          "text": "Pathways"
-        },
-        {
           "pagePath": "pages/tm/clock/set/set",
           "iconPath": "./images/tabBar/timer.png",
           "selectedIconPath": "./images/tabBar/timer-sel.png",
           "text": "计时器"
         },
         {
-          "pagePath": "pages/tm/loc/loc",
-          "iconPath": "./images/tabBar/homepage-sel.png",
-          "selectedIconPath": "images/tabBar/homepage.png",
-          "text": "头马俱乐部"
+          "pagePath": "pages/pathways/levels/levels",
+          "iconPath": "./images/tabBar/path.png",
+          "selectedIconPath": "images/tabBar/path-sel.png",
+          "text": "Pathways"
+        },
+        {
+          "pagePath": "pages/translator/translator",
+          "iconPath": "./images/tabBar/miniprogram.png",
+          "selectedIconPath": "images/tabBar/miniprogram-sel.png",
+          "text": "中英翻译器"
         },
         {
           "pagePath": "pages/my/my",
@@ -57,6 +62,14 @@
       "gdPlugin": {
         "version": "0.2.3",
         "provider": "wx34b0738d0eef5f78"
+      },
+      "WechatSI": {
+        "version": "0.2.2",
+        "provider": "wx069ba97219f66d99"
+      },
+      "myPlugin": {
+        "version": "1.0.6",
+        "provider": "wx5bc2ac602a747594"
       }
     }
 }

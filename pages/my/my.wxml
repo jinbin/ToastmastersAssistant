@@ -3,7 +3,7 @@
   <view class="userinfo">
       <open-data class="userinfo-avatar" type="userAvatarUrl" background-size="cover"></open-data>
   </view>
-  <image src="https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/images/wordmark.jpg?sign=96493e305a60a730248c17bbac0582e4&t=1542367082" style="height: 80px; width: 100%" />
+  <!-- <image src="https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/images/wordmark.jpg?sign=96493e305a60a730248c17bbac0582e4&t=1542367082" style="height: 80px; width: 100%" /> -->
 </view>
 
   <!-- <image src="https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/images/learnmore.jpg?sign=724100720ef0ddd30c216dcec6655a62&t=1542367040" style="height: 160px; width: 100%" /> -->
@@ -41,7 +41,7 @@
 		</view>
   </view>
 
-<view class="page__ft" bindtap='toMiniProgram'>Powered by 
+<!-- <view class="page__ft" bindtap='toMiniProgram'>Powered by 
   <p style="color:#00BFFF">可能性工作室</p>
   <view class="weui-footer__text">Copyright © 2018-2018 jinbin</view>
-</view>
+</view> -->

@@ -8,8 +8,13 @@
             </view>
             <view style="padding:30rpx 0px 0px; overflow:hidden; height:110rpx;">
               <view class="aricle-user-wrap">
+                <!-- <navigator wx:if="{{item._openid == 'oWbQf0esXoh89a77zkfhQqDJ1kvQ'}}" url="/pages/contact/contact">
+                  <text class="index-poster-name">金斌</text>
+                  <image src="../../../images/VIP.png" style="margin-right: 5px;vertical-align: middle;width:25px; height: 25px;"></image>
+                  <text class="index-title-name">西子双语VPE</text>
+                </navigator> -->
                 <text class="index-poster-name">{{detail.nickName}}</text>
-                <view class="index-poster-arrow" catchtap="openArrow" data-user-id="{{item.id}}"></view>
+                <view wx:if="{{item._openid == openid}}" class="index-poster-arrow" catchtap="openArrow" data-user-id="{{item.id}}"></view>
                 <view>{{detail.create_time}}</view>
               </view>
             </view>

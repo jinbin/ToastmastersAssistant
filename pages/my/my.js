@@ -15,16 +15,16 @@ Page({
       }
     },
     components: [
-      {
-        title: '关于头马助手',
-        remark: '关于头马助手',
-        url: '/pages/index/index',
-      },
-      {
-        title: '联系作者',
-        remark: '联系作者',
-        url: '/pages/contact/contact',
-      },
+      // {
+      //   title: '关于头马助手',
+      //   remark: '关于头马助手',
+      //   url: '/pages/index/index',
+      // },
+      // {
+      //   title: '联系作者',
+      //   remark: '联系作者',
+      //   url: '/pages/contact/contact',
+      // },
       {
         title: '更新记录',
         remark: '更新记录',
@@ -65,22 +65,22 @@ Page({
     })
 
     ///isLogin
-    var that = this
-    wx.getSetting({
-      success: res => {
-        if (res.authSetting['scope.userInfo']) {
-          console.log("true")
-          that.setData({
-            isLogin: "已登录"
-          })
-        } else {
-          console.log("false")
-          that.setData({
-            isLogin: "登录了解更多"
-          })
-        }
-      }
-    })
+    // var that = this
+    // wx.getSetting({
+    //   success: res => {
+    //     if (res.authSetting['scope.userInfo']) {
+    //       console.log("true")
+    //       that.setData({
+    //         isLogin: "已登录"
+    //       })
+    //     } else {
+    //       console.log("false")
+    //       that.setData({
+    //         isLogin: "登录了解更多"
+    //       })
+    //     }
+    //   }
+    // })
   },
 
   login: function(e) {

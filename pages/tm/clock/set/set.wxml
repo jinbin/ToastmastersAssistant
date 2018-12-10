@@ -1,13 +1,14 @@
 <!-- <view class="page"> -->
+<!-- <view class="container"> -->
     <view class="page__hd">
       
-      <view class="container">
+      
         <view class="userinfo">
           <view class="usermotto">演讲计时器⏳</view>
         </view>
-      </view>
-
+      
       <view class="page__desc">根据演讲者事先设定的时间，进行倒计时。</view>
+      <view class="page__desc">对于大于3分钟的演讲:</view>
       <view class="page__desc">当剩余时间为2分钟时，背景颜色被置为<p style="color:OliveDrab">绿色</p>。</view>
       <view class="page__desc">当剩余时间为1分钟时，背景颜色被置为<p style="color:Gold">黄色</p>。</view>
       <view class="page__desc">当剩余时间为15秒时，背景颜色被置为<p style="color:red">红色</p>。</view>
@@ -26,8 +27,21 @@
 
     </view>
 
+    <view class="share">
+    <button class="" size="mini" type="primary" plain="true" open-type="share">点击分享</button>
+    </view>
+
+
+  <!-- </view> -->
+
+
   <!-- <view style="margin: 0 auto;padding-top: 15px;">
     <ad unit-id="adunit-a13bd903f2e4a182"></ad>
   </view> -->
 
 <!-- </view> -->
+
+<!-- <view class="page__ft" bindtap='toMiniProgram'>Powered by 
+  <p style="color:#00BFFF">可能性工作室</p>
+  <view class="weui-footer__text">Copyright © 2018-2018 jinbin</view>
+</view> -->

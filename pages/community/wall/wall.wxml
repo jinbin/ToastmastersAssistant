@@ -1,0 +1,81 @@
+<!--index.wxml-->
+<view class="body">
+
+        <view class="weui-tab">
+            <view class="weui-tab__panel">
+
+                <!-- 公开 activeIndex == 1-->
+  <!-- 帖子内容 -->
+  <!-- <scroll-view class="art-content" scroll-y="true" scroll-x="false" 
+  bindscrolltolower="moreArticle" data-page-index="{{pageIndex}}" style="height: 900px;width:100%;"> -->
+    <block wx:for="{{open_posts}}" wx:for-index="idx" wx:for-item="item" wx:key="Id">
+      
+      <view class="border-slice">
+        <!-- 贴主信息-->
+        <view>
+            <!-- 用户头像-->
+            <!-- <view style="padding:30rpx 24rpx 16rpx; float:left">
+              <image style="width:40px;height:40px;overflow:hidden;" src="{{item.avatarUrl}}">
+              </image>
+            </view>
+            <view style="padding:30rpx 0px 0px; overflow:hidden; height:110rpx;">
+              <view class="aricle-user-wrap">
+                <text class="index-poster-name">官方精选</text>
+              </view>
+            </view> -->
+        </view>
+        <view style="clear:both"></view>
+        <!-- 帖子正文 -->
+        <view>
+          <view class="article-content-container">
+          <!-- <navigator url="/pages/community/detail/detail?id={{item._id}}&type=activity"> -->
+            <navigator url="/pages/community/detail/detail?id={{item._id}}&type=open">
+            <view wx:if="{{item.text}}">
+                <a class="article-content">{{item.text}}</a>
+            </view>
+            </navigator>
+            <!-- </navigator> -->
+            <!-- <block wx:for="{{item.Images}}" wx:for-item="image" wx:key="thumbnail"> -->
+              <view>
+                <image wx:if="{{item.imageUrl}}" src="{{item.imageUrl}}" class="article-image" catchtap="imgPre" data-src="{{item.imageUrl}}" mode="widthFix"></image>
+              </view>
+            <!-- </block> -->
+            <button id="{{item._id}}" size="mini" style="float:right; right:20px" open-type="share" plain="true">
+            分享
+            </button>
+          </view>
+          <!-- <view class="cps-icon-share">
+          <button open-type="share" plain="true" type="primary">
+          i 
+          </button>
+          </view> -->
+          <!-- <image src="../../../images/forward.png" style="margin-right: 5px;width:25px; height: 25px;right:30px;position: absolute;">      
+          </image> -->
+        
+        </view>
+      </view>
+      
+    </block>
+    <view class="page__ft" bindtap='toMiniProgram'>Powered by 
+  <p style="color:#00BFFF">可能性工作室</p>
+  <view class="weui-footer__text">Copyright © 2018-2018 jinbin</view>
+</view>
+  <!-- </scroll-view> -->
+    </view>
+
+    </view>
+
+<!-- <view class="circle-float"> -->
+<!-- <view class="circle-float1"> -->
+  <!-- <form report-submit="true" bindsubmit="post">
+    <button style="background-color: #096ee0" formType="submit">+</button>
+  </form>  -->
+  <!-- <image src="../../../images/fatie.png"></image> -->
+<!-- </view> -->
+
+</view>
+
+<!-- <view class="page__ft" bindtap='toMiniProgram'>Powered by 
+  <p style="color:#00BFFF">可能性工作室</p>
+  <view class="weui-footer__text">Copyright © 2018-2018 jinbin</view>
+</view> -->
