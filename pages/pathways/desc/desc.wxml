@@ -24,19 +24,19 @@
       <view class="page__bd page__bd_spacing">
         <view class="kind-list">
             <block wx:for="{{level}}" wx:key="id">
-                <view wx:if="{{item.id % 2 == 0}}" class="kind-list__item">
-                    <view  id="{{item.id}}" class="weui-flex kind-list__item-hd {{item.open ? 'kind-list__item-hd_show' : ''}}" bindtap="kindToggle">
+                <view wx:if="{{item.lang == 'cn'}}" class="kind-list__item">
+                    <view  id="{{item.id}}" class="weui-flex kind-list__item-hd {{item.open != 'false' ? 'kind-list__item-hd_show' : ''}}" bindtap="kindToggle">
                         <view class="titleItem">
                         {{item.name}}
-                        <p bindtap='copyText' data-text="       {{item.desc}}\n       目的:\n       {{item.purpose}} \n       概述:\n       {{item.overview}} \n       这个项目包括:\n       {{item.includes}}" style="color:opacity:.4">{{item.open ? '(点击复制)': ''}}</p>
+                        <p bindtap='copyText' data-text="{{item.desc}}" style="color:opacity:.4">{{item.open != 'false' ? '(点击复制)': ''}}</p>
                         </view>
                     </view>
-                    <view class="kind-list__item-bd {{item.open ? 'kind-list__item-bd_show' : ''}}">
-                        <view class="weui-cells {{item.open ? 'weui-cells_show' : ''}}">
+                    <view class="kind-list__item-bd {{item.open != 'false' ? 'kind-list__item-bd_show' : ''}}">
+                        <view class="weui-cells {{item.open != 'false' ? 'weui-cells_show' : ''}}">
 <text space="ensp" selectable='true'>{{item.desc}}\n\n</text>
-<text selectable='true' class="bold100" space="ensp">目的: </text><text selectable='true'>{{item.purpose}}\n\n</text>
+<!-- <text selectable='true' class="bold100" space="ensp">目的: </text><text selectable='true'>{{item.purpose}}\n\n</text>
 <text selectable='true' class="bold100" space="ensp">概述: </text><text selectable='true'>{{item.overview}}\n\n</text>
-<text selectable='true' class="bold100" space="ensp">这个项目包括: </text><text selectable='true'>{{item.includes}}\n\n</text>
+<text selectable='true' class="bold100" space="ensp">这个项目包括: </text><text selectable='true'>{{item.includes}}\n\n</text> -->
                         <navigator wx:if="{{item.resource}}" style="right: 20px; color:#00BFFF" url="/pages/pathways/document/document?url={{item.resource}}">【评估资料】</navigator>
                         </view>
                     </view>
@@ -50,19 +50,19 @@
       <view class="page__bd page__bd_spacing">
         <view class="kind-list">
             <block wx:for="{{level}}" wx:key="id">
-                <view wx:if="{{item.id % 2 == 1}}" class="kind-list__item">
-                    <view id="{{item.id}}" class="weui-flex kind-list__item-hd {{item.open ? 'kind-list__item-hd_show' : ''}}" bindtap="kindToggle">
+                <view wx:if="{{item.lang == 'en'}}" class="kind-list__item">
+                    <view id="{{item.id}}" class="weui-flex kind-list__item-hd {{item.open != 'false' ? 'kind-list__item-hd_show' : ''}}" bindtap="kindToggle">
                         <view class="titleItem">
                         {{item.name}}
-                        <p bindtap='copyText' data-text="       {{item.desc}}\n       Purpose:\n       {{item.purpose}} \n       Overview:\n       {{item.overview}} \n       This project includes:\n       {{item.includes}}" style="color:opacity:.4">{{item.open ? '(点击复制)': ''}}</p>
+                        <p bindtap='copyText' data-text="{{item.desc}}" style="color:opacity:.4">{{item.open != 'false' ? '(点击复制)': ''}}</p>
                         </view>
                     </view>
-                    <view class="kind-list__item-bd {{item.open ? 'kind-list__item-bd_show' : ''}}">
-                        <view class="weui-cells {{item.open ? 'weui-cells_show' : ''}}">
+                    <view class="kind-list__item-bd {{item.open != 'false' ? 'kind-list__item-bd_show' : ''}}">
+                        <view class="weui-cells {{item.open != 'false' ? 'weui-cells_show' : ''}}">
 <text space="ensp" selectable='true'>{{item.desc}}\n\n</text>
-<text selectable='true' class="bold100" space="ensp">Purpose: </text><text selectable='true'>{{item.purpose}}\n\n</text>
+<!-- <text selectable='true' class="bold100" space="ensp">Purpose: </text><text selectable='true'>{{item.purpose}}\n\n</text>
 <text selectable='true' class="bold100" space="ensp">Overview: </text><text selectable='true'>{{item.overview}}\n\n</text>
-<text selectable='true' class="bold100" space="ensp">This project includes: </text><text selectable='true'>{{item.includes}}\n\n</text>
+<text selectable='true' class="bold100" space="ensp">This project includes: </text><text selectable='true'>{{item.includes}}\n\n</text> -->
                         <navigator wx:if="{{item.resource}}" style="right: 20px; color:#00BFFF" url="/pages/pathways/document/document?url={{item.resource}}">【Evaluation Resource】</navigator>
                         </view>
                     </view>

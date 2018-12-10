@@ -2,13 +2,8 @@
   "pages":[
     "pages/pathways/levels/levels",
     "pages/translator/translator",
-    "pages/community/wall/wall",
     "pages/edit/edit",
-    "pages/video/video",
     "pages/contact/contact",
-    "pages/tm/loc/enroll/enroll",
-    "pages/tm/loc/loc",
-    "pages/tm/loc/loc/map",
     "pages/manage/manage",
     "pages/pathways/document/document",
     "pages/my/my",
@@ -16,9 +11,7 @@
     "pages/article/article",
     "pages/pathways/desc/desc",
     "pages/pathways/article/article",
-    "pages/index/index", 
-    "pages/tm/clock/countdown/countdown",
-    "pages/reward/reward"
+    "pages/tm/clock/countdown/countdown"
   ],
   "window":{
     "backgroundTextStyle":"black",

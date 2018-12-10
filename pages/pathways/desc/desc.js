@@ -58,18 +58,59 @@ Page({
     })
 
     if (options.level == 1) {
-      db.collection('pathways').where({
+      db.collection('pathwaysNew').where({
         level: 1
       }).get({
         success: res => {
+          console.log(res)
           this.setData({
             level: res.data
           })
         }
       })
     } else if (options.level == 2){
-      this.setData({
-        level: app.level2
+      db.collection('pathwaysNew').where({
+        level: 2
+      }).get({
+        success: res => {
+          console.log(res)
+          this.setData({
+            level: res.data
+          })
+        }
+      })
+    } else if (options.level == 3){
+      db.collection('pathwaysNew').where({
+        level: 3
+      }).get({
+        success: res => {
+          console.log(res)
+          this.setData({
+            level: res.data
+          })
+        }
+      })
+    } else if (options.level == 4) {
+      db.collection('pathwaysNew').where({
+        level: 4
+      }).get({
+        success: res => {
+          console.log(res)
+          this.setData({
+            level: res.data
+          })
+        }
+      })
+    } else if (options.level == 5) {
+      db.collection('pathwaysNew').where({
+        level: 5
+      }).get({
+        success: res => {
+          console.log(res)
+          this.setData({
+            level: res.data
+          })
+        }
       })
     } else if (options.level == 6){
       this.setData({
@@ -104,9 +145,15 @@ Page({
     var id = e.currentTarget.id, level = this.data.level;
     for (var i = 0, len = level.length; i < len; ++i) {
       if (level[i].id == id) {
-        level[i].open = !level[i].open
+        // level[i].open = !level[i].open
+        console.log(i)
+        console.log(level[i].open)
+        level[i].open = (level[i].open == "true") ? "false" : "true"
+        console.log(level[i].open)
       } else {
-        level[i].open = false
+        console.log(i)
+        console.log(level[i].open)
+        level[i].open = "false"
       }
     }
     this.setData({
