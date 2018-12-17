@@ -2,6 +2,7 @@
     <view class="page__hd">
         <view class="page__title" style="text-align: center;">{{title}}</view>
     </view>
+    <ad unit-id="adunit-ab171e6bb49115c5"></ad>
     <view class="page__bd">
         <view class="weui-article">
             <view class="weui-article__p">

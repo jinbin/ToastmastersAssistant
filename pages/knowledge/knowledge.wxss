@@ -1,3 +1,5 @@
+/* pages/knowledge/knowledge.wxss */
+
 /* pages/pathways/levels/levels.wxss */
 
 button::after {
@@ -34,7 +36,7 @@ button::after {
   flex-direction: row;
   align-items: baseline;
   /* justify-content: space-around; */
-  padding: 50rpx 0;
+  padding: 0rpx 0;
   /* box-sizing: border-box; */
 } 
 

@@ -28,7 +28,6 @@ Page({
 
     let name_en
     let name_cn
-    console.log(options.level)
 
     if(options.level == 1){
       name_en = "Level 1: Mastering Fundamentals"
@@ -38,13 +37,13 @@ Page({
       name_cn = "阶段二：学习风格"
     } else if (options.level == 3) {
       name_en = "Level 3: Increasing Knowledge"
-      name_cn = "阶段三：丰富知识" + "(未完待续)"
+      name_cn = "阶段三：丰富知识"
     } else if (options.level == 4) {
       name_en = "Level 4: Building Skills"
-      name_cn = "阶段四：培养技能" + "(未完待续)"
+      name_cn = "阶段四：培养技能"
     } else if (options.level == 5) {
       name_en = "Level 5: Demonstrating Expertise"
-      name_cn = "阶段五：专业展示" + "(未完待续)"
+      name_cn = "阶段五：专业展示"
     } else if (options.level == 6) {
       name_en = "Competent Communication"
       name_cn = "胜任沟通"
@@ -57,68 +56,30 @@ Page({
       level_name_ch: name_cn
     })
 
-    if (options.level == 1) {
-      db.collection('pathwaysNew').where({
-        level: 1
-      }).get({
-        success: res => {
-          console.log(res)
-          this.setData({
-            level: res.data
-          })
-        }
-      })
-    } else if (options.level == 2){
-      db.collection('pathwaysNew').where({
-        level: 2
-      }).get({
-        success: res => {
-          console.log(res)
-          this.setData({
-            level: res.data
-          })
-        }
-      })
-    } else if (options.level == 3){
-      db.collection('pathwaysNew').where({
-        level: 3
-      }).get({
-        success: res => {
-          console.log(res)
-          this.setData({
-            level: res.data
-          })
-        }
-      })
-    } else if (options.level == 4) {
-      db.collection('pathwaysNew').where({
-        level: 4
-      }).get({
-        success: res => {
-          console.log(res)
-          this.setData({
-            level: res.data
-          })
-        }
-      })
-    } else if (options.level == 5) {
-      db.collection('pathwaysNew').where({
-        level: 5
-      }).get({
-        success: res => {
-          console.log(res)
-          this.setData({
-            level: res.data
-          })
-        }
-      })
-    } else if (options.level == 6){
+    if (options.level == 6){
       this.setData({
-        level: app.CC
+        projects: app.CC
       })
     } else if (options.level == 7){
       this.setData({
-        level: app.level7
+        projects: app.level7
+      })
+    } else {
+      wx.showLoading({
+        title: '精彩马上呈现',
+      })
+      wx.cloud.callFunction({
+        name: 'getPathways',
+        data: {
+          level: options.level
+        },
+        success: res => {
+          console.log(res)
+          that.setData({
+            projects: res.result.data
+          })
+          wx.hideLoading()
+        }
       })
     }
   },
@@ -128,6 +89,27 @@ Page({
       sliderOffset: e.currentTarget.offsetLeft,
       activeIndex: e.currentTarget.id
     });
+  },
+
+  touchstart: function (e) {
+    console.log("touchstart")
+  },
+
+  touchmove: function (e) {
+    console.log("touchmove")
+    if (this.data.activeIndex == 0){
+      this.setData({
+        activeIndex: 1
+      })
+    }else{
+      this.setData({
+        activeIndex: 0
+      })
+    }
+  },
+
+  touchend: function (e) {
+    console.log("touchend")
   },
 
   copyText: function (e) {
@@ -142,25 +124,23 @@ Page({
   },
 
   kindToggle: function (e) {
-    var id = e.currentTarget.id, level = this.data.level;
-    for (var i = 0, len = level.length; i < len; ++i) {
-      if (level[i].id == id) {
-        // level[i].open = !level[i].open
-        console.log(i)
-        console.log(level[i].open)
-        level[i].open = (level[i].open == "true") ? "false" : "true"
-        console.log(level[i].open)
+    var id = e.currentTarget.id, projects = this.data.projects;
+    for (var i = 0, len = projects.length; i < len; ++i) {
+      if (projects[i].id == id) {
+        projects[i].open = (projects[i].open == "true") ? "false" : "true"
       } else {
-        console.log(i)
-        console.log(level[i].open)
-        level[i].open = "false"
+        projects[i].open = "false"
       }
     }
     this.setData({
-      level: level
+      projects: projects
     });
   },
 
   onShareAppMessage: function (options) {
+    return {
+      title: '头马助手 | Pathways手册' + '【' + this.data.level_name_ch + '】', 
+      // path: '/pages/pathways/desc/desc?level=' + options.level
+    }
   }
 })

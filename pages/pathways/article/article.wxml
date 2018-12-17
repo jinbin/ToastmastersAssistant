@@ -1,5 +1,4 @@
 <!--article.wxml-->
-<official-account></official-account>
 <view class="page">
     <view class="page__hd">
       <navigator url="/pages/menu/menu" open-type="switchTab">

@@ -1,0 +1,18 @@
+<!-- <view class="container">
+  <image src="https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/images/wordmark.jpg?sign=96493e305a60a730248c17bbac0582e4&t=1542367082" style="height: 80px; width: 100%" />
+</view> -->
+<view class="page-body">
+    <view class="page__hd">
+    <text decode="true" class="page__desc">
+    {{text}}
+    </text>
+    </view>
+  <view class="page-section tc">
+    <video id="myVideo" src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad/video/TM/TI官网操作示范.mp4" binderror="videoErrorCallback" controls></video>
+
+    <!-- <view class="btn-area">
+      <button bindtap="bindPlay" class="page-body-button" type="primary">播放</button>
+      <button bindtap="bindPause" class="page-body-button" type="primary">暂停</button>
+    </view> -->
+  </view>
+</view>

@@ -3,8 +3,8 @@
   <ad unit-id="adunit-ab171e6bb49115c5"></ad>
 </view>
 
-<view>下载需要一点时间，稍候自动打开。</view>
 <p bindtap='copyText' data-text="{{downloadUrl}}" style="color:#00BFFF">【点击直接复制评估资料地址】</p>
+<view>下载需要一点时间，稍候自动打开。</view>
 
 
 

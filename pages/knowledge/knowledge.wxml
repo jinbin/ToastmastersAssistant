@@ -1,0 +1,50 @@
+<!-- <official-account></official-account>
+<image src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/Pathwayslogo.jpg" style="height: 200px; width: 100%" /> -->
+  <!-- <image src="https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/images/wordmark.jpg?sign=96493e305a60a730248c17bbac0582e4&t=1542367082" style="height: 80px; width: 100%" /> -->
+    
+  <view class="button-sp-area">
+    <form report-submit="true" bindsubmit="levelHandler">
+    <view style="font-size: 20px">三官</view>
+    <view class="container">
+        <button id="1" class="weui-btn mini-btn" style="border:1px solid #D9D9D9;color:DimGrey; width:170px;" type="default" size="mini" formType="submit">哼哈官</button>
+        <button id="2" class="weui-btn mini-btn" style="width:170px" type="primary" size="mini" formType="submit" plain="true">时间官</button>
+        <button id="3" class="weui-btn mini-btn" style="width:170px" type="warn" size="mini" formType="submit" plain="true">语法官</button>
+    </view>
+    </form>
+  </view>
+
+    <view class="button-sp-area">
+    <form report-submit="true" bindsubmit="levelHandler">
+        <view style="font-size: 20px">会议角色</view>
+        <button id="4" class="weui-btn mini-btn" style="border:1px solid black;color:black" type="primary" plain="true" formType="submit">
+        <!-- <icon type="success" size="30"color="purple"></icon> -->
+        主持人
+        </button>   
+        <button id="5" class="weui-btn mini-btn" style="border:1px solid black;color:black" type="primary" plain="true" formType="submit">
+        <!-- <icon type="success" size="30"color="green"></icon> -->
+        总评
+        </button>
+        <button id="6" class="weui-btn mini-btn" style="border:1px solid black;color:black" type="primary" plain="true" formType="submit">
+        <!-- <icon type="success" size="30"color="green"></icon> -->
+        即兴演讲主持人
+        </button>
+        <button id="7" class="weui-btn mini-btn" style="border:1px solid black;color:black" type="primary" plain="true" formType="submit">
+        <!-- <icon type="success" size="30"color="green"></icon> -->
+        个人评估
+        </button>
+        <button id="8" class="weui-btn mini-btn" style="border:1px solid black;color:black" type="primary" plain="true" formType="submit">
+        <!-- <icon type="success" size="30"color="green"></icon> -->
+        即兴演讲评估
+        </button>
+    </form>
+
+    </view>
+
+  <view class="button-sp-area">
+    <form report-submit="true" bindsubmit="levelHandler">
+        <view style="font-size: 20px">头马官员</view>
+        <button id="official" class="weui-btn mini-btn" style="border:1px solid black;color:black" type="primary" plain="true" formType="submit">
+        头马官员们
+        </button>   
+    </form>
+  </view>

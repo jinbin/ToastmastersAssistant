@@ -39,7 +39,8 @@ Page({
       })
     } else if (options.detail.target.id == 7) {
       wx.navigateTo({
-        url: '/pages/pathways/article/article?level=' + options.detail.target.id,
+        // url: '/pages/pathways/document/document?url=' + "https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/tmcResources/10Paths.pdf?sign=99ac4f23fd0037c58edcf0f718d118a3&t=1544585979",
+        url: '/pages/video/pw/pw',
         success: function (res) { },
         fail: function (res) { },
         complete: function (res) { },
@@ -61,6 +62,7 @@ Page({
 
   onShareAppMessage: function () {
     return {
+      title: 'Pathways手册: 一站获取全部59个项目的说明和评估资料'
     }
   }
 })

@@ -1,0 +1,30 @@
+/* pages/video/video.wxss */
+@import "../../../styles/weui.wxss";
+
+.container {
+  height: 20%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50rpx 0;
+  box-sizing: border-box;
+} 
+
+.weui-cells{
+  margin-top: 80rpx;
+  text-align: left;
+}
+
+.weui-label{
+  width: 5em;
+}
+
+.page-body-button {
+  margin-bottom: 30rpx;
+}
+
+.page-body {
+  padding: 0rpx 0;
+}
+
