@@ -1,0 +1,7 @@
+<!--pages/webview/webview.wxml-->
+
+<view wx:for="{{content}}">
+    <text class="vol-content-text" wx:if="{{!imgIndex[index]}}">{{item}}</text>
+    <image style="width:100%" src="{{item}}" wx:if="{{imgIndex[index]}}" mode="widthFix"></image>
+</view>
+

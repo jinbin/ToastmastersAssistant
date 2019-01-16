@@ -12,7 +12,23 @@ Page({
     tabs: ["中文", "英文"],
     activeIndex: 0,
     sliderOffset: 0,
-    sliderLeft: 0
+    sliderLeft: 0,
+    array: [
+      "阶段一: 掌握基础", "阶段二: 学习风格", "阶段三: 丰富知识", "阶段四: 培养技能", "阶段五: 专业展示" 
+    ],
+    // arrayPath: ["全部", "创新计划", "激励策略","表达精通","领导力发展","愿景沟通","战略关系","动态领导力","说服影响力","有效指导","团队协作"],
+    arrayPath: ["全部", "创新计划"],
+    list: [
+      ["Level 1: Mastering Fundamentals","阶段一: 掌握基础"],
+      ["Level 2: Learning Your Style","阶段二：学习风格"],
+      ["Level 3: Increasing Knowledge", "阶段三：丰富知识"],
+      ["Level 4: Building Skills","阶段四：培养技能"],
+      ["Level 5: Demonstrating Expertise", "阶段五：专业展示",]
+    ],
+    index: 0,
+    indexPath: 0,
+    highlight: [],
+    pathStyle: false 
   },
 
   onLoad: function (options) {
@@ -28,6 +44,10 @@ Page({
 
     let name_en
     let name_cn
+
+    this.setData({
+      index: options.level -1 
+    })
 
     if(options.level == 1){
       name_en = "Level 1: Mastering Fundamentals"
@@ -50,6 +70,9 @@ Page({
     } else if (options.level == 7) {
       name_en = "Pathways资料"
       name_cn = "Pathways Resources"
+    } else if (options.level == 10) {
+      name_en = "Pathways: 10条路径"
+      name_cn = "Pathways是2018年在中国正式上线的Toastmasters新一代教育系统的称呼。Pathways包含10条路径，每条路径包含一定量的project，将为全球的头马会员提供新的成长服务。"      
     }
     this.setData({
       level_name_en: name_en,
@@ -60,9 +83,9 @@ Page({
       this.setData({
         projects: app.CC
       })
-    } else if (options.level == 7){
+    } else if (options.level == 10){
       this.setData({
-        projects: app.level7
+        projects: app.Paths
       })
     } else {
       wx.showLoading({
@@ -125,6 +148,7 @@ Page({
 
   kindToggle: function (e) {
     var id = e.currentTarget.id, projects = this.data.projects;
+    console.log("被选中id: " + id)
     for (var i = 0, len = projects.length; i < len; ++i) {
       if (projects[i].id == id) {
         projects[i].open = (projects[i].open == "true") ? "false" : "true"
@@ -133,8 +157,73 @@ Page({
       }
     }
     this.setData({
-      projects: projects
+      projects: projects,
+      indexPath: 0,
+      pathStyle: false
     });
+  },
+
+  bindPickerChangePath(e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      indexPath: e.detail.value
+    })
+    if(e.detail.value == 0){
+      console.log("全部")
+      for (let i = 0; i < this.data.projects.length; ++i) {
+        this.data.projects[i].highlight = false
+        this.setData({
+          projects: this.data.projects,
+          pathStyle: false
+        })
+      }
+    }else if(e.detail.value == 1){
+      console.log("创新计划")
+      for (let i = 0; i < this.data.projects.length; ++i) {
+        // console.log(this.data.projects[i].id)
+        console.log(app.divideByPath[0])
+        // console.log(this.data.projects[i].id in [1,2])
+        var mark = false 
+        for (var item in app.divideByPath[0]){
+          if (this.data.projects[i].id == app.divideByPath[0][item]){
+            mark = true 
+            break
+          }
+        }
+        this.data.projects[i].highlight = mark
+        console.log(this.data.projects[i].highlight)
+        this.setData({
+          projects: this.data.projects,
+          pathStyle: true
+        })
+      }
+    } else if (e.detail.value == 2){
+      
+    }
+  },
+
+  bindPickerChange(e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      index: e.detail.value
+    })
+    var that = this
+    wx.showLoading({
+      title: '精彩马上呈现',
+    })
+    wx.cloud.callFunction({
+      name: 'getPathways',
+      data: {
+        level: parseInt(e.detail.value) + 1
+      },
+      success: res => {
+        console.log(res)
+        that.setData({
+          projects: res.result.data
+        })
+        wx.hideLoading()
+      }
+    })
   },
 
   onShareAppMessage: function (options) {

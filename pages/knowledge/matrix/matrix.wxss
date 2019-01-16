@@ -1,0 +1,45 @@
+/* pages/knowledge/matrix/matrix.wxss */
+
+/* pages/knowledge/knowledge.wxss */
+
+/* pages/pathways/levels/levels.wxss */
+
+/* button::after {
+  border: none
+} */
+
+.button-sp-area{
+    margin: 0 auto;
+    padding-top: 15px;
+    width: 90%;
+    /* height: 60%; */
+}
+.mini-btn{
+  margin-right: 10px;
+  margin-left: 10px;
+  /* width: 80% */
+}
+.mini-btn50{
+    margin-right: 100px;
+    margin-left: 100px;
+    width: 50%
+}
+
+.page__ft{
+    /* padding-bottom: 30px; */
+    padding: 30px;
+    text-align: center;
+    font-size: 14px;
+    /* color: #888888; */
+}
+
+.container {
+  /* height: 20%; */
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  /* justify-content: space-around; */
+  padding: 0rpx 0;
+  /* box-sizing: border-box; */
+} 
+

@@ -80,6 +80,8 @@ Page({
     // console.log(e.detail.value)
   },
 
+  // 清理前 17731 条 
+  // 清理后 7573 条
   upFormIds: function(e) {
     var used = []
 

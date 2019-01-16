@@ -1,0 +1,9 @@
+/* pages/webview/webview.wxss */
+
+.vol-content-text {
+  /* width: 100%; */
+  padding: 20rpx;
+  /* min-height: 200rpx; */
+  font-size: 18px;
+  display: inline-block;
+}

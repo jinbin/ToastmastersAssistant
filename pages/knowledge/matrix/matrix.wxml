@@ -1,0 +1,31 @@
+<!--pages/knowledge/matrix/matrix.wxml-->
+  
+  <view class="button-sp-area">
+    <form report-submit="true" bindsubmit="levelHandler">
+        <view style="font-size: 20px">Pathways Matrix</view>
+        <view class="container">
+          <button id="matrix" class="weui-btn mini-btn" style="width:170px" type="primary" size="mini" formType="submit" plain="true">Matrix PDF 中文版</button>
+          <button id="matrixEn" class="weui-btn mini-btn" style="width:170px" type="primary" size="mini" formType="submit" plain="true">Matrix PDF 英文版</button>
+        </view>
+    </form>
+  </view>
+
+  <view class="button-sp-area" style="text-indent:40px">
+    <text>Pathways Matrix是由D67, D76, D89 和 D(U) 等精通Pathways的全球头马会员一起研发的关于Pathways学习和推广的项目, Matrix PDF是Pathways项目最及时的解读版本, 不定期更新。收藏"头马助手"，第一时间获取最新的Pathways Matrix。</text>
+  </view>
+  <view class="button-sp-area" style="text-indent:40px">
+    <text style="text-indent: 40rpx;text-align: left;">Matrix PDF由 Masayo Arai( ACG, ALB, D76 Pathways Guide ), Aaron Leung( D70 Pathways Advisor, Pathways Mentor, ACG, ALB, IP5, VC5, PM5, DL5, PMENTORPGM x 3, D(U), D89 ), Yu-Xian Liu 刘雨轩( DTM，D67 ) 合作完成，在此感谢他们对头马的付出。</text>
+  </view>
+  <view class="button-sp-area" style="text-indent:40px">
+    <text style="text-indent: 40rpx;text-align: left;">24 小时 Pathways 咨询:
+    Aaron Leung ( 微信: yuklun1988 / 邮件: yuklun88@gmail.com )</text>
+  </view>
+
+<!-- <import src="../../../templates/page_ft/page_ft.wxml"/>
+<template is="page_ft" data="{{...page_ft}}" /> -->
+
+  <view class="page__ft" bindtap='fromPageFt'>
+    <button type="primary" size="mini" class="weui-footer__text">
+    返回知识库
+    </button>
+  </view>

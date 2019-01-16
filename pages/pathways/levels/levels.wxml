@@ -1,6 +1,16 @@
 <!--menu.wxml-->
-<official-account></official-account>
+
+<!-- <navigator open-type="switchTab" url="/pages/volItem/volItem"> -->
+<navigator url="/pages/contact/contact">
 <image src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/Pathwayslogo.jpg" style="height: 200px; width: 100%" />
+<!-- <image src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/bannerbig.jpg" style="height: 190px; width: 100%" />
+<view style="display: flex; justify-content: center">
+  <text style="font-size:30px">Pathways at hand</text>  
+</view>
+<view style="display: flex; justify-content: center">
+  <text style="font-size:20px">begin without effort</text>
+</view> -->
+</navigator>
 
     <view class="button-sp-area">
     <form report-submit="true" bindsubmit="levelHandler">
@@ -22,17 +32,36 @@
         阶段四：培养技能
         </button>   
         <button id="5" class="weui-btn mini-btn" style="border:1px solid black;color:black" type="primary" plain="true" formType="submit">
-        <icon type="success" size="30"color="green"></icon>
+        <icon type="success" size="30" color="green"></icon>
         阶段五：专业展示
         </button>
         <!-- <button id="6" class="weui-btn mini-btn" style="border:1px solid #D9D9D9;color:#D9D9D9" type="primary" plain="true" formType="submit">
         旧教育体系CC
         </button> -->
         <view class="container">
-        <button id="6" class="weui-btn mini-btn" style="border:1px solid #D9D9D9;color:DimGrey; width:170px;" type="default" size="mini" formType="submit">CC说明</button>
-        <button class="weui-btn mini-btn" style="width:180px" type="primary" size="mini" open-type="share">点击分享</button>
-        <button id="7" class="weui-btn mini-btn" style="width:170px" type="warn" size="mini" formType="submit" plain="true">更多</button>
+        <button id="6" class="weui-btn mini-btn" style="width:170px;" type="default" size="mini" formType="submit" plain="true">CC说明</button>
+        <button id="10" class="weui-btn mini-btn" style="width:180px" type="primary" size="mini" formType="submit">10条路径</button>
+        <button id="matrix" class="weui-btn mini-btn" style="width:170px" type="default" size="mini" formType="submit" plain="true">matrix</button>
         </view>
+
+        <!-- <view class="container">
+        <button id="6" class="weui-btn mini-btn" style="width:170px;" type="default" size="mini" formType="submit" plain="true">CC说明</button>
+        <button id="contact" class="weui-btn mini-btn" style="width:170px" type="default" size="mini" formType="submit" plain="true">认识作者</button>
+        </view> -->
+
+        <!-- <view class="container">
+        <picker style="width:180px" bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+          <button style="width:180px"type="primary" size="mini">
+            <view class="picker">当前{{array[index]}}</view>
+          </button>
+        </picker>
+        <picker style="width:180px" bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+          <button style="width:180px" type="primary" size="mini">
+            <view class="picker">当前{{array[index]}}</view>
+          </button>
+        </picker>
+        </view> -->
+
     </form>
 
     </view>
@@ -48,3 +77,6 @@
   <p style="color:#00BFFF">可能性工作室</p>
   <view class="weui-footer__text">Copyright © 2018-2018 jinbin</view>
 </view> -->
+
+<import src="../../../templates/page_ft/page_ft.wxml"/>
+<template is="page_ft" data="{{...page_ft}}" />

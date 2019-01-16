@@ -1,5 +1,5 @@
 /* pages/video/video.wxss */
-@import "../../../styles/weui.wxss";
+/* @import "../../../styles/weui.wxss"; */
 
 .container {
   height: 20%;

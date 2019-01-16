@@ -1,10 +1,24 @@
 <!--list.wxml-->
 <view class="page">
-    <view class="page__hd">
-      <navigator url="/pages/pathways/levels/levels" open-type="switchTab">
-        <view class="page__title">{{level_name_ch}}</view>
-        <view class="page__desc">{{level_name_en}}</view>
-      </navigator>
+    <view class="page__hd" style="display: flex;flex-wrap: nowrap; justify-content: space-between">
+      <view wx:if="{{index != 5 && index != 6}}">
+        <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+          <view class="page__title">{{list[index][1]}}</view>
+          <view class="page__desc">{{list[index][0]}}</view>
+        </picker>
+      </view>
+      <!-- <view wx:if="{{index != 5 && index != 6}}">
+        <picker bindchange="bindPickerChangePath" value="{{indexPath}}" range="{{arrayPath}}">
+          <view class="page__title">{{arrayPath[indexPath]}}</view>
+        </picker>
+      </view>
+      <view wx:else>
+        <navigator url="/pages/pathways/levels/levels" open-type="switchTab">
+          <view class="page__title">{{level_name_ch}}</view>
+          <view class="page__desc">{{level_name_en}}</view>
+        </navigator>
+      </view> -->
+      <!-- <image src="../../../images/home.png"></image> -->
     </view>
 
   <view class="page">
@@ -24,9 +38,13 @@
         <view class="kind-list">
             <block wx:for="{{projects}}" wx:key="id">
                 <!-- <view wx:if="{{item.lang == 'cn'}}" class="kind-list__item" bindtouchstart="touchstart" bindtouchmove='touchmove' bindtouchend='touchend'> -->
-                <view wx:if="{{item.lang == 'cn'}}" class="kind-list__item">
+                <view wx:if="{{item.lang == 'cn' && (pathStyle == false || pathStyle && item.highlight)}}" class="kind-list__item">
                     <view  id="{{item.id}}" class="weui-flex kind-list__item-hd {{item.open != 'false' ? 'kind-list__item-hd_show' : ''}}" bindtap="kindToggle">
-                        <view class="titleItem">
+                        <view wx:if="{{item.highlight}}" class="titleItem" style="color:blue">
+                        {{item.name}}
+                        <p bindtap='copyText' data-text="{{item.desc}}" style="color:opacity:.4">{{item.open != 'false' ? '(点击复制)': ''}}</p>
+                        </view>
+                        <view wx:if="{{!item.highlight && !pathStyle}}" class="titleItem">
                         {{item.name}}
                         <p bindtap='copyText' data-text="{{item.desc}}" style="color:opacity:.4">{{item.open != 'false' ? '(点击复制)': ''}}</p>
                         </view>
@@ -34,7 +52,7 @@
                     <view class="kind-list__item-bd {{item.open != 'false' ? 'kind-list__item-bd_show' : ''}}">
                         <view class="weui-cells {{item.open != 'false' ? 'weui-cells_show' : ''}}">
 <text space="ensp" selectable='true'>{{item.desc}}\n\n</text>
-                        <navigator wx:if="{{item.resource}}" style="right: 20px; color:#00BFFF" url="/pages/pathways/document/document?url={{'https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/tmcResources/Evaluation Resource/cn/CS' + item.resource + '.pdf'}}">【评估资料】</navigator>
+                        <navigator wx:if="{{item.resource}}" style="right: 20px; color:#00BFFF" url="/pages/pathways/document/document?url={{'https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/tmcResources/Evaluation%20Resource/cn/CS' + item.resource + '.pdf'}}">【评估资料】</navigator>
                         </view>
                     </view>
                 </view>
@@ -49,9 +67,13 @@
         <view class="kind-list">
             <block wx:for="{{projects}}" wx:key="id">
                 <!-- <view wx:if="{{item.lang == 'en'}}" class="kind-list__item" bindtouchstart="touchstart" bindtouchmove='touchmove' bindtouchend='touchend'> -->
-                <view wx:if="{{item.lang == 'en'}}" class="kind-list__item">
+                <view wx:if="{{item.lang == 'en'&& (pathStyle == false || pathStyle && item.highlight)}}" class="kind-list__item">
                     <view id="{{item.id}}" class="weui-flex kind-list__item-hd {{item.open != 'false' ? 'kind-list__item-hd_show' : ''}}" bindtap="kindToggle">
-                        <view class="titleItem">
+                        <view wx:if="{{item.highlight}}" class="titleItem" style="color:blue">
+                        {{item.name}}
+                        <p bindtap='copyText' data-text="{{item.desc}}" style="color:opacity:.4">{{item.open != 'false' ? '(点击复制)': ''}}</p>
+                        </view>
+                        <view wx:else class="titleItem">
                         {{item.name}}
                         <p bindtap='copyText' data-text="{{item.desc}}" style="color:opacity:.4">{{item.open != 'false' ? '(点击复制)': ''}}</p>
                         </view>
@@ -59,7 +81,7 @@
                     <view class="kind-list__item-bd {{item.open != 'false' ? 'kind-list__item-bd_show' : ''}}">
                         <view class="weui-cells {{item.open != 'false' ? 'weui-cells_show' : ''}}">
 <text space="ensp" selectable='true'>{{item.desc}}\n\n</text>
-                        <navigator wx:if="{{item.resource}}" style="right: 20px; color:#00BFFF" url="/pages/pathways/document/document?url={{'https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/tmcResources/Evaluation Resource/en/' + item.resource + '.pdf'}}">【Evaluation Resource】</navigator>
+                        <navigator wx:if="{{item.resource}}" style="right: 20px; color:#00BFFF" url="/pages/pathways/document/document?url={{'https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/tmcResources/Evaluation%20Resource/en/' + item.resource + '.pdf'}}">【Evaluation Resource】</navigator>
                         </view>
                     </view>
                 </view>

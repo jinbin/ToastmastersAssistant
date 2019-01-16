@@ -6,7 +6,7 @@
     <form report-submit="true" bindsubmit="levelHandler">
     <view style="font-size: 20px">三官</view>
     <view class="container">
-        <button id="1" class="weui-btn mini-btn" style="border:1px solid #D9D9D9;color:DimGrey; width:170px;" type="default" size="mini" formType="submit">哼哈官</button>
+        <button id="1" class="weui-btn mini-btn" style="border:1px solid black;color:black; width:170px;" type="default" size="mini" formType="submit">哼哈官</button>
         <button id="2" class="weui-btn mini-btn" style="width:170px" type="primary" size="mini" formType="submit" plain="true">时间官</button>
         <button id="3" class="weui-btn mini-btn" style="width:170px" type="warn" size="mini" formType="submit" plain="true">语法官</button>
     </view>
@@ -16,35 +16,42 @@
     <view class="button-sp-area">
     <form report-submit="true" bindsubmit="levelHandler">
         <view style="font-size: 20px">会议角色</view>
-        <button id="4" class="weui-btn mini-btn" style="border:1px solid black;color:black" type="primary" plain="true" formType="submit">
-        <!-- <icon type="success" size="30"color="purple"></icon> -->
-        主持人
-        </button>   
-        <button id="5" class="weui-btn mini-btn" style="border:1px solid black;color:black" type="primary" plain="true" formType="submit">
-        <!-- <icon type="success" size="30"color="green"></icon> -->
-        总评
-        </button>
-        <button id="6" class="weui-btn mini-btn" style="border:1px solid black;color:black" type="primary" plain="true" formType="submit">
-        <!-- <icon type="success" size="30"color="green"></icon> -->
-        即兴演讲主持人
-        </button>
-        <button id="7" class="weui-btn mini-btn" style="border:1px solid black;color:black" type="primary" plain="true" formType="submit">
-        <!-- <icon type="success" size="30"color="green"></icon> -->
-        个人评估
-        </button>
-        <button id="8" class="weui-btn mini-btn" style="border:1px solid black;color:black" type="primary" plain="true" formType="submit">
-        <!-- <icon type="success" size="30"color="green"></icon> -->
-        即兴演讲评估
-        </button>
+        <view class="container">
+        <button id="4" class="weui-btn mini-btn" style="border:1px solid black;color:black; width:180px;" type="default" size="mini" formType="submit">主持人</button>
+        <button id="5" class="weui-btn mini-btn" style="width:180px" type="primary" size="mini" formType="submit" plain="true">总评</button>
+        </view>
+        <view class="container">
+        <button id="6" class="weui-btn mini-btn" style="width:180px" type="primary" size="mini" formType="submit" plain="true">即兴主持</button>
+        <button id="8" class="weui-btn mini-btn" style="width:180px" type="warn" size="mini" formType="submit" plain="true">即兴评估</button>
+        </view>
+        <view class="container">
+        <button id="7" class="weui-btn mini-btn" style="width:180px" type="default" size="mini" formType="submit" plain="true">个人评估</button>
+        <button id="9" class="weui-btn mini-btn" style="width:180px" type="primary" size="mini" formType="submit" plain="true">接待官</button>
+        <!-- <button id="timertool" class="weui-btn mini-btn" style="width:180px" type="primary" size="mini" formType="submit">演讲计时器</button> -->
+        </view>
     </form>
 
     </view>
 
   <view class="button-sp-area">
     <form report-submit="true" bindsubmit="levelHandler">
-        <view style="font-size: 20px">头马官员</view>
-        <button id="official" class="weui-btn mini-btn" style="border:1px solid black;color:black" type="primary" plain="true" formType="submit">
-        头马官员们
-        </button>   
+        <view style="font-size: 20px">Pathways Matrix</view>
+        <button id="matrix" class="weui-btn mini-btn" style="width:180px" type="primary" size="mini" formType="submit">Matrix PDF版</button>
+    </form>
+  </view>
+
+  <view class="button-sp-area">
+    <form report-submit="true" bindsubmit="levelHandler">
+        <view style="font-size: 20px">官员专区</view>
+        <view class="container">
+        <button id="official" class="weui-btn mini-btn" style="width:180px" type="primary" size="mini" formType="submit" plain="true">官员介绍</button>
+        <!-- </view>
+        <view class="container"> -->
+        <button id="pws" class="weui-btn mini-btn" style="width:180px" type="primary" size="mini" formType="submit" plain="true">CLUB PWS数据</button>
+        </view>
+        <view class="container">
+        <button id="tmRes" class="weui-btn mini-btn" style="width:180px" type="primary" size="mini" formType="submit" plain="true">头马资料库</button>
+        <button id="know" class="weui-btn mini-btn" style="width:180px" type="primary" size="mini" formType="submit" plain="true">认识作者</button>
+        </view>
     </form>
   </view>

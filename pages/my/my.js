@@ -6,6 +6,9 @@ Page({
    */
   data: {
     appId: "wx8abaf00ee8c3202e",
+    page_ft: {
+      data: "Copyright © 2018-2019 jinbin"
+    },
     extraData: {
       id: "43654",
       // 自定义参数，具体参考文档
@@ -21,10 +24,20 @@ Page({
       //   url: '/pages/index/index',
       // },
       {
-        title: '联系作者',
-        remark: '联系作者',
+        title: '认识作者',
+        remark: '认识作者',
         url: '/pages/contact/contact',
       },
+      {
+        title: '关于头马助手',
+        remark: '关于头马助手',
+        url: '/pages/webview/webview?article=toumazhushou'
+      },
+      // {
+      //   title: '功能介绍',
+      //   remark: '功能介绍',
+      //   url: '/pages/pathways/document/document?url=https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/tmcResources/头马助手Toastmasters Assistant.pdf'
+      // },
       {
         title: '更新记录',
         remark: '更新记录',
@@ -169,5 +182,14 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  fromPageFt: function () {
+    wx.navigateTo({
+      url: '/pages/contact/contact',
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
   }
 })

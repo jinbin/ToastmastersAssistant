@@ -8,6 +8,9 @@ const db = wx.cloud.database({
 
 Page({
   data: {
+    page_ft:{
+      data: ""
+    }
   },
 
   onLoad: function (options) {
@@ -30,33 +33,52 @@ Page({
       }
     })
 
-    if (options.detail.target.id != 7) {
+    if (options.detail.target.id == "intro") {
+      wx.switchTab({
+        url: '/pages/volItem/volItem',
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+    } else if (options.detail.target.id == "contact") {
+      wx.navigateTo({
+        url: '/pages/contact/contact',
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+    } else if (options.detail.target.id == "matrix") {
+      wx.navigateTo({
+        url: '/pages/knowledge/matrix/matrix',
+      })
+    } else if (options.detail.target.id != 7) {
       wx.navigateTo({
         url: '/pages/pathways/desc/desc?level=' + options.detail.target.id,
         success: function (res) { },
         fail: function (res) { },
         complete: function (res) { },
       })
-    } else if (options.detail.target.id == 7) {
-      wx.navigateTo({
-        // url: '/pages/pathways/document/document?url=' + "https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/tmcResources/10Paths.pdf?sign=99ac4f23fd0037c58edcf0f718d118a3&t=1544585979",
-        url: '/pages/video/pw/pw',
-        success: function (res) { },
-        fail: function (res) { },
-        complete: function (res) { },
-      })
-    }
+    }  
   },
 
-  toMiniProgram: function (e) {
-    console.log("toMiniProgram")
-    wx.navigateToMiniProgram({
-      appId: 'wx09a49d05a365a4e6',
-      path: "pages/contact/contact",
-      // envVersion: 'trial',
-      success(res) {
-        console.log("SUCCESS")
-      }
+  // toMiniProgram: function (e) {
+  //   console.log("toMiniProgram")
+  //   wx.navigateToMiniProgram({
+  //     appId: 'wx09a49d05a365a4e6',
+  //     path: "pages/contact/contact",
+  //     // envVersion: 'trial',
+  //     success(res) {
+  //       console.log("SUCCESS")
+  //     }
+  //   })
+  // },
+
+  fromPageFt: function (e) {
+    wx.navigateTo({
+      url: '/pages/contact/contact',
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
     })
   },
 

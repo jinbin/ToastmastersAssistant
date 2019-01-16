@@ -17,6 +17,15 @@ Page({
     this.setData({
       downloadUrl: url
     })
+    if (options.type == "url"){
+      this.setData({
+        prompt: "请复制链接在微信中打开"
+      })
+    }else {
+      this.setData({
+        prompt: "PDF下载需要一点时间，稍候自动打开。"
+      })      
+    }
     wx.downloadFile({
       // 示例 url，并非真实存在
       url: url,

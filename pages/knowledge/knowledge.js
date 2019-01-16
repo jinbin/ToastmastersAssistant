@@ -38,32 +38,72 @@ Page({
     })
 
     var url 
-    if (options.detail.target.id == 1) {
-      url = "https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/tmcResources/role/哼哈官.pdf"
-    } else if (options.detail.target.id == 2){
-      url = "https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/tmcResources/role/时间官.pdf"
-    }else if (options.detail.target.id == 3) {
-    url = "https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/tmcResources/role/语法官.pdf"
-    } else if(options.detail.target.id == 4){
-      url = "https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/tmcResources/role/主持人.pdf"
-    } else if (options.detail.target.id == 5){
-      url = "https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/tmcResources/role/总评.pdf"
-    } else if (options.detail.target.id == 6){
-      url = "https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/tmcResources/role/即兴演讲主持人.pdf"
-    } else if (options.detail.target.id == 7) {
-      url = "https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/tmcResources/role/个人评估.pdf"
-    } else if (options.detail.target.id == 8) {
-      url = "https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/tmcResources/role/即兴演讲评估.pdf"
-    } else if (options.detail.target.id == "official") {
-      url = "https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/tmcResources/role/头马官员介绍.pdf"
-    }
+    var article
+    if (options.detail.target.id == "timertool"){
+      wx.navigateTo({
+        url: '/pages/tm/clock/set/set',
+        success: function(res) {},
+        fail: function(res) {},
+        complete: function(res) {},
+      })
+    } else if(options.detail.target.id == "matrix"){
+      wx.navigateTo({
+        url: '/pages/knowledge/matrix/matrix',
+      })
+    } else if (options.detail.target.id == "know"){
+      wx.navigateTo({
+        url: '/pages/contact/contact',
+      })
+    } else {
+      if (options.detail.target.id == 1) {
+        url = "https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/tmcResources/role/ahcounter.pdf"
+        article = "ahcounter"
+      } else if (options.detail.target.id == 2){
+        url = "https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/tmcResources/role/timer.pdf"
+        article = "timer"
+      }else if (options.detail.target.id == 3) {
+        url = "https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/tmcResources/role/grammarian.pdf"
+        article = "grammarian"
+      } else if(options.detail.target.id == 4){
+        url = "https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/tmcResources/role/tm.pdf"
+        article = "tm"
+      } else if (options.detail.target.id == 5){
+        url = "https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/tmcResources/role/ge.pdf"
+        article = "ge"
+      } else if (options.detail.target.id == 6){
+        url = "https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/tmcResources/role/tth.pdf"
+        article = "ttm"
+      } else if (options.detail.target.id == 7) {
+        url = "https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/tmcResources/role/pe.pdf"
+        article = "ie"
+      } else if (options.detail.target.id == 8) {
+        url = "https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/tmcResources/role/tte.pdf"
+        article = "tte"
+      } else if (options.detail.target.id == 9) {
+        article = "SAA"
+      }else if (options.detail.target.id == "official") {
+        url = "https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/tmcResources/role/official.pdf"
+      } else if (options.detail.target.id == "matrix") {
+        url = "https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/tmcResources/Pathways-Path-and-Project-Matrix_ENCS-chi.pdf"
+      } else if (options.detail.target.id == "pws") {
+        url = "https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/tmcResources/作为Basecamp经理如何导出俱乐部PWS数据.pdf"
+      } else if (options.detail.target.id == "tmRes") {
+        url = "https://mp.weixin.qq.com/s/hIiqx6EDHBNWEBIcEdcCJw"
+      }
+      var naviTo 
+      if(article) {
+        naviTo = '/pages/webview/webview?article=' + article
+      }else {
+        naviTo = '/pages/pathways/document/document?url=' + url
+      }
 
-    wx.navigateTo({
-      url: '/pages/pathways/document/document?url=' + url,
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
-    })
+      wx.navigateTo({
+          url: naviTo,
+          success: function (res) { },
+          fail: function (res) { },
+          complete: function (res) { },
+      })
+    }
   },
 
   /**
@@ -113,7 +153,8 @@ Page({
    */
   onShareAppMessage: function () {
     return {
-      title: "头马助手 | 知识库"
+      title: '头马知识库 | 一站式了解头马所有会议角色',
+      imageUrl: '/images/roles.png'
     }
   }
 })

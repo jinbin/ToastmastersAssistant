@@ -1,6 +1,6 @@
 /**app.wxss**/
 
-@import 'styles/weui.wxss';
+@import 'styles/weui.min.wxss';
 
 .page__hd {
     padding: 20px;

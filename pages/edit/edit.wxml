@@ -1,6 +1,5 @@
 <!--pages/edit/edit.wxml-->
 
-<ad unit-id="adunit-ab171e6bb49115c5"></ad>
 <view class="container edit-container">
   <textarea maxlength="{{edit_text_max}}"  class="edit_textarea" auto-focus="{{true}}" focus="{{is_focus}}" bindinput="editInput"  bindconfirm="editConfirm" value="{{edit_text}}" adjust-position="{{true}}" bindfocus="editFocus" bindblur="editBlur"></textarea>
   <view class="bottom-wrap" style="padding-bottom: {{bottomHeight}}px">
@@ -12,3 +11,5 @@
     </view>
   </view>
 </view>
+
+<!-- <ad unit-id="adunit-ab171e6bb49115c5"></ad> -->

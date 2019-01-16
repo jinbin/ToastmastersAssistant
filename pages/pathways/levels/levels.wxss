@@ -4,6 +4,14 @@ button::after {
   border: none
 }
 
+.banner{
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 40px;
+  text-align: center;
+}
+
 .button-sp-area{
     margin: 0 auto;
     padding-top: 15px;
@@ -34,23 +42,6 @@ button::after {
   flex-direction: row;
   align-items: baseline;
   /* justify-content: space-around; */
-  padding: 50rpx 0;
+  padding: 10rpx 0;
   /* box-sizing: border-box; */
 } 
-
-.cps-icon-share {
-  position: fixed;
-  text-align: center;
-  bottom: 100rpx;
-  right: 20rpx;
-  z-index: 1000;
-  color: #9a9a9a;
-  font-size: 24rpx;
-  width: 125rpx;
-  height: 115rpx;
-  background-image: url('https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/images/write.png?sign=e13a4c52d7e21a10f4f110d742a5dd7d&t=1543247620');
-  background-repeat: no-repeat;
-  -webkit-background-size: cover;
-  background-size: cover;
-  font-size: 0;
-}

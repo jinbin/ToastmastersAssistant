@@ -1,9 +1,12 @@
 {
   "pages":[
     "pages/pathways/levels/levels",
+    "pages/webview/webview",
+    "pages/knowledge/matrix/matrix",
+    "pages/knowledge/knowledge",
+    "pages/volItem/volItem",
     "pages/agenda/agenda",
     "pages/video/pw/pw",
-    "pages/knowledge/knowledge",
     "pages/pathways/desc/desc",
     "pages/pathways/document/document",
     "pages/pathways/article/article",
@@ -18,23 +21,23 @@
   ],
   "window":{
     "backgroundTextStyle":"black",
-    "navigationBarBackgroundColor": "#096ee0",
+    "navigationBarBackgroundColor": "#F8F8F8",
     "navigationBarTitleText": "头马助手",
-    "navigationBarTextStyle":"#DAA520"
+    "navigationBarTextStyle": "black"
   },
     "tabBar": {
       "list": [
         {
-          "pagePath": "pages/tm/clock/set/set",
-          "iconPath": "./images/tabBar/timer.png",
-          "selectedIconPath": "./images/tabBar/timer-sel.png",
-          "text": "计时器"
+          "pagePath": "pages/translator/translator",
+          "iconPath": "./images/tabBar/miniprogram.png",
+          "selectedIconPath": "images/tabBar/miniprogram-sel.png",
+          "text": "中英翻译器"
         },
         {
-          "pagePath": "pages/knowledge/knowledge",
-          "iconPath": "./images/tabBar/cart.png",
-          "selectedIconPath": "images/tabBar/cart-sel.png",
-          "text": "知识库"
+          "pagePath": "pages/volItem/volItem",
+          "iconPath": "./images/tabBar/homepage.png",
+          "selectedIconPath": "./images/tabBar/homepage-sel.png",
+          "text": "Hi 头马"
         },
         {
           "pagePath": "pages/pathways/levels/levels",
@@ -43,10 +46,10 @@
           "text": "Pathways"
         },
         {
-          "pagePath": "pages/translator/translator",
-          "iconPath": "./images/tabBar/miniprogram.png",
-          "selectedIconPath": "images/tabBar/miniprogram-sel.png",
-          "text": "中英翻译器"
+          "pagePath": "pages/knowledge/knowledge",
+          "iconPath": "./images/tabBar/cart.png",
+          "selectedIconPath": "images/tabBar/cart-sel.png",
+          "text": "知识库"
         },
         {
           "pagePath": "pages/my/my",

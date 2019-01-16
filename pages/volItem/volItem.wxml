@@ -1,0 +1,20 @@
+<swiper indicator-dots="true" class="vol-swiper" current="{{current}}" bindchange="handleChange">
+  <block wx:for="{{vols}}" wx:for-index="idx" wx:key="{{hpcontent_id}}">
+    <swiper-item class="vol-swiper-item">
+      <!-- <view style="display:flex; flex-direction: column; align-items:flex-end;">
+        <navigator open-type='switchTab'url="/pages/pathways/levels/levels">
+        <image src="../../images/home_light.png" style="width:40px;height:35px"></image>
+        </navigator>
+      </view> -->
+      <import src="templates/volText.wxml"/>
+      <template is="vol-item" data="{{item: item}}"/>
+      <!-- <view style="display:flex; flex-direction: column; align-items:center;">
+      <form report-submit="true" bindsubmit="levelHandler">
+        <button id="intro" class="" style="width:180px" type="default" size="mini" formType="submit">返回首页</button>
+      </form>
+      </view> -->
+
+    </swiper-item>
+
+  </block>
+</swiper>

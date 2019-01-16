@@ -10,22 +10,12 @@ Page({
     let name_en
     let name_cn
     console.log(options.level)
-
-    if (options.level == 7) {
-      name_en = "Pathways资料"
-      name_cn = "Pathways Resources"
-    }
     
     this.setData({
       level_name_en: name_en,
       level_name_ch: name_cn
     })
 
-    if (options.level == 7) {
-      this.setData({
-        level: app.level7
-      })
-    }
   },
 
   tabClick: function (e) {

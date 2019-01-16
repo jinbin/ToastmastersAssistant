@@ -2,7 +2,6 @@
     <view class="page__hd">
         <view class="page__title" style="text-align: center;">{{title}}</view>
     </view>
-    <ad unit-id="adunit-ab171e6bb49115c5"></ad>
     <view class="page__bd">
         <view class="weui-article">
             <view class="weui-article__p">
@@ -12,9 +11,4 @@
             </view>
         </view> 
     </view>
-</view>
-
-<view class="page__ft" bindtap='toMiniProgram'>Powered by 
-  <p style="color:#00BFFF">可能性工作室</p>
-  <view class="weui-footer__text">Copyright © 2018-2018 jinbin</view>
 </view>
