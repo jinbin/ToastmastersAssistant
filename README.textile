@@ -5,13 +5,9 @@ h2. A mobile-based Toastmasters learning tool
 Toastmasters Assistant is a mobile-based Toastmasters learning tool. Features include:
 
 * Pathways handbook
-**  
 * Knowledge base 
-**
 * Hi Toastmasters
-** 
 * Translator
-**
 
 h2. Getting Started
 
