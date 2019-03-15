@@ -6,7 +6,6 @@
     "pages/knowledge/knowledge",
     "pages/volItem/volItem",
     "pages/agenda/agenda",
-    "pages/video/pw/pw",
     "pages/pathways/desc/desc",
     "pages/pathways/document/document",
     "pages/pathways/article/article",
@@ -20,7 +19,7 @@
     "pages/tm/clock/countdown/countdown"
   ],
   "window":{
-    "backgroundTextStyle":"black",
+    "backgroundTextStyle":"dark",
     "navigationBarBackgroundColor": "#F8F8F8",
     "navigationBarTitleText": "头马助手",
     "navigationBarTextStyle": "black"
@@ -61,7 +60,8 @@
     },
     "navigateToMiniProgramAppIdList": [
       "wx09a49d05a365a4e6",
-      "wx8abaf00ee8c3202e"
+      "wx8abaf00ee8c3202e",
+      "wx4c4b54bc609bd79e"
     ],
     "plugins": {
       "gdPlugin": {

@@ -27,7 +27,6 @@
         <view class="container">
         <button id="7" class="weui-btn mini-btn" style="width:180px" type="default" size="mini" formType="submit" plain="true">个人评估</button>
         <button id="9" class="weui-btn mini-btn" style="width:180px" type="primary" size="mini" formType="submit" plain="true">接待官</button>
-        <!-- <button id="timertool" class="weui-btn mini-btn" style="width:180px" type="primary" size="mini" formType="submit">演讲计时器</button> -->
         </view>
     </form>
 
@@ -35,8 +34,21 @@
 
   <view class="button-sp-area">
     <form report-submit="true" bindsubmit="levelHandler">
-        <view style="font-size: 20px">Pathways Matrix</view>
-        <button id="matrix" class="weui-btn mini-btn" style="width:180px" type="primary" size="mini" formType="submit">Matrix PDF版</button>
+    <view style="font-size: 20px">工具箱</view>
+    <view class="container">
+      <button id="jixing" class="weui-btn mini-btn" style="width:180px" type="primary" size="mini" formType="submit">即兴演讲助手</button>
+      <button id="timertool" class="weui-btn mini-btn" style="width:180px" type="default" size="mini" formType="submit" plain="true">演讲计时</button>
+    </view>
+    </form>
+  </view>
+
+  <view class="button-sp-area">
+    <form report-submit="true" bindsubmit="levelHandler">
+      <view style="font-size: 20px">Pathways Matrix</view>
+      <view class="container">
+      <button id="matrix" class="weui-btn mini-btn" style="width:180px" type="default" size="mini" formType="submit" plain="true">Matrix 说明</button>
+      <button id="matrixdownload" class="weui-btn mini-btn" style="width:180px" type="default" size="mini" formType="submit" plain="true">Matrix 下载</button>
+      </view>
     </form>
   </view>
 

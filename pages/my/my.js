@@ -6,6 +6,7 @@ Page({
    */
   data: {
     appId: "wx8abaf00ee8c3202e",
+    tt_appId: "wx4c4b54bc609bd79e",
     page_ft: {
       data: "Copyright © 2018-2019 jinbin"
     },

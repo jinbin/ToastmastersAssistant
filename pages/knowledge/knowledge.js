@@ -50,6 +50,10 @@ Page({
       wx.navigateTo({
         url: '/pages/knowledge/matrix/matrix',
       })
+    } else if (options.detail.target.id == "jixing"){
+      wx.navigateToMiniProgram({
+        appId: 'wx4c4b54bc609bd79e',
+      })
     } else if (options.detail.target.id == "know"){
       wx.navigateTo({
         url: '/pages/contact/contact',
@@ -89,6 +93,8 @@ Page({
         url = "https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/tmcResources/作为Basecamp经理如何导出俱乐部PWS数据.pdf"
       } else if (options.detail.target.id == "tmRes") {
         url = "https://mp.weixin.qq.com/s/hIiqx6EDHBNWEBIcEdcCJw"
+      } else if (options.detail.target.id == "matrixdownload") {
+        url = "https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/tmcResources/PathwaysMatrixGlobal.pdf"
       }
       var naviTo 
       if(article) {

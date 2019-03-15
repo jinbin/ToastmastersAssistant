@@ -15,7 +15,7 @@ Page({
     if (options.detail.target.id == "matrix") {
       url = "https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/tmcResources/Pathways-Path-and-Project-Matrix_ENCS-chi.pdf"
     } else if (options.detail.target.id == "matrixEn") {
-      url = "https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/tmcResources/Pathways%20Matrix%20Eng%20Version.pdf" 
+      url = "https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/tmcResources/PathwaysMatrixEN.pdf" 
     }
 
     wx.navigateTo({

@@ -4,5 +4,5 @@
 <p bindtap='copyText' data-text="{{downloadUrl}}" style="color:#00BFFF">【点击直接复制资料地址】</p>
 
 <view style="position: fixed; right: 0;left: 0; bottom: 0;">
-  <ad unit-id="adunit-ab171e6bb49115c5"></ad>
+  <ad unit-id="adunit-7e2a919ed9ae5ab4"></ad>
 </view>

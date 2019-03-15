@@ -1,12 +1,12 @@
 module.exports = [
   {
     "hp_content": "Toastmasters（TMC）既不是做吐司的也不是马术俱乐部，TMC真正的意思为会议主持人，Toast 是“举杯祝贺”，Master 是“主人”，Toastmasters音译为头马。这是一个自1924 年于美国加州成立，在全球 143多个国家拥有超过 35 万个会员的非营利性国际组织，成立的初衷是让每个人都能成为更高效的沟通者和领导者。",
-    "hp_img_url": "http://pkgfh4vo8.bkt.clouddn.com/TI.jpg"
+    "hp_img_url": "cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/TMColorLogo.jpg"
   },
   {
     "hp_content": "如果把头马比作一所大学，那么Pathways是头马的教育体系，分为十个专业：包括激励策略、表达精通、领导力发展、创新计划、愿景沟通、战略关系、动态领导力、说服影响力、有效指导、团队协作等方面，每个专业都从浅至深分为五个层级，通过做完59项“打怪升级”一样的任务来锻炼职场和生活必须的300多种核心能力。",
   "hp_img_url":
-"cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/uoPathwayslogo.jpg"
+"cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/Pathwayslogo.jpg"
   },
   {
     "hp_content": "头马成员轮流担任会议里的不同角色（主持人、演讲者、语法官、哼哈官、计时官、评估者……），主要包括三部分：1、Prepared Speech（备稿演讲）2、Table Topics（即兴演讲）每位会员每次就该主题进行一致两分钟的即席演讲。3、Evaluation（评估）每个备稿演讲和领导职务都有资深会员按照设定的标准，以具有鼓励作用和建设性的方式，进行口头评论。",

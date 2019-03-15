@@ -34,6 +34,16 @@
 			    </navigator>
 		  </block>
 
+      <navigator target="miniProgram" open-type="navigate" app-id="{{ tt_appId }}" version="release" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+          <view class="weui-cell__hd">
+			    </view>
+			    <view class="weui-cell__bd">
+          即兴演讲
+          <span style="color:red;">*</span>
+          </view>
+			    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </navigator>
+
         <navigator target="miniProgram" open-type="navigate" app-id="{{ appId }}" extra-data="{{ extraData }}" version="release" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
           <view class="weui-cell__hd">
 			      <!-- <image src="../../images/tabBar/info.png" style="margin-right: 5px;vertical-align: middle;width:25px; height: 25px;"></image> -->

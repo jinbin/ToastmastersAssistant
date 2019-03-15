@@ -100,6 +100,7 @@ Page({
       "ie": ["头马知识库 | 个人评估", '/images/roles.png'],
       "ge": ["头马知识库 | 总评", '/images/roles.png'],
       "tte": ["头马知识库 | 即兴评估", '/images/roles.png'],
+      "SAA": ["头马知识库 | 接待官", '/images/roles.png']
     }
 
     return {
