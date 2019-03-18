@@ -1,0 +1,96 @@
+<!--pages/merger/merger.wxml-->
+
+<image class="banner" mode="aspectFit" src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/korea_tm.jpg"></image>
+
+<view class="container1">
+  <view class="title">
+    <text style="color:DimGray">—</text> 教育体系
+    <text style="color:DimGray">—</text>
+  </view>
+  <view class="box">
+    <view class="item" bindtap="getPathways" id="1" style="color:Orange">
+      <text>阶段一</text>
+      <text style="font-size: 10px">夯实基础</text>
+    </view>
+    <view class="item" bindtap="getPathways" id="2" style="color:ForestGreen">
+      <text>阶段二</text>
+      <text style="font-size: 10px">学习风格</text>
+    </view>
+    <view class="item" bindtap="getPathways" id="3" style="color:DarkCyan">
+      <text>阶段三</text>
+      <text style="font-size: 10px">丰富知识</text>
+    </view>
+    <view class="item" bindtap="getPathways" id="4" style="color:red">
+      <text>阶段四</text>
+      <text style="font-size: 10px">培养技能</text>
+    </view>
+    <view class="item" bindtap="getPathways" id="5" style="color:purple">
+      <text>阶段五</text>
+      <text style="font-size: 10px">专业展示</text>
+    </view>
+  </view>
+  <text style="color:DimGray;font-size:10px;padding-bottom:10rpx;">包含新教育体系Pathways所有项目中英文说明</text>
+</view>
+
+<view class='line'></view>
+
+<view class="container1">
+  <view class="title">
+    <text style="color:DimGray">—</text> 会议角色
+    <text style="color:DimGray">—</text>
+  </view>
+  <view class="main_box">
+    <view class="box">
+      <text bindtap="getRoles" id="timer" class="item" style="color:Orange;width:200rpx;">时间官</text>
+      <text bindtap="getRoles" id="grammarian" class="item" style="color:DarkCyan;width:200rpx;">语法官</text>
+      <text bindtap="getRoles" id="ahcounter" class="item" style="color:purple;width:200rpx;">哼哈官</text>
+    </view>
+    <view class="box">
+      <text bindtap="getRoles" id="tm" class="item" style="color:Orange;width:200rpx;">主持人</text>
+      <text bindtap="getRoles" id="ttm" class="item" style="color:DarkCyan;width:200rpx;">即兴主持</text>
+      <text bindtap="getRoles" id="ge" class="item" style="color:purple;width:200rpx;">总评</text>
+    </view>
+    <view class="box">
+      <text bindtap="getRoles" id="tte" class="item" style="color:Orange;width:200rpx;">即兴评估</text>
+      <text bindtap="getRoles" id="ie" class="item" style="color:DarkCyan;width:200rpx;">个人评估</text>
+      <text bindtap="getRoles" id="SAA" class="item" style="color:purple;width:200rpx;">接待官</text>
+    </view>
+  </view>
+  <text style="color:DimGray;font-size:10px;padding-bottom:10rpx;">包含所有角色说明及中英文模板</text>
+</view>
+
+<view class='line'></view>
+
+<view class="container1">
+  <view class="title">
+    <text style="color:DimGray">—</text> 实用工具
+    <text style="color:DimGray">—</text>
+  </view>
+
+  <view class="box">
+    <text class="item" bindtap="getTool" id="jixing" style="color:Orange">即兴演讲助手</text>
+    <text class="item" bindtap="getTool" id="timertool" style="color:DarkCyan">演讲计时</text>
+    <text class="item" bindtap="getTool" id="matrix" style="color:purple">Pathways Matrix</text>
+  </view>
+  <text style="color:DimGray;font-size:10px;padding-bottom:10rpx; ">更多实用工具，敬请期待</text>
+</view>
+
+<ad unit-id="adunit-ab171e6bb49115c5"></ad>
+
+<view class="container1">
+  <view class="title">
+    <text style="color:DimGray">—</text> 头马助手
+    <text style="color:DimGray">—</text>
+  </view>
+
+  <view class="box">
+  <text class="item" bindtap="getArticle" id="toumazhushou" style="color:Orange">前世今生</text>
+  <text class="item" bindtap="getTool" id="contact" style="color:DarkCyan">联系作者</text>
+  </view>
+
+  <text style="color:DimGray;font-size:10px;padding-bottom:10rpx;">欢迎联系</text>
+
+</view>
+
+<import src="../../templates/page_ft/page_ft.wxml"/>
+<template is="page_ft" data="{{...page_ft}}" />
