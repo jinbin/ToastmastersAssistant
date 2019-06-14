@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "Hi 头马"
+  "navigationBarTitleText": "头马入门",
+  "usingComponents": {
+    "xm-ad": "/components/xmAD/xmAD"
+  }
 }

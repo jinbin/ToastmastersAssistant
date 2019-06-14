@@ -59,11 +59,11 @@
         <button id="official" class="weui-btn mini-btn" style="width:180px" type="primary" size="mini" formType="submit" plain="true">官员介绍</button>
         <!-- </view>
         <view class="container"> -->
-        <button id="pws" class="weui-btn mini-btn" style="width:180px" type="primary" size="mini" formType="submit" plain="true">CLUB PWS数据</button>
+        <button id="pws" class="weui-btn mini-btn" style="width:180px" type="default" size="mini" formType="submit" plain="true">CLUB PWS数据</button>
         </view>
         <view class="container">
-        <button id="tmRes" class="weui-btn mini-btn" style="width:180px" type="primary" size="mini" formType="submit" plain="true">头马资料库</button>
-        <button id="know" class="weui-btn mini-btn" style="width:180px" type="primary" size="mini" formType="submit" plain="true">认识作者</button>
+        <button id="tmRes" class="weui-btn mini-btn" style="width:180px" type="default" size="mini" formType="submit" plain="true">头马资料库</button>
+        <button id="know" class="weui-btn mini-btn" style="width:180px" type="default" size="mini" formType="submit" plain="true">认识作者</button>
         </view>
     </form>
   </view>

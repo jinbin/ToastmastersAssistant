@@ -138,5 +138,19 @@ module.exports = [
       desc: '本路线帮助您培养成为策略型沟通者和领导者的技能。本路线中项目的重点：培养和发展团队内的信息共享、计划沟通和制定创新沟通方案的技能。每个项目都注重演讲撰写和演讲发表。您能学会制定和启动长期的个人或职业目标是完成本路线的成功标志。 不提供打印材料。',
       open: 'false',
       lang: 'cn'
+    },
+    {
+      id: 21,
+      name: 'Engaging Humor',
+      desc: "The Engaging Humor path is designed to help you build your skills as a humorous and engaging public speaker. The projects on this path focus on understanding your sense of humor and how that sense of humor translates to engaging audience members. The projects contribute to developing an understanding of how to effectively use humor in a speech, including challenging situations and impromptu speeches. This path culminates in an extended humorous speech that will allow you to apply what you learned. ",
+      open: 'false',
+      lang: 'en'
+    },
+    {
+      id: 22,
+      name: '幽默路径',
+      desc: '本路线帮助您成为幽默和迷人的公众演讲者。这条路线聚焦于理解你的幽默感，以及这种幽默感如何吸引听众。这些项目有助于理解如何在演讲中有效地使用幽默，包括富有挑战性的情景和即兴演讲。这条路线以一个扩展的幽默演讲为结束，允许你将你所学的内容应用其中。',
+      open: 'false',
+      lang: 'cn'
     }
 ]

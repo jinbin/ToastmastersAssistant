@@ -1,0 +1,26 @@
+
+<view class="container1">
+
+<view class="title">
+    <text style="color:DimGray">—</text> 冠军演讲
+    <text style="color:DimGray">—</text>
+</view>
+
+<view class="main_box" style="width:90%">
+    <view style="padding: 10rpx">
+
+    <view wx:for="{{audiosrc}}" wx:for-index="index" wx:for-item="item">
+      <view bindtap="playAudio" data-year="{{index}}" class="box" style="color:DarkCyan;font-size:15px;justify-content: flex-start">
+        <view>{{item.title}}</view>
+        <view wx:if="{{isplay && audioYear == index}}">
+          <image src="/images/restart.png" style="width:18px;height:18px;padding:10rpx"></image>
+        </view>
+        <view wx:else>
+          <image src="/images/stop.png" style="width:18px;height:18px;padding:10rpx"></image>
+        </view>
+      </view>
+    </view>
+    </view> 
+  </view> 
+
+</view>

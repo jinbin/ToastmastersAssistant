@@ -49,6 +49,35 @@ Page({
 
   },
 
+  previewImage: function () {
+    wx.previewImage({
+      current: '', // 当前显示图片的http链接
+      urls: ['cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/头马助手公众号Logo.jpg'] // 需要预览的图片http链接列表
+    })
+  },
+
+  saveOfficialQRCode: function (e) {
+    wx.showModal({
+      content: '微信搜索"头马助手 Toastmasters Assistant", 获取更多头马信息！',
+      showCancel: false,
+      confirmText: '去关注',
+      confirmColor: '#ff7f50',
+      success: function (res) {
+        if (res.confirm) {
+          wx.setClipboardData({
+            data: "头马助手 Toastmasters Assistant",
+            success: function (res) {
+              wx.showToast({
+                title: "公众号名已复制"
+              })
+            }
+          })
+          console.log('用户点击确定');
+        }
+      }
+    })
+  },
+
   /**
    * 生命周期函数--监听页面显示
    */

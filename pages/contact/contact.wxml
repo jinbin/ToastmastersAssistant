@@ -8,37 +8,36 @@
     <view class="page__hd">
         <view class="summary__title">作者介绍</view>
           <text decode="true" class="page__desc">
-          金斌（CL, IP1）
-          2018.4—至今: 杭州西子双语演讲俱乐部会员
-          2018.7—2018.12: 担任西子俱乐部教育副主席
-          2018.9: 获得CL（Competent Leader）和 Pathways IP1头衔
-          2019.1—2019.7: 担任西子俱乐部主席</text>
+          金斌（CL, IP2）
+          2018.04—至今: 杭州西子双语演讲俱乐部会员
+          2018.07—2018.12: 担任西子俱乐部教育副主席
+          2019.01—2019.07: 担任西子俱乐部主席
+          </text>
           <text decode="true" class="page__desc">
           头马助手官方微信公众号:
           </text>
           <p bindtap='copyText' data-text="头马助手Toastmasters Assistant" style="color:#8B0000">头马助手Toastmasters Assistant<text decode="true" class="page__desc">（点击复制）</text></p>
           <text decode="true" class="page__desc">
-          个人微信公众号:
+          头马小程序:
           </text>
-          <p bindtap='copyText' data-text="可能性工作室" style="color:#8B0000">可能性工作室<text decode="true" class="page__desc">（点击复制）</text></p>
+          <p bindtap='naviTo' style="color:#8B0000">即兴演讲助手<text decode="true" class="page__desc">（点击直达）</text></p>
           <text decode="true" class="page__desc">
           合作及建议请加微信:
           </text>
           <p bindtap='copyText' data-text="just_as_always" style="color:#8B0000">just_as_always<text decode="true" class="page__desc">（点击复制）</text></p>
-        <!-- </block> -->
+          <text decode="true" class="page__desc">
+          个人微信公众号:
+          </text>
+          <p bindtap='copyText' data-text="可能性工作室" style="color:#8B0000">可能性工作室<text decode="true" class="page__desc">（点击复制）</text></p>
+    </view>
+    <view wx:if="{{surprise==false}}">
+      <button class="ad" bindtap="openAd" size="mini" type="primary">观看视频解锁惊喜</button>
+    </view>
+    <view wx:else>
+      <navigator url="/pages/audio/audio">
+      <button class="ad" bindtap="openAudio" size="mini" type="warn">收取今日福利 </button>
+      </navigator>
     </view>
 </view> 
 
 <template is="contact_button"/>
-
-<!-- <view class="container"> -->
-  <!-- <view class="userinfo" style="text-align:center;">
-      <image bindtap="imgPre" data-src="{{myQR}}" style="width: 300px; height: 350px" src="{{myQR}}"></image>
-      <view style="text-align:center;font-family:Times;color:#aaa;">* 点击查看大图，保存图片，打开微信扫一扫</view>
-    </view>
-
-    <view class="userinfo" style="text-align:center;">
-      <image bindtap="imgPre" data-src="{{weFrameQR}}" style="width: 300px; height: 350px" src="{{weFrameQR}}"></image>
-      <view style="text-align:center;font-family:Times;color:#aaa;">* 点击查看大图，保存图片，打开微信扫一扫</view>
-    </view> -->
-<!-- </view> -->

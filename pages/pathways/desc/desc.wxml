@@ -1,24 +1,18 @@
 <!--list.wxml-->
 <view class="page">
     <view class="page__hd" style="display: flex;flex-wrap: nowrap; justify-content: space-between">
-      <view wx:if="{{index != 5 && index != 6}}">
+      <view wx:if="{{index != 5 && index != 6 && index != 9}}">
         <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
           <view class="page__title">{{list[index][1]}}</view>
           <view class="page__desc">{{list[index][0]}}</view>
         </picker>
       </view>
-      <!-- <view wx:if="{{index != 5 && index != 6}}">
-        <picker bindchange="bindPickerChangePath" value="{{indexPath}}" range="{{arrayPath}}">
-          <view class="page__title">{{arrayPath[indexPath]}}</view>
-        </picker>
+      <view wx:if="{{index == 5}}">
+        <view class="page__desc">CC路径介绍：Toastmasters International是沟通和领导力方面领先的国际教育组织。头马自1924年成立以来帮助过无数成员提高他们的沟通和领导技能。作为一个教育组织，教育体系是头马的核心。CC(Competent Communicator)是头马2018年之前的沟通路径，共包含10个项目，分别培养你在公共演讲上不同方向的能力。以下是这10个项目的中英文说明。</view>
       </view>
-      <view wx:else>
-        <navigator url="/pages/pathways/levels/levels" open-type="switchTab">
-          <view class="page__title">{{level_name_ch}}</view>
-          <view class="page__desc">{{level_name_en}}</view>
-        </navigator>
-      </view> -->
-      <!-- <image src="../../../images/home.png"></image> -->
+      <view wx:if="{{index == 9}}">
+        <view class="page__desc">Pathways介绍：Toastmasters International是沟通和领导力方面领先的国际教育组织。头马自1924年成立以来帮助过无数成员提高他们的沟通和领导技能。作为一个教育组织，教育体系是头马的核心。Pathways是头马2018年最新上线的教育体系，共分为11条路径，分别培养你不同方向的能力。每个路径包含5个阶段，每个阶段包含若干必修和选修项目。以下是这11条路径的中英文说明。</view>
+      </view>
     </view>
 
   <view class="page">
@@ -50,8 +44,9 @@
                         </view>
                     </view>
                     <view class="kind-list__item-bd {{item.open != 'false' ? 'kind-list__item-bd_show' : ''}}">
-                        <view class="weui-cells {{item.open != 'false' ? 'weui-cells_show' : ''}}">
+                        <view class="weui-cells {{item.open != 'false' ? 'weui-cells_show' : ''}}" style="padding: 20rpx;">
 <text space="ensp" selectable='true'>{{item.desc}}\n\n</text>
+                        <!-- <navigator style="right: 20px; color:#00BFFF" url="/pages/canvas/canvas?texts={{item.desc}}">【图片转发】</navigator> -->
                         <navigator wx:if="{{item.resource}}" style="right: 20px; color:#00BFFF" url="/pages/pathways/document/document?url={{'https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/tmcResources/Evaluation%20Resource/cn/CS' + item.resource + '.pdf'}}">【评估资料】</navigator>
                         </view>
                     </view>
@@ -78,7 +73,7 @@
                         </view>
                     </view>
                     <view class="kind-list__item-bd {{item.open != 'false' ? 'kind-list__item-bd_show' : ''}}">
-                        <view class="weui-cells {{item.open != 'false' ? 'weui-cells_show' : ''}}">
+                        <view class="weui-cells {{item.open != 'false' ? 'weui-cells_show' : ''}}" style="padding: 20rpx;">
 <text space="ensp" selectable='true'>{{item.desc}}\n\n</text>
                         <navigator wx:if="{{item.resource}}" style="right: 20px; color:#00BFFF" url="/pages/pathways/document/document?url={{'https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/tmcResources/Evaluation%20Resource/en/' + item.resource + '.pdf'}}">【Evaluation Resource】</navigator>
                         </view>

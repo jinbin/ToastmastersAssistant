@@ -1,3 +1,5 @@
+<official-account></official-account>
+
 <swiper indicator-dots="true" class="vol-swiper" current="{{current}}" bindchange="handleChange">
   <block wx:for="{{vols}}" wx:for-index="idx" wx:key="{{hpcontent_id}}">
     <swiper-item class="vol-swiper-item">
@@ -18,3 +20,10 @@
 
   </block>
 </swiper>
+
+<!-- <view class="xm_fixed">
+  <xm-ad data-id="{{xmad.ad.fixed}}" adData="{{xmad.adData}}"
+    bindadload="adImgLoad"
+    bindclick="appoIntView" bindclose="xmadClose" class="xm_component">
+  </xm-ad>
+</view> -->

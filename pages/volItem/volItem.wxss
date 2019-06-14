@@ -10,7 +10,7 @@
 }
 
 .vol-swiper-item {
-  padding: 25rpx;
+  padding: 15rpx;
   box-sizing: border-box;
 }
 

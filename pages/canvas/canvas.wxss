@@ -1,0 +1,32 @@
+/* pages/canvas/canvas.wxss */
+
+.myCanvas {
+  /* border: 1px solid #ccc; */
+  width: 100%;
+  height: 900rpx;
+  /* align-items: center; */
+}
+
+.canvas {
+  width: 305px;
+  height: 305px;
+  background-color: #fff;
+}
+
+page {
+  background-color: #F8F8F8;
+  height: 100%;
+  font-size: 32rpx;
+  line-height: 1.6;
+}
+
+.page-body {
+  padding: 20rpx 0;
+}
+
+.page-body-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}

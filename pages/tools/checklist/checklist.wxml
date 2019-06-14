@@ -1,0 +1,25 @@
+<!--pages/tools/checklist/checklist.wxml-->
+
+<view class="box">
+  <picker bindchange="bindPickerChange" value="{{index1}}" range="{{array}}">
+    <view class="headline">
+      <text class="title">清单 for {{array[index1]}}</text>
+    </view>
+  </picker>
+
+  <checkbox-group class="small_box" bindchange="checkboxChange">
+    <label class="checkbox" wx:for="{{items[array[index1]]}}">
+      <!-- 若不改为index1，则会与下面的for循环产生混淆-->
+      <checkbox value="{{item.name}}" color="green" checked="{{checklist[array[index1]][item.name]}}" id="{{item.name}}">
+        {{item.value}}
+      </checkbox>
+      <!-- <view class="supplement">
+        <view size="mini" wx:if="{{!checklist[array[index1]][item.name] && help[array[index1]][item.name]}}" bindtap="help" data-content="{{help[array[index1]][item.name]}}">模板CN</view>
+      </view> -->
+    </label>
+  </checkbox-group>
+
+  <navigator open-type="switchTab" url='/pages/merger/merger' style="padding:30rpx">
+    <button size="mini" type="primary">返回首页</button>
+  </navigator>
+</view>

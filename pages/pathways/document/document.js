@@ -12,6 +12,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
+    let interstitialAd = null
+    
+    if (wx.createInterstitialAd){
+      interstitialAd = wx.createInterstitialAd({
+        adUnitId: 'adunit-61bc632530119796'
+      })
+    }
+
     console.log(options)
     var url = options.url 
     this.setData({
@@ -23,7 +32,7 @@ Page({
       })
     }else {
       this.setData({
-        prompt: "PDF下载需要一点时间，稍候自动打开。"
+        prompt: "PDF下载需要一点时间，稍候自动打开。\n资料地址可通过以下按钮复制获取。"
       })      
     }
     wx.downloadFile({
@@ -35,6 +44,9 @@ Page({
           filePath: filePath,
           success: function (res) {
             console.log('打开文档成功')
+
+            interstitialAd.show()
+              .catch(err => console.log(err.errMsg))
           }
         })
       }

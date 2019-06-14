@@ -1,9 +1,16 @@
 {
-  "pages":[
+  "pages": [
+    "pages/merger/merger",
+    "pages/manage/manage",
+    "pages/my/my",
+    "pages/audio/audio",
+    "pages/contact/contact",
+    "pages/tools/checklist/checklist",
+    "pages/canvas/canvas",
     "pages/pathways/levels/levels",
+    "pages/knowledge/knowledge",
     "pages/webview/webview",
     "pages/knowledge/matrix/matrix",
-    "pages/knowledge/knowledge",
     "pages/volItem/volItem",
     "pages/agenda/agenda",
     "pages/pathways/desc/desc",
@@ -11,70 +18,63 @@
     "pages/pathways/article/article",
     "pages/translator/translator",
     "pages/edit/edit",
-    "pages/contact/contact",
-    "pages/manage/manage",
-    "pages/my/my",
     "pages/tm/clock/set/set",
     "pages/article/article",
-    "pages/tm/clock/countdown/countdown"
+    "pages/tm/clock/countdown/countdown",
+    "pages/xmadPage/copyInfo",
+    "pages/xmadPage/sell",
+    "pages/xmadPage/collect"
   ],
-  "window":{
-    "backgroundTextStyle":"dark",
+  "window": {
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#F8F8F8",
     "navigationBarTitleText": "头马助手",
     "navigationBarTextStyle": "black"
   },
-    "tabBar": {
-      "list": [
-        {
-          "pagePath": "pages/translator/translator",
-          "iconPath": "./images/tabBar/miniprogram.png",
-          "selectedIconPath": "images/tabBar/miniprogram-sel.png",
-          "text": "中英翻译器"
-        },
-        {
-          "pagePath": "pages/volItem/volItem",
-          "iconPath": "./images/tabBar/homepage.png",
-          "selectedIconPath": "./images/tabBar/homepage-sel.png",
-          "text": "Hi 头马"
-        },
-        {
-          "pagePath": "pages/pathways/levels/levels",
-          "iconPath": "./images/tabBar/path.png",
-          "selectedIconPath": "images/tabBar/path-sel.png",
-          "text": "Pathways"
-        },
-        {
-          "pagePath": "pages/knowledge/knowledge",
-          "iconPath": "./images/tabBar/cart.png",
-          "selectedIconPath": "images/tabBar/cart-sel.png",
-          "text": "知识库"
-        },
-        {
-          "pagePath": "pages/my/my",
-          "iconPath": "images/tabBar/me-sel.png",
-          "selectedIconPath": "images/tabBar/me.png",
-          "text": "我的"
-        }
-      ]
-    },
-    "navigateToMiniProgramAppIdList": [
-      "wx09a49d05a365a4e6",
-      "wx8abaf00ee8c3202e",
-      "wx4c4b54bc609bd79e"
-    ],
-    "plugins": {
-      "gdPlugin": {
-        "version": "0.2.3",
-        "provider": "wx34b0738d0eef5f78"
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/volItem/volItem",
+        "iconPath": "./images/tabBar/homepage.png",
+        "selectedIconPath": "./images/tabBar/homepage-sel.png",
+        "text": "头马入门"
       },
-      "WechatSI": {
-        "version": "0.2.2",
-        "provider": "wx069ba97219f66d99"
+      {
+        "pagePath": "pages/merger/merger",
+        "iconPath": "./images/tabBar/miniprogram.png",
+        "selectedIconPath": "images/tabBar/miniprogram-sel.png",
+        "text": "头马百科"
       },
-      "myPlugin": {
-        "version": "1.0.6",
-        "provider": "wx5bc2ac602a747594"
+      {
+        "pagePath": "pages/my/my",
+        "iconPath": "images/tabBar/me-sel.png",
+        "selectedIconPath": "images/tabBar/me.png",
+        "text": "我的"
       }
+    ]
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wx09a49d05a365a4e6",
+    "wx8abaf00ee8c3202e",
+    "wx4c4b54bc609bd79e",
+    "wx18a2ac992306a5a4"
+  ],
+  "plugins": {
+    "gdPlugin": {
+      "version": "0.2.3",
+      "provider": "wx34b0738d0eef5f78"
+    },
+    "WechatSI": {
+      "version": "0.2.3",
+      "provider": "wx069ba97219f66d99"
+    },
+    "myPlugin": {
+      "version": "1.0.6",
+      "provider": "wx5bc2ac602a747594"
     }
+  },
+  "sitemapLocation": "sitemap.json",
+  "requiredBackgroundModes": [
+    "audio"
+  ]
 }

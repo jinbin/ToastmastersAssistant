@@ -1,13 +1,44 @@
 <!--pages/merger/merger.wxml-->
 
-<image class="banner" mode="aspectFit" src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/korea_tm.jpg"></image>
+<swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000" circular="true">
+  <view wx:for="{{banners}}">
+    <swiper-item>
+      <image src="{{item}}" class="banner" mode="aspectFit"/>
+    </swiper-item>
+  </view>
+</swiper>
+
+<official-account></official-account>
 
 <view class="container1">
   <view class="title">
-    <text style="color:DimGray">—</text> 教育体系
+    <text style="color:DimGray;">—</text> 教育体系
+    <text style="color:DimGray;">—</text>
+  </view>
+  <view class="box">
+    <view class="item" bindtap="getPathways" id="6" style="color:Orange">
+      <text>CC路径</text>
+    </view>
+    <view class="item" bindtap="getPathways" id="10" style="color:purple">
+      <text>Pathways11条路径</text>
+    </view>
+  </view>
+  <text style="color:DimGray;font-size:10px;padding-bottom:10rpx;">包含旧教育体系项目介绍和新教育体系路径介绍</text>
+</view>
+
+<view class='line'></view>
+
+<!-- <form report-submit="true" bindsubmit="levelHandler"> -->
+<view class="container1">
+  <view class="title">
+    <text style="color:DimGray">—</text> Pathways
     <text style="color:DimGray">—</text>
   </view>
   <view class="box">
+    <!-- <button size="mini" class="item" bindtap="getPathways" id="1" style="color:Orange;font-size:16px;padding:0rpx">
+      <text style="padding:0rpx">阶段一</text>
+      <text style="font-size:10px;">夯实基础</text>
+    </button> -->
     <view class="item" bindtap="getPathways" id="1" style="color:Orange">
       <text>阶段一</text>
       <text style="font-size: 10px">夯实基础</text>
@@ -31,6 +62,7 @@
   </view>
   <text style="color:DimGray;font-size:10px;padding-bottom:10rpx;">包含新教育体系Pathways所有项目中英文说明</text>
 </view>
+<!-- </form> -->
 
 <view class='line'></view>
 
@@ -40,23 +72,95 @@
     <text style="color:DimGray">—</text>
   </view>
   <view class="main_box">
-    <view class="box">
-      <text bindtap="getRoles" id="timer" class="item" style="color:Orange;width:200rpx;">时间官</text>
-      <text bindtap="getRoles" id="grammarian" class="item" style="color:DarkCyan;width:200rpx;">语法官</text>
-      <text bindtap="getRoles" id="ahcounter" class="item" style="color:purple;width:200rpx;">哼哈官</text>
-    </view>
-    <view class="box">
-      <text bindtap="getRoles" id="tm" class="item" style="color:Orange;width:200rpx;">主持人</text>
-      <text bindtap="getRoles" id="ttm" class="item" style="color:DarkCyan;width:200rpx;">即兴主持</text>
-      <text bindtap="getRoles" id="ge" class="item" style="color:purple;width:200rpx;">总评</text>
-    </view>
-    <view class="box">
-      <text bindtap="getRoles" id="tte" class="item" style="color:Orange;width:200rpx;">即兴评估</text>
-      <text bindtap="getRoles" id="ie" class="item" style="color:DarkCyan;width:200rpx;">个人评估</text>
-      <text bindtap="getRoles" id="SAA" class="item" style="color:purple;width:200rpx;">接待官</text>
-    </view>
+    <form report-submit="true" bindsubmit="getRoles">
+      <view class="box">
+        <!-- <text bindtap="getRoles" id="timer" class="item" style="color:Orange;width:180rpx;">时间官</text> -->
+        <button class="item" id="timer" style="color:Orange;width:180rpx;font-size:16px" formType="submit">时间官</button>
+        <!-- <text bindtap="getRoles" id="grammarian" class="item" style="color:DarkCyan;width:180rpx;">语法官</text> -->
+        <button class="item" id="grammarian" style="color:DarkCyan;width:180rpx;font-size:16px" formType="submit">语法官</button>
+        <!-- <text bindtap="getRoles" id="ahcounter" class="item" style="color:purple;width:180rpx;">哼哈官</text> -->
+        <button class="item" id="ahcounter" style="color:purple;width:180rpx;font-size:16px" formType="submit">哼哈官</button>
+      </view>
+      <view class="box">
+        <!-- <text bindtap="getRoles" id="tm" class="item" style="color:Orange;width:180rpx;">主持人</text> -->
+        <button class="item" id="tm" style="color:Orange;width:180rpx;font-size:16px" formType="submit">主持人</button>
+        <!-- <text bindtap="getRoles" id="ttm" class="item" style="color:DarkCyan;width:180rpx;">即兴主持</text> -->
+        <button class="item" id="ttm" style="color:DarkCyan;width:180rpx;font-size:16px" formType="submit">即兴主持</button>
+        <!-- <text bindtap="getRoles" id="ge" class="item" style="color:purple;width:180rpx;">总评</text> -->
+        <button class="item" id="ge" style="color:purple;width:180rpx;font-size:16px" formType="submit">总评</button>
+      </view>
+      <view class="box">
+        <!-- <text bindtap="getRoles" id="tte" class="item" style="color:Orange;width:180rpx;">即兴评估</text> -->
+        <button class="item" id="tte" style="color:Orange;width:180rpx;font-size:16px" formType="submit">即兴评估</button>
+        <!-- <text bindtap="getRoles" id="ie" class="item" style="color:DarkCyan;width:180rpx;">个人评估</text> -->
+        <button class="item" id="ie" style="color:DarkCyan;width:180rpx;font-size:16px" formType="submit">个人评估</button>
+        <!-- <text bindtap="getRoles" id="SAA" class="item" style="color:purple;width:180rpx;">接待官</text> -->
+        <button class="item" id="SAA" style="color:purple;width:180rpx;font-size:16px" formType="submit">接待官</button>
+      </view>
+    </form>
   </view>
   <text style="color:DimGray;font-size:10px;padding-bottom:10rpx;">包含所有角色说明及中英文模板</text>
+</view>
+
+<view class='line'></view>
+<view class="container1">
+  <view class="main_box">
+    <image bindtap="saveOfficialQRCode" style="padding: 30rpx" src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/头马助手公众号Logo.jpg" mode="widthFix"></image>
+  </view>
+  <text style="color:DimGray;font-size:10px;padding-bottom:10rpx;" bindtap="saveOfficialQRCode">关注官方公众号, 获取历年头马世界冠军演讲视频</text>
+</view>
+<view class='line'></view>
+
+<view class="container1">
+  <view class="title">
+    <text style="color:DimGray">—</text> 冠军演讲
+    <text style="color:DimGray">—</text>
+  </view>
+
+  <view class="main_box" style="width:90%">
+    <view style="padding: 10rpx">
+      <view bindtap="playAudio" data-year="2018" class="box" style="color:DarkCyan;font-size:15px;justify-content: flex-start">
+        <view>2018 Still Standing</view>
+        <view wx:if="{{isplay && audioYear == '2018'}}">
+          <image src="/images/restart.png" style="width:18px;height:18px;padding:10rpx"></image>
+        </view>
+        <view wx:else>
+          <image src="/images/stop.png" style="width:18px;height:18px;padding:10rpx"></image>
+        </view>
+      </view>
+      <view bindtap="playAudio" data-year="2017" class="box" style="color:DarkCyan;font-size:15px;justify-content: flex-start">
+        <view>2017 Pull Less,Bend More</view>
+        <view wx:if="{{isplay && audioYear == '2017'}}">
+          <image src="/images/restart.png" style="width:18px;height:18px;padding:10rpx"></image>
+        </view>
+        <view wx:else>
+          <image src="/images/stop.png" style="width:18px;height:18px;padding:10rpx"></image>
+        </view>
+      </view>
+      <view bindtap="playAudio" data-year="2016" class="box" style="color:DarkCyan;font-size:15px;justify-content: flex-start">
+        <view>2016 Outsmart,Outlast</view>
+        <view wx:if="{{isplay && audioYear == '2016'}}">
+          <image src="/images/restart.png" style="width:18px;height:18px;padding:10rpx"></image>
+        </view>
+        <view wx:else>
+          <image src="/images/stop.png" style="width:18px;height:18px;padding:10rpx"></image>
+        </view>
+      </view>
+      <view bindtap="playAudio" data-year="2015" class="box" style="color:DarkCyan;font-size:15px;justify-content: flex-start">
+        <view>2015 The Power of Words</view>
+        <view wx:if="{{isplay && audioYear == '2015'}}">
+          <image src="/images/restart.png" style="width:18px;height:18px;padding:10rpx"></image>
+        </view>
+        <view wx:else>
+          <image src="/images/stop.png" style="width:18px;height:18px;padding:10rpx"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <navigator url="/pages/audio/audio">
+    <text style="color:red;font-size:10px;padding-bottom:10rpx;">点击查看更多</text>
+  </navigator>
+  <text style="color:DimGray;font-size:10px;padding-bottom:10rpx;">历年头马世界冠军演讲音频</text>
 </view>
 
 <view class='line'></view>
@@ -67,15 +171,27 @@
     <text style="color:DimGray">—</text>
   </view>
 
-  <view class="box">
-    <text class="item" bindtap="getTool" id="jixing" style="color:Orange">即兴演讲助手</text>
-    <text class="item" bindtap="getTool" id="timertool" style="color:DarkCyan">演讲计时</text>
-    <text class="item" bindtap="getTool" id="matrix" style="color:purple">Pathways Matrix</text>
+  <view class="main_box">
+    <form report-submit="true" bindsubmit="getTool">
+      <view class="box">
+        <!-- <text class="item" bindtap="getTool" id="jixing" style="color:Orange;width:200rpx;">即兴演讲助手</text> -->
+        <button class="item" id="jixing" style="color:Orange;width:250rpx;font-size:16px" formType="submit">即兴演讲助手</button>
+        <!-- <text class="item" bindtap="getTool" id="timertool" style="color:DarkCyan;width:200rpx;">演讲计时</text> -->
+        <button class="item" id="timertool" style="color:purple;width:250rpx;font-size:16px" formType="submit">演讲计时</button>
+      </view>
+      <view class="box">
+        <!-- <text class="item" bindtap="getTool" id="translator" style="color:Orange;width:200rpx;">语音翻译</text> -->
+        <button class="item" id="translator" style="color:Orange;width:220rpx;font-size:16px" formType="submit">语音翻译</button>
+        <!-- <text class="item" bindtap="getTool" id="matrix" style="color:DarkCyan;width:200rpx;">Matrix</text> -->
+        <button class="item" id="check" style="color:DarkCyan;width:220rpx;font-size:16px" formType="submit">头马清单</button>
+        <button class="item" id="matrix" style="color:purple;width:220rpx;font-size:16px" formType="submit">Matrix</button>
+      </view>
+    </form>
   </view>
   <text style="color:DimGray;font-size:10px;padding-bottom:10rpx; ">更多实用工具，敬请期待</text>
 </view>
 
-<ad unit-id="adunit-ab171e6bb49115c5"></ad>
+<view class='line'></view>
 
 <view class="container1">
   <view class="title">
@@ -83,14 +199,27 @@
     <text style="color:DimGray">—</text>
   </view>
 
-  <view class="box">
-  <text class="item" bindtap="getArticle" id="toumazhushou" style="color:Orange">前世今生</text>
-  <text class="item" bindtap="getTool" id="contact" style="color:DarkCyan">联系作者</text>
-  </view>
+  <form report-submit="true" bindsubmit="getArticle">
+    <view class="box">
+      <button size="mini" class="item" id="toumazhushou" style="color:Orange;font-size: 16px;" formType="submit">前世今生</button>
+      <button size="mini" class="item" open-type='share' style="color:DarkCyan;font-size: 16px;" formType="submit">分享给TA</button>
+      <button size="mini" class="item" id="contact" style="color:purple;font-size: 16px;" formType="submit">联系作者</button>
+    </view>
+    <view class="box">
+      <button size="mini" class="item" id="dashang" style="color:ForestGreen;font-size: 16px;" formType="submit">打赏作者</button>
+      <button size="mini" class="item" bindtap="saveOfficialQRCode" style="color:red;font-size: 16px;" formType="submit">官方公众号</button>
+    </view>
+  </form>
 
   <text style="color:DimGray;font-size:10px;padding-bottom:10rpx;">欢迎联系</text>
-
 </view>
 
-<import src="../../templates/page_ft/page_ft.wxml"/>
-<template is="page_ft" data="{{...page_ft}}" />
+<!-- <view class='line'></view> -->
+
+<image bindtap="saveOfficialQRCode" src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/theultimatetoastmasters_qian.jpg" mode="scaleToFill" class="banner"></image>
+
+<!-- <view class="container1" style="padding-top: 40rpx; padding-bottom: 40rpx">
+  <view class="ad">
+    <ad unit-id="adunit-ab171e6bb49115c5"></ad>
+  </view>
+</view> -->

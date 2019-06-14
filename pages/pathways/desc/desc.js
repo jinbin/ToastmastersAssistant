@@ -14,7 +14,7 @@ Page({
     sliderOffset: 0,
     sliderLeft: 0,
     array: [
-      "阶段一: 掌握基础", "阶段二: 学习风格", "阶段三: 丰富知识", "阶段四: 培养技能", "阶段五: 专业展示" 
+      "阶段一: 掌握基础", "阶段二: 学习风格", "阶段三: 丰富知识", "阶段四: 培养技能", "阶段五: 专业展示", "返回首页"
     ],
     // arrayPath: ["全部", "创新计划", "激励策略","表达精通","领导力发展","愿景沟通","战略关系","动态领导力","说服影响力","有效指导","团队协作"],
     arrayPath: ["全部", "创新计划"],
@@ -71,8 +71,8 @@ Page({
       name_en = "Pathways资料"
       name_cn = "Pathways Resources"
     } else if (options.level == 10) {
-      name_en = "Pathways: 10条路径"
-      name_cn = "Pathways是2018年在中国正式上线的Toastmasters新一代教育系统的称呼。Pathways包含10条路径，每条路径包含一定量的project，将为全球的头马会员提供新的成长服务。"      
+      name_en = "Pathways: 11条路径"
+      name_cn = "Pathways是2018年在中国正式上线的Toastmasters新一代教育系统的称呼。Pathways包含11条路径，每条路径包含一定量的project，将为全球的头马会员提供新的成长服务。"      
     }
     this.setData({
       level_name_en: name_en,
@@ -104,6 +104,60 @@ Page({
           wx.hideLoading()
         }
       })
+    }
+  },
+
+  toCanvas: function (e) {
+    var that = this
+    var ctx = wx.createCanvasContext('canvas')
+
+    this.canvasTextAutoLine("本项目的重点是如何规划变化，制定沟通计划，并确定成功的障碍。目的：本项目的目的是练习制定变更管理计划。概述：为真实或假设情况创建变更管理计划。你可以根据个人、演讲会或职业生活中发生的过去或未来变化来制定计划。在5 - 7分钟内与你的俱乐部分享你的变更管理计划。你的演讲可能是幽默的，信息性的，或者任何其他吸引你的风格。这不是一份关于你从项目中学到了什么的报告，而是一份关于你的计划以及它将如何使你和团队受益的概述。这个项目包括：制定变更管理计划, 准备变更工作表, 编写沟通计划资源,1个5 - 7分钟的演讲", ctx, 30, 30, 20, 200)//绘制文本
+    ctx.save()
+    ctx.beginPath()
+    // ctx.arc(50, 50, 50, 0, 2 * Math.PI, false)
+    // ctx.clip()
+    // ctx.drawImage("../../images/qrcode.jpg", 100, 100, 50, 50, 50, 50)
+    ctx.restore()
+    //调用draw()开始绘制
+    ctx.draw(true,
+      function (e) {
+        console.log(e)
+        // 把当前画布指定区域的内容导出生成指定大小的图片。
+        wx.canvasToTempFilePath({
+          // width: 300,
+          // height: 300,
+          destWidth: 750,
+          destHeight: 750,
+          canvasId: 'canvas',
+          fileType: 'jpg',
+          success(res) {
+            console.log(res)
+            that.data.tmpPath = res.tempFilePath
+            wx.previewImage({
+              current: res.tempFilePath, // 当前显示图片的http链接
+              urls: [res.tempFilePath] // 需要预览的图片http链接列表
+            })
+          }
+        })
+      }
+    )
+  },
+
+  canvasTextAutoLine(str, ctx, initX, initY, lineHeight, canvasWidth) {
+    const arrText = str.split('')//字符串分割为数组
+    let currentText = ''// 当前字符串及宽度
+    let currentWidth
+    for (let letter of arrText) {
+      currentText += letter
+      currentWidth = ctx.measureText(currentText).width
+      if (currentWidth > canvasWidth) {
+        ctx.fillText(currentText, initX, initY)
+        currentText = ''
+        initY += lineHeight
+      }
+    }
+    if (currentText) {
+      ctx.fillText(currentText, initX, initY)
     }
   },
 
@@ -204,6 +258,14 @@ Page({
 
   bindPickerChange(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
+
+    if (e.detail.value == 5){
+      wx.switchTab({
+        url: '/pages/merger/merger',
+      })
+      return 
+    }
+
     this.setData({
       index: e.detail.value
     })

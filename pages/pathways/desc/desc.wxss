@@ -1,5 +1,10 @@
 /* pages/pathways/desc/desc.wxss */
 
+.myCanvas {
+  width: 0px;
+  height: 0px;
+}
+
 .weui-flex {
 	-webkit-box-align:center;
 	-webkit-align-items:center;

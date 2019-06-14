@@ -2,6 +2,7 @@
 import util from '../../utils/util.js'
 
 const app = getApp()
+var Page = require('../../utils/xmadx_sdk.min.js').xmad(Page).xmPage
 
 Page({
   data: {
@@ -15,6 +16,15 @@ Page({
     duration: 5,
     previousMargin: 0,
     nextMargin: 0,
+
+    xmad: {
+      adData: {},
+      ad: {
+        banner: "xm6af34a1b995dc4d57ed465e5a576ed",
+        insert: "xm89372fed7b9637bab41fb1b2357db4",
+        fixed: "xm11a2174a683e4417c95daa9bd0ad9a"
+      }
+    },
   },
 
   onLoad: function (e) {
