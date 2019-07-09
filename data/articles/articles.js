@@ -56,6 +56,53 @@ module.exports = {
 		"In our club, we are not supposed to talk about things of low taste, religion, politics and sex. We shake hands with people who invite us to stage, and do that again before we leave the stage. This is a warm and sincere way to show thankfulness and politeness. ",
 		"I'd like to bring more tips in the meeting: please set cellphone mute, in case it sings aloud during the meeting; Please do not move around when the meeting is on, so we can fully enjoy every moment of this beautiful evening.",
 		"Now I've done half of my job, the other half will be done by you. It is your show time. Please introduce yourself within 30 seconds."
-		]
-
+		],
+	"president": [
+	"作为制定俱乐部基调的人，主席的职责是在俱乐部所有的活动中发挥有益的支持性作用。俱乐部主席负责召开并主持每次俱乐部、事务和执行委员会会议，负责例会流程，确保议程顺利进行。",
+	"与所有俱乐部领导者通力合作，以达成杰出俱乐部计划的目标，包括鼓励会员取得教育成就，积极招募会员并维持会员人数，带领干事参加俱乐部干事培训以及准时缴交会员会费和提交干事名单或其他相关文件。",
+	"在俱乐部例会中公开奖励会员成就并且颁发证书，会后亲自致函祝贺会员，另外还应适时在公开场合表扬俱乐部会员的良好表现。",
+	"除俱乐部会议之外，参加小区理事会和大区理事会会议投票。代表俱乐部参加国际峰会的年度事务会议并行使投票权，或凭俱乐部代理书授权某一会员参加国际峰会。"
+	],
+	"VPE": [
+	"作为教育副主席，职责是安排会员演讲及安排计划进度，并且适时提供相关资源，解答会员关于教育奖、演讲比赛和导师计划的问题。",
+	"在例会召开前确保所有会议职位都有合适的人员担任，并通过公共渠道或是电子邮件等其他方式，定期发布会议安排，使所有会员能提前根据会议内容进行准备或调整。",
+	"对于俱乐部会员来说，教育副主席是非常重要的Toastmaster知识来源。在新会员加入俱乐部后的两次会议上，使其对Toastmaster教育计划有一定的认识。使继续参与的会员深入了解他们可以获得的各种不同教育奖励，同时指导他们如何在最短的时间内持续达成教育奖励的目标。 为每名新会员安排一位导师，并持续追踪导师与新会员之间的互动。",
+	"确认任期内所属大区将举办的演讲比赛的内容和日程安排，并依此规划俱乐部的演讲比赛。"
+	],
+	"VPM": [
+	"会员副主席的职责是推广俱乐部以及吸引来宾并使其加入，成为会员。通过主动接触，使来宾感受到宾至如归，并主动提供其加入俱乐部所需的相关资料，协助俱乐部持续招募新会员。需时时注意会员人数的变化，并且与执行委员会其他成员制定相关策略，面对会员问题。",
+	"组织并推广俱乐部参加Smedley奖，Talk Up Toastmaster！和Beat the Clock会员发展项目。鼓励俱乐部会员发起5名、10名或15名新会员，争取获得俱乐部发起人奖。",
+	"积极和来宾互动，向来宾发放《Guest Packet》并且附上俱乐部的信息。回复可能成为会员的人士的电子邮件、来电或是其他咨询，并且鼓励其参加下一次俱乐部会议。为新会员准备投票，并准备入会仪式。",
+	"处理与入会申请有关的文件，收取新会员年费并收集入会申请，然后交由财务处理。随时掌握为入会来宾以及久未参加会议的会员的情况，对他们进行追踪并鼓励他们参加或者重新加入俱乐部活动。"
+	],
+	"VPPR": [
+	"公关副主席的职责是向本地社区推广俱乐部并让媒体了解俱乐部的存在及其带来的益处。通过网络资源推广俱乐部，同时保护Toastmaster品牌形象。当俱乐部有任何值得媒体曝光的新闻时，向媒体提供相关消息。",
+	"作为公关副主席，需要撰写新闻稿、设计、分发宣传文件并且使俱乐部在网站或社区中保持一定的曝光率。",
+	"宣传所在俱乐部所举行的活动，包括演讲竞赛、开放日等。及时分享照片和视频，为俱乐部的会员添加标签，提高参与感。发布新闻，包括声明、成功故事以及奖项成就等。"
+  	], 
+	"Secretary": [
+	"秘书长的职责是维护所有俱乐部相关记录，管理俱乐部相关文件，处理俱乐部信函，以及在每一次会议及执行委员会会议上做会议记录。此外，还负责更新并发布目前已缴会费的会员名单，并在全球总部网站上更新俱乐部干事名单。",
+	"在线发布前次会议的会议记录，并通知俱乐部会员前往查看。为主席准备一份关于事务会议上需要采取的措施清单，包括未竟事务、公告和信函。准备好签到单和《Guest Book》，让会员及来宾签到。",
+	"阅读前次会议的会议记录，指出任何有修改的内容，并对本次会议进行记录。"
+	],
+	"FM": [
+	"财务官的职责是俱乐部的财务。负责管理俱乐部的银行账户，开具经执行委员会同意的支票及将会费和其他俱乐部收入存入俱乐部银行账户。",
+	"负责缴纳会费续费给Toastmaster International全球总部（连同续会会员的姓名），替俱乐部制作必要的报税材料，并为俱乐部维持及时、正确且最新的财务记录。",
+	"负责制作和监管俱乐部的预算，与俱乐部执行委员会商讨并于Toastmaster财政年度之初设立预算。如有必要，在执行委员会会议上汇报俱乐部预算。"
+	], 
+	"SAA_official": [
+	"接待官的职责是保管俱乐部的实体财产，例如标语、讲台、计时装置以及其它会议所需器材设备。接待官必须提前抵达会场进行会议准备工作，并在会议结束后留下整理并将所有设备归位。",
+	"负责会议场地租借事宜，若有必要，帮助寻找新的场地，并且与场地租借方密切联系。",
+	"接待官还应在事务会议，演讲比赛或者其它俱乐部活动上履行职责。例如，在进行会员入会投票时，接待官需引导这些候选人离开会议场地，以确保投票的公正性。在进行演讲比赛时，接待官需在会场门口进行出入管制，以确保迟到者不会对演讲选手造成不必要的干扰。"
+	],
+        "DTM": [
+	"https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/images/PathwaysDTM.jpg",
+	"The new requirements for the DTM award are:",
+	"1、Complete two unique learning paths.",
+	"2、Serve as a club officer for 12 months. (If your club has six-month terms for officers, you can fulfill this requirement by serving as a club officer twice, but you don’t have to do it in consecutive terms.)",
+	"3、Serve as a club mentor or coach.",
+	"4、Serve as a club sponsor or conduct a Speechcraft or Youth Leadership program.",
+	"5、Serve as a district officer for one year.",
+	"6、Complete the DTM project. (Members are required to create and implement a project of their own design, in which they demonstrate the skills and expertise they have gained.) This project can be made available upon request after a member completes Level 3 of their second path. A member can request this from the Education Services Team by phone at +1 720-439-5050 or by email at EducationProgram@toastmasters.org."
+        ]
 	}

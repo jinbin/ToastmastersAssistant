@@ -1,14 +1,21 @@
 <!--pages/merger/merger.wxml-->
 
-<swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000" circular="true">
+<swiper class="swiper" style="height: {{banner_height}}%" indicator-dots="true" autoplay="true" interval="5000" duration="1000" circular="true">
   <view wx:for="{{banners}}">
     <swiper-item>
-      <image src="{{item}}" class="banner" mode="aspectFit"/>
+      <image src="{{item}}" bindtap="saveOfficialQRCode" class="banner" mode="aspectFit" />
     </swiper-item>
   </view>
 </swiper>
 
 <official-account></official-account>
+
+<view wx:if="{{scrollTop < windowHeight * 1.3}}" class="circle-float" style="background: #698B22">
+  <button size="mini" open-type='share' formType="submit" style="color: #ffffff;font-size:23rpx;" hover-class="hover_1">分享</button>
+</view>
+<view wx:else class="circle-float" style="background: rgb(241, 83, 62);">
+  <navigator style="color: #ffffff;font-size:23rpx;" open-type='navigate' target='miniProgram' app-id="wx18a2ac992306a5a4" path="pages/apps/largess/detail?id=LYFYxTFDv9E%3D">打赏</navigator>
+</view>
 
 <view class="container1">
   <view class="title">
@@ -19,8 +26,11 @@
     <view class="item" bindtap="getPathways" id="6" style="color:Orange">
       <text>CC路径</text>
     </view>
-    <view class="item" bindtap="getPathways" id="10" style="color:purple">
-      <text>Pathways11条路径</text>
+    <view class="item" bindtap="getPathways" id="10" style="color:DarkCyan">
+      <text>Pathways路径</text>
+    </view>
+    <view class="item" bindtap="getToNavi" id="DTM" style="color:purple">
+      <text>DTM</text>
     </view>
   </view>
   <text style="color:DimGray;font-size:10px;padding-bottom:10rpx;">包含旧教育体系项目介绍和新教育体系路径介绍</text>
@@ -74,27 +84,18 @@
   <view class="main_box">
     <form report-submit="true" bindsubmit="getRoles">
       <view class="box">
-        <!-- <text bindtap="getRoles" id="timer" class="item" style="color:Orange;width:180rpx;">时间官</text> -->
         <button class="item" id="timer" style="color:Orange;width:180rpx;font-size:16px" formType="submit">时间官</button>
-        <!-- <text bindtap="getRoles" id="grammarian" class="item" style="color:DarkCyan;width:180rpx;">语法官</text> -->
         <button class="item" id="grammarian" style="color:DarkCyan;width:180rpx;font-size:16px" formType="submit">语法官</button>
-        <!-- <text bindtap="getRoles" id="ahcounter" class="item" style="color:purple;width:180rpx;">哼哈官</text> -->
         <button class="item" id="ahcounter" style="color:purple;width:180rpx;font-size:16px" formType="submit">哼哈官</button>
       </view>
       <view class="box">
-        <!-- <text bindtap="getRoles" id="tm" class="item" style="color:Orange;width:180rpx;">主持人</text> -->
         <button class="item" id="tm" style="color:Orange;width:180rpx;font-size:16px" formType="submit">主持人</button>
-        <!-- <text bindtap="getRoles" id="ttm" class="item" style="color:DarkCyan;width:180rpx;">即兴主持</text> -->
         <button class="item" id="ttm" style="color:DarkCyan;width:180rpx;font-size:16px" formType="submit">即兴主持</button>
-        <!-- <text bindtap="getRoles" id="ge" class="item" style="color:purple;width:180rpx;">总评</text> -->
         <button class="item" id="ge" style="color:purple;width:180rpx;font-size:16px" formType="submit">总评</button>
       </view>
       <view class="box">
-        <!-- <text bindtap="getRoles" id="tte" class="item" style="color:Orange;width:180rpx;">即兴评估</text> -->
         <button class="item" id="tte" style="color:Orange;width:180rpx;font-size:16px" formType="submit">即兴评估</button>
-        <!-- <text bindtap="getRoles" id="ie" class="item" style="color:DarkCyan;width:180rpx;">个人评估</text> -->
         <button class="item" id="ie" style="color:DarkCyan;width:180rpx;font-size:16px" formType="submit">个人评估</button>
-        <!-- <text bindtap="getRoles" id="SAA" class="item" style="color:purple;width:180rpx;">接待官</text> -->
         <button class="item" id="SAA" style="color:purple;width:180rpx;font-size:16px" formType="submit">接待官</button>
       </view>
     </form>
@@ -103,12 +104,44 @@
 </view>
 
 <view class='line'></view>
+
 <view class="container1">
   <view class="main_box">
     <image bindtap="saveOfficialQRCode" style="padding: 30rpx" src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/头马助手公众号Logo.jpg" mode="widthFix"></image>
   </view>
-  <text style="color:DimGray;font-size:10px;padding-bottom:10rpx;" bindtap="saveOfficialQRCode">关注官方公众号, 获取历年头马世界冠军演讲视频</text>
+  <text style="color:DimGray;font-size:10px;padding-bottom:10rpx;" bindtap="saveOfficialQRCode">关注官方公众号, 头马圈必备的"头马百科全书"</text>
 </view>
+
+<view class='line'></view>
+
+<view class="container1">
+  <view class="title">
+    <text style="color:DimGray">—</text> 官员介绍
+    <text style="color:DimGray">—</text>
+  </view>
+  <view class="main_box">
+    <form report-submit="true" bindsubmit="getRoles">
+      <view class="box">
+        <button class="item" id="president" style="color:Orange;width:250rpx;font-size:16px" formType="submit">主席</button>
+        <button class="item" id="VPE" style="color:purple;width:250rpx;font-size:16px" formType="submit">教育副主席</button>
+      </view>
+
+      <view class="box">
+        <button class="item" id="VPM" style="color:Orange;width:250rpx;font-size:16px" formType="submit">会员副主席</button>
+        <button class="item" id="VPPR" style="color:purple;width:250rpx;font-size:16px" formType="submit">公关副主席</button>
+      </view>
+
+      <view class="box">
+        <button class="item" id="FM" style="color:Orange;width:180rpx;font-size:16px" formType="submit">财务官</button>
+        <button class="item" id="Secretary" style="color:DarkCyan;width:180rpx;font-size:16px" formType="submit">秘书长</button>
+        <button class="item" id="SAA_official" style="color:purple;width:180rpx;font-size:16px" formType="submit">接待官</button>
+      </view>
+
+    </form>
+  </view>
+  <text style="color:DimGray;font-size:10px;padding-bottom:10rpx;">包含所有角色说明及中英文模板</text>
+</view>
+
 <view class='line'></view>
 
 <view class="container1">
@@ -163,6 +196,20 @@
   <text style="color:DimGray;font-size:10px;padding-bottom:10rpx;">历年头马世界冠军演讲音频</text>
 </view>
 
+<!-- <view class='line'></view> -->
+
+<!-- <swiper class="swiper" indicator-dots="false" autoplay="true" interval="5000" duration="1000" circular="true">
+  <view wx:for="{{banners1}}">
+    <swiper-item>
+      <image src="{{item}}" bindtap="saveOfficialQRCode" class="banner" mode="aspectFit"/>
+    </swiper-item>
+  </view>
+</swiper> -->
+<image src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/Kalubowila_tm.jpg" bindtap="saveOfficialQRCode" class="banner" mode="aspectFit" />
+<view class="container1">
+  <text style="color:DimGray;font-size:10px;padding-bottom:10rpx;" bindtap="saveOfficialQRCode">头马助手，助力你的头马</text>
+</view>
+
 <view class='line'></view>
 
 <view class="container1">
@@ -174,15 +221,11 @@
   <view class="main_box">
     <form report-submit="true" bindsubmit="getTool">
       <view class="box">
-        <!-- <text class="item" bindtap="getTool" id="jixing" style="color:Orange;width:200rpx;">即兴演讲助手</text> -->
         <button class="item" id="jixing" style="color:Orange;width:250rpx;font-size:16px" formType="submit">即兴演讲助手</button>
-        <!-- <text class="item" bindtap="getTool" id="timertool" style="color:DarkCyan;width:200rpx;">演讲计时</text> -->
         <button class="item" id="timertool" style="color:purple;width:250rpx;font-size:16px" formType="submit">演讲计时</button>
       </view>
       <view class="box">
-        <!-- <text class="item" bindtap="getTool" id="translator" style="color:Orange;width:200rpx;">语音翻译</text> -->
         <button class="item" id="translator" style="color:Orange;width:220rpx;font-size:16px" formType="submit">语音翻译</button>
-        <!-- <text class="item" bindtap="getTool" id="matrix" style="color:DarkCyan;width:200rpx;">Matrix</text> -->
         <button class="item" id="check" style="color:DarkCyan;width:220rpx;font-size:16px" formType="submit">头马清单</button>
         <button class="item" id="matrix" style="color:purple;width:220rpx;font-size:16px" formType="submit">Matrix</button>
       </view>

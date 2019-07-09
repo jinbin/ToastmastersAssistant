@@ -101,3 +101,28 @@ img {
   width: 90%;
   height: 90%
 }
+
+.circle-float{
+  color: #ffffff;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 20rpx;
+  right: 20rpx;
+  width: 110rpx;
+  height: 110rpx;
+  border-radius: 50%;
+  font-size: 28rpx;
+  background: rgb(56, 243, 56);
+}
+
+.hover_1{
+  background: #698B22;
+}
+
+.hover_2{
+  background: rgb(241, 83, 62);
+}
+
+

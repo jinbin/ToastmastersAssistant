@@ -23,6 +23,25 @@
   border-radius: 50%;
 }
 
+.window {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /* justify-content:space-around;
+  align-items: center;
+  align-content: center; */
+}
+
+.box {
+  width: 25%;
+  height: 120rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center;
+  align-content: center;
+}
+
 .page__ft{
     padding: 50rpx 0;
     padding-bottom: 20px;

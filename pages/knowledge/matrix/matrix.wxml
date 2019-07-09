@@ -26,6 +26,6 @@
 
   <view class="page__ft" bindtap='fromPageFt'>
     <button type="primary" size="mini" class="weui-footer__text">
-    返回知识库
+    返回首页
     </button>
   </view>

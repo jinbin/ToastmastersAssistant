@@ -1,133 +1,113 @@
 // pages/canvas/canvas.js
+
+const sysInfo = wx.getSystemInfoSync();
+const screenWidth = sysInfo.screenWidth;
+const factor = screenWidth / 750;
+
+function toPx(rpx) { // rpx转px
+  return rpx * factor;
+}
+
+function toRpx(px) { // px转rpx
+  return px / factor;
+}
+
 Page({
 
   /**
    * 页面的初始数据
    */
-  data: {
-    tmpPath: "",
-    motto: 'Hello World',
-    hidden: true,
-    userInfo: {},
-    hasUserInfo: false,
-    windowWidth: '',
-    posterHeight: '',
-    canvasWidth: 300
-  },
+  data: {},
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-  },
+  onLoad: function(options) {
+    let ctx = wx.createCanvasContext('canvas', this)
 
-  drawImage: function(){
-    var that = this
-    // 拿到canvas context
-    let ctx = wx.createCanvasContext('share_canvas')
-    let path = 'https://img.diyijuzi.com/diyijuzi/uploads/allimg/160208/2_160208162410_1.jpg'
+    // 设置矩形的填充色 
+    // ctx.setFillStyle('white')
+    // 填充一个矩形 
+    // ctx.fillRect(100, 10, 150, 75)
+
+    // ctx.setTextAlign('right')
 
     wx.getImageInfo({
-      sec: path,
-      success: function (res) {
+      src: 'https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/images/backgroud/bg1.jpg',
+      success: (res) => {
+        ctx.drawImage("/images/bg1.jpg", 0, 0, toPx(680), toPx(1100))
+        // 宽度 680rpx 
+        ctx.setFontSize(40)
+        ctx.fillText('头马助手', toPx(200), toPx(100))
 
-        let maxWidth = Math.min(res.width, that.data.canvasWidth * 0.65);
-        let radio = maxWidth / res.width;
-        let offsetY = (that.data.canvasHeight - res.height * radio) / 2;
+        ctx.setFontSize(20)
+        ctx.fillText('头马的百科全书', toPx(140), toPx(230))
+        ctx.fillText('比你想要的更多一点', toPx(140), toPx(300))
+        wx.getImageInfo({
+          src: "https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/images/%E5%A4%B4%E9%A9%AC%E5%8A%A9%E6%89%8B%E9%A6%96%E9%A1%B5.jpeg",
+          success: (res) => {
+            // 下载成功 即可获取到本地路径
+            ctx.drawImage(res.path, toPx(115), toPx(350), toPx(450), toPx(500))
 
-        // 绘制图片，path是本地路径，不可以传网络url，如果是网络图片需要先下载
-        ctx.drawImage("/images/TMLogo.jpeg", 10, offsetY, res.width * radio, res.height * radio)
+            wx.getImageInfo({
+              src: 'https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/images/qrcode.jpg',
+              success: (res) => {
+                ctx.drawImage(res.path, toPx(240), toPx(880), toPx(200), toPx(200))
+                ctx.draw()
+              }
+            })
+          }
+        })
       }
-    })
-  },
-
-  saveImageToPhotosAlbum(){
-    var that = this 
-
-    wx.previewImage({
-      current: that.data.tmpPath, // 当前显示图片的http链接
-      urls: [that.data.tmpPath] // 需要预览的图片http链接列表
-    })
-
-    // wx.saveImageToPhotosAlbum({
-    //   filePath: "images/qrcode.jpg",
-    //   success: function (res) {
-    //     console.log("save success!")
-
-    //     wx.showModal({
-    //       content: '图片已保存到相册，赶紧晒一下吧~',
-    //       showCancel: false,
-    //       confirmText: '好的',
-    //       confirmColor: '#333',
-    //       success: function (res) {
-    //         if (res.confirm) {
-    //           console.log('用户点击确定');
-    //           /* 该隐藏的隐藏 */
-    //           that.setData({
-    //             hidden: true
-    //           })
-    //         }
-    //       }
-    //     })
-    //   }
-    // })
-  },
-
-  saveCanvasTo: function () {
-    var that = this
-    // 把当前画布指定区域的内容导出生成指定大小的图片。
-    wx.previewImage({
-      current: this.data.tmpPath, // 当前显示图片的http链接
-      urls: [this.data.tmpPath] // 需要预览的图片http链接列表
     })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })

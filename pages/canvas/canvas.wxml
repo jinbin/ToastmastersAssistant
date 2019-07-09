@@ -1,13 +1,5 @@
 <!--pages/canvas/canvas.wxml-->
 
-<view class="page-body">
-  <view class="page-body-wrapper">
-    <canvas canvas-id="canvas" class="canvas"></canvas>
-  </view>
+<view class="main_box">
+  <canvas class="myCanvas" canvas-id="canvas"></canvas>
 </view>
-
-<!-- <button size="mini" bindtap='saveImageToPhotosAlbum'>保存</button> -->
-<button bindtap='drawImage'>生成图片</button>
-
-<canvas canvas-id="starkImg" style="width:100%;height:{{posterHeight}}px;"></canvas>
-

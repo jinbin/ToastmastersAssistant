@@ -8,7 +8,7 @@
     <open-data class="userinfo-avatar" type="userAvatarUrl" background-size="cover"></open-data>
   </view>
   <!-- <image src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/wordmark.jpg" style="height: 80px; width: 100%" /> -->
-  <image src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/toumazhushoulogo.png" style="height: 80px; width: 100%" />
+  <image src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/toumazhushoulogo.png" style="height: 80px; width: 100%" bindtap="checkin"/>
 </view>
 
 <!-- <image src="https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/images/learnmore.jpg?sign=724100720ef0ddd30c216dcec6655a62&t=1542367040" style="height: 160px; width: 100%" /> -->
@@ -24,12 +24,39 @@
 </view>
 <view wx:else>
   <ad unit-id="adunit-ab171e6bb49115c5"></ad>
+  <!-- <view open-type="navigate" bindtap="bindViewTap" > <view style="position: relative; display: flex; width: 100%; overflow: hidden" > <image src="http://aldpicsh-1252823355.cossh.myqcloud.com/ad_advertiser/15614430131992.png" style="width: 100%; margin: 0px auto; height: 91.2715px;"></image> </view> </view> -->
 </view>
 
 <!-- <view class="xm_insert">
   <xm-ad data-id="{{xmad.ad.insert}}" adData="{{xmad.adData}}" bindadload="adImgLoad" bindclick="appoIntView" bindclose="xmadClose" class="xm_component">
   </xm-ad>
 </view> -->
+<view class="window">
+  <view class="box" bindtap="navigateTo" id="/pages/contact/contact">  
+    <image style="width:80rpx;height:80rpx" src="../../images/setting1.png"></image>
+    <view style="font-size:12px">联系作者</view>
+  </view>
+  <view class="box" bindtap="saveQRCode" id="images/qrcode.jpg">
+    <image style="width:80rpx;height:80rpx" src="../../images/setting2.png"></image> 
+    <view style="font-size:12px">小程序码</view>
+  </view>
+  <view class="box" bindtap="saveQRCode" id="images/qrcode_for_account.jpg">
+    <image style="width:80rpx;height:80rpx" src="../../images/setting6.png"></image> 
+    <view style="font-size:12px">关注公众号</view>
+  </view>
+  <view class="box" bindtap="linkTA">
+    <image style="width:80rpx;height:80rpx" src="../../images/setting4.png"></image> 
+    <view style="font-size:12px;">关联小程序</view>
+  </view>
+  <view class="box" bindtap="navigateToMiniProgram" id="wx18a2ac992306a5a4" data-path="pages/apps/largess/detail?id=LYFYxTFDv9E%3D">
+    <image style="width:80rpx;height:80rpx" src="../../images/setting3.png"></image> 
+    <view style="font-size:12px;">打赏作者</view>
+  </view>
+  <view class="box" bindtap="navigateToMiniProgram" id="wx018f0c4c2a1ee727" data-path="pages/group-detail/index?groupid=16287827559774652520">
+    <image style="width:80rpx;height:80rpx" src="../../images/setting5.png"></image> 
+    <view style="font-size:12px;">头马中国群</view>
+  </view>
+</view>
 
 <view class="page-body">
   <view class="weui-cells weui-cells_after-title">
@@ -93,6 +120,11 @@
       </view>
       <view class="weui-cell__ft weui-cell__ft_in-access"></view>
     </view>
+
+    <navigator target="miniProgram" open-type="navigate" app-id="wx018f0c4c2a1ee727" extra-data="{{ extraData }}" path="pages/group-detail/index?groupid=16287827559774652520" version="release" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+      <view class="weui-cell__bd" style="color:#4876FF">加入头马中国群</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </navigator>
 
     <!-- <navigator target="miniProgram" open-type="navigate" app-id="{{ appId }}" extra-data="{{ extraData }}" version="release" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
     <view class="weui-cell weui-cell_access">

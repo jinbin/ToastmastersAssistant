@@ -13,7 +13,8 @@ Page({
   levelHandler: function (options) {
     var url 
     if (options.detail.target.id == "matrix") {
-      url = "https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/tmcResources/Pathways-Path-and-Project-Matrix_ENCS-chi.pdf"
+      // url = "https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/tmcResources/Pathways-Path-and-Project-Matrix_ENCS-chi.pdf"
+      url = "https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/tmcResources/Pathways_Path_and_Project_Matrix_ENCS%20jan.pdf"
     } else if (options.detail.target.id == "matrixEn") {
       url = "https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/tmcResources/PathwaysMatrixEN.pdf" 
     }
@@ -27,9 +28,8 @@ Page({
   },
 
   fromPageFt: function(e) {
-    console.log("hello")
     wx.switchTab({
-      url: '/pages/knowledge/knowledge',
+      url: '/pages/merger/merger',
     })
   },
 

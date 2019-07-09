@@ -57,11 +57,14 @@
     "wx09a49d05a365a4e6",
     "wx8abaf00ee8c3202e",
     "wx4c4b54bc609bd79e",
-    "wx18a2ac992306a5a4"
+    "wx18a2ac992306a5a4",
+    "wxc1ee10069d40b79c",
+    "wx018f0c4c2a1ee727",
+    "wxde40c5cf1d10c3d1"
   ],
   "plugins": {
     "gdPlugin": {
-      "version": "0.2.3",
+      "version": "0.2.4",
       "provider": "wx34b0738d0eef5f78"
     },
     "WechatSI": {

@@ -1,4 +1,5 @@
 // pages/merger/merger.js
+const app = getApp()
 
 const db = wx.cloud.database({
   env: "tmassistant-5275ad"
@@ -30,7 +31,25 @@ Page({
     },
     isplay: false,
     audioYear: 2018,
-    banners: ["cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/korea_tm.jpg", "cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/jp_tm.jpg"]
+    banners: [
+      "cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/jp_tm.jpg",
+      "cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/korea_tm.jpg"
+      ],
+    banners1: [
+      // "cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/atlanta_tm.jpg",
+      "cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/santander_tm.jpg"
+      ],
+    banner_height: 50,
+    scrollTop: 0,
+    threshold: 1300,
+    windowHeight: wx.getSystemInfoSync().windowHeight,
+    userId: app.globalData.userInfo
+  },
+
+  onPageScroll: function(ev){
+    this.setData({
+      scrollTop: ev.scrollTop
+    })
   },
 
   playAudio: function(e) {
@@ -109,6 +128,19 @@ Page({
       success: function(res) {},
       fail: function(res) {},
       complete: function(res) {},
+    })
+  },
+
+  getToNavi: function (options) {
+    console.log(options)
+
+    var naviTo = '/pages/webview/webview?article=' + options.currentTarget.id
+
+    wx.navigateTo({
+      url: naviTo,
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
     })
   },
 
@@ -236,7 +268,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    // innerAudioContext.src = this.data.audiosrc[this.data.audioYear]
+    this.setData({
+      banner_height: 240 / wx.getSystemInfoSync().windowHeight * 100
+    })
   },
 
   /**
@@ -284,7 +318,7 @@ Page({
   onShareAppMessage: function(res) {
     return {
       title: '头马助手: 头马的百科全书, 比你想要的更多一点',
-      imageUrl: '../../images/头马助手首页.jpeg'
+      imageUrl: 'https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/images/%E5%A4%B4%E9%A9%AC%E5%8A%A9%E6%89%8B%E9%A6%96%E9%A1%B5.jpeg?sign=fc1c02a182483dfc578531534b8fa28c&t=1560520486'
     }
   }
 })

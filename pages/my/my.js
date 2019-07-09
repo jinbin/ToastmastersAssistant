@@ -1,5 +1,10 @@
 // pages/my/my.js
 
+var util = require('../../utils/util.js');
+const db = wx.cloud.database({
+  env: "tmassistant-5275ad"
+})
+
 var Page = require('../../utils/xmadx_sdk.min.js').xmad(Page).xmPage;
 
 Page({
@@ -8,6 +13,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    openId: "",
+    time: "",
     appId: "wx8abaf00ee8c3202e",
     tt_appId: "wx4c4b54bc609bd79e",
     xmad: {
@@ -30,29 +37,121 @@ Page({
         imei: ''
       }
     },
-    components: [
-      // {
-      //   title: '关于头马助手',
-      //   remark: '关于头马助手',
-      //   url: '/pages/index/index',
-      // },
-      // {
-      //   title: '认识作者',
-      //   remark: '认识作者',
-      //   url: '/pages/contact/contact',
-      // },
-      // {
-      //   title: '关于头马助手',
-      //   remark: '关于头马助手',
-      //   url: '/pages/webview/webview?article=toumazhushou'
-      // },
-      // },
-      // {
-      //   title: '更新记录',
-      //   remark: '更新记录',
-      //   url: '/pages/article/article?id=updates',
-      // },
-    ]
+    components: []
+  },
+
+  onLoad: function(options) {
+    this.setData({
+      time: util.formatTime(new Date())
+    })
+  },
+
+  bindViewTap() {
+    wx.navigateToMiniProgram({
+      appId: 'wxde40c5cf1d10c3d1',
+      path: 'pages/index/index?uid=xiaomeng&pakey=e1be9224',
+      extraData: {
+        foo: 'bar'
+      },
+      envVersion: 'release',
+      success(res) {}
+    })
+  },
+
+  checkIn: function(e) {
+    wx.showModal({
+      content: "恭喜你发现神秘打卡通道，更多惊喜即将上线",
+      showCancel: false,
+      // confirmText: '',
+      confirmColor: '#ff7f50',
+      success: function(res) {
+        if (res.confirm) {
+          // wx.setClipboardData({
+          //   data: "wx16c76d4762cbe0b3",
+          //   success: function (res) {
+          //     wx.showToast({
+          //       title: "AppID复制成功"
+          //     })
+          //   }
+          // })
+        }
+      }
+    })
+  },
+
+  checkin: function(options) {
+    var that = this
+    wx.cloud.callFunction({
+      name: "getOpenid",
+      success: res => {
+        that.setData({
+          openId: res.result.openid
+        })
+        var openid = res.result.openid
+        db.collection("checkin").where({
+          openid: res.result.openid
+        }).get({
+          success: function(res) {
+            console.log(res.data)
+            if (res.data.length == 0) {
+              db.collection('checkin').add({
+                data:({
+                  checkin: 1,
+                  date: util.formatTime(new Date()),
+                  openid: openid
+                }),
+                success: function(){
+                  wx.showModal({
+                    content: "恭喜你发现了隐藏签到处！更多惊喜正在路上，明天继续来签到吧！",
+                    showCancel: false,
+                    // confirmText: '',
+                    confirmColor: '#ff7f50',
+                    success: function (res) {
+                      if (res.confirm) { }
+                    }
+                  })
+                }
+              })
+            } else {
+              if (res.data[0].date == util.formatTime(new Date())) {
+                //今天已经签到过
+                wx.showModal({
+                  content: "今天已签到, 你已经签到过" + res.data[0].checkin + "次, 明天再来打卡~",
+                  showCancel: false,
+                  // confirmText: '',
+                  confirmColor: '#ff7f50',
+                  success: function(res) {
+                    if (res.confirm) {}
+                  }
+                })
+              } else {
+                //今天第一次签到
+                db.collection('checkin').doc(res.data[0]._id).update({
+                  data: {
+                    checkin: db.command.inc(1),
+                    date: util.formatTime(new Date())
+                  },
+                  success: res1 => {
+                    wx.showModal({
+                      content: "签到成功！这是你的第" + (res.data[0].checkin+1) + "次签到",
+                      showCancel: false,
+                      // confirmText: '',
+                      confirmColor: '#ff7f50',
+                      success: function(res) {
+                        if (res.confirm) {}
+                      }
+                    })
+                  }
+                })
+              }
+            } //数据库已经有对应人的信息
+          },
+          fail: function(e) {
+            console.log("fail")
+          }
+        })
+      }
+    })
   },
 
   onShow: function(options) {
@@ -133,6 +232,19 @@ Page({
           console.log('用户点击确定');
         }
       }
+    })
+  },
+
+  navigateTo: function (options) {
+    wx.navigateTo({
+      url: options.currentTarget.id
+    })
+  },
+
+  navigateToMiniProgram: function (options) {
+    wx.navigateToMiniProgram({
+      appId: options.currentTarget.id,
+      path: options.currentTarget.dataset.path
     })
   },
 
