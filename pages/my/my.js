@@ -37,7 +37,8 @@ Page({
         imei: ''
       }
     },
-    components: []
+    components: [],
+    isAdError: true
   },
 
   onLoad: function(options) {
@@ -245,6 +246,12 @@ Page({
     wx.navigateToMiniProgram({
       appId: options.currentTarget.id,
       path: options.currentTarget.dataset.path
+    })
+  },
+
+  aderror: function (options) {
+    this.setData({
+      isAdError: true
     })
   },
 

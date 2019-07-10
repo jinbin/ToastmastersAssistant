@@ -23,7 +23,12 @@
   </view>
 </view>
 <view wx:else>
-  <ad unit-id="adunit-ab171e6bb49115c5"></ad>
+  <view wx:if="{{isAdError}}">
+    <image bindtap="saveOfficialQRCode" style="padding: 30rpx; width:100%" src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/头马助手公众号Logo.jpg" mode="widthFix"></image>
+  </view>
+  <view wx:else>
+    <ad unit-id="adunit-ab171e6bb49115c5" binderror="aderror"></ad>
+  </view>
   <!-- <view open-type="navigate" bindtap="bindViewTap" > <view style="position: relative; display: flex; width: 100%; overflow: hidden" > <image src="http://aldpicsh-1252823355.cossh.myqcloud.com/ad_advertiser/15614430131992.png" style="width: 100%; margin: 0px auto; height: 91.2715px;"></image> </view> </view> -->
 </view>
 
@@ -45,7 +50,7 @@
     <view style="font-size:12px">关注公众号</view>
   </view>
   <view class="box" bindtap="linkTA">
-    <image style="width:80rpx;height:80rpx" src="../../images/setting4.png"></image> 
+    <image style="width:80rpx;height:80rpx" src="../../images/setting7.png"></image> 
     <view style="font-size:12px;">关联小程序</view>
   </view>
   <view class="box" bindtap="navigateToMiniProgram" id="wx18a2ac992306a5a4" data-path="pages/apps/largess/detail?id=LYFYxTFDv9E%3D">
@@ -56,65 +61,40 @@
     <image style="width:80rpx;height:80rpx" src="../../images/setting5.png"></image> 
     <view style="font-size:12px;">头马中国群</view>
   </view>
+  <view class="box" bindtap="navigateToMiniProgram" id="wx4c4b54bc609bd79e">
+    <image style="width:80rpx;height:80rpx" src="../../images/setting4.png"></image> 
+    <view style="font-size:12px;">即兴助手</view>
+  </view>
 </view>
 
-<view class="page-body">
+<!--  <view class="page-body">
   <view class="weui-cells weui-cells_after-title">
 
-    <!-- <navigator url="/pages/manage/manage" wx:if="{{isOwner}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active" open-type="navigate"> 
-			      <view class="weui-cell__hd">
-			      </view>
-			      <view class="weui-cell__bd">管理入口</view>
-			      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-			  </navigator> -->
-
-    <block wx:for="{{ components }}" wx:key="">
-      <navigator url="{{ item.url }}" class="weui-cell weui-cell_access" hover-class="weui-cell_active" open-type="{{item.isTab ? 'switchTab':'navigate'}}">
-        <view class="weui-cell__hd">
-          <!-- <image src="../../images/tabBar/info.png" style="margin-right: 5px;vertical-align: middle;width:25px; height: 25px;"></image> -->
-        </view>
-        <view class="weui-cell__bd">{{ item.title }}</view>
-        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-      </navigator>
-    </block>
-
     <navigator open-type="navigate" url="/pages/contact/contact" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-      <!-- <view class="weui-cell__hd">
-      </view> -->
       <view class="weui-cell__bd" style="color:purple">联系作者</view>
       <view class="weui-cell__ft weui-cell__ft_in-access"></view>
     </navigator>
 
     <view class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-      <!-- <view class="weui-cell__hd">
-      </view> -->
       <view class="weui-cell__bd" bindtap="saveQRCode" id="images/qrcode.jpg" style="color:Orange">
         获取小程序码
-        <!-- <span style="color:red;">*</span> -->
       </view>
       <view class="weui-cell__ft weui-cell__ft_in-access"></view>
     </view>
 
     <view class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-      <!-- <view class="weui-cell__hd">
-      </view> -->
       <view class="weui-cell__bd" bindtap="saveQRCode" id="images/qrcode_for_account.jpg" style="color:DarkCyan">
         关注公众号
-        <!-- <span style="color:red;">*</span> -->
       </view>
       <view class="weui-cell__ft weui-cell__ft_in-access"></view>
     </view>
 
     <navigator target="miniProgram" open-type="navigate" app-id="wx18a2ac992306a5a4" extra-data="{{ extraData }}" path="pages/apps/largess/detail?id=LYFYxTFDv9E%3D" version="release" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-      <!-- <view class="weui-cell__hd">
-      </view> -->
       <view class="weui-cell__bd" style="color:red">打赏作者</view>
       <view class="weui-cell__ft weui-cell__ft_in-access"></view>
     </navigator>
 
     <view class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-      <!-- <view class="weui-cell__hd">
-      </view> -->
       <view class="weui-cell__bd" bindtap="linkTA" style="color:ForestGreen">
         关联头马助手
       </view>
@@ -126,17 +106,8 @@
       <view class="weui-cell__ft weui-cell__ft_in-access"></view>
     </navigator>
 
-    <!-- <navigator target="miniProgram" open-type="navigate" app-id="{{ appId }}" extra-data="{{ extraData }}" version="release" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-    <view class="weui-cell weui-cell_access">
-      <view class="weui-cell__hd">
-      </view>
-      <view class="weui-cell__bd">建议与反馈</view>
-      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-    </view>
-    </navigator> -->
-
   </view>
-</view>
+</view> -->
 
 <template is="contact_button" />
 

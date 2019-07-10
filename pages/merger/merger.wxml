@@ -17,10 +17,40 @@
   <navigator style="color: #ffffff;font-size:23rpx;" open-type='navigate' target='miniProgram' app-id="wx18a2ac992306a5a4" path="pages/apps/largess/detail?id=LYFYxTFDv9E%3D">打赏</navigator>
 </view>
 
-<view class="container1">
+<view style="">
+  <!-- <view class="title">
+    <text style="color:DimGray">——</text> 教育体系
+    <text style="color:DimGray">——</text>
+  </view> -->
+
+  <form report-submit="true" bindsubmit="getIntro">
+    <view class="window3" style="padding:10rpx;">
+      <view class="box3" style="">
+        <button id="intro" formType="submit">
+          <image style="width:60rpx;height:60rpx" src="../../images/matrix.png"></image>
+          <view style="font-size:13px;">了解头马</view>
+        </button>
+      </view>
+      <view class="box3" style="background-color: #E8E8E8;border:2rpx solid #F8F8F8;">
+        <button id="10" formType="submit">
+          <image style="width:60rpx;height:60rpx" src="../../images/matrix2.png"></image>
+          <view style="font-size:13px;">Pathways</view>
+        </button>
+      </view>
+      <view class="box3" style="background-color: #E8E8E8;border:2rpx solid #F8F8F8;">
+        <button id="6" formType="submit">
+          <image style="width:60rpx;height:60rpx" src="../../images/matrix3.png"></image>
+          <view style="font-size:13px;">CC路径</view>
+        </button>
+      </view>
+    </view>
+  </form>
+</view>
+
+<!-- <view class="container1" style="">
   <view class="title">
-    <text style="color:DimGray;">—</text> 教育体系
-    <text style="color:DimGray;">—</text>
+    <text style="color:DimGray">——</text> 教育体系
+    <text style="color:DimGray">——</text>
   </view>
   <view class="box">
     <view class="item" bindtap="getPathways" id="6" style="color:Orange">
@@ -34,15 +64,16 @@
     </view>
   </view>
   <text style="color:DimGray;font-size:10px;padding-bottom:10rpx;">包含旧教育体系项目介绍和新教育体系路径介绍</text>
-</view>
+</view> -->
+
 
 <view class='line'></view>
 
 <!-- <form report-submit="true" bindsubmit="levelHandler"> -->
-<view class="container1">
+<view class="container1" style="">
   <view class="title">
-    <text style="color:DimGray">—</text> Pathways
-    <text style="color:DimGray">—</text>
+    <text style="color:DimGray">——</text> Pathways
+    <text style="color:DimGray">——</text>
   </view>
   <view class="box">
     <!-- <button size="mini" class="item" bindtap="getPathways" id="1" style="color:Orange;font-size:16px;padding:0rpx">
@@ -76,6 +107,75 @@
 
 <view class='line'></view>
 
+<view class="container1" style="">
+  <view class="title">
+    <text style="color:DimGray">——</text> 会议角色
+    <text style="color:DimGray">——</text>
+  </view>
+
+  <form report-submit="true" bindsubmit="getRoles">
+    <view class="window1">
+      <view class="box1">
+        <button id="timer" formType="submit">
+          <image style="width:50rpx;height:50rpx" src="../../images/meeting11.png"></image>
+        </button>
+        <view class="downText">时间官</view>
+      </view>
+      <view class="box1">
+        <button id="grammarian" formType="submit">
+          <image style="width:50rpx;height:50rpx" src="../../images/meeting14.png"></image>
+        </button>
+        <view class="downText">语法官</view>
+      </view>
+      <view class="box1">
+        <button id="ahcounter" formType="submit">
+          <image style="width:50rpx;height:50rpx" src="../../images/meeting15.png"></image>
+        </button>
+        <view class="downText">哼哈官</view>
+      </view>
+      <view class="box1">
+        <button id="tm" formType="submit">
+          <image style="width:50rpx;height:50rpx" src="../../images/meeting13.png"></image>
+        </button>
+        <view class="downText">主持人</view>
+      </view>
+      <view class="box1">
+        <button id="ttm" formType="submit">
+          <image style="width:50rpx;height:50rpx" src="../../images/meeting16.png"></image>
+        </button>
+        <view class="downText">即兴主持</view>
+      </view>
+      <view class="box1">
+        <button id="ge" formType="submit">
+          <image style="width:50rpx;height:50rpx" src="../../images/meeting18.png"></image>
+        </button>
+        <view class="downText">总评</view>
+      </view>
+      <view class="box1">
+        <button id="ie" formType="submit">
+          <image style="width:50rpx;height:50rpx" src="../../images/meeting17.png"></image>
+        </button>
+        <view class="downText">个人评估</view>
+      </view>
+      <view class="box1">
+        <button id="tte" formType="submit">
+          <image style="width:50rpx;height:50rpx" src="../../images/meeting19.png"></image>
+        </button>
+        <view class="downText">即兴评估</view>
+      </view>
+      <view class="box1">
+        <button id="SAA" formType="submit">
+          <image style="width:50rpx;height:50rpx" src="../../images/meeting12.png"></image>
+        </button>
+        <view class="downText">接待官</view>
+      </view>
+    </view>
+  </form>
+  <text style="color:DimGray;font-size:10px;padding-bottom:10rpx;">包含所有角色说明及中英文模板</text>
+</view>
+
+<!-- <view class='line'></view>
+
 <view class="container1">
   <view class="title">
     <text style="color:DimGray">—</text> 会议角色
@@ -101,6 +201,72 @@
     </form>
   </view>
   <text style="color:DimGray;font-size:10px;padding-bottom:10rpx;">包含所有角色说明及中英文模板</text>
+</view> -->
+
+<view class='line'></view>
+
+<view class="container1" style="">
+  <view class="title">
+    <text style="color:DimGray">——</text> 官员介绍
+    <text style="color:DimGray">——</text>
+  </view>
+
+  <form report-submit="true" bindsubmit="getRoles">
+    <view class="window1" style="width:90%">
+      <view class="box2">
+        <button id="president" formType="submit">
+          <image style="width:50rpx;height:50rpx" src="../../images/leader1.png"></image>
+        </button>
+        <view class="downText">主席</view>
+      </view>
+      <view class="box2">
+        <button id="VPE" formType="submit">
+          <image style="width:50rpx;height:50rpx" src="../../images/leader6.png"></image>
+        </button>
+        <view class="downText">教育副主席</view>
+      </view>
+      <view class="box2">
+        <button id="VPM" formType="submit">
+          <image style="width:50rpx;height:50rpx" src="../../images/leader8.png"></image>
+        </button>
+        <view class="downText">会员副主席</view>
+      </view>
+      <view class="box2">
+        <button id="VPPR" formType="submit">
+          <image style="width:50rpx;height:50rpx" src="../../images/leader4.png"></image>
+        </button>
+        <view class="downText">公关副主席</view>
+      </view>
+      <view class="box2">
+        <button id="FM" formType="submit">
+          <image style="width:50rpx;height:50rpx" src="../../images/leader3.png"></image>
+        </button>
+        <view class="downText">财务官</view>
+      </view>
+      <view class="box2">
+        <button id="SAA_official" formType="submit">
+          <image style="width:50rpx;height:50rpx" src="../../images/leader5.png"></image>
+        </button>
+        <view class="downText">接待官</view>
+      </view>
+      <view class="box2">
+        <button id="Secretary" formType="submit">
+          <image style="width:50rpx;height:50rpx" src="../../images/leader7.png"></image>
+        </button>
+        <view class="downText">秘书长</view>
+      </view>
+
+      <!-- <view class="box1" bindtap="navigateTo" id="/pages/webview/webview?article=tte">
+      <image style="width:50rpx;height:50rpx" src="../../images/meeting19.png"></image>
+      <view class="downText">即兴评估</view>
+    </view> -->
+      <!-- <view class="box1" bindtap="navigateTo" id="/pages/webview/webview?article=SAA">
+      <image style="width:50rpx;height:50rpx" src="../../images/meeting12.png"></image>
+      <view class="downText">接待官</view>
+    </view> -->
+    </view>
+  </form>
+  <text style="color:DimGray;font-size:10px;padding-bottom:10rpx;">包含所有角色说明及中英文模板</text>
 </view>
 
 <view class='line'></view>
@@ -114,7 +280,7 @@
 
 <view class='line'></view>
 
-<view class="container1">
+<!-- <view class="container1">
   <view class="title">
     <text style="color:DimGray">—</text> 官员介绍
     <text style="color:DimGray">—</text>
@@ -142,12 +308,12 @@
   <text style="color:DimGray;font-size:10px;padding-bottom:10rpx;">包含所有角色说明及中英文模板</text>
 </view>
 
-<view class='line'></view>
+<view class='line'></view> -->
 
-<view class="container1">
+<view class="container1" style="">
   <view class="title">
-    <text style="color:DimGray">—</text> 冠军演讲
-    <text style="color:DimGray">—</text>
+    <text style="color:DimGray">——</text> 冠军演讲
+    <text style="color:DimGray">——</text>
   </view>
 
   <view class="main_box" style="width:90%">
@@ -212,10 +378,10 @@
 
 <view class='line'></view>
 
-<view class="container1">
+<view class="container1" style="">
   <view class="title">
-    <text style="color:DimGray">—</text> 实用工具
-    <text style="color:DimGray">—</text>
+    <text style="color:DimGray">——</text> 实用工具
+    <text style="color:DimGray">——</text>
   </view>
 
   <view class="main_box">
@@ -236,10 +402,10 @@
 
 <view class='line'></view>
 
-<view class="container1">
+<view class="container1" style="">
   <view class="title">
-    <text style="color:DimGray">—</text> 头马助手
-    <text style="color:DimGray">—</text>
+    <text style="color:DimGray">——</text> 头马助手
+    <text style="color:DimGray">——</text>
   </view>
 
   <form report-submit="true" bindsubmit="getArticle">
@@ -260,9 +426,3 @@
 <!-- <view class='line'></view> -->
 
 <image bindtap="saveOfficialQRCode" src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/theultimatetoastmasters_qian.jpg" mode="scaleToFill" class="banner"></image>
-
-<!-- <view class="container1" style="padding-top: 40rpx; padding-bottom: 40rpx">
-  <view class="ad">
-    <ad unit-id="adunit-ab171e6bb49115c5"></ad>
-  </view>
-</view> -->
