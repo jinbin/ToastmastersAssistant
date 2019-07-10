@@ -144,6 +144,10 @@ Page({
       wx.switchTab({
         url: '/pages/volItem/volItem',
       })
+    } else if (options.detail.target.id == "DTM"){
+      wx.navigateTo({
+        url: '/pages/webview/webview?article=DTM',
+      })
     }else{
       var naviTo = '/pages/pathways/desc/desc?level=' + options.detail.target.id
 

@@ -66,20 +66,73 @@
   <text style="color:DimGray;font-size:10px;padding-bottom:10rpx;">包含旧教育体系项目介绍和新教育体系路径介绍</text>
 </view> -->
 
+<form report-submit="true" bindsubmit="getIntro">
+  <view class="edu" style="display:flex;">
+    <view class="box_edu" style="background-color:#E8E8E8;border:0rpx solid #F8F8F8">
+      <button id="10" formType="submit">
+        <image style="width:60rpx;height:60rpx" src="../../images/matrix.png"></image>
+        <view style="font-size:13px;">Pathways</view>
+      </button>
+    </view>
+    <view class="box_edu" style="background-color:purple">
+      <view class="inbox_edu" style="background-color:#E8E8E8;border:1rpx solid #F8F8F8">
+        <button id="1" formType="submit">
+          <image style="width:40rpx;height:40rpx" src="../../images/matrix_orange.png"></image>
+        </button>
+        <view style="font-size:10px;">阶段一</view>
+        <!-- <text style="font-size: 10px">夯实基础</text> -->
+      </view>
+      <view class="inbox_edu" style="background-color:#E8E8E8;border:1rpx solid #F8F8F8">
+        <button id="4" formType="submit">
+          <image style="width:40rpx;height:40rpx" src="../../images/matrix_red.png"></image>
+        </button>
+        <view style="font-size:10px;">阶段四</view>
+        <!-- <text style="font-size: 10px">夯实基础</text> -->
+      </view>
+    </view>
+    <view class="box_edu">
+      <view class="inbox_edu" style="background-color:#E8E8E8;border:1rpx solid #F8F8F8">
+        <button id="2" formType="submit">
+          <image style="width:40rpx;height:40rpx" src="../../images/matrix_ForrestGreen.png"></image>
+        </button>
+        <view style="font-size:10px;">阶段二</view>
+      </view>
+      <view class="inbox_edu" style="background-color:#E8E8E8;border:1rpx solid #F8F8F8">
+        <button id="5" formType="submit">
+          <image style="width:40rpx;height:40rpx" src="../../images/matrix_purple.png"></image>
+        </button>
+        <view style="font-size:10px;">阶段五</view>
+      </view>
+    </view>
+    <view class="box_edu">
+      <view class="inbox_edu" style="background-color:#E8E8E8;border:1rpx solid #F8F8F8">
+        <button id="3" formType="submit">
+          <image style="width:40rpx;height:40rpx" src="../../images/matrix2.png"></image>
+        </button>
+        <view style="font-size:10px;">阶段三</view>
+      </view>
+      <view class="inbox_edu" style="background-color:#E8E8E8;border:1rpx solid #F8F8F8">
+        <button id="DTM" formType="submit">
+          <image style="width:40rpx;height:40rpx" src="../../images/matrix_DarkCyan.png"></image>
+        </button>
+        <view style="font-size:10px;">DTM</view>
+      </view>
+    </view>
+  </view>
+  <view class="container1" style="width:100%;">
+    <text style="color:DimGray;font-size:10px;padding:10rpx;">包含新教育体系Pathways所有项目中英文说明</text>
+  </view>
+</form>
+
 
 <view class='line'></view>
 
-<!-- <form report-submit="true" bindsubmit="levelHandler"> -->
-<view class="container1" style="">
+<!-- <view class="container1" style="">
   <view class="title">
     <text style="color:DimGray">——</text> Pathways
     <text style="color:DimGray">——</text>
   </view>
   <view class="box">
-    <!-- <button size="mini" class="item" bindtap="getPathways" id="1" style="color:Orange;font-size:16px;padding:0rpx">
-      <text style="padding:0rpx">阶段一</text>
-      <text style="font-size:10px;">夯实基础</text>
-    </button> -->
     <view class="item" bindtap="getPathways" id="1" style="color:Orange">
       <text>阶段一</text>
       <text style="font-size: 10px">夯实基础</text>
@@ -102,8 +155,7 @@
     </view>
   </view>
   <text style="color:DimGray;font-size:10px;padding-bottom:10rpx;">包含新教育体系Pathways所有项目中英文说明</text>
-</view>
-<!-- </form> -->
+</view> -->
 
 <view class='line'></view>
 
