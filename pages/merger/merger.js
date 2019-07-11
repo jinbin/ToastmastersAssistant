@@ -1,6 +1,6 @@
 // pages/merger/merger.js
 const app = getApp()
-
+var util = require('../../utils/util.js');
 const db = wx.cloud.database({
   env: "tmassistant-5275ad"
 })
@@ -32,13 +32,23 @@ Page({
     isplay: false,
     audioYear: 2018,
     banners: [
-      "cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/jp_tm.jpg",
-      "cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/korea_tm.jpg"
-      ],
-    banners1: [
-      // "cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/atlanta_tm.jpg",
-      "cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/santander_tm.jpg"
-      ],
+      {  "url":"cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/accountpublicitybanner.jpeg",
+        "bind": "saveOfficialQRCode"
+      },
+      {
+        "url":"cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/jp_tm.jpg",
+        "bind":"saveOfficialQRCode"
+      },
+      {
+        "url": "cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/hequn1.jpeg",
+        "bind": "navigateToHequn"
+      },
+      {
+        "url":
+      "cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/korea_tm.jpg",
+        "bind": "saveOfficialQRCode"
+      }
+    ],
     banner_height: 50,
     scrollTop: 0,
     threshold: 1300,
@@ -140,6 +150,10 @@ Page({
 
     console.log(options.detail.target.id)
 
+    if (options.detail.target.id == ""){
+      return 
+    }
+
     if (options.detail.target.id == "intro"){
       wx.switchTab({
         url: '/pages/volItem/volItem',
@@ -148,7 +162,9 @@ Page({
       wx.navigateTo({
         url: '/pages/webview/webview?article=DTM',
       })
-    }else{
+    } else if(options.detail.target.id == "checkin"){
+      this.checkin()
+    } else{
       var naviTo = '/pages/pathways/desc/desc?level=' + options.detail.target.id
 
       wx.navigateTo({
@@ -185,6 +201,13 @@ Page({
   navigateTo: function (options) {
     wx.navigateTo({
       url: options.currentTarget.id
+    })
+  },
+
+  navigateToHequn: function () {
+    wx.navigateToMiniProgram({
+      appId: 'wx018f0c4c2a1ee727',
+      path: 'pages/group-detail/index?groupid=16287827559774652520'
     })
   },
 
@@ -308,6 +331,86 @@ Page({
     })
   },
 
+  checkin: function (options) {
+    var that = this
+    wx.cloud.callFunction({
+      name: "getOpenid",
+      success: res => {
+        that.setData({
+          openId: res.result.openid
+        })
+        var openid = res.result.openid
+        db.collection("checkin").where({
+          openid: res.result.openid
+        }).get({
+          success: function (res) {
+            console.log(res.data)
+            //之前从来没有签到过
+            if (res.data.length == 0) {
+              db.collection('checkin').add({
+                data: ({
+                  checkin: 1,
+                  date: util.formatTime(new Date()),
+                  openid: openid,
+                  created_at: util.formatTime(new Date())
+                }),
+                success: function () {
+                  wx.showModal({
+                    content: "恭喜你发现了隐藏签到处！更多惊喜正在路上，明天继续来签到吧！",
+                    showCancel: false,
+                    // confirmText: '',
+                    confirmColor: '#ff7f50',
+                    success: function (res) {
+                      if (res.confirm) { }
+                    }
+                  })
+                }
+              })
+            } else {
+              if (res.data[0].date == util.formatTime(new Date())) {
+                //今天已经签到过
+                wx.showModal({
+                  content: "今天已签到, 你已经签到过" + res.data[0].checkin + "次, 明天再来打卡~",
+                  showCancel: false,
+                  // confirmText: '',
+                  confirmColor: '#ff7f50',
+                  success: function (res) {
+                    if (res.confirm) { }
+                  },
+                  fail: function (res){
+                    console.log(res)
+                  }
+                })
+              } else {
+                //今天第一次签到
+                db.collection('checkin').doc(res.data[0]._id).update({
+                  data: {
+                    checkin: db.command.inc(1),
+                    date: util.formatTime(new Date())
+                  },
+                  success: res1 => {
+                    wx.showModal({
+                      content: "签到成功！这是你的第" + (res.data[0].checkin + 1) + "次签到",
+                      showCancel: false,
+                      // confirmText: '',
+                      confirmColor: '#ff7f50',
+                      success: function (res) {
+                        if (res.confirm) { }
+                      }
+                    })
+                  }
+                })
+              }
+            } //数据库已经有对应人的信息
+          },
+          fail: function (e) {
+            console.log("fail")
+          }
+        })
+      }
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -361,8 +464,9 @@ Page({
 
   onShareAppMessage: function(res) {
     return {
-      title: '头马助手: 头马的百科全书, 比你想要的更多一点',
-      imageUrl: 'https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/images/%E5%A4%B4%E9%A9%AC%E5%8A%A9%E6%89%8B%E9%A6%96%E9%A1%B5.jpeg?sign=fc1c02a182483dfc578531534b8fa28c&t=1560520486'
+      title: '头马助手: 头马, 演讲, 英语, 超过2万名终身学习者的选择',
+      // imageUrl: 'https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/images/%E5%A4%B4%E9%A9%AC%E5%8A%A9%E6%89%8B%E9%A6%96%E9%A1%B5.jpeg?sign=fc1c02a182483dfc578531534b8fa28c&t=1560520486'
+      imageUrl: '/images/index.jpg'
     }
   }
 })

@@ -3,7 +3,7 @@
 <swiper class="swiper" style="height: {{banner_height}}%" indicator-dots="true" autoplay="true" interval="5000" duration="1000" circular="true">
   <view wx:for="{{banners}}">
     <swiper-item>
-      <image src="{{item}}" bindtap="saveOfficialQRCode" class="banner" mode="aspectFit" />
+      <image src="{{item.url}}" bindtap="{{item.bind}}" class="banner" mode="aspectFit" />
     </swiper-item>
   </view>
 </swiper>
@@ -26,20 +26,21 @@
   <form report-submit="true" bindsubmit="getIntro">
     <view class="window3" style="padding:10rpx;">
       <view class="box3" style="">
-        <button id="intro" formType="submit">
-          <image style="width:60rpx;height:60rpx" src="../../images/matrix.png"></image>
+        <button id="intro" size="mini" formType="submit">
+          <image style="width:60rpx;height:60rpx" src="../../images/blocks.png"></image>
           <view style="font-size:13px;">了解头马</view>
         </button>
       </view>
-      <view class="box3" style="background-color: #E8E8E8;border:2rpx solid #F8F8F8;">
-        <button id="10" formType="submit">
-          <image style="width:60rpx;height:60rpx" src="../../images/matrix2.png"></image>
-          <view style="font-size:13px;">Pathways</view>
+      <view class="box3" style="">
+        <button id="checkin" size="mini" formType="submit">
+          <image style="width:60rpx;height:60rpx" src="../../images/blocks1.png"></image>
+          <view style="font-size:13px;">每日签到</view>
         </button>
       </view>
-      <view class="box3" style="background-color: #E8E8E8;border:2rpx solid #F8F8F8;">
-        <button id="6" formType="submit">
-          <image style="width:60rpx;height:60rpx" src="../../images/matrix3.png"></image>
+      <!-- <view class="box3" style="background-color: #E8E8E8;border:2rpx solid #F8F8F8;"> -->
+      <view class="box3" style="">
+        <button id="6" size="mini" formType="submit">
+          <image style="width:60rpx;height:60rpx" src="../../images/blocks2.png"></image>
           <view style="font-size:13px;">CC路径</view>
         </button>
       </view>
@@ -69,51 +70,51 @@
 <form report-submit="true" bindsubmit="getIntro">
   <view class="edu" style="display:flex;">
     <view class="box_edu" style="background-color:#E8E8E8;border:0rpx solid #F8F8F8">
-      <button id="10" formType="submit">
-        <image style="width:60rpx;height:60rpx" src="../../images/matrix.png"></image>
+      <button id="10" size="mini" formType="submit">
+        <image style="width:80rpx;height:80rpx" src="../../images/matrix.png"></image>
         <view style="font-size:13px;">Pathways</view>
       </button>
     </view>
     <view class="box_edu" style="background-color:purple">
-      <view class="inbox_edu" style="background-color:#E8E8E8;border:1rpx solid #F8F8F8">
-        <button id="1" formType="submit">
-          <image style="width:40rpx;height:40rpx" src="../../images/matrix_orange.png"></image>
+      <view class="inbox_edu" style="background-color:#E8E8E8;border:2rpx solid #F8F8F8">
+        <button id="1" size="mini" formType="submit">
+          <image style="width:60rpx;height:60rpx" src="../../images/matrix_orange.png"></image>
         </button>
         <view style="font-size:10px;">阶段一</view>
         <!-- <text style="font-size: 10px">夯实基础</text> -->
       </view>
-      <view class="inbox_edu" style="background-color:#E8E8E8;border:1rpx solid #F8F8F8">
-        <button id="4" formType="submit">
-          <image style="width:40rpx;height:40rpx" src="../../images/matrix_red.png"></image>
+      <view class="inbox_edu" style="background-color:#E8E8E8;border:2rpx solid #F8F8F8">
+        <button id="4" size="mini" formType="submit">
+          <image style="width:60rpx;height:60rpx" src="../../images/matrix_red.png"></image>
         </button>
         <view style="font-size:10px;">阶段四</view>
         <!-- <text style="font-size: 10px">夯实基础</text> -->
       </view>
     </view>
     <view class="box_edu">
-      <view class="inbox_edu" style="background-color:#E8E8E8;border:1rpx solid #F8F8F8">
-        <button id="2" formType="submit">
-          <image style="width:40rpx;height:40rpx" src="../../images/matrix_ForrestGreen.png"></image>
+      <view class="inbox_edu" style="background-color:#E8E8E8;border:2rpx solid #F8F8F8">
+        <button id="2" size="mini" formType="submit">
+          <image style="width:60rpx;height:60rpx" src="../../images/matrix_ForrestGreen.png"></image>
         </button>
         <view style="font-size:10px;">阶段二</view>
       </view>
-      <view class="inbox_edu" style="background-color:#E8E8E8;border:1rpx solid #F8F8F8">
-        <button id="5" formType="submit">
-          <image style="width:40rpx;height:40rpx" src="../../images/matrix_purple.png"></image>
+      <view class="inbox_edu" style="background-color:#E8E8E8;border:2rpx solid #F8F8F8">
+        <button id="5" size="mini" formType="submit">
+          <image style="width:60rpx;height:60rpx" src="../../images/matrix_purple.png"></image>
         </button>
         <view style="font-size:10px;">阶段五</view>
       </view>
     </view>
     <view class="box_edu">
-      <view class="inbox_edu" style="background-color:#E8E8E8;border:1rpx solid #F8F8F8">
-        <button id="3" formType="submit">
-          <image style="width:40rpx;height:40rpx" src="../../images/matrix2.png"></image>
+      <view class="inbox_edu" style="background-color:#E8E8E8;border:2rpx solid #F8F8F8">
+        <button id="3" size="mini" formType="submit">
+          <image style="width:60rpx;height:60rpx" src="../../images/matrix_DarkCyan.png"></image>
         </button>
         <view style="font-size:10px;">阶段三</view>
       </view>
-      <view class="inbox_edu" style="background-color:#E8E8E8;border:1rpx solid #F8F8F8">
-        <button id="DTM" formType="submit">
-          <image style="width:40rpx;height:40rpx" src="../../images/matrix_DarkCyan.png"></image>
+      <view class="inbox_edu" style="background-color:#E8E8E8;border:2rpx solid #F8F8F8">
+        <button id="DTM" size="mini" formType="submit">
+          <image style="width:60rpx;height:60rpx" src="../../images/matrix_orange.png"></image>
         </button>
         <view style="font-size:10px;">DTM</view>
       </view>
@@ -164,66 +165,68 @@
     <text style="color:DimGray">——</text> 会议角色
     <text style="color:DimGray">——</text>
   </view>
+  <view>
+    <text style="color:DimGray;font-size:10px;padding-bottom:10rpx;">常规头马会议包含一些固定角色，这里有角色介绍和中英文模板</text>
+  </view>
 
   <form report-submit="true" bindsubmit="getRoles">
     <view class="window1">
       <view class="box1">
-        <button id="timer" formType="submit">
+        <button id="timer" size="mini" formType="submit">
           <image style="width:50rpx;height:50rpx" src="../../images/meeting11.png"></image>
         </button>
         <view class="downText">时间官</view>
       </view>
       <view class="box1">
-        <button id="grammarian" formType="submit">
+        <button id="grammarian" size="mini" formType="submit">
           <image style="width:50rpx;height:50rpx" src="../../images/meeting14.png"></image>
         </button>
         <view class="downText">语法官</view>
       </view>
       <view class="box1">
-        <button id="ahcounter" formType="submit">
+        <button id="ahcounter" size="mini" formType="submit">
           <image style="width:50rpx;height:50rpx" src="../../images/meeting15.png"></image>
         </button>
         <view class="downText">哼哈官</view>
       </view>
       <view class="box1">
-        <button id="tm" formType="submit">
+        <button id="tm" size="mini" formType="submit">
           <image style="width:50rpx;height:50rpx" src="../../images/meeting13.png"></image>
         </button>
         <view class="downText">主持人</view>
       </view>
       <view class="box1">
-        <button id="ttm" formType="submit">
+        <button id="ttm" size="mini" formType="submit">
           <image style="width:50rpx;height:50rpx" src="../../images/meeting16.png"></image>
         </button>
         <view class="downText">即兴主持</view>
       </view>
       <view class="box1">
-        <button id="ge" formType="submit">
+        <button id="ge" size="mini" formType="submit">
           <image style="width:50rpx;height:50rpx" src="../../images/meeting18.png"></image>
         </button>
         <view class="downText">总评</view>
       </view>
       <view class="box1">
-        <button id="ie" formType="submit">
+        <button id="ie" size="mini" formType="submit">
           <image style="width:50rpx;height:50rpx" src="../../images/meeting17.png"></image>
         </button>
         <view class="downText">个人评估</view>
       </view>
       <view class="box1">
-        <button id="tte" formType="submit">
+        <button id="tte" size="mini" formType="submit">
           <image style="width:50rpx;height:50rpx" src="../../images/meeting19.png"></image>
         </button>
         <view class="downText">即兴评估</view>
       </view>
       <view class="box1">
-        <button id="SAA" formType="submit">
+        <button id="SAA" size="mini" formType="submit">
           <image style="width:50rpx;height:50rpx" src="../../images/meeting12.png"></image>
         </button>
         <view class="downText">接待官</view>
       </view>
     </view>
   </form>
-  <text style="color:DimGray;font-size:10px;padding-bottom:10rpx;">包含所有角色说明及中英文模板</text>
 </view>
 
 <!-- <view class='line'></view>
@@ -262,72 +265,64 @@
     <text style="color:DimGray">——</text> 官员介绍
     <text style="color:DimGray">——</text>
   </view>
+  <view>
+    <text style="color:DimGray;font-size:10px;padding-bottom:10rpx;">头马俱乐部的运营有其特有方式，来看看运营团队每个人的职责</text>
+  </view>
 
   <form report-submit="true" bindsubmit="getRoles">
     <view class="window1" style="width:90%">
       <view class="box2">
-        <button id="president" formType="submit">
+        <button id="president" size="mini" formType="submit">
           <image style="width:50rpx;height:50rpx" src="../../images/leader1.png"></image>
         </button>
         <view class="downText">主席</view>
       </view>
       <view class="box2">
-        <button id="VPE" formType="submit">
+        <button id="VPE" size="mini" formType="submit">
           <image style="width:50rpx;height:50rpx" src="../../images/leader6.png"></image>
         </button>
         <view class="downText">教育副主席</view>
       </view>
       <view class="box2">
-        <button id="VPM" formType="submit">
+        <button id="VPM" size="mini" formType="submit">
           <image style="width:50rpx;height:50rpx" src="../../images/leader8.png"></image>
         </button>
         <view class="downText">会员副主席</view>
       </view>
       <view class="box2">
-        <button id="VPPR" formType="submit">
+        <button id="VPPR" size="mini" formType="submit">
           <image style="width:50rpx;height:50rpx" src="../../images/leader4.png"></image>
         </button>
         <view class="downText">公关副主席</view>
       </view>
       <view class="box2">
-        <button id="FM" formType="submit">
+        <button id="FM" size="mini" formType="submit">
           <image style="width:50rpx;height:50rpx" src="../../images/leader3.png"></image>
         </button>
         <view class="downText">财务官</view>
       </view>
       <view class="box2">
-        <button id="SAA_official" formType="submit">
+        <button id="SAA_official" size="mini" formType="submit">
           <image style="width:50rpx;height:50rpx" src="../../images/leader5.png"></image>
         </button>
         <view class="downText">接待官</view>
       </view>
       <view class="box2">
-        <button id="Secretary" formType="submit">
+        <button id="Secretary" size="mini" formType="submit">
           <image style="width:50rpx;height:50rpx" src="../../images/leader7.png"></image>
         </button>
         <view class="downText">秘书长</view>
       </view>
-
-      <!-- <view class="box1" bindtap="navigateTo" id="/pages/webview/webview?article=tte">
-      <image style="width:50rpx;height:50rpx" src="../../images/meeting19.png"></image>
-      <view class="downText">即兴评估</view>
-    </view> -->
-      <!-- <view class="box1" bindtap="navigateTo" id="/pages/webview/webview?article=SAA">
-      <image style="width:50rpx;height:50rpx" src="../../images/meeting12.png"></image>
-      <view class="downText">接待官</view>
-    </view> -->
     </view>
   </form>
-  <text style="color:DimGray;font-size:10px;padding-bottom:10rpx;">包含所有角色说明及中英文模板</text>
 </view>
 
 <view class='line'></view>
 
 <view class="container1">
   <view class="main_box">
-    <image bindtap="saveOfficialQRCode" style="padding: 30rpx" src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/头马助手公众号Logo.jpg" mode="widthFix"></image>
+    <image bindtap="saveOfficialQRCode" style="padding:10rpx;" src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/accountpublicity2.jpeg" mode="widthFix"></image>
   </view>
-  <text style="color:DimGray;font-size:10px;padding-bottom:10rpx;" bindtap="saveOfficialQRCode">关注官方公众号, 头马圈必备的"头马百科全书"</text>
 </view>
 
 <view class='line'></view>
@@ -361,6 +356,45 @@
 </view>
 
 <view class='line'></view> -->
+
+<!-- <form report-submit="true" bindsubmit="getIntro">
+  <view class="edu" style="display:flex;">
+    <view class="box_audio" style="background-color:#E8E8E8;border:0rpx solid #F8F8F8">
+      <button id="10" size="mini" formType="submit">
+        <image style="width:80rpx;height:80rpx" src="../../images/matrix.png"></image>
+        <view style="font-size:13px;">冠军音频</view>
+      </button>
+    </view>
+    <view class="box_audio" style="background-color:purple">
+      <view class="inbox_audio" style="background-color:#E8E8E8;border:1rpx solid #F8F8F8">
+        <button id="1" size="mini" formType="submit">
+          <image style="width:60rpx;height:60rpx" src="../../images/matrix_orange.png"></image>
+        </button>
+        <view style="font-size:10px;">2018</view>
+      </view>
+      <view class="inbox_audio" style="background-color:#E8E8E8;border:1rpx solid #F8F8F8">
+        <button id="4" size="mini" formType="submit">
+          <image style="width:60rpx;height:60rpx" src="../../images/matrix_red.png"></image>
+        </button>
+        <view style="font-size:10px;">2016</view>
+      </view>
+    </view>
+    <view class="box_audio">
+      <view class="inbox_audio" style="background-color:#E8E8E8;border:1rpx solid #F8F8F8">
+        <button id="2" size="mini" formType="submit">
+          <image style="width:60rpx;height:60rpx" src="../../images/matrix_ForrestGreen.png"></image>
+        </button>
+        <view style="font-size:10px;">2017</view>
+      </view>
+      <view class="inbox_audio" style="background-color:#E8E8E8;border:1rpx solid #F8F8F8">
+        <button id="5" size="mini" formType="submit">
+          <image style="width:60rpx;height:60rpx" src="../../images/matrix_purple.png"></image>
+        </button>
+        <view style="font-size:10px;">点击了解更多</view>
+      </view>
+    </view>
+  </view>
+</form> -->
 
 <view class="container1" style="">
   <view class="title">

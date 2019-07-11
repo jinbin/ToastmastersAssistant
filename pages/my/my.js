@@ -38,7 +38,7 @@ Page({
       }
     },
     components: [],
-    isAdError: true
+    isAdError: false
   },
 
   onLoad: function(options) {
