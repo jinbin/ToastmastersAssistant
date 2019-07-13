@@ -406,7 +406,10 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function() {
-
+    return {
+      title: '头马助手: 头马, 演讲, 英语, 超过2万名终身学习者的选择',
+      imageUrl: '/images/index.jpg'
+    }
   },
 
   fromPageFt: function() {

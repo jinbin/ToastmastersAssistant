@@ -22,12 +22,26 @@ Page({
                   '2017 Pull Less,Bend More', 
                   '2016 Outsmart,Outlast',
                   '2015 The Power of Words'],
+    audioTEDsrc: {
+      'How_to_Achieve_Your_Most_Ambitious_Goals':
+        { 'link': 'cloud://tmassistant-5275ad.746d-tmassistant-5275ad/audio/ted/How_to_Achieve_Your_Most_Ambitious_Goals.mp3', 'title': 'How to achieve your most ambitious goals' },
+      'Sleep_is_your_superpower':
+      {
+        'link': 'cloud://tmassistant-5275ad.746d-tmassistant-5275ad/audio/ted/Sleep_is_your_superpower.mp3', 'title': 'Sleep is your superpower'
+      },
+      'The healing power of reading':
+      {
+        'link': 'cloud://tmassistant-5275ad.746d-tmassistant-5275ad/audio/ted/The_healing_power_of_reading.mp3', 'title': 'The healing power of reading'
+      }
+    },
     audiosrc: {
       2018: 'cloud://tmassistant-5275ad.746d-tmassistant-5275ad/audio/champions/2018Toastmasters.mp3',
       2017: 'cloud://tmassistant-5275ad.746d-tmassistant-5275ad/audio/champions/2017Toastmasters.mp3',
       2016:
 'cloud://tmassistant-5275ad.746d-tmassistant-5275ad/audio/champions/2016Toastmasters.mp3',
-      2015: 'cloud://tmassistant-5275ad.746d-tmassistant-5275ad/audio/champions/2015Toastmasters.mp3'
+      2015: 'cloud://tmassistant-5275ad.746d-tmassistant-5275ad/audio/champions/2015Toastmasters.mp3',
+      'The_healing_power_of_reading':
+      'cloud://tmassistant-5275ad.746d-tmassistant-5275ad/audio/ted/The_healing_power_of_reading.mp3'
     },
     isplay: false,
     audioYear: 2018,
@@ -43,9 +57,14 @@ Page({
         "url": "cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/hequn1.jpeg",
         "bind": "navigateToHequn"
       },
+      // {
+      //   "url":
+      // "cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/korea_tm.jpg",
+      //   "bind": "saveOfficialQRCode"
+      // },
       {
         "url":
-      "cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/korea_tm.jpg",
+      "cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/TEDtalk2.jpeg",
         "bind": "saveOfficialQRCode"
       }
     ],
@@ -60,6 +79,103 @@ Page({
     this.setData({
       scrollTop: ev.scrollTop
     })
+  },
+
+  getAudio: function (options) {
+    console.log(options.detail.formId)
+
+    var timestamp = Date.parse(new Date()) / 1000
+    var newtimestamp = timestamp + 24 * 60 * 60 * 7
+    var n7_to = newtimestamp * 1000
+
+    db.collection("formIds").add({
+      data: {
+        openid: this.data.openid,
+        formId: options.detail.formId,
+        expire: new Date(n7_to),
+        available: true
+      }
+    })
+
+    if (options.detail.target.id == "more") {
+      wx.navigateTo({
+        url: '/pages/audio/audio',
+      })
+    }
+
+    // innerAudioContext.autoplay = true
+    // if (!this.data.innerAudioContext){
+    //   this.data.innerAudioContext = wx.createInnerAudioContext()
+    //   this.data.innerAudioContext.obeyMuteSwitch = false
+    // }
+    // 对同一个音频进行操作
+    if (options.detail.target.id == this.data.audioYear) {
+      if (this.data.isplay) { // 正在播放，终止
+        console.log("stop")
+        // innerAudioContext.stop()
+        backgroundAudioManager.stop()
+      } else { // 未在播放，开始播放
+        console.log("play")
+        // innerAudioContext.obeyMuteSwitch = false;
+
+        // innerAudioContext.src = this.data.audiosrc[this.data.audioYear]
+        // innerAudioContext.play()
+
+        backgroundAudioManager.title = this.data.audioYear + '演讲音频 by 头马助手'
+        backgroundAudioManager.epname = '头马助手'
+        backgroundAudioManager.singer = '头马助手'
+        backgroundAudioManager.coverImgUrl = ''
+        // 设置了 src 之后会自动播放
+        backgroundAudioManager.src = this.data.audiosrc[this.data.audioYear]
+      }
+      this.setData({
+        isplay: !this.data.isplay
+      })
+    } else { // 不是对同一个音频进行操作
+      // 本来就有音频在进行
+      if (this.data.isplay) {
+        // innerAudioContext.stop()
+        backgroundAudioManager.stop()
+        this.setData({
+          audioYear: options.detail.target.id
+        })
+        // innerAudioContext.obeyMuteSwitch = false;
+        // innerAudioContext.src = this.data.audiosrc[this.data.audioYear]
+        // innerAudioContext.play()
+
+        backgroundAudioManager.title = this.data.audioYear + '演讲音频 by 头马助手'
+        backgroundAudioManager.epname = '头马助手'
+        backgroundAudioManager.singer = '头马助手'
+        backgroundAudioManager.coverImgUrl = ''
+        // 设置了 src 之后会自动播放
+        backgroundAudioManager.src = this.data.audiosrc[this.data.audioYear]
+      } else { // 没有音频在进行
+        this.setData({
+          isplay: true,
+          //isplay: !this.data.isplay,
+          audioYear: options.detail.target.id
+        })
+        // innerAudioContext.obeyMuteSwitch = false;
+        // innerAudioContext.src = this.data.audiosrc[this.data.audioYear]
+        // innerAudioContext.play()
+
+        backgroundAudioManager.title = this.data.audioYear + '演讲音频 by 头马助手'
+        backgroundAudioManager.epname = '头马助手'
+        backgroundAudioManager.singer = '头马助手'
+        backgroundAudioManager.coverImgUrl = ''
+        // 设置了 src 之后会自动播放
+        backgroundAudioManager.src = this.data.audiosrc[this.data.audioYear]
+      }
+    }
+
+    console.log(this.data.isplay)
+    console.log(this.data.audioYear)
+
+    console.log(options.detail.target.id)
+  },
+
+  playTEDaudio: function(e) {
+    console.log("TED audio")
   },
 
   playAudio: function(e) {
@@ -81,7 +197,7 @@ Page({
         // innerAudioContext.src = this.data.audiosrc[this.data.audioYear]
         // innerAudioContext.play()
 
-        backgroundAudioManager.title = this.data.audioYear + '冠军演讲音频 by 头马助手'
+        backgroundAudioManager.title = this.data.audioYear + '演讲音频 by 头马助手'
         backgroundAudioManager.epname = '头马助手'
         backgroundAudioManager.singer = '头马助手'
         backgroundAudioManager.coverImgUrl = ''
@@ -103,7 +219,7 @@ Page({
         // innerAudioContext.src = this.data.audiosrc[this.data.audioYear]
         // innerAudioContext.play()
 
-        backgroundAudioManager.title = this.data.audioYear + '冠军演讲音频 by 头马助手'
+        backgroundAudioManager.title = this.data.audioYear + '演讲音频 by 头马助手'
         backgroundAudioManager.epname = '头马助手'
         backgroundAudioManager.singer = '头马助手'
         backgroundAudioManager.coverImgUrl = ''
@@ -119,7 +235,7 @@ Page({
         // innerAudioContext.src = this.data.audiosrc[this.data.audioYear]
         // innerAudioContext.play()
 
-        backgroundAudioManager.title = this.data.audioYear + '冠军演讲音频 by 头马助手'
+        backgroundAudioManager.title = this.data.audioYear + '演讲音频 by 头马助手'
         backgroundAudioManager.epname = '头马助手'
         backgroundAudioManager.singer = '头马助手'
         backgroundAudioManager.coverImgUrl = ''

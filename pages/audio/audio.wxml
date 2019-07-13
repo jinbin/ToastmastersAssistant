@@ -1,26 +1,115 @@
-
-<view class="container1">
-
-<view class="title">
-    <text style="color:DimGray">—</text> 冠军演讲
-    <text style="color:DimGray">—</text>
+<view class="select">
+  <!-- <button bindtap="getCh" style="background-color:#1E90FF" id="tm" class="b1" type="mini">头马</button> -->
+  <button bindtap="getCh" style="background-color:{{color1}}" id="tm" class="b1" type="mini">头马</button>
+  <!-- <button bindtap="getCh" style="background-color:#FF4040"id="ted" class="b1">TED</button> -->
+  <button bindtap="getCh" style="background-color:{{color2}}" id="ted" class="b1">TED</button>
+  <!-- <button bindtap="getCh" style="background-color:#8B8970" id="others" class="b1">其他</button> -->
+  <button bindtap="getCh" style="background-color:{{color3}}" id="others" class="b1">其他</button>
 </view>
 
-<view class="main_box" style="width:90%">
+<view wx:if="{{channel == 'ted'}}" class="container1">
+
+  <view class="title">
+    <text style="color:DimGray">—</text> TED演讲
+    <text style="color:DimGray">—</text>
+  </view>
+
+  <view class="main_box" style="width:90%">
     <view style="padding: 10rpx">
 
-    <view wx:for="{{audiosrc}}" wx:for-index="index" wx:for-item="item">
-      <view bindtap="playAudio" data-year="{{index}}" class="box" style="color:DarkCyan;font-size:15px;justify-content: flex-start">
-        <view>{{item.title}}</view>
-        <view wx:if="{{isplay && audioYear == index}}">
-          <image src="/images/restart.png" style="width:18px;height:18px;padding:10rpx"></image>
-        </view>
-        <view wx:else>
-          <image src="/images/stop.png" style="width:18px;height:18px;padding:10rpx"></image>
+      <view wx:for="{{audioTEDsrc}}" wx:for-index="index" wx:for-item="item">
+        <view bindtap="playAudio" data-year="{{index}}" class="box" style="color:DarkCyan;font-size:15px;justify-content: flex-start">
+          <!-- <text style="color:#2E8B57">【头马精选】</text>
+        <view>{{item.title}}</view> -->
+          <view class="label" wx:if="{{isplay && audioYear == index}}">
+            <!-- <image src="/images/restart.png" style="width:18px;height:18px;padding:10rpx"></image> -->
+            <image style="width:40rpx;height:40rpx;display: flex;flex-direction: row" src="../../images/audio_stop.png">
+            </image>
+            <text style="color:#2E8B57">【TED精选】</text>
+          </view>
+          <view class="label" wx:else>
+            <!-- <image src="/images/stop.png" style="width:18px;height:18px;padding:10rpx"></image> -->
+            <image style="width:50rpx;height:40rpx;display: flex;flex-direction: row" src="../../images/audio_orange.png">
+            </image>
+            <text style="color:#2E8B57">【TED精选】</text>
+          </view>
+
+          <view style="color:DimGray;width:91%;display: flex;flex-direction: row;justify-content:flex-start;">
+            {{item.title}}
+          </view>
         </view>
       </view>
+
     </view>
-    </view> 
-  </view> 
+  </view>
+
+</view>
+
+<view wx:if="{{channel == 'tm'}}" class="container1">
+
+  <view class="title">
+    <text style="color:DimGray">—</text> 冠军演讲
+    <text style="color:DimGray">—</text>
+  </view>
+
+  <view class="main_box" style="width:90%">
+    <view style="padding: 10rpx">
+
+      <view wx:for="{{audiosrc}}" wx:for-index="index" wx:for-item="item">
+        <view bindtap="playAudio" data-year="{{index}}" class="box" style="color:DarkCyan;font-size:15px;justify-content: flex-start">
+          <view class="label" wx:if="{{isplay && audioYear == index}}">
+            <image style="width:40rpx;height:40rpx;display: flex;flex-direction: row" src="../../images/audio_stop.png">
+            </image>
+            <text style="color:#2E8B57">【头马精选】</text>
+          </view>
+          <view class="label" wx:else>
+            <!-- <image src="/images/stop.png" style="width:18px;height:18px;padding:10rpx"></image> -->
+            <image style="width:50rpx;height:40rpx;display: flex;flex-direction: row" src="../../images/audio_orange.png">
+            </image>
+            <text style="color:#2E8B57">【头马精选】</text>
+          </view>
+
+          <view style="color:DimGray;width:91%;display: flex;flex-direction: row;justify-content:flex-start;">
+            {{item.title}}
+          </view>
+        </view>
+      </view>
+
+    </view>
+  </view>
+
+</view>
+
+<view wx:if="{{channel == 'others'}}" class="container1">
+
+  <view class="title">
+    <text style="color:DimGray">—</text> 敬请期待
+    <text style="color:DimGray">—</text>
+  </view>
+
+  <view class="main_box" style="width:90%">
+    <view style="padding: 10rpx">
+
+      <view wx:for="{{}}" wx:for-index="index" wx:for-item="item">
+        <view bindtap="playAudio" data-year="{{index}}" class="box" style="color:DarkCyan;font-size:15px;justify-content: flex-start">
+          <view class="label" wx:if="{{isplay && audioYear == index}}">
+            <image style="width:40rpx;height:40rpx;display: flex;flex-direction: row" src="../../images/audio_stop.png">
+            </image>
+            <text style="color:#2E8B57">【精选】</text>
+          </view>
+          <view class="label" wx:else>
+            <image style="width:50rpx;height:40rpx;display: flex;flex-direction: row" src="../../images/audio_orange.png">
+            </image>
+            <text style="color:#2E8B57">【精选】</text>
+          </view>
+
+          <view style="color:DimGray;width:91%;display: flex;flex-direction: row;justify-content:flex-start;">
+            {{item.title}}
+          </view>
+        </view>
+      </view>
+
+    </view>
+  </view>
 
 </view>

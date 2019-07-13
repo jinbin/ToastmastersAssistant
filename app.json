@@ -1,10 +1,11 @@
 {
   "pages": [
     "pages/merger/merger",
+    "pages/audio/audio",
+    
     "pages/testdb/testdb",
     "pages/manage/manage",
     "pages/my/my",
-    "pages/audio/audio",
     "pages/contact/contact",
     "pages/tools/checklist/checklist",
     "pages/canvas/canvas",
@@ -38,13 +39,13 @@
         "pagePath": "pages/volItem/volItem",
         "iconPath": "./images/tabBar/homepage.png",
         "selectedIconPath": "./images/tabBar/homepage-sel.png",
-        "text": "头马入门"
+        "text": "发现"
       },
       {
         "pagePath": "pages/merger/merger",
         "iconPath": "./images/tabBar/miniprogram.png",
         "selectedIconPath": "images/tabBar/miniprogram-sel.png",
-        "text": "头马百科"
+        "text": "首页"
       },
       {
         "pagePath": "pages/my/my",

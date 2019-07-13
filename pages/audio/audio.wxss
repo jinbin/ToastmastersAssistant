@@ -6,6 +6,33 @@
   align-items: center;
 }
 
+.select {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.b1 {
+  width:30%;
+  padding: 30rpx;
+}
+
+.label {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+}
+
+.dailylisten {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
 .title {
   /* font-family: -apple-system, BlinkMacSystemFont, 'Microsoft YaHei', sans-serif; *//* font-size: 40rpx; */
   font-size: 20px;
