@@ -4,7 +4,7 @@
   <!-- <button bindtap="getCh" style="background-color:#FF4040"id="ted" class="b1">TED</button> -->
   <button bindtap="getCh" style="background-color:{{color2}}" id="ted" class="b1">TED</button>
   <!-- <button bindtap="getCh" style="background-color:#8B8970" id="others" class="b1">其他</button> -->
-  <button bindtap="getCh" style="background-color:{{color3}}" id="others" class="b1">其他</button>
+  <button bindtap="getCh" style="background-color:{{color3}}" id="others" class="b1">视频</button>
 </view>
 
 <view wx:if="{{channel == 'ted'}}" class="container1">

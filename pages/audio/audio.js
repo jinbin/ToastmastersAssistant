@@ -59,12 +59,31 @@ Page({
         color1: "",
         color2: "",
         color3: "#8B8970"
-      })        
+      })
+      //视频在公众号内
+      wx.showModal({
+        content: '因为小程序受限，所有优质视频内容存放在官方公众号内。搜索"头马助手"官方公众号, 获取历年头马世界冠军演讲、TED精选、英语口语技巧视频！',
+        showCancel: false,
+        confirmText: '去关注',
+        confirmColor: '#ff7f50',
+        success: function (res) {
+          if (res.confirm) {
+            wx.setClipboardData({
+              data: "头马助手 Toastmasters Assistant",
+              success: function (res) {
+                wx.showToast({
+                  title: "公众号名已复制"
+                })
+              }
+            })
+            console.log('用户点击确定');
+          }
+        }
+      })       
     }
     this.setData({
       channel: e.currentTarget.id
     })
-
   },
 
   playAudio: function (e) {

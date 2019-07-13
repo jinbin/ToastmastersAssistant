@@ -155,46 +155,76 @@
     <view class="window1">
       <view class="box2">
         <button id="2018" size="mini" formType="submit">
-          <image style="width:50rpx;height:50rpx" src="../../images/audio_blue.png"></image>
+          <view wx:if="{{isplay && audioYear == 2018}}">
+            <image style="width:50rpx;height:50rpx;display: flex;flex-direction: row" src="../../images/audio_stop.png"></image>
+            </view>
+            <view wx:else>
+            <image style="width:50rpx;height:50rpx" src="../../images/audio_blue.png"></image>
+          </view>
         </button>
         <view class="downText">2018</view>
       </view>
       <view class="box2">
         <button id="2017" size="mini" formType="submit">
-          <image style="width:50rpx;height:50rpx" src="../../images/audio_red.png"></image>
+          <view wx:if="{{isplay && audioYear == 2017}}">
+            <image style="width:50rpx;height:50rpx;display: flex;flex-direction: row" src="../../images/audio_stop.png"></image>
+            </view>
+            <view wx:else>
+            <image style="width:50rpx;height:50rpx" src="../../images/audio_red.png"></image>
+          </view>
         </button>
         <view class="downText">2017</view>
       </view>
       <view class="box2">
         <button id="2016" size="mini" formType="submit">
-          <image style="width:50rpx;height:50rpx" src="../../images/audio_darkblue.png"></image>
+          <view wx:if="{{isplay && audioYear == 2016}}">
+            <image style="width:50rpx;height:50rpx;display: flex;flex-direction: row" src="../../images/audio_stop.png"></image>
+            </view>
+            <view wx:else>
+            <image style="width:50rpx;height:50rpx" src="../../images/audio_darkblue.png"></image>
+          </view>
         </button>
         <view class="downText">2016</view>
       </view>
       <view class="box2">
         <button id="2015" size="mini" formType="submit">
-          <image style="width:50rpx;height:50rpx" src="../../images/audio_grey.png"></image>
+          <view wx:if="{{isplay && audioYear == 2015}}">
+            <image style="width:50rpx;height:50rpx;display: flex;flex-direction: row" src="../../images/audio_stop.png"></image>
+            </view>
+            <view wx:else>
+            <image style="width:50rpx;height:50rpx" src="../../images/audio_red.png"></image>
+          </view>
         </button>
         <view class="downText">2015</view>
       </view>
       <view class="box2">
         <button id="2014" size="mini" formType="submit">
-          <image style="width:50rpx;height:50rpx" src="../../images/audio1.png"></image>
+          <view wx:if="{{isplay && audioYear == 2014}}">
+            <image style="width:50rpx;height:50rpx;display: flex;flex-direction: row" src="../../images/audio_stop.png"></image>
+            </view>
+            <view wx:else>
+            <image style="width:50rpx;height:50rpx" src="../../images/audio1.png"></image>
+          </view>
         </button>
         <view class="downText">2014</view>
       </view>
       <view class="box2">
         <button id="2013" size="mini" formType="submit">
-          <image style="width:50rpx;height:50rpx" src="../../images/audio2.png"></image>
+          <view wx:if="{{isplay && audioYear == 2013}}">
+            <image style="width:50rpx;height:50rpx;display: flex;flex-direction: row" src="../../images/audio_stop.png"></image>
+            </view>
+            <view wx:else>
+            <image style="width:50rpx;height:50rpx" src="../../images/audio2.png"></image>
+          </view>
         </button>
         <view class="downText">2013</view>
       </view>
-      <view class="box2">
+      <!-- <view class="box2">
         <button id="2012" size="mini" formType="submit">
           <image style="width:50rpx;height:50rpx" src="../../images/audio3.png"></image>
         </button>
         <view class="downText">2012</view>
-      </view>
+      </view> -->
       <view class="box2">
         <button id="more" size="mini" formType="submit">
           <image style="width:50rpx;height:50rpx" src="../../images/audio4.png"></image>
@@ -210,89 +240,6 @@
     <image bindtap="saveOfficialQRCode" style="padding:10rpx;" src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/accountpublicity2.jpeg" mode="widthFix"></image>
   </view>
 </view>
-
-<!-- <view class="edu" style="width:99%;background-color:#E8E8E8"> -->
-<!-- <view class="container1" style="width:95%">
-  <view class="title">
-    <text style="color:DimGray">——</text> TED精选
-    <text style="color:DimGray">——</text>
-  </view>
-  <view class="dailylisten">
-    <view>
-      <view bindtap="playAudio" data-year="The_healing_power_of_reading" class="box">
-        <view class="label" wx:if="{{isplay && audioYear == 'The_healing_power_of_reading'}}">
-          <image style="width:40rpx;height:40rpx;display: flex;flex-direction: row;justify-content: center;" src="../../images/audio_stop.png"></image>
-          <text style="color:#2E8B57">【TED精选】 </text>
-        </view>
-        <view wx:else>
-          <image style="width:50rpx;height:40rpx;display: flex;flex-direction: row;justify-content: center;" src="../../images/audio_orange.png"></image>
-          <text style="color:#2E8B57">【TED精选】 </text>
-        </view>
-      </view>
-      <view style="color:DimGray;width:91%;display: flex;flex-direction: row;justify-content: center;">
-        The healing power of reading
-      </view>
-    </view>
-  </view>
-</view> -->
-<!-- </view> -->
-
-<!-- <view class='line1'></view>
-
-<form report-submit="true" bindsubmit="getAudio">
-  <view style="big_edu">
-    <view class="edu">
-      <view></view>
-      <view></view>
-    </view>
-    <view class="edu" style="display:flex;">
-      <view class="box_audio" style="background-color:#E8E8E8;border:0rpx solid #F8F8F8">
-        <button id="more" size="mini" formType="submit">
-          <image style="width:80rpx;height:70rpx" src="../../images/audio_orange.png"></image>
-          <view style="font-size:13px;">头马世界冠军</view>
-          <view style="font-size:13px;">音频合集</view>
-        </button>
-      </view>
-      <view class="box_audio" style="background-color:purple">
-        <view class="inbox_audio" bindtap="playAudio" data-year="2018" style="background-color:#E8E8E8;border:2rpx solid #F8F8F8">
-          <view wx:if="{{isplay && audioYear == '2018'}}">
-            <image style="width:50rpx;height:50rpx" src="../../images/audio_stop.png"></image>
-          </view>
-          <view wx:else>
-            <image style="width:60rpx;height:50rpx" src="../../images/audio_blue.png"></image>
-          </view>
-          <view style="font-size:12px;">2018</view>
-        </view>
-        <view class="inbox_audio" bindtap="playAudio" data-year="2016" style="background-color:#E8E8E8;border:2rpx solid #F8F8F8">
-          <view wx:if="{{isplay && audioYear == '2016'}}">
-            <image style="width:50rpx;height:50rpx" src="../../images/audio_stop.png"></image>
-          </view>
-          <view wx:else>
-            <image style="width:60rpx;height:50rpx" src="../../images/audio_red.png"></image>
-          </view>
-          <view style="font-size:12px;">2016</view>
-        </view>
-      </view>
-      <view class="box_audio">
-        <view class="inbox_audio" bindtap="playAudio" data-year="2017" style="background-color:#E8E8E8;border:2rpx solid #F8F8F8">
-          <view wx:if="{{isplay && audioYear == '2017'}}">
-            <image style="width:50rpx;height:50rpx" src="../../images/audio_stop.png"></image>
-          </view>
-          <view wx:else>
-            <image style="width:50rpx;height:50rpx" src="../../images/audio_darkblue.png"></image>
-          </view>
-          <view style="font-size:12px;">2017</view>
-        </view>
-        <view class="inbox_audio" style="background-color:#E8E8E8;border:2rpx solid #F8F8F8">
-          <button id="more" size="mini" formType="submit">
-            <image style="width:50rpx;height:50rpx" src="../../images/audio_grey.png"></image>
-          </button>
-          <view style="font-size:12px;">点击了解更多</view>
-        </view>
-      </view>
-    </view>
-  </view>
-</form> -->
 
 <view class="container1" style="">
   <view class="title">
@@ -420,68 +367,6 @@
   </form>
 </view>
 
-<!-- <view class="container1">
-  <view class="main_box">
-    <image bindtap="saveOfficialQRCode" style="padding:10rpx;" src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/accountpublicity2.jpeg" mode="widthFix"></image>
-  </view>
-</view> -->
-
-<!-- <form report-submit="true" bindsubmit="getAudio">
-  <view class="edu" style="display:flex;">
-    <view class="box_audio" style="background-color:#E8E8E8;border:0rpx solid #F8F8F8">
-      <button id="more" size="mini" formType="submit">
-        <image style="width:80rpx;height:70rpx" src="../../images/audio_orange.png"></image>
-        <view style="font-size:13px;">头马世界冠军</view>
-        <view style="font-size:13px;">音频合集</view>
-      </button>
-    </view>
-    <view class="box_audio" style="background-color:purple">
-      <view class="inbox_audio" bindtap="playAudio" data-year="2018" style="background-color:#E8E8E8;border:2rpx solid #F8F8F8">
-        <view wx:if="{{isplay && audioYear == '2018'}}">
-          <image style="width:50rpx;height:50rpx" src="../../images/audio_stop.png"></image>
-        </view>
-        <view wx:else>
-          <image style="width:60rpx;height:50rpx" src="../../images/audio_blue.png"></image>
-        </view>
-        <view style="font-size:12px;">2018</view>
-      </view>
-      <view class="inbox_audio" bindtap="playAudio" data-year="2016" style="background-color:#E8E8E8;border:2rpx solid #F8F8F8">
-        <view wx:if="{{isplay && audioYear == '2016'}}">
-          <image style="width:50rpx;height:50rpx" src="../../images/audio_stop.png"></image>
-        </view>
-        <view wx:else>
-          <image style="width:60rpx;height:50rpx" src="../../images/audio_red.png"></image>
-        </view>
-        <view style="font-size:12px;">2016</view>
-      </view>
-    </view>
-    <view class="box_audio">
-      <view class="inbox_audio" bindtap="playAudio" data-year="2017" style="background-color:#E8E8E8;border:2rpx solid #F8F8F8">
-        <view wx:if="{{isplay && audioYear == '2017'}}">
-          <image style="width:50rpx;height:50rpx" src="../../images/audio_stop.png"></image>
-        </view>
-        <view wx:else>
-          <image style="width:50rpx;height:50rpx" src="../../images/audio_darkblue.png"></image>
-        </view>
-        <view style="font-size:12px;">2017</view>
-      </view>
-      <view class="inbox_audio" style="background-color:#E8E8E8;border:2rpx solid #F8F8F8">
-        <button id="more" size="mini" formType="submit">
-          <image style="width:50rpx;height:50rpx" src="../../images/audio_grey.png"></image>
-        </button>
-        <view style="font-size:12px;">点击了解更多</view>
-      </view>
-    </view>
-  </view>
-</form> -->
-
-<!-- <image src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/Kalubowila_tm.jpg" bindtap="saveOfficialQRCode" class="banner" mode="aspectFit" /> -->
-
-<!-- <image src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/TEDtalk.jpg" bindtap="saveOfficialQRCode" class="banner" mode="aspectFit" /> -->
-<!-- <view class="container1">
-  <text style="color:DimGray;font-size:10px;padding-bottom:10rpx;" bindtap="saveOfficialQRCode">头马助手，助力你的头马</text>
-</view> -->
-
 <view class="container1">
   <view class="main_box">
     <image bindtap="saveOfficialQRCode" style="padding:10rpx;" src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/posters/publicity1.jpeg" mode="widthFix"></image>
@@ -532,26 +417,5 @@
     </view>
   </form>
 </view>
-<!-- 
-<view class="container1" style="">
-  <view class="title">
-    <text style="color:DimGray">——</text> 头马助手
-    <text style="color:DimGray">——</text>
-  </view>
-
-  <form report-submit="true" bindsubmit="getArticle">
-    <view class="box">
-      <button size="mini" class="item" id="toumazhushou" style="color:Orange;font-size: 16px;" formType="submit">前世今生</button>
-      <button size="mini" class="item" open-type='share' style="color:DarkCyan;font-size: 16px;" formType="submit">分享给TA</button>
-      <button size="mini" class="item" id="contact" style="color:purple;font-size: 16px;" formType="submit">联系作者</button>
-    </view>
-    <view class="box">
-      <button size="mini" class="item" id="dashang" style="color:ForestGreen;font-size: 16px;" formType="submit">打赏作者</button>
-      <button size="mini" class="item" bindtap="saveOfficialQRCode" style="color:red;font-size: 16px;" formType="submit">官方公众号</button>
-    </view>
-  </form>
-
-  <text style="color:DimGray;font-size:10px;padding-bottom:10rpx;">欢迎联系</text>
-</view> -->
 
 <image bindtap="saveOfficialQRCode" src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/theultimatetoastmasters_qian.jpg" mode="scaleToFill" class="banner"></image>
