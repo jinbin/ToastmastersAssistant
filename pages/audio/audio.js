@@ -1,6 +1,9 @@
 // pages/audio/audio.js
 const app = getApp()
 const backgroundAudioManager = wx.getBackgroundAudioManager()
+const db = wx.cloud.database({
+  env: "tmassistant-5275ad"
+})
 
 Page({
 
@@ -8,32 +11,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    audiosrc: {
-      2018:
-        { 'link': 'cloud://tmassistant-5275ad.746d-tmassistant-5275ad/audio/champions/2018Toastmasters.mp3', 'title': '2018 Still Standing' },
-      2017: { 'link': 'cloud://tmassistant-5275ad.746d-tmassistant-5275ad/audio/champions/2017Toastmasters.mp3', 'title': '2017 Pull Less,Bend More' },
-      2016: { 'link': 'cloud://tmassistant-5275ad.746d-tmassistant-5275ad/audio/champions/2016Toastmasters.mp3', 'title': '2016 Outsmart,Outlast' },
-      2015: { 'link': 'cloud://tmassistant-5275ad.746d-tmassistant-5275ad/audio/champions/2015Toastmasters.mp3', 'title': '2015 The Power of Words' },
-      2014: {
-        'link': 'cloud://tmassistant-5275ad.746d-tmassistant-5275ad/audio/champions/2014Toastmasters.mp3', 'title': '2014 I See Something'
-      },
-      2013: {
-        'link': 'cloud://tmassistant-5275ad.746d-tmassistant-5275ad/audio/champions/2013Toastmasters.mp3',
-        'title': '2013 Changed By A Tire'
-      }
-    },
-    audioTEDsrc: {
-      'How_to_Achieve_Your_Most_Ambitious_Goals':
-        { 'link': 'cloud://tmassistant-5275ad.746d-tmassistant-5275ad/audio/ted/How_to_Achieve_Your_Most_Ambitious_Goals.mp3', 'title': 'How to achieve your most ambitious goals' },
-      'Sleep_is_your_superpower':
-        {
-        'link': 'cloud://tmassistant-5275ad.746d-tmassistant-5275ad/audio/ted/Sleep_is_your_superpower.mp3', 'title': 'Sleep is your superpower'
-        },
-      'The healing power of reading':
-        {
-        'link': 'cloud://tmassistant-5275ad.746d-tmassistant-5275ad/audio/ted/The_healing_power_of_reading.mp3', 'title': 'The healing power of reading'
-        }
-    },
     isplay: false,
     audioYear: 2018,
     channel: "tm",
@@ -111,7 +88,8 @@ Page({
         backgroundAudioManager.coverImgUrl = ''
         // 设置了 src 之后会自动播放
         if (this.data.channel == "tm") {
-          backgroundAudioManager.src = this.data.audiosrc[this.data.audioYear]['link']
+          // backgroundAudioManager.src = this.data.audiosrc[this.data.audioYear]['link']
+          backgroundAudioManager.src = this.data.audiosrc.filter(function (x) { return x["year"] == that.data.audioYear })[0]['link']
         } else if (this.data.channel == "ted") {
           backgroundAudioManager.src = this.data.audioTEDsrc[this.data.audioYear]['link']
         }
@@ -137,7 +115,8 @@ Page({
         backgroundAudioManager.coverImgUrl = ''
         // 设置了 src 之后会自动播放
         if (this.data.channel == "tm") {
-          backgroundAudioManager.src = this.data.audiosrc[this.data.audioYear]['link']
+          // backgroundAudioManager.src = this.data.audiosrc[this.data.audioYear]['link']
+          backgroundAudioManager.src = this.data.audiosrc.filter(function (x) { return x["year"] == that.data.audioYear })[0]['link']
         } else if (this.data.channel == "ted") {
           backgroundAudioManager.src = this.data.audioTEDsrc[this.data.audioYear]['link']
         }
@@ -157,7 +136,8 @@ Page({
         backgroundAudioManager.coverImgUrl = ''
         // 设置了 src 之后会自动播放
         if (this.data.channel == "tm") {
-          backgroundAudioManager.src = this.data.audiosrc[this.data.audioYear]['link']
+          // backgroundAudioManager.src = this.data.audiosrc[this.data.audioYear]['link']
+          backgroundAudioManager.src = this.data.audiosrc.filter(function (x) { return x["year"] == that.data.audioYear })[0]['link']
         } else if (this.data.channel == "ted") {
           backgroundAudioManager.src = this.data.audioTEDsrc[this.data.audioYear]['link']
         }
@@ -172,7 +152,62 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    var that = this 
+    console.log("onLoad")
+    db.collection("audio").where({
+      type: "ted",
+      onIndex: true
+    }).get({
+      success: function (e) {
+        console.log("ted success")
+        that.setData({
+          audioTEDsrc: e.data
+        })
+        console.log(that.data.audioTEDsrc)
+        db.collection("audio").where({
+          type: "tm",
+          onIndex: true
+        }).get({
+          success: function (e) {
+            console.log("tm success")
+            that.setData({
+              audiosrc: e.data
+            })
+            console.log(that.data.audiosrc)
+          },
+          complete: function (e) {
+            console.log(e)
+          }
+        })
+      }
+    })
   },
+
+  // onLoad: function (options) {
+  //   var that = this
+
+  //   db.collection("audio").where({
+  //     type: "ted",
+  //     onIndex: true
+  //   }).get({
+  //     success: function (e) {
+  //       console.log(e)
+  //       that.setData({
+  //         audioTEDsrc: e.data
+  //       })
+  //       db.collection("audio").where({
+  //         type: "tm",
+  //         onIndex: true
+  //       }).get({
+  //         success: function (e) {
+  //           that.setData({
+  //             audiosrc: e.data
+  //           })
+  //         }
+  //       })
+  //     }
+  //   })
+  // },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

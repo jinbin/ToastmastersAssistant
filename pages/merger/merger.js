@@ -18,35 +18,6 @@ Page({
     page_ft: {
       data: "Copyright © 2018-2019 jinbin"
     },
-    audioTitle: [ '2018 Still Standing', 
-                  '2017 Pull Less,Bend More', 
-                  '2016 Outsmart,Outlast',
-                  '2015 The Power of Words'],
-    // audioTEDsrc: {
-    //   'How_to_Achieve_Your_Most_Ambitious_Goals':
-    //     { 'link': 'cloud://tmassistant-5275ad.746d-tmassistant-5275ad/audio/ted/How_to_Achieve_Your_Most_Ambitious_Goals.mp3', 'title': 'How to achieve your most ambitious goals' },
-    //   'Sleep_is_your_superpower':
-    //   {
-    //     'link': 'cloud://tmassistant-5275ad.746d-tmassistant-5275ad/audio/ted/Sleep_is_your_superpower.mp3', 'title': 'Sleep is your superpower'
-    //   },
-    //   'The healing power of reading':
-    //   {
-    //     'link': 'cloud://tmassistant-5275ad.746d-tmassistant-5275ad/audio/ted/The_healing_power_of_reading.mp3', 'title': 'The healing power of reading'
-    //   }
-    // },
-    audiosrc: {
-      2018: 'cloud://tmassistant-5275ad.746d-tmassistant-5275ad/audio/champions/2018Toastmasters.mp3',
-      2017: 'cloud://tmassistant-5275ad.746d-tmassistant-5275ad/audio/champions/2017Toastmasters.mp3',
-      2016:
-'cloud://tmassistant-5275ad.746d-tmassistant-5275ad/audio/champions/2016Toastmasters.mp3',
-      2015: 'cloud://tmassistant-5275ad.746d-tmassistant-5275ad/audio/champions/2015Toastmasters.mp3',
-      2014:
-  'cloud://tmassistant-5275ad.746d-tmassistant-5275ad/audio/champions/2014Toastmasters.mp3',
-      2013:
-      'cloud://tmassistant-5275ad.746d-tmassistant-5275ad/audio/champions/2013Toastmasters.mp3',
-      'The_healing_power_of_reading':
-      'cloud://tmassistant-5275ad.746d-tmassistant-5275ad/audio/ted/The_healing_power_of_reading.mp3'
-    },
     isplay: false,
     audioYear: 2018,
     banners: [
@@ -103,6 +74,7 @@ Page({
       return 
     }
 
+    var that = this
     // innerAudioContext.autoplay = true
     // if (!this.data.innerAudioContext){
     //   this.data.innerAudioContext = wx.createInnerAudioContext()
@@ -126,7 +98,8 @@ Page({
         backgroundAudioManager.singer = '头马助手'
         backgroundAudioManager.coverImgUrl = ''
         // 设置了 src 之后会自动播放
-        backgroundAudioManager.src = this.data.audiosrc[this.data.audioYear]
+        //backgroundAudioManager.src = this.data.audiosrc[this.data.audioYear]
+        backgroundAudioManager.src = this.data.audiosrc.filter(function (x) { return x["year"] == that.data.audioYear})[0]['link']
       }
       this.setData({
         isplay: !this.data.isplay
@@ -148,7 +121,8 @@ Page({
         backgroundAudioManager.singer = '头马助手'
         backgroundAudioManager.coverImgUrl = ''
         // 设置了 src 之后会自动播放
-        backgroundAudioManager.src = this.data.audiosrc[this.data.audioYear]
+        //backgroundAudioManager.src = this.data.audiosrc[this.data.audioYear]
+        backgroundAudioManager.src = this.data.audiosrc.filter(function (x) { return x["year"] == that.data.audioYear })[0]['link']
       } else { // 没有音频在进行
         this.setData({
           isplay: true,
@@ -164,7 +138,8 @@ Page({
         backgroundAudioManager.singer = '头马助手'
         backgroundAudioManager.coverImgUrl = ''
         // 设置了 src 之后会自动播放
-        backgroundAudioManager.src = this.data.audiosrc[this.data.audioYear]
+        //backgroundAudioManager.src = this.data.audiosrc[this.data.audioYear]
+        backgroundAudioManager.src = this.data.audiosrc.filter(function (x) { return x["year"] == that.data.audioYear })[0]['link']
       }
     }
 
@@ -202,8 +177,6 @@ Page({
         backgroundAudioManager.singer = '头马助手'
         backgroundAudioManager.coverImgUrl = ''
         // 设置了 src 之后会自动播放
-        console.log(this.data.audioTEDsrc[this.data.audioYear])
-        console.log(this.data.audioYear)
         backgroundAudioManager.src = this.data.audioTEDsrc[this.data.audioYear]['link']
       }
       this.setData({
@@ -226,8 +199,6 @@ Page({
         backgroundAudioManager.singer = '头马助手'
         backgroundAudioManager.coverImgUrl = ''
         // 设置了 src 之后会自动播放
-        console.log(this.data.audioTEDsrc[this.data.audioYear])
-        console.log(this.data.audioYear)
         backgroundAudioManager.src = this.data.audioTEDsrc[this.data.audioYear]['link']
       }else{ // 没有音频在进行
         this.setData({
@@ -244,8 +215,6 @@ Page({
         backgroundAudioManager.singer = '头马助手'
         backgroundAudioManager.coverImgUrl = ''
         // 设置了 src 之后会自动播放
-        console.log(this.data.audioYear)
-        console.log(this.data.audioTEDsrc[this.data.audioYear]['link'])
         backgroundAudioManager.src = this.data.audioTEDsrc[this.data.audioYear]['link']
       }
     }
@@ -547,10 +516,20 @@ Page({
       onIndex: true
     }).get({
       success: function(e){
+        console.log(e)
         that.setData({
           audioTEDsrc: e.data
         })
-        console.log(that.data.audioTEDsrc)
+        db.collection("audio").where({
+          type: "tm",
+          onIndex: true
+        }).get({
+          success: function(e){
+            that.setData({
+              audiosrc: e.data
+            })
+          }
+        })
       }
     })
   },
