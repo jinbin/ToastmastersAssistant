@@ -59,11 +59,36 @@ Page({
       })       
     }
     this.setData({
+      isplay: false,
       channel: e.currentTarget.id
+    })
+    backgroundAudioManager.stop()
+  },
+
+  saveOfficialQRCode: function (e) {
+    wx.showModal({
+      content: '搜索"头马助手"官方公众号, 获取历年头马世界冠军演讲视频！',
+      showCancel: false,
+      confirmText: '去关注',
+      confirmColor: '#ff7f50',
+      success: function (res) {
+        if (res.confirm) {
+          wx.setClipboardData({
+            data: "头马助手 Toastmasters Assistant",
+            success: function (res) {
+              wx.showToast({
+                title: "公众号名已复制"
+              })
+            }
+          })
+          console.log('用户点击确定');
+        }
+      }
     })
   },
 
   playAudio: function (e) {
+    var that = this 
     // innerAudioContext.autoplay = true
     // if (!this.data.innerAudioContext){
     //   this.data.innerAudioContext = wx.createInnerAudioContext()
@@ -89,7 +114,10 @@ Page({
         // 设置了 src 之后会自动播放
         if (this.data.channel == "tm") {
           // backgroundAudioManager.src = this.data.audiosrc[this.data.audioYear]['link']
-          backgroundAudioManager.src = this.data.audiosrc.filter(function (x) { return x["year"] == that.data.audioYear })[0]['link']
+          console.log(that.data.audioYear)
+          // console.log(this.data.audiosrc.filter(function (x) { return x["year"] == that.data.audioYear }))
+          // backgroundAudioManager.src = this.data.audiosrc.filter(function (x) { return x["year"] == that.data.audioYear })[0]['link']
+          backgroundAudioManager.src = this.data.audiosrc[this.data.audioYear]['link']
         } else if (this.data.channel == "ted") {
           backgroundAudioManager.src = this.data.audioTEDsrc[this.data.audioYear]['link']
         }
@@ -116,7 +144,10 @@ Page({
         // 设置了 src 之后会自动播放
         if (this.data.channel == "tm") {
           // backgroundAudioManager.src = this.data.audiosrc[this.data.audioYear]['link']
-          backgroundAudioManager.src = this.data.audiosrc.filter(function (x) { return x["year"] == that.data.audioYear })[0]['link']
+          console.log(that.data.audioYear)
+          // console.log(this.data.audiosrc.filter(function (x) { return x["year"] == that.data.audioYear }))
+          // backgroundAudioManager.src = this.data.audiosrc.filter(function (x) { return x["year"] == that.data.audioYear })[0]['link']
+          backgroundAudioManager.src = this.data.audiosrc[this.data.audioYear]['link']
         } else if (this.data.channel == "ted") {
           backgroundAudioManager.src = this.data.audioTEDsrc[this.data.audioYear]['link']
         }
@@ -137,7 +168,10 @@ Page({
         // 设置了 src 之后会自动播放
         if (this.data.channel == "tm") {
           // backgroundAudioManager.src = this.data.audiosrc[this.data.audioYear]['link']
-          backgroundAudioManager.src = this.data.audiosrc.filter(function (x) { return x["year"] == that.data.audioYear })[0]['link']
+          console.log(that.data.audioYear)
+          // console.log(this.data.audiosrc.filter(function (x) { return x["year"] == that.data.audioYear }))
+          // backgroundAudioManager.src = this.data.audiosrc.filter(function (x) { return x["year"] == that.data.audioYear })[0]['link']
+          backgroundAudioManager.src = this.data.audiosrc[this.data.audioYear]['link']
         } else if (this.data.channel == "ted") {
           backgroundAudioManager.src = this.data.audioTEDsrc[this.data.audioYear]['link']
         }
@@ -261,7 +295,8 @@ Page({
 
   onShareAppMessage: function (res) {
     return {
-      title: '头马冠军演讲，TED演讲音频全纪录',
+      imageUrl: '/images/audioforward-min.jpeg',
+      title: '头马, TED, 冠军演讲音频，这里全都有!',
     }
   }
 })

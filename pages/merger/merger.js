@@ -20,21 +20,20 @@ Page({
     },
     isplay: false,
     audioYear: 2018,
-    banners: [
-      {  "url":"cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/accountpublicitybanner.jpeg",
+    banners: [{
+        "url": "cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/accountpublicitybanner.jpeg",
         "bind": "saveOfficialQRCode"
       },
       {
-        "url":"cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/jp_tm.jpg",
-        "bind":"saveOfficialQRCode"
+        "url": "cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/jp_tm.jpg",
+        "bind": "saveOfficialQRCode"
       },
       {
         "url": "cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/hequn1.jpeg",
         "bind": "navigateToHequn"
       },
       {
-        "url":
-      "cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/TEDtalk2.jpeg",
+        "url": "cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/TEDtalk2.jpeg",
         "bind": "saveOfficialQRCode"
       }
     ],
@@ -45,13 +44,13 @@ Page({
     userId: app.globalData.userInfo
   },
 
-  onPageScroll: function(ev){
+  onPageScroll: function(ev) {
     this.setData({
       scrollTop: ev.scrollTop
     })
   },
 
-  getAudio: function (options) {
+  getAudio: function(options) {
     console.log(options.detail.formId)
 
     var timestamp = Date.parse(new Date()) / 1000
@@ -71,7 +70,7 @@ Page({
       wx.navigateTo({
         url: '/pages/audio/audio',
       })
-      return 
+      return
     }
 
     var that = this
@@ -99,7 +98,9 @@ Page({
         backgroundAudioManager.coverImgUrl = ''
         // 设置了 src 之后会自动播放
         //backgroundAudioManager.src = this.data.audiosrc[this.data.audioYear]
-        backgroundAudioManager.src = this.data.audiosrc.filter(function (x) { return x["year"] == that.data.audioYear})[0]['link']
+        backgroundAudioManager.src = this.data.audiosrc.filter(function(x) {
+          return x["year"] == that.data.audioYear
+        })[0]['link']
       }
       this.setData({
         isplay: !this.data.isplay
@@ -122,7 +123,9 @@ Page({
         backgroundAudioManager.coverImgUrl = ''
         // 设置了 src 之后会自动播放
         //backgroundAudioManager.src = this.data.audiosrc[this.data.audioYear]
-        backgroundAudioManager.src = this.data.audiosrc.filter(function (x) { return x["year"] == that.data.audioYear })[0]['link']
+        backgroundAudioManager.src = this.data.audiosrc.filter(function(x) {
+          return x["year"] == that.data.audioYear
+        })[0]['link']
       } else { // 没有音频在进行
         this.setData({
           isplay: true,
@@ -139,7 +142,9 @@ Page({
         backgroundAudioManager.coverImgUrl = ''
         // 设置了 src 之后会自动播放
         //backgroundAudioManager.src = this.data.audiosrc[this.data.audioYear]
-        backgroundAudioManager.src = this.data.audiosrc.filter(function (x) { return x["year"] == that.data.audioYear })[0]['link']
+        backgroundAudioManager.src = this.data.audiosrc.filter(function(x) {
+          return x["year"] == that.data.audioYear
+        })[0]['link']
       }
     }
 
@@ -160,7 +165,7 @@ Page({
     //   this.data.innerAudioContext.obeyMuteSwitch = false
     // }
     // 对同一个音频进行操作
-    if (e.currentTarget.dataset.year == this.data.audioYear){
+    if (e.currentTarget.dataset.year == this.data.audioYear) {
       if (this.data.isplay) { // 正在播放，终止
         console.log("stop")
         // innerAudioContext.stop()
@@ -184,7 +189,7 @@ Page({
       })
     } else { // 不是对同一个音频进行操作
       // 本来就有音频在进行
-      if(this.data.isplay){
+      if (this.data.isplay) {
         // innerAudioContext.stop()
         backgroundAudioManager.stop()
         this.setData({
@@ -200,7 +205,7 @@ Page({
         backgroundAudioManager.coverImgUrl = ''
         // 设置了 src 之后会自动播放
         backgroundAudioManager.src = this.data.audioTEDsrc[this.data.audioYear]['link']
-      }else{ // 没有音频在进行
+      } else { // 没有音频在进行
         this.setData({
           isplay: true,
           //isplay: !this.data.isplay,
@@ -223,7 +228,7 @@ Page({
     console.log(this.data.audioYear)
   },
 
-  getIntro: function (options) {
+  getIntro: function(options) {
     console.log(options.detail.formId)
 
     var timestamp = Date.parse(new Date()) / 1000
@@ -241,28 +246,28 @@ Page({
 
     console.log(options.detail.target.id)
 
-    if (options.detail.target.id == ""){
-      return 
+    if (options.detail.target.id == "") {
+      return
     }
 
-    if (options.detail.target.id == "intro"){
+    if (options.detail.target.id == "intro") {
       wx.switchTab({
         url: '/pages/volItem/volItem',
       })
-    } else if (options.detail.target.id == "DTM"){
+    } else if (options.detail.target.id == "DTM") {
       wx.navigateTo({
         url: '/pages/webview/webview?article=DTM',
       })
-    } else if(options.detail.target.id == "checkin"){
+    } else if (options.detail.target.id == "checkin") {
       this.checkin()
-    } else{
+    } else {
       var naviTo = '/pages/pathways/desc/desc?level=' + options.detail.target.id
 
       wx.navigateTo({
         url: naviTo,
-        success: function (res) { },
-        fail: function (res) { },
-        complete: function (res) { },
+        success: function(res) {},
+        fail: function(res) {},
+        complete: function(res) {},
       })
     }
   },
@@ -276,26 +281,26 @@ Page({
     })
   },
 
-  getToNavi: function (options) {
+  getToNavi: function(options) {
     console.log(options)
 
     var naviTo = '/pages/webview/webview?article=' + options.currentTarget.id
 
     wx.navigateTo({
       url: naviTo,
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
     })
   },
 
-  navigateTo: function (options) {
+  navigateTo: function(options) {
     wx.navigateTo({
       url: options.currentTarget.id
     })
   },
 
-  navigateToHequn: function () {
+  navigateToHequn: function() {
     wx.navigateToMiniProgram({
       appId: 'wx018f0c4c2a1ee727',
       path: 'pages/group-detail/index?groupid=16287827559774652520'
@@ -400,17 +405,17 @@ Page({
     }
   },
 
-  saveOfficialQRCode: function (e) {
+  saveOfficialQRCode: function(e) {
     wx.showModal({
       content: '搜索"头马助手"官方公众号, 获取历年头马世界冠军演讲视频！',
       showCancel: false,
       confirmText: '去关注',
       confirmColor: '#ff7f50',
-      success: function (res) {
+      success: function(res) {
         if (res.confirm) {
           wx.setClipboardData({
             data: "头马助手 Toastmasters Assistant",
-            success: function (res) {
+            success: function(res) {
               wx.showToast({
                 title: "公众号名已复制"
               })
@@ -422,80 +427,91 @@ Page({
     })
   },
 
-  checkin: function (options) {
+  checkin: function(options) {
     var that = this
-    wx.cloud.callFunction({
-      name: "getOpenid",
-      success: res => {
+
+    db.collection("checkin").where({
+      date: util.formatTime(new Date())
+    }).count({
+      success: function(res) {
+        console.log(res.total)
         that.setData({
-          openId: res.result.openid
+          checkin_today_total: res.total
         })
-        var openid = res.result.openid
-        db.collection("checkin").where({
-          openid: res.result.openid
-        }).get({
-          success: function (res) {
-            console.log(res.data)
-            //之前从来没有签到过
-            if (res.data.length == 0) {
-              db.collection('checkin').add({
-                data: ({
-                  checkin: 1,
-                  date: util.formatTime(new Date()),
-                  openid: openid,
-                  created_at: util.formatTime(new Date())
-                }),
-                success: function () {
-                  wx.showModal({
-                    content: "恭喜你发现了隐藏签到处！更多惊喜正在路上，明天继续来签到吧！",
-                    showCancel: false,
-                    // confirmText: '',
-                    confirmColor: '#ff7f50',
-                    success: function (res) {
-                      if (res.confirm) { }
+        wx.cloud.callFunction({
+          name: "getOpenid",
+          success: res => {
+            that.setData({
+              openId: res.result.openid
+            })
+            var openid = res.result.openid
+            db.collection("checkin").where({
+              openid: res.result.openid
+            }).get({
+              success: function(res) {
+                console.log(res.data)
+                //之前从来没有签到过
+                if (res.data.length == 0) {
+                  db.collection('checkin').add({
+                    data: ({
+                      checkin: 1,
+                      date: util.formatTime(new Date()),
+                      openid: openid,
+                      created_at: util.formatTime(new Date())
+                    }),
+                    success: function() {
+                      wx.showModal({
+                        content: "恭喜你发现了隐藏签到处！更多惊喜正在路上，明天继续来签到吧！",
+                        showCancel: false,
+                        // confirmText: '',
+                        confirmColor: '#ff7f50',
+                        success: function(res) {
+                          if (res.confirm) {}
+                        }
+                      })
                     }
                   })
-                }
-              })
-            } else {
-              if (res.data[0].date == util.formatTime(new Date())) {
-                //今天已经签到过
-                wx.showModal({
-                  content: "今天已签到, 你已经签到过" + res.data[0].checkin + "次, 明天再来打卡~",
-                  showCancel: false,
-                  // confirmText: '',
-                  confirmColor: '#ff7f50',
-                  success: function (res) {
-                    if (res.confirm) { }
-                  },
-                  fail: function (res){
-                    console.log(res)
-                  }
-                })
-              } else {
-                //今天第一次签到
-                db.collection('checkin').doc(res.data[0]._id).update({
-                  data: {
-                    checkin: db.command.inc(1),
-                    date: util.formatTime(new Date())
-                  },
-                  success: res1 => {
+                } else {
+                  if (res.data[0].date == util.formatTime(new Date())) {
+                    //今天已经签到过
                     wx.showModal({
-                      content: "签到成功！这是你的第" + (res.data[0].checkin + 1) + "次签到",
+                      content: "今天已打卡, 你已经打卡过" + res.data[0].checkin + "次, 明天再来打卡~\n今天已经有" + that.data.checkin_today_total + "人打卡了~",
                       showCancel: false,
                       // confirmText: '',
                       confirmColor: '#ff7f50',
-                      success: function (res) {
-                        if (res.confirm) { }
+                      success: function(res) {
+                        if (res.confirm) {}
+                      },
+                      fail: function(res) {
+                        console.log(res)
+                      }
+                    })
+                  } else {
+                    //今天第一次签到
+                    db.collection('checkin').doc(res.data[0]._id).update({
+                      data: {
+                        checkin: db.command.inc(1),
+                        date: util.formatTime(new Date())
+                      },
+                      success: res1 => {
+                        wx.showModal({
+                          content: "打卡成功！这是你的第" + (res.data[0].checkin + 1) + "次打卡 || 你是今天第" + (that.data.checkin_today_total + 1) + "位打卡者~",
+                          showCancel: false,
+                          // confirmText: '',
+                          confirmColor: '#ff7f50',
+                          success: function(res) {
+                            if (res.confirm) {}
+                          }
+                        })
                       }
                     })
                   }
-                })
+                } //数据库已经有对应人的信息
+              },
+              fail: function(e) {
+                console.log("fail")
               }
-            } //数据库已经有对应人的信息
-          },
-          fail: function (e) {
-            console.log("fail")
+            })
           }
         })
       }
@@ -506,7 +522,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    var that = this 
+    var that = this
     this.setData({
       banner_height: 240 / wx.getSystemInfoSync().windowHeight * 100
     })
@@ -515,7 +531,7 @@ Page({
       type: "ted",
       onIndex: true
     }).get({
-      success: function(e){
+      success: function(e) {
         console.log(e)
         that.setData({
           audioTEDsrc: e.data
@@ -524,7 +540,7 @@ Page({
           type: "tm",
           onIndex: true
         }).get({
-          success: function(e){
+          success: function(e) {
             that.setData({
               audiosrc: e.data
             })
@@ -579,7 +595,6 @@ Page({
   onShareAppMessage: function(res) {
     return {
       title: '头马, TED, 演讲, 英语, 超过2万名终身学习者的选择',
-      // imageUrl: 'https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/images/%E5%A4%B4%E9%A9%AC%E5%8A%A9%E6%89%8B%E9%A6%96%E9%A1%B5.jpeg?sign=fc1c02a182483dfc578531534b8fa28c&t=1560520486'
       imageUrl: '/images/index.jpg'
     }
   }

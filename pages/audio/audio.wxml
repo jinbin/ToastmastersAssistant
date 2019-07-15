@@ -1,10 +1,18 @@
-<view class="select">
-  <!-- <button bindtap="getCh" style="background-color:#1E90FF" id="tm" class="b1" type="mini">头马</button> -->
-  <button bindtap="getCh" style="background-color:{{color1}}" id="tm" class="b1" type="mini">头马</button>
-  <!-- <button bindtap="getCh" style="background-color:#FF4040"id="ted" class="b1">TED</button> -->
-  <button bindtap="getCh" style="background-color:{{color2}}" id="ted" class="b1">TED</button>
-  <!-- <button bindtap="getCh" style="background-color:#8B8970" id="others" class="b1">其他</button> -->
-  <button bindtap="getCh" style="background-color:{{color3}}" id="others" class="b1">视频</button>
+<view>
+    <view class="window3" style="padding:10rpx;">
+      <view class="box3" bindtap="getCh" id="tm" style="background:{{color1}}">
+          <image style="width:60rpx;height:60rpx" src="../../images/blocks.png"></image>
+          <view class="downText">头马</view>
+      </view>
+      <view class="box3" bindtap="getCh" id="ted" style="background:{{color2}}">
+          <image style="width:60rpx;height:60rpx" src="../../images/blocks1.png"></image>
+          <view class="downText">TED</view>
+      </view>
+      <view class="box3" bindtap="getCh" id="others" style="background:{{color3}}">
+          <image style="width:60rpx;height:60rpx" src="../../images/blocks2.png"></image>
+          <view class="downText" style="color:#1E90FF">视频</view>
+      </view>
+    </view>
 </view>
 
 <view wx:if="{{channel == 'ted'}}" class="container1">
@@ -19,10 +27,7 @@
 
       <view wx:for="{{audioTEDsrc}}" wx:for-index="index" wx:for-item="item">
         <view bindtap="playAudio" data-year="{{index}}" class="box" style="color:DarkCyan;font-size:15px;justify-content: flex-start">
-          <!-- <text style="color:#2E8B57">【头马精选】</text>
-        <view>{{item.title}}</view> -->
           <view class="label" wx:if="{{isplay && audioYear == index}}">
-            <!-- <image src="/images/restart.png" style="width:18px;height:18px;padding:10rpx"></image> -->
             <image style="width:40rpx;height:40rpx;display: flex;flex-direction: row" src="../../images/audio_stop.png">
             </image>
             <text style="color:#2E8B57">【TED精选】</text>
@@ -56,18 +61,15 @@
 
       <view wx:for="{{audiosrc}}" wx:for-index="index" wx:for-item="item">
         <view bindtap="playAudio" data-year="{{index}}" class="box" style="color:DarkCyan;font-size:15px;justify-content: flex-start">
-          <!-- <text style="color:#2E8B57">【头马精选】</text>
-        <view>{{item.title}}</view> -->
           <view class="label" wx:if="{{isplay && audioYear == index}}">
-            <!-- <image src="/images/restart.png" style="width:18px;height:18px;padding:10rpx"></image> -->
             <image style="width:40rpx;height:40rpx;display: flex;flex-direction: row" src="../../images/audio_stop.png">
             </image>
-            <text style="color:#2E8B57">【TED精选】</text>
+            <text style="color:#2E8B57">【冠军精选】</text>
           </view>
           <view class="label" wx:else>
             <image style="width:50rpx;height:40rpx;display: flex;flex-direction: row" src="../../images/audio_orange.png">
             </image>
-            <text style="color:#2E8B57">【TED精选】</text>
+            <text style="color:#2E8B57">【冠军精选】</text>
           </view>
 
           <view style="color:DimGray;width:91%;display: flex;flex-direction: row;justify-content:flex-start;">
@@ -113,4 +115,10 @@
     </view>
   </view>
 
+</view>
+
+<view class="container1">
+  <view class="main_box">
+    <image bindtap="saveOfficialQRCode" style="padding:10rpx;" src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/accountpublicity2.jpeg" mode="widthFix"></image>
+  </view>
 </view>

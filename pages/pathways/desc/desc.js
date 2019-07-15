@@ -18,12 +18,19 @@ Page({
     ],
     // arrayPath: ["全部", "创新计划", "激励策略","表达精通","领导力发展","愿景沟通","战略关系","动态领导力","说服影响力","有效指导","团队协作"],
     arrayPath: ["全部", "创新计划"],
+    // list: [
+    //   ["Level 1: Mastering Fundamentals","阶段一: 掌握基础"],
+    //   ["Level 2: Learning Your Style","阶段二：学习风格"],
+    //   ["Level 3: Increasing Knowledge", "阶段三：丰富知识"],
+    //   ["Level 4: Building Skills","阶段四：培养技能"],
+    //   ["Level 5: Demonstrating Expertise", "阶段五：专业展示",]
+    // ],
     list: [
-      ["Level 1: Mastering Fundamentals","阶段一: 掌握基础"],
-      ["Level 2: Learning Your Style","阶段二：学习风格"],
-      ["Level 3: Increasing Knowledge", "阶段三：丰富知识"],
-      ["Level 4: Building Skills","阶段四：培养技能"],
-      ["Level 5: Demonstrating Expertise", "阶段五：专业展示",]
+      ["阶段一", "掌握基础"],
+      ["阶段二", "学习风格"],
+      ["阶段三", "丰富知识"],
+      ["阶段四", "培养技能"],
+      ["阶段五", "专业展示",]
     ],
     index: 0,
     indexPath: 0,
@@ -52,21 +59,39 @@ Page({
     if(options.level == 1){
       name_en = "Level 1: Mastering Fundamentals"
       name_cn = "阶段一: 掌握基础"
+      this.setData({
+        color0: "#FFB90F"
+      })
     } else if (options.level == 2){
       name_en = "Level 2: Learning Your Style"
       name_cn = "阶段二：学习风格"
+      this.setData({
+        color1: "#FFB90F"
+      })
     } else if (options.level == 3) {
       name_en = "Level 3: Increasing Knowledge"
       name_cn = "阶段三：丰富知识"
+      this.setData({
+        color2: "#FFB90F"
+      })
     } else if (options.level == 4) {
       name_en = "Level 4: Building Skills"
       name_cn = "阶段四：培养技能"
+      this.setData({
+        color3: "#FFB90F"
+      })
     } else if (options.level == 5) {
       name_en = "Level 5: Demonstrating Expertise"
       name_cn = "阶段五：专业展示"
+      this.setData({
+        color4: "#FFB90F"
+      })
     } else if (options.level == 6) {
       name_en = "Competent Communication"
       name_cn = "胜任沟通"
+      this.setData({
+        color5: "#FFB90F"
+      })
     } else if (options.level == 7) {
       name_en = "Pathways资料"
       name_cn = "Pathways Resources"
@@ -105,6 +130,92 @@ Page({
         }
       })
     }
+  },
+
+  changebook: function (e) {
+    console.log(e.currentTarget.id)
+
+    this.setData({
+      color0: "",
+      color1: "",
+      color2: "",
+      color3: "",
+      color4: ""
+    })
+
+    if (e.currentTarget.id == 0){
+      this.setData({
+        color0: "#FFB90F"
+      })
+    } else if (e.currentTarget.id == 1){
+      this.setData({
+        color1: "#FFB90F"
+      })
+    } else if (e.currentTarget.id == 2) {
+      this.setData({
+        color2: "#FFB90F"
+      })
+    } else if (e.currentTarget.id == 3) {
+      this.setData({
+        color3: "#FFB90F"
+      })
+    } else if (e.currentTarget.id == 4) {
+      this.setData({
+        color4: "#FFB90F"
+      })
+    }
+
+    console.log('选择改变，携带值为', e.currentTarget.id)
+
+    if (e.currentTarget.id == 5) {
+      wx.switchTab({
+        url: '/pages/merger/merger',
+      })
+      return
+    }
+
+    this.setData({
+      index: e.currentTarget.id
+    })
+    var that = this
+    wx.showLoading({
+      title: '精彩马上呈现',
+    })
+    wx.cloud.callFunction({
+      name: 'getPathways',
+      data: {
+        level: parseInt(e.currentTarget.id) + 1
+      },
+      success: res => {
+        console.log(res)
+        that.setData({
+          projects: res.result.data
+        })
+        wx.hideLoading()
+      }
+    })
+  },
+
+  saveOfficialQRCode: function (e) {
+    wx.showModal({
+      content: '搜索"头马助手"官方公众号, 获取历年头马世界冠军演讲视频！',
+      showCancel: false,
+      confirmText: '去关注',
+      confirmColor: '#ff7f50',
+      success: function (res) {
+        if (res.confirm) {
+          wx.setClipboardData({
+            data: "头马助手 Toastmasters Assistant",
+            success: function (res) {
+              wx.showToast({
+                title: "公众号名已复制"
+              })
+            }
+          })
+          console.log('用户点击确定');
+        }
+      }
+    })
   },
 
   toCanvas: function (e) {
@@ -290,8 +401,9 @@ Page({
 
   onShareAppMessage: function (options) {
     return {
-      title: '头马助手 | Pathways手册' + '【' + this.data.level_name_ch + '】', 
+      title: '头马Pathways手册: 100+演讲进阶项目一站搞定', 
       // path: '/pages/pathways/desc/desc?level=' + options.level
+      imageUrl: '/images/pathwaysbookforward-min.jpeg'
     }
   }
 })

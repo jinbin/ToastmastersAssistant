@@ -29,10 +29,9 @@
       <view class="box3" style="">
         <button id="checkin" size="mini" formType="submit">
           <image style="width:60rpx;height:60rpx" src="../../images/blocks1.png"></image>
-          <view class="downText">每日签到</view>
+          <view class="downText">每日打卡</view>
         </button>
       </view>
-      <!-- <view class="box3" style="background-color: #E8E8E8;border:2rpx solid #F8F8F8;"> -->
       <view class="box3" style="">
         <button id="6" size="mini" formType="submit">
           <image style="width:60rpx;height:60rpx" src="../../images/blocks2.png"></image>

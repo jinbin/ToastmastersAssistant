@@ -43,6 +43,25 @@
   line-height: 1.75;
 }
 
+.window3 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 10rpx;
+  justify-content:space-around;
+}
+
+.box3 {
+  width: 29%;
+  height: 140rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  padding: 10rpx;
+}
+
 .main_box {
   display: flex;
   flex-direction: column;

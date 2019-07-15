@@ -1,5 +1,15 @@
 /* pages/pathways/desc/desc.wxss */
 
+button::after {
+  border: none;
+}
+
+button {
+  border: 0;
+  background-color: transparent;
+  outline: none;
+}
+
 .myCanvas {
   width: 0px;
   height: 0px;
@@ -69,4 +79,51 @@
 
 text.bold100{
   font-weight:900
+}
+
+.container1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
+.main_box {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.window1 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 10rpx;
+  /* padding-left: 30rpx;
+  padding-right: 30rpx; */
+  /* justify-content:space-around;
+  align-items: center;
+  align-content: center; */
+}
+
+.box1 {
+  width: 20%;
+  height: 160rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.container1 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
+.downText {
+  font-size:13px;
+  color:#4F4F4F;
 }

@@ -7,7 +7,8 @@
   </view>
 
   <view class="bottomImage">
-    <image bindtap="saveOfficialQRCode" style="padding: 30rpx" src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/头马助手公众号Logo.jpg" mode="widthFix"></image>
+    <!-- <image bindtap="saveOfficialQRCode" style="padding: 30rpx" src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/头马助手公众号Logo.jpg" mode="widthFix"></image> -->
+    <image bindtap="saveOfficialQRCode" style="padding: 30rpx" src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/accountpublicity2.jpeg" mode="widthFix"></image>
   </view>
 </view>
 

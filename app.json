@@ -1,7 +1,7 @@
 {
   "pages": [
     "pages/merger/merger",
-    "pages/audio/audio",
+    "pages/audio/audio",    
     "pages/testdb/testdb",
     "pages/manage/manage",
     "pages/my/my",
