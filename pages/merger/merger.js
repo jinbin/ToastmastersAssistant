@@ -28,10 +28,10 @@ Page({
         "url": "cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/jp_tm.jpg",
         "bind": "saveOfficialQRCode"
       },
-      {
-        "url": "cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/hequn1.jpeg",
-        "bind": "navigateToHequn"
-      },
+      // {
+      //   "url": "cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/hequn1.jpeg",
+      //   "bind": "navigateToHequn"
+      // },
       {
         "url": "cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/TEDtalk2.jpeg",
         "bind": "saveOfficialQRCode"
@@ -50,183 +50,163 @@ Page({
     })
   },
 
-  getAudio: function(options) {
-    console.log(options.detail.formId)
-
-    var timestamp = Date.parse(new Date()) / 1000
-    var newtimestamp = timestamp + 24 * 60 * 60 * 7
-    var n7_to = newtimestamp * 1000
-
-    db.collection("formIds").add({
-      data: {
-        openid: this.data.openid,
-        formId: options.detail.formId,
-        expire: new Date(n7_to),
-        available: true
-      }
-    })
-
-    if (options.detail.target.id == "more") {
-      wx.navigateTo({
-        url: '/pages/audio/audio',
-      })
-      return
-    }
-
-    var that = this
-    // innerAudioContext.autoplay = true
-    // if (!this.data.innerAudioContext){
-    //   this.data.innerAudioContext = wx.createInnerAudioContext()
-    //   this.data.innerAudioContext.obeyMuteSwitch = false
-    // }
-    // 对同一个音频进行操作
-    if (options.detail.target.id == this.data.audioYear) {
-      if (this.data.isplay) { // 正在播放，终止
-        console.log("stop")
-        // innerAudioContext.stop()
-        backgroundAudioManager.stop()
-      } else { // 未在播放，开始播放
-        console.log("play")
-        // innerAudioContext.obeyMuteSwitch = false;
-
-        // innerAudioContext.src = this.data.audiosrc[this.data.audioYear]
-        // innerAudioContext.play()
-
-        backgroundAudioManager.title = this.data.audioYear + '演讲音频 by 头马助手'
-        backgroundAudioManager.epname = '头马助手'
-        backgroundAudioManager.singer = '头马助手'
-        backgroundAudioManager.coverImgUrl = ''
-        // 设置了 src 之后会自动播放
-        //backgroundAudioManager.src = this.data.audiosrc[this.data.audioYear]
-        backgroundAudioManager.src = this.data.audiosrc.filter(function(x) {
-          return x["year"] == that.data.audioYear
-        })[0]['link']
-      }
+  audioManage: function(options) {
+    console.log(options.currentTarget.id)
+    if (options.currentTarget.id == "continue"){
+      backgroundAudioManager.play()
       this.setData({
-        isplay: !this.data.isplay
+        isplay: true,
       })
-    } else { // 不是对同一个音频进行操作
-      // 本来就有音频在进行
-      if (this.data.isplay) {
-        // innerAudioContext.stop()
-        backgroundAudioManager.stop()
-        this.setData({
-          audioYear: options.detail.target.id
-        })
-        // innerAudioContext.obeyMuteSwitch = false;
-        // innerAudioContext.src = this.data.audiosrc[this.data.audioYear]
-        // innerAudioContext.play()
-
-        backgroundAudioManager.title = this.data.audioYear + '演讲音频 by 头马助手'
-        backgroundAudioManager.epname = '头马助手'
-        backgroundAudioManager.singer = '头马助手'
-        backgroundAudioManager.coverImgUrl = ''
-        // 设置了 src 之后会自动播放
-        //backgroundAudioManager.src = this.data.audiosrc[this.data.audioYear]
-        backgroundAudioManager.src = this.data.audiosrc.filter(function(x) {
-          return x["year"] == that.data.audioYear
-        })[0]['link']
-      } else { // 没有音频在进行
-        this.setData({
-          isplay: true,
-          //isplay: !this.data.isplay,
-          audioYear: options.detail.target.id
-        })
-        // innerAudioContext.obeyMuteSwitch = false;
-        // innerAudioContext.src = this.data.audiosrc[this.data.audioYear]
-        // innerAudioContext.play()
-
-        backgroundAudioManager.title = this.data.audioYear + '演讲音频 by 头马助手'
-        backgroundAudioManager.epname = '头马助手'
-        backgroundAudioManager.singer = '头马助手'
-        backgroundAudioManager.coverImgUrl = ''
-        // 设置了 src 之后会自动播放
-        //backgroundAudioManager.src = this.data.audiosrc[this.data.audioYear]
-        backgroundAudioManager.src = this.data.audiosrc.filter(function(x) {
-          return x["year"] == that.data.audioYear
-        })[0]['link']
-      }
+      this.globalData.globalbgAudioIsPlay = true
+    } else if (options.currentTarget.id == "stop"){
+      backgroundAudioManager.stop()
+      this.setData({
+        isplay: false
+      })
+      this.globalData.globalbgAudioIsPlay = false
     }
-
-    console.log(this.data.isplay)
-    console.log(this.data.audioYear)
-
-    console.log(options.detail.target.id)
   },
+
+  // getAudio: function(options) {
+  //   console.log(options.detail.formId)
+
+  //   var timestamp = Date.parse(new Date()) / 1000
+  //   var newtimestamp = timestamp + 24 * 60 * 60 * 7
+  //   var n7_to = newtimestamp * 1000
+
+  //   db.collection("formIds").add({
+  //     data: {
+  //       openid: this.data.openid,
+  //       formId: options.detail.formId,
+  //       expire: new Date(n7_to),
+  //       available: true
+  //     }
+  //   })
+
+  //   if (options.detail.target.id == "more") {
+  //     wx.navigateTo({
+  //       url: '/pages/audio/audio',
+  //     })
+  //     return
+  //   }
+
+  //   var that = this
+  //   // 对同一个音频进行操作
+  //   if (options.detail.target.id == this.data.audioYear) {
+  //     if (this.data.isplay) { // 正在播放，终止
+  //       console.log("stop")
+  //       backgroundAudioManager.stop()
+  //     } else { // 未在播放，开始播放
+  //       console.log("play")
+
+  //       backgroundAudioManager.title = this.data.audioYear + '演讲音频 by 头马助手'
+  //       backgroundAudioManager.epname = '头马助手'
+  //       backgroundAudioManager.singer = '头马助手'
+  //       backgroundAudioManager.coverImgUrl = ''
+  //       // 设置了 src 之后会自动播放
+  //       backgroundAudioManager.src = this.data.audiosrc.filter(function(x) {
+  //         return x["year"] == that.data.audioYear
+  //       })[0]['link']
+  //     }
+  //     this.setData({
+  //       isplay: !this.data.isplay
+  //     })
+  //   } else { // 不是对同一个音频进行操作
+  //     // 本来就有音频在进行
+  //     if (this.data.isplay) {
+  //       // innerAudioContext.stop()
+  //       backgroundAudioManager.stop()
+  //       this.setData({
+  //         audioYear: options.detail.target.id
+  //       })
+
+  //       backgroundAudioManager.title = this.data.audioYear + '演讲音频 by 头马助手'
+  //       backgroundAudioManager.epname = '头马助手'
+  //       backgroundAudioManager.singer = '头马助手'
+  //       backgroundAudioManager.coverImgUrl = ''
+  //       // 设置了 src 之后会自动播放
+  //       backgroundAudioManager.src = this.data.audiosrc.filter(function(x) {
+  //         return x["year"] == that.data.audioYear
+  //       })[0]['link']
+  //     } else { // 没有音频在进行
+  //       this.setData({
+  //         isplay: true,
+  //         //isplay: !this.data.isplay,
+  //         audioYear: options.detail.target.id
+  //       })
+
+  //       backgroundAudioManager.title = this.data.audioYear + '演讲音频 by 头马助手'
+  //       backgroundAudioManager.epname = '头马助手'
+  //       backgroundAudioManager.singer = '头马助手'
+  //       backgroundAudioManager.coverImgUrl = ''
+  //       // 设置了 src 之后会自动播放
+  //       backgroundAudioManager.src = this.data.audiosrc.filter(function(x) {
+  //         return x["year"] == that.data.audioYear
+  //       })[0]['link']
+  //     }
+  //   }
+
+  //   console.log(this.data.isplay)
+  //   console.log(this.data.audioYear)
+
+  //   console.log(options.detail.target.id)
+  // },
 
   playTEDaudio: function(e) {
     console.log("TED audio")
   },
 
-  playAudio: function(e) {
-    // innerAudioContext.autoplay = true
-    // if (!this.data.innerAudioContext){
-    //   this.data.innerAudioContext = wx.createInnerAudioContext()
-    //   this.data.innerAudioContext.obeyMuteSwitch = false
-    // }
-    // 对同一个音频进行操作
-    if (e.currentTarget.dataset.year == this.data.audioYear) {
-      if (this.data.isplay) { // 正在播放，终止
-        console.log("stop")
-        // innerAudioContext.stop()
-        backgroundAudioManager.stop()
-      } else { // 未在播放，开始播放
-        console.log("play")
-        // innerAudioContext.obeyMuteSwitch = false;
+  // playAudio: function(e) {
+  //   // 对同一个音频进行操作
+  //   if (e.currentTarget.dataset.year == this.data.audioYear) {
+  //     if (this.data.isplay) { // 正在播放，终止
+  //       console.log("stop")
+  //       backgroundAudioManager.stop()
+  //     } else { // 未在播放，开始播放
+  //       console.log("play")
 
-        // innerAudioContext.src = this.data.audiosrc[this.data.audioYear]
-        // innerAudioContext.play()
+  //       backgroundAudioManager.title = this.data.audioYear + '演讲音频 by 头马助手'
+  //       backgroundAudioManager.epname = '头马助手'
+  //       backgroundAudioManager.singer = '头马助手'
+  //       backgroundAudioManager.coverImgUrl = ''
+  //       // 设置了 src 之后会自动播放
+  //       backgroundAudioManager.src = this.data.audioTEDsrc[this.data.audioYear]['link']
+  //     }
+  //     this.setData({
+  //       isplay: !this.data.isplay
+  //     })
+  //   } else { // 不是对同一个音频进行操作
+  //     // 本来就有音频在进行
+  //     if (this.data.isplay) {
+  //       backgroundAudioManager.stop()
+  //       this.setData({
+  //         audioYear: e.currentTarget.dataset.year
+  //       })
 
-        backgroundAudioManager.title = this.data.audioYear + '演讲音频 by 头马助手'
-        backgroundAudioManager.epname = '头马助手'
-        backgroundAudioManager.singer = '头马助手'
-        backgroundAudioManager.coverImgUrl = ''
-        // 设置了 src 之后会自动播放
-        backgroundAudioManager.src = this.data.audioTEDsrc[this.data.audioYear]['link']
-      }
-      this.setData({
-        isplay: !this.data.isplay
-      })
-    } else { // 不是对同一个音频进行操作
-      // 本来就有音频在进行
-      if (this.data.isplay) {
-        // innerAudioContext.stop()
-        backgroundAudioManager.stop()
-        this.setData({
-          audioYear: e.currentTarget.dataset.year
-        })
-        // innerAudioContext.obeyMuteSwitch = false;
-        // innerAudioContext.src = this.data.audiosrc[this.data.audioYear]
-        // innerAudioContext.play()
+  //       backgroundAudioManager.title = this.data.audioYear + '演讲音频 by 头马助手'
+  //       backgroundAudioManager.epname = '头马助手'
+  //       backgroundAudioManager.singer = '头马助手'
+  //       backgroundAudioManager.coverImgUrl = ''
+  //       // 设置了 src 之后会自动播放
+  //       backgroundAudioManager.src = this.data.audioTEDsrc[this.data.audioYear]['link']
+  //     } else { // 没有音频在进行
+  //       this.setData({
+  //         isplay: true,
+  //         audioYear: e.currentTarget.dataset.year
+  //       })
 
-        backgroundAudioManager.title = this.data.audioYear + '演讲音频 by 头马助手'
-        backgroundAudioManager.epname = '头马助手'
-        backgroundAudioManager.singer = '头马助手'
-        backgroundAudioManager.coverImgUrl = ''
-        // 设置了 src 之后会自动播放
-        backgroundAudioManager.src = this.data.audioTEDsrc[this.data.audioYear]['link']
-      } else { // 没有音频在进行
-        this.setData({
-          isplay: true,
-          //isplay: !this.data.isplay,
-          audioYear: e.currentTarget.dataset.year
-        })
-        // innerAudioContext.obeyMuteSwitch = false;
-        // innerAudioContext.src = this.data.audiosrc[this.data.audioYear]
-        // innerAudioContext.play()
+  //       backgroundAudioManager.title = this.data.audioYear + '演讲音频 by 头马助手'
+  //       backgroundAudioManager.epname = '头马助手'
+  //       backgroundAudioManager.singer = '头马助手'
+  //       backgroundAudioManager.coverImgUrl = ''
+  //       // 设置了 src 之后会自动播放
+  //       backgroundAudioManager.src = this.data.audioTEDsrc[this.data.audioYear]['link']
+  //     }
+  //   }
 
-        backgroundAudioManager.title = this.data.audioYear + '演讲音频 by 头马助手'
-        backgroundAudioManager.epname = '头马助手'
-        backgroundAudioManager.singer = '头马助手'
-        backgroundAudioManager.coverImgUrl = ''
-        // 设置了 src 之后会自动播放
-        backgroundAudioManager.src = this.data.audioTEDsrc[this.data.audioYear]['link']
-      }
-    }
-
-    console.log(this.data.isplay)
-    console.log(this.data.audioYear)
-  },
+  //   console.log(this.data.isplay)
+  //   console.log(this.data.audioYear)
+  // },
 
   getIntro: function(options) {
     console.log(options.detail.formId)
@@ -260,6 +240,18 @@ Page({
       })
     } else if (options.detail.target.id == "checkin") {
       this.checkin()
+    } else if (options.detail.target.id == "audio_6min") {
+      wx.navigateTo({
+        url: '/pages/audio/audio?type=6min',
+      })
+    } else if (options.detail.target.id == "audio_ted") {
+      wx.navigateTo({
+        url: '/pages/audio/audio?type=ted',
+      })
+    } else if (options.detail.target.id == "audio_tm") {
+      wx.navigateTo({
+        url: '/pages/audio/audio?type=tm',
+      })
     } else {
       var naviTo = '/pages/pathways/desc/desc?level=' + options.detail.target.id
 
@@ -476,11 +468,27 @@ Page({
                     //今天已经签到过
                     wx.showModal({
                       content: "今天已打卡, 你已经打卡过" + res.data[0].checkin + "次, 明天再来打卡~\n今天已经有" + that.data.checkin_today_total + "人打卡了~",
-                      showCancel: false,
+                      showCancel: true,
+                      cancelText: '今日听力',
+                      cancelColor: '#008B45',
                       // confirmText: '',
                       confirmColor: '#ff7f50',
                       success: function(res) {
-                        if (res.confirm) {}
+                        if (res.confirm) {
+                          console.log("confirm")
+                        }else {
+                          console.log("cancel")
+                          backgroundAudioManager.title = '演讲音频 by 头马助手'
+                          backgroundAudioManager.epname = '头马助手'
+                          backgroundAudioManager.singer = '头马助手'
+                          backgroundAudioManager.coverImgUrl = ''
+                          // 设置了 src 之后会自动播放
+                          backgroundAudioManager.src = "cloud://tmassistant-5275ad.746d-tmassistant-5275ad/audio/6min/Money_and_lifestyle.mp3"
+                          that.setData({
+                            isplay: true
+                          })
+                          that.globalData.globalbgAudioIsPlay = true
+                        }
                       },
                       fail: function(res) {
                         console.log(res)
@@ -496,11 +504,28 @@ Page({
                       success: res1 => {
                         wx.showModal({
                           content: "打卡成功！这是你的第" + (res.data[0].checkin + 1) + "次打卡 || 你是今天第" + (that.data.checkin_today_total + 1) + "位打卡者~",
-                          showCancel: false,
+                          showCancel: true,
+                          cancelText: '今日听力',
+                          cancelColor: '#008B45',
                           // confirmText: '',
                           confirmColor: '#ff7f50',
                           success: function(res) {
-                            if (res.confirm) {}
+                            if (res.confirm) {
+                              console.log("confirm")
+                            } else {
+                              console.log("cancel")
+                              backgroundAudioManager.title = '演讲音频 by 头马助手'
+                              backgroundAudioManager.epname = '头马助手'
+                              backgroundAudioManager.singer = '头马助手'
+                              backgroundAudioManager.coverImgUrl = ''
+                              // 设置了 src 之后会自动播放
+                              //backgroundAudioManager.src = this.data.audiosrc[this.data.audioYear]
+                              backgroundAudioManager.src = "cloud://tmassistant-5275ad.746d-tmassistant-5275ad/audio/6min/Money_and_lifestyle.mp3"
+                              that.setData({
+                                isplay: true
+                              })
+                              that.globalData.globalbgAudioIsPlay = true
+                            }
                           }
                         })
                       }
@@ -528,7 +553,7 @@ Page({
     })
 
     db.collection("audio").where({
-      type: "ted",
+      // type: "ted",
       onIndex: true
     }).get({
       success: function(e) {
@@ -536,16 +561,16 @@ Page({
         that.setData({
           audioTEDsrc: e.data
         })
-        db.collection("audio").where({
-          type: "tm",
-          onIndex: true
-        }).get({
-          success: function(e) {
-            that.setData({
-              audiosrc: e.data
-            })
-          }
-        })
+        // db.collection("audio").where({
+        //   type: "tm",
+        //   onIndex: true
+        // }).get({
+        //   success: function(e) {
+        //     that.setData({
+        //       audiosrc: e.data
+        //     })
+        //   }
+        // })
       }
     })
   },
@@ -561,7 +586,22 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
+    var that = this 
+    wx.getBackgroundAudioPlayerState({
+      success(res) {
+        if(res.status == 1){
+          that.setData({
+            isplay: true
+          })
+          that.globalData.globalbgAudioIsPlay = true
+        }else{
+          that.setData({
+            isplay: false
+          })
+          that.globalData.globalbgAudioIsPlay = false 
+        }
+      }
+    })
   },
 
   /**
@@ -595,7 +635,7 @@ Page({
   onShareAppMessage: function(res) {
     return {
       title: '头马, TED, 演讲, 英语, 超过2万名终身学习者的选择',
-      imageUrl: '/images/index.jpg'
+      imageUrl: '/images/indexforward-min.jpg'
     }
   }
 })

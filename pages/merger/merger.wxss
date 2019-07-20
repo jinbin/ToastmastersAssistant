@@ -85,8 +85,18 @@ button {
 }
 
 .box_edu {
-  width: 24.5%;
-  height: 350rpx;
+  width: 24%;
+  height: 375rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* align-content: center; */
+}
+
+.audio_edu {
+  width: 30%;
+  height: 150rpx;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -102,6 +112,7 @@ button {
   justify-content: center;
   align-items: center;
   /* align-content: center; */
+  /* border-radius: 20rpx; */
 }
 
 .box_audio {
@@ -174,6 +185,7 @@ input {
 
 .banner {
   width: 100%;
+  /* width: 750rpx; */
 }
 
 .swiper {
@@ -184,7 +196,7 @@ input {
   /* font-family: -apple-system, BlinkMacSystemFont, 'Microsoft YaHei', sans-serif; *//* font-size: 40rpx; */
   font-size: 16px;
   /* padding: 10rpx; */
-  padding-top: 20rpx;
+  padding-top: 0rpx;
   /* color: black; */
   color: #333;
   line-height: 1.75;
@@ -274,6 +286,7 @@ img {
   border-radius: 50%;
   font-size: 28rpx;
   background: rgb(56, 243, 56);
+  z-index:100;
 }
 
 .hover_1{

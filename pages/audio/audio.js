@@ -14,49 +14,49 @@ Page({
     isplay: false,
     audioYear: 2018,
     channel: "tm",
-    color1: "#1E90FF"
+    color1: "#C1FFC1"
   },
 
   getCh: function (e) {
     console.log(e.currentTarget.id)
     if(e.currentTarget.id == "tm"){
       this.setData({
-        color1: "#1E90FF",
+        color1: "#C1FFC1",
         color2: "",
         color3: ""
       })
     } else if (e.currentTarget.id == "ted"){
       this.setData({
         color1: "",
-        color2: "#FF4040",
+        color2: "#FFE4E1",
         color3: ""
       })  
-    } else {
+    } else if (e.currentTarget.id == "6min"){
       this.setData({
         color1: "",
         color2: "",
-        color3: "#8B8970"
+        color3: "#FFDEAD"
       })
       //视频在公众号内
-      wx.showModal({
-        content: '因为小程序受限，所有优质视频内容存放在官方公众号内。搜索"头马助手"官方公众号, 获取历年头马世界冠军演讲、TED精选、英语口语技巧视频！',
-        showCancel: false,
-        confirmText: '去关注',
-        confirmColor: '#ff7f50',
-        success: function (res) {
-          if (res.confirm) {
-            wx.setClipboardData({
-              data: "头马助手 Toastmasters Assistant",
-              success: function (res) {
-                wx.showToast({
-                  title: "公众号名已复制"
-                })
-              }
-            })
-            console.log('用户点击确定');
-          }
-        }
-      })       
+      // wx.showModal({
+      //   content: '因为小程序受限，所有优质视频内容存放在官方公众号内。搜索"头马助手"官方公众号, 获取历年头马世界冠军演讲、TED精选、英语口语技巧视频！',
+      //   showCancel: false,
+      //   confirmText: '去关注',
+      //   confirmColor: '#ff7f50',
+      //   success: function (res) {
+      //     if (res.confirm) {
+      //       wx.setClipboardData({
+      //         data: "头马助手 Toastmasters Assistant",
+      //         success: function (res) {
+      //           wx.showToast({
+      //             title: "公众号名已复制"
+      //           })
+      //         }
+      //       })
+      //       console.log('用户点击确定');
+      //     }
+      //   }
+      // })       
     }
     this.setData({
       isplay: false,
@@ -85,6 +85,23 @@ Page({
         }
       }
     })
+  },
+
+  audioManage: function (options) {
+    console.log(options.currentTarget.id)
+    if (options.currentTarget.id == "continue") {
+      backgroundAudioManager.play()
+      this.setData({
+        isplay: true,
+      })
+      this.globalData.globalbgAudioIsPlay = true
+    } else if (options.currentTarget.id == "stop") {
+      backgroundAudioManager.stop()
+      this.setData({
+        isplay: false
+      })
+      this.globalData.globalbgAudioIsPlay = false
+    }
   },
 
   playAudio: function (e) {
@@ -120,7 +137,10 @@ Page({
           backgroundAudioManager.src = this.data.audiosrc[this.data.audioYear]['link']
         } else if (this.data.channel == "ted") {
           backgroundAudioManager.src = this.data.audioTEDsrc[this.data.audioYear]['link']
-        }
+        } else if (this.data.channel == "6min") {
+          console.log(this.data.audio6minsrc[this.data.audioYear]['link'])
+          backgroundAudioManager.src = this.data.audio6minsrc[this.data.audioYear]['link']
+        } 
       }
       this.setData({
         isplay: !this.data.isplay
@@ -150,7 +170,10 @@ Page({
           backgroundAudioManager.src = this.data.audiosrc[this.data.audioYear]['link']
         } else if (this.data.channel == "ted") {
           backgroundAudioManager.src = this.data.audioTEDsrc[this.data.audioYear]['link']
-        }
+        } else if (this.data.channel == "6min") {
+          console.log(this.data.audio6minsrc[this.data.audioYear]['link'])
+          backgroundAudioManager.src = this.data.audio6minsrc[this.data.audioYear]['link']
+        } 
       } else { // 没有音频在进行
         this.setData({
           isplay: true,
@@ -174,7 +197,10 @@ Page({
           backgroundAudioManager.src = this.data.audiosrc[this.data.audioYear]['link']
         } else if (this.data.channel == "ted") {
           backgroundAudioManager.src = this.data.audioTEDsrc[this.data.audioYear]['link']
-        }
+        } else if (this.data.channel == "6min") {
+          console.log(this.data.audio6minsrc[this.data.audioYear]['link'])
+          backgroundAudioManager.src = this.data.audio6minsrc[this.data.audioYear]['link']
+        } 
       }
     }
 
@@ -187,10 +213,10 @@ Page({
    */
   onLoad: function(options) {
     var that = this 
-    console.log("onLoad")
+    console.log(options.type)
+
     db.collection("audio").where({
-      type: "ted",
-      onIndex: true
+      type: "ted"
     }).get({
       success: function (e) {
         console.log("ted success")
@@ -199,8 +225,7 @@ Page({
         })
         console.log(that.data.audioTEDsrc)
         db.collection("audio").where({
-          type: "tm",
-          onIndex: true
+          type: "tm"
         }).get({
           success: function (e) {
             console.log("tm success")
@@ -208,13 +233,46 @@ Page({
               audiosrc: e.data
             })
             console.log(that.data.audiosrc)
-          },
-          complete: function (e) {
-            console.log(e)
+            db.collection("audio").where({
+              type: "6min"
+            }).get({
+              success: function (e) {
+                console.log("tm success")
+                that.setData({
+                  audio6minsrc: e.data
+                })
+                console.log(that.data.audio6minsrc)
+              }
+            })
           }
         })
       }
     })
+
+    if (options.type == "tm") {
+      this.setData({
+        color1: "#C1FFC1",
+        color2: "",
+        color3: ""
+      })
+    } else if (options.type == "ted") {
+      this.setData({
+        color1: "",
+        color2: "#FFE4E1",
+        color3: ""
+      })
+    } else if (options.type == "6min") {
+      this.setData({
+        color1: "",
+        color2: "",
+        color3: "#FFDEAD"
+      })
+    }
+    this.setData({
+      isplay: false,
+      channel: options.type
+    })
+    backgroundAudioManager.stop()
   },
 
   // onLoad: function (options) {
