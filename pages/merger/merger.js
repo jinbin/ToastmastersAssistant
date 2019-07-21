@@ -57,13 +57,11 @@ Page({
       this.setData({
         isplay: true,
       })
-      this.globalData.globalbgAudioIsPlay = true
     } else if (options.currentTarget.id == "stop"){
       backgroundAudioManager.stop()
       this.setData({
         isplay: false
       })
-      this.globalData.globalbgAudioIsPlay = false
     }
   },
 
@@ -209,6 +207,7 @@ Page({
   // },
 
   getIntro: function(options) {
+    var that = this 
     console.log(options.detail.formId)
 
     var timestamp = Date.parse(new Date()) / 1000
@@ -251,6 +250,36 @@ Page({
     } else if (options.detail.target.id == "audio_tm") {
       wx.navigateTo({
         url: '/pages/audio/audio?type=tm',
+      })
+    } else if (options.detail.target.id == "todayaudio") {
+      wx.showModal({
+        content: "\"今日听力\"\n每天精选BBC Learning English 6分钟英语音频。\n适合初中级英语学习者锻炼听力，学习地道表达，以及扩充知识面。\n建议第一遍泛听，第二遍开始精听，至少听三遍以上。",
+        showCancel: true,
+        cancelText: '音频库',
+        cancelColor: '#008B45',
+        confirmText: '今日听力',
+        confirmColor: '#ff7f50',
+        success: function (res) {
+          if (res.confirm) {
+            backgroundAudioManager.title = '演讲音频 by 头马助手'
+            backgroundAudioManager.epname = '头马助手'
+            backgroundAudioManager.singer = '头马助手'
+            backgroundAudioManager.coverImgUrl = ''
+            // 设置了 src 之后会自动播放
+            backgroundAudioManager.src = that.data.todayaudio[0]["link"]
+            console.log(that.data.todayaudio[0]["link"])
+            that.setData({
+              isplay: true
+            })
+          } else {
+            wx.navigateTo({
+              url: '/pages/audio/audio',
+            })
+          }
+        },
+        fail: function (res) {
+          console.log(res)
+        }
       })
     } else {
       var naviTo = '/pages/pathways/desc/desc?level=' + options.detail.target.id
@@ -487,7 +516,6 @@ Page({
                           that.setData({
                             isplay: true
                           })
-                          that.globalData.globalbgAudioIsPlay = true
                         }
                       },
                       fail: function(res) {
@@ -524,7 +552,6 @@ Page({
                               that.setData({
                                 isplay: true
                               })
-                              that.globalData.globalbgAudioIsPlay = true
                             }
                           }
                         })
@@ -559,7 +586,7 @@ Page({
       success: function(e) {
         console.log(e)
         that.setData({
-          audioTEDsrc: e.data
+          todayaudio: e.data
         })
         // db.collection("audio").where({
         //   type: "tm",
@@ -593,12 +620,10 @@ Page({
           that.setData({
             isplay: true
           })
-          that.globalData.globalbgAudioIsPlay = true
         }else{
           that.setData({
             isplay: false
           })
-          that.globalData.globalbgAudioIsPlay = false 
         }
       }
     })

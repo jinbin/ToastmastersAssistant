@@ -28,9 +28,10 @@
   <form report-submit="true" bindsubmit="getIntro">
     <view class="window3" style="padding:10rpx;">
       <view class="box3" style="">
-        <button id="intro" size="mini" formType="submit">
-          <image style="width:60rpx;height:60rpx" src="../../images/blocks.png"></image>
-          <view class="downText">了解头马</view>
+        <button id="todayaudio" size="mini" formType="submit">
+          <!-- <image style="width:60rpx;height:60rpx" src="../../images/blocks.png"></image> -->
+          <image style="width:60rpx;height:60rpx" src="../../images/听力.png"></image>
+          <view class="downText" style="color:#9d441b">今日听力</view>
         </button>
       </view>
       <view class="box3" style="">

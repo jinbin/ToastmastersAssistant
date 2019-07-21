@@ -237,11 +237,9 @@ Page({
               type: "6min"
             }).get({
               success: function (e) {
-                console.log("tm success")
                 that.setData({
                   audio6minsrc: e.data
                 })
-                console.log(that.data.audio6minsrc)
               }
             })
           }

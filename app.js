@@ -17,8 +17,7 @@ App({
     open_posts: [],
     activity_posts: [],
     private_posts: [],
-    history: [],
-    globalbgAudioIsPlay: false 
+    history: []
   },
 
   onLaunch: function () {
