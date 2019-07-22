@@ -61,7 +61,7 @@
     <text style="color:DimGray">—</text>
   </view>
 
-  <view class="main_box" style="width:90%">
+  <view class="main_box" style="width:100%">
     <view style="width:100%">
 
       <view wx:for="{{audiosrc}}" wx:for-index="index" wx:for-item="item">
