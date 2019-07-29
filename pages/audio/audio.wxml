@@ -31,20 +31,32 @@
     <view style="width:100%">
 
       <view wx:for="{{audioTEDsrc}}" wx:for-index="index" wx:for-item="item">
-        <view bindtap="playAudio" data-year="{{index}}" class="box" style="color:DarkCyan;font-size:15px;justify-content: flex-start">
-          <view class="label" wx:if="{{isplay && audioYear == index}}">
+        <view data-year="{{index}}" class="box" style="color:DarkCyan;font-size:15px;justify-content: flex-start">
+          <!-- <view class="label" wx:if="{{isplay && audioYear == index}}">
             <image style="width:40rpx;height:40rpx;display: flex;flex-direction: row" src="../../images/audio_stop.png">
             </image>
-            <!-- <text style="color:#2E8B57">【TED精选】</text> -->
           </view>
-          <view class="label" wx:else>
-            <image style="width:50rpx;height:40rpx;display: flex;flex-direction: row" src="../../images/audio_orange.png">
-            </image>
-            <!-- <text style="color:#2E8B57">【TED精选】</text> -->
+          <view class="label" wx:else> -->
+          <view wx:if="{{item.text}}" class="label">
+            <navigator url="/pages/music/music?audio={{item.link}}&title={{item.title}}&text=https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/{{item.text}}">
+              <image style="width:50rpx;height:40rpx;display: flex;flex-direction: row" src="../../images/audio_orange.png"></image>
+            </navigator>
+          </view>
+          <view wx:else class="label">
+            <navigator url="/pages/music/music?audio={{item.link}}&title={{item.title}}">
+              <image style="width:50rpx;height:40rpx;display: flex;flex-direction: row" src="../../images/audio_orange.png"></image>
+            </navigator>
           </view>
 
-          <view style="color:DimGray;width:91%;display: flex;flex-direction: row;justify-content:flex-start;">
-            {{item.title}}
+          <view wx:if="{{item.text}}" style="color:DimGray;width:91%;display: flex;flex-direction: row;justify-content:flex-start;">
+            <navigator url="/pages/music/music?audio={{item.link}}&title={{item.title}}&text=https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/{{item.text}}">
+              {{item.title}}
+            </navigator>
+          </view>
+          <view wx:else style="color:DimGray;width:91%;display: flex;flex-direction: row;justify-content:flex-start; ">
+            <navigator url="/pages/music/music?audio={{item.link}}&title={{item.title}} ">
+              {{item.title}}
+            </navigator>
           </view>
         </view>
       </view>
@@ -54,32 +66,52 @@
 
 </view>
 
-<view wx:if="{{channel == 'tm'}}" class="container1">
+<view wx:if="{{channel=='tm'}}" class="container1">
 
   <view class="title">
-    <text style="color:DimGray">—</text> 冠军演讲
-    <text style="color:DimGray">—</text>
+    <text style="color:DimGray ">—</text> 冠军演讲
+    <text style="color:DimGray ">—</text>
   </view>
 
   <view class="main_box" style="width:100%">
     <view style="width:100%">
 
       <view wx:for="{{audiosrc}}" wx:for-index="index" wx:for-item="item">
-        <view bindtap="playAudio" data-year="{{index}}" class="box" style="color:DarkCyan;font-size:15px;justify-content: flex-start">
-          <view class="label" wx:if="{{isplay && audioYear == index}}">
-            <image style="width:40rpx;height:40rpx;display: flex;flex-direction: row" src="../../images/audio_stop.png">
-            </image>
-            <!-- <text style="color:#2E8B57">【冠军演讲】</text> -->
-          </view>
-          <view class="label" wx:else>
-            <image style="width:50rpx;height:40rpx;display: flex;flex-direction: row" src="../../images/audio_orange.png">
-            </image>
-            <!-- <text style="color:#2E8B57">【冠军演讲】</text> -->
+        <view data-year="{{index}}" class="box" style="color:DarkCyan;font-size:15px;justify-content: flex-start">
+          <!-- <view class="label">
+            <navigator url="/pages/music/music?audio={{item.link}}&title={{item.title}}&text=https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/{{item.text}} ">
+              <image style="width:50rpx;height:40rpx;display: flex;flex-direction: row " src="../../images/audio_orange.png "></image>
+            </navigator>
           </view>
 
-          <view style="color:DimGray;width:91%;display: flex;flex-direction: row;justify-content:flex-start;">
-            {{"【" + item.year + "】" + item.title}}
+          <view style="color:DimGray;width:91%;display: flex;flex-direction: row;justify-content:flex-start; ">
+            <navigator url="/pages/music/music?audio={{item.link}}&title={{item.title}}&text=https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/{{item.text}} ">
+              {{"【 " + item.year + "】 " + item.title}}
+            </navigator>
+          </view> -->
+
+          <view wx:if="{{item.text}} " class="label">
+            <navigator url="/pages/music/music?audio={{item.link}}&title={{item.title}}&text=https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/{{item.text}} ">
+              <image style="width:50rpx;height:40rpx;display: flex;flex-direction: row " src="../../images/audio_orange.png "></image>
+            </navigator>
           </view>
+          <view wx:else class="label">
+            <navigator url="/pages/music/music?audio={{item.link}}&title={{item.title}} ">
+              <image style="width:50rpx;height:40rpx;display: flex;flex-direction: row " src="../../images/audio_orange.png "></image>
+            </navigator>
+          </view>
+
+          <view wx:if="{{item.text}}" style="color:DimGray;width:91%;display: flex;flex-direction: row;justify-content:flex-start;">
+            <navigator url="/pages/music/music?audio={{item.link}}&title={{item.title}}&text=https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/{{item.text}}">
+              {{"【" + item.year + "】 " + item.title}}
+            </navigator>
+          </view>
+          <view wx:else style="color:DimGray;width:91%;display: flex;flex-direction: row;justify-content:flex-start;">
+            <navigator url="/pages/music/music?audio={{item.link}}&title={{item.title}}">
+              {{"【" + item.year + "】" + item.title}}
+            </navigator>
+          </view>
+
         </view>
       </view>
 
@@ -100,21 +132,42 @@
     <view style="width:100%">
 
       <view wx:for="{{audio6minsrc}}" wx:for-index="index" wx:for-item="item">
-        <view bindtap="playAudio" data-year="{{index}}" class="box" style="color:DarkCyan;font-size:15px;justify-content: flex-start;">
-          <view class="label" wx:if="{{isplay && audioYear == index}}">
-            <image style="width:40rpx;height:40rpx;display: flex;flex-direction: row" src="../../images/audio_stop.png">
-            </image>
-            <!-- <text style="color:#2E8B57">【6分钟】</text> -->
-          </view>
-          <view class="label" wx:else>
-            <image style="width:50rpx;height:40rpx;display: flex;flex-direction: row" src="../../images/audio_orange.png">
-            </image>
-            <!-- <text style="color:#2E8B57">【6分钟】</text> -->
+        <view data-year="{{index}}" class="box" style="color:DarkCyan;font-size:15px;justify-content: flex-start;">
+
+          <!-- <view class="label">
+            <navigator url="/pages/music/music?audio={{item.link}}&title={{item.title}}&text=https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/{{item.text}}">
+              <image style="width:50rpx;height:40rpx;display: flex;flex-direction: row" src="../../images/audio_orange.png"></image>
+            </navigator>
           </view>
 
           <view style="color:DimGray;width:91%;display: flex;flex-direction: row;justify-content:flex-start;">
-            {{item.title}}
+            <navigator url="/pages/music/music?audio={{item.link}}&title={{item.title}}&text=https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/{{item.text}}">
+              {{item.title}}
+            </navigator>
+          </view> -->
+
+          <view wx:if="{{item.text}}" class="label">
+            <navigator url="/pages/music/music?audio={{item.link}}&title={{item.title}}&text=https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/{{item.text}}">
+              <image style="width:50rpx;height:40rpx;display: flex;flex-direction: row" src="../../images/audio_orange.png"></image>
+            </navigator>
           </view>
+          <view wx:else class="label">
+            <navigator url="/pages/music/music?audio={{item.link}}&title={{item.title}}">
+              <image style="width:50rpx;height:40rpx;display: flex;flex-direction: row" src="../../images/audio_orange.png"></image>
+            </navigator>
+          </view>
+
+          <view wx:if="{{item.text}}" style="color:DimGray;width:91%;display: flex;flex-direction: row;justify-content:flex-start;">
+            <navigator url="/pages/music/music?audio={{item.link}}&title={{item.title}}&text=https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/{{item.text}}">
+              {{item.title}}
+            </navigator>
+          </view>
+          <view wx:else style="color:DimGray;width:91%;display: flex;flex-direction: row;justify-content:flex-start;">
+            <navigator url="/pages/music/music?audio={{item.link}}&title={{item.title}}">
+              {{item.title}}
+            </navigator>
+          </view>
+
         </view>
       </view>
 
@@ -122,9 +175,12 @@
   </view>
 
 </view>
+<!-- </view>
 
-<view class="container1">
-  <!-- <view class="main_box"> -->
+</view> -->
+
+<view class="container1 ">
+  <!-- <view class="main_box "> -->
   <image bindtap="saveOfficialQRCode" style="width:100%;padding-top:30rpx" src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/accountpublicity2.jpeg" mode="widthFix"></image>
   <!-- </view> -->
 </view>

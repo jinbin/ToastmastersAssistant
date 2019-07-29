@@ -113,6 +113,35 @@ Page({
       }
     })
   },
+
+  dashang: function(e) {
+    wx.navigateToMiniProgram({
+      appId: 'wx18a2ac992306a5a4',
+      path: 'pages/apps/largess/detail?id=LYFYxTFDv9E%3D'
+    })
+  },
+
+  saveOfficialQRCode: function (e) {
+    wx.showModal({
+      content: '关注"头马助手"官方公众号, 回复"交流"获取作者联系方式',
+      showCancel: false,
+      confirmText: '去关注',
+      confirmColor: '#ff7f50',
+      success: function (res) {
+        if (res.confirm) {
+          wx.setClipboardData({
+            data: "头马助手 Toastmasters Assistant",
+            success: function (res) {
+              wx.showToast({
+                title: "公众号名已复制"
+              })
+            }
+          })
+          console.log('用户点击确定');
+        }
+      }
+    })
+  },
   
   /**
    * 页面上拉触底事件的处理函数

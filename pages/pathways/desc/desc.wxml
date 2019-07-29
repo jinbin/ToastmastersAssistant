@@ -105,8 +105,8 @@
   </view>
 </view>
 
-<view class="container1">
-  <view class="main_box">
-    <image bindtap="saveOfficialQRCode" style="padding:10rpx;" src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/accountpublicity2.jpeg" mode="widthFix"></image>
-  </view>
-</view>
+<!-- <view class="container1">
+  <view class="main_box"> -->
+    <image bindtap="saveOfficialQRCode" style="width:100%" src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/accountpublicity2.jpeg" mode="widthFix"></image>
+  <!-- </view>
+</view> -->

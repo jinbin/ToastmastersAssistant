@@ -1,5 +1,4 @@
 <!--index.wxml-->
-<official-account></official-account>
 
 <import src="../../templates/contact_button/contact_button.wxml" />
 
@@ -8,14 +7,14 @@
     <open-data class="userinfo-avatar" type="userAvatarUrl" background-size="cover"></open-data>
   </view>
   <!-- <image src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/wordmark.jpg" style="height: 80px; width: 100%" /> -->
-  <image src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/toumazhushoulogo.png" style="height: 80px; width: 100%" bindtap="checkin"/>
+  <image bindtap="navigateToMiniProgram" id="wx18a2ac992306a5a4" data-path="pages/apps/largess/detail?id=LYFYxTFDv9E%3D" src="/images/support-min.jpeg" style="height: 80px; width: 100%"/>
 </view>
 
 <!-- <image src="https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/images/learnmore.jpg?sign=724100720ef0ddd30c216dcec6655a62&t=1542367040" style="height: 160px; width: 100%" /> -->
 <!-- <view class="ad"> -->
 <!-- <ad unit-id="adunit-ab171e6bb49115c5"></ad> -->
 <!-- </view> -->
-
+<official-account></official-account>
 <view wx:if="{{xmad&&xmad.adData&&xmad.ad&&xmad.ad.banner&&xmad.adData  [xmad.ad.banner]&&xmad.adData[xmad.ad.banner].hasshow}}">
   <view class="xm_banner" style="width:100%">
     <xm-ad data-id="{{xmad.ad.banner}}" adData="{{xmad.adData}}" bindadload="adImgLoad" bindclick="appoIntView" bindclose="xmadClose" class="xm_component">
@@ -24,7 +23,7 @@
 </view>
 <view wx:else>
   <view wx:if="{{isAdError}}">
-    <image bindtap="saveOfficialQRCode" style="padding: 30rpx; width:100%" src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/头马助手公众号Logo.jpg" mode="widthFix"></image>
+    <image bindtap="saveOfficialQRCode" style="width:100%" src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/accountpublicity2.jpeg" mode="widthFix"></image>
   </view>
   <view wx:else>
     <ad unit-id="adunit-ab171e6bb49115c5" binderror="aderror"></ad>
@@ -39,7 +38,7 @@
 <view class="window">
   <view class="box" bindtap="navigateTo" id="/pages/contact/contact">  
     <image style="width:80rpx;height:80rpx" src="../../images/setting1.png"></image>
-    <view style="font-size:12px">联系作者</view>
+    <view style="font-size:12px">认识作者</view>
   </view>
   <view class="box" bindtap="saveQRCode" id="images/qrcode.jpg">
     <image style="width:80rpx;height:80rpx" src="../../images/setting2.png"></image> 
@@ -57,10 +56,10 @@
     <image style="width:80rpx;height:80rpx" src="../../images/setting3.png"></image> 
     <view style="font-size:12px;">打赏作者</view>
   </view>
-  <view class="box" bindtap="navigateToMiniProgram" id="wx018f0c4c2a1ee727" data-path="pages/group-detail/index?groupid=16287827559774652520">
+  <!-- <view class="box" bindtap="navigateToMiniProgram" id="wx018f0c4c2a1ee727" data-path="pages/group-detail/index?groupid=16287827559774652520">
     <image style="width:80rpx;height:80rpx" src="../../images/setting5.png"></image> 
     <view style="font-size:12px;">头马中国群</view>
-  </view>
+  </view> -->
   <view class="box" bindtap="navigateToMiniProgram" id="wx4c4b54bc609bd79e">
     <image style="width:80rpx;height:80rpx" src="../../images/setting4.png"></image> 
     <view style="font-size:12px;">即兴助手</view>

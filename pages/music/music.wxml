@@ -1,0 +1,38 @@
+<!--pages/music/music.wxml-->
+<view class='Main'>
+  <view class='songNameView'>
+    <text class='songName'>{{name}}</text>
+  </view>
+  <view class='imageView' style="background-image: url({{imageUrl}});" animation="{{animationData}}">
+  </view>
+  <!-- <view class="backIndex" bindtap='backIndex' style='background-image:url({{homeImage}})'></view> -->
+  <view class='line'>
+    <!-- <view class='nowView'>
+      <text class='now'>{{cur}}</text>
+    </view>
+    <view class='theLine'></view>
+    <view class='allTimeView'>
+      <text class='allTime'>{{duration}}</text>
+    </view> -->
+  </view>
+  <view class="button">
+    <!-- <view class='back MusicIcon' style="background-image: url({{backUrl}});" bindtap='theBack'></view> -->
+    <!-- <view class='center MusicIcon' style="background-image: url({{playOrStopUrl}});" bindtap='play'></view> -->
+    <image class='center' style="height:150rpx;width:150rpx;" bindtap='play' src="{{playOrStopUrl}}"></image>
+    <!-- <view class='next MusicIcon' style="background-image: url({{nextUrl}});" bindtap='theNext'></view> -->
+  </view>
+  <!-- <view>
+  <button class="bottom" type="primary" size="mini" >
+    <navigator url="/pages/audio/audio">
+      音频库
+    </navigator> 
+  </button>
+  </view> -->
+</view>
+<view bindtap="backToAudio" class="circle-float" style="background: #698B22">
+  <button size="mini" style="color: #ffffff;font-size:23rpx;" hover-class="hover_1">回到主页</button>
+</view>
+
+<view wx:if="{{text}}" bindtap="seeText" class="text-float" style="background: rgb(241, 83, 62)">
+  <button size="mini" style="color: #ffffff;font-size:23rpx;" hover-class="hover_2">查看文本</button>
+</view>

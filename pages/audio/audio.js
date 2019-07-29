@@ -94,13 +94,13 @@ Page({
       this.setData({
         isplay: true,
       })
-      this.globalData.globalbgAudioIsPlay = true
+      // this.globalData.globalbgAudioIsPlay = true
     } else if (options.currentTarget.id == "stop") {
       backgroundAudioManager.stop()
       this.setData({
         isplay: false
       })
-      this.globalData.globalbgAudioIsPlay = false
+      // this.globalData.globalbgAudioIsPlay = false
     }
   },
 
@@ -240,6 +240,7 @@ Page({
                 that.setData({
                   audio6minsrc: e.data
                 })
+                console.log(e.data)
               }
             })
           }
@@ -310,7 +311,20 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
+    var that = this
+    wx.getBackgroundAudioPlayerState({
+      success(res) {
+        if (res.status == 1) {
+          that.setData({
+            isplay: true
+          })
+        } else {
+          that.setData({
+            isplay: false
+          })
+        }
+      }
+    })
   },
 
   /**

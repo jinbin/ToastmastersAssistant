@@ -484,7 +484,10 @@
 
 <view class="container1">
   <!-- <view class="main_box"> -->
-  <image bindtap="saveOfficialQRCode" style="width:100%" src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/posters/publicity1.jpeg" mode="widthFix"></image>
+  <!-- <image bindtap="gotoGeizan" style="width:100%" src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/dashang.jpeg" mode="widthFix">
+  </image> -->
+  <image bindtap="gotoGeizan" style="width:100%" src="https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/images/dashangzhichi.jpeg?sign=fc39302b32e0362f2bdb5f898e93c5b8&t=1564150183" mode="widthFix">
+  </image>
   <!-- </view> -->
 </view>
 

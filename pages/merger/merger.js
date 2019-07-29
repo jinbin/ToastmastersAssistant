@@ -52,12 +52,12 @@ Page({
 
   audioManage: function(options) {
     console.log(options.currentTarget.id)
-    if (options.currentTarget.id == "continue"){
+    if (options.currentTarget.id == "continue") {
       backgroundAudioManager.play()
       this.setData({
         isplay: true,
       })
-    } else if (options.currentTarget.id == "stop"){
+    } else if (options.currentTarget.id == "stop") {
       backgroundAudioManager.stop()
       this.setData({
         isplay: false
@@ -207,7 +207,7 @@ Page({
   // },
 
   getIntro: function(options) {
-    var that = this 
+    var that = this
     console.log(options.detail.formId)
 
     var timestamp = Date.parse(new Date()) / 1000
@@ -259,25 +259,34 @@ Page({
         cancelColor: '#008B45',
         confirmText: '今日听力',
         confirmColor: '#ff7f50',
-        success: function (res) {
+        success: function(res) {
           if (res.confirm) {
-            backgroundAudioManager.title = '演讲音频 by 头马助手'
-            backgroundAudioManager.epname = '头马助手'
-            backgroundAudioManager.singer = '头马助手'
-            backgroundAudioManager.coverImgUrl = ''
-            // 设置了 src 之后会自动播放
-            backgroundAudioManager.src = that.data.todayaudio[0]["link"]
-            console.log(that.data.todayaudio[0]["link"])
-            that.setData({
-              isplay: true
-            })
+            // backgroundAudioManager.title = '演讲音频 by 头马助手'
+            // backgroundAudioManager.epname = '头马助手'
+            // backgroundAudioManager.singer = '头马助手'
+            // backgroundAudioManager.coverImgUrl = ''
+            // // 设置了 src 之后会自动播放
+            // backgroundAudioManager.src = that.data.todayaudio[0]["link"]
+            // console.log(that.data.todayaudio[0]["link"])
+            // that.setData({
+            //   isplay: true
+            // })
+            if (that.data.todayaudio[0]['text']) {
+              wx.navigateTo({
+                url: '/pages/music/music?audio=' + that.data.todayaudio[0]["link"] + '&title=' + that.data.todayaudio[0]["title"] + "&todaysaudio=yes&text=https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/" + that.data.todayaudio[0]['text'],
+              })
+            } else {
+              wx.navigateTo({
+                url: '/pages/music/music?audio=' + that.data.todayaudio[0]["link"] + '&title=' + that.data.todayaudio[0]["title"] + "&todaysaudio=yes",
+              })
+            }
           } else {
             wx.navigateTo({
               url: '/pages/audio/audio',
             })
           }
         },
-        fail: function (res) {
+        fail: function(res) {
           console.log(res)
         }
       })
@@ -299,6 +308,13 @@ Page({
       success: function(res) {},
       fail: function(res) {},
       complete: function(res) {},
+    })
+  },
+
+  gotoGeizan: function(options) {
+    wx.navigateToMiniProgram({
+      appId: 'wx18a2ac992306a5a4',
+      path: 'pages/apps/largess/detail?id=LYFYxTFDv9E%3D'
     })
   },
 
@@ -505,14 +521,11 @@ Page({
                       success: function(res) {
                         if (res.confirm) {
                           console.log("confirm")
-                        }else {
-                          console.log("cancel")
-                          backgroundAudioManager.title = '演讲音频 by 头马助手'
-                          backgroundAudioManager.epname = '头马助手'
-                          backgroundAudioManager.singer = '头马助手'
-                          backgroundAudioManager.coverImgUrl = ''
-                          // 设置了 src 之后会自动播放
-                          backgroundAudioManager.src = "cloud://tmassistant-5275ad.746d-tmassistant-5275ad/audio/6min/Money_and_lifestyle.mp3"
+                        } else {
+                          console.log(that.data.todayaudio[0]['text'])
+                          wx.navigateTo({
+                            url: '/pages/music/music?audio=' + that.data.todayaudio[0]["link"] + '&title=' + that.data.todayaudio[0]["title"] + "&todaysaudio=yes&text=https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/" + that.data.todayaudio[0]['text'],
+                          })
                           that.setData({
                             isplay: true
                           })
@@ -613,14 +626,14 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-    var that = this 
+    var that = this
     wx.getBackgroundAudioPlayerState({
       success(res) {
-        if(res.status == 1){
+        if (res.status == 1) {
           that.setData({
             isplay: true
           })
-        }else{
+        } else {
           that.setData({
             isplay: false
           })

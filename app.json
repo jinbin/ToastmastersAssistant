@@ -1,9 +1,10 @@
 {
   "pages": [
     "pages/merger/merger",
-    "pages/audio/audio",    
-    "pages/testdb/testdb",
     "pages/manage/manage",
+    "pages/music/music",
+    "pages/audio/audio",
+    "pages/testdb/testdb",
     "pages/my/my",
     "pages/contact/contact",
     "pages/tools/checklist/checklist",

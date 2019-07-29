@@ -1,0 +1,146 @@
+/* pages/music/music.wxss */
+
+/* page{
+  height: 100%;
+} */
+
+.Main{
+  width: 100%;
+  height: 100%;
+  background-color: #e4e4e2;
+}
+
+.imageView{
+  margin:50px auto;
+  height: 200px;
+  width: 200px; 
+  border: 0px solid;
+  border-radius: 50%; 
+  background-size: cover;
+  box-shadow:0px 10px 5px #888888;
+}
+
+.songName{  
+  display: flex;
+  justify-content: center;
+  margin-top: 5rpx;
+  font-size: 40rpx;
+  padding: 40rpx;
+}
+.songNameView{
+  height: 200rpx;
+  border: 1px solid #eeeeeb;
+  box-shadow:0px 10px 5px #888888;
+  display: flex;
+  justify-content: center;
+}
+.MusicIcon{
+  background-size: 69.1px 69.1px;
+  background-repeat:no-repeat;
+  width: 70px;
+}
+.button{
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* height: 70px; */
+}
+.bottom {
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back{
+  margin-left: 16%;
+  margin-right: 5%;
+}
+.next{
+  margin-left: 9%;
+}
+.back,.next{
+  background-size:55.28px 55.28px ;
+  margin-top: 4%;
+  height: 70px;
+}
+.line{
+  flex-direction: row;
+  display: flex;
+  height: 10px;
+  margin-bottom: 20px;
+}
+.nowView{
+  width: 30px;
+  margin-left: 25px;
+}
+.theLine{
+  width: 70%;
+  height: 5px;
+  background-color:#43CD80;
+  margin-top: 13px;
+  margin-right: 5px;
+}
+.allTimeView{
+  width: 40px;
+}
+.now,.allTime{
+  font-size: 70%;
+}
+.backIndex{
+  background-size: cover;
+  width: 45px;
+  height: 45px;
+  margin-left: 80%;
+}
+
+.circle-float{
+  color: #ffffff;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 100rpx;
+  right: 80rpx;
+  width: 110rpx;
+  height: 110rpx;
+  border-radius: 50%;
+  font-size: 28rpx;
+  background: rgb(56, 243, 56);
+  /* z-index:100; */
+}
+
+.text-float{
+  color: #ffffff;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 100rpx;
+  left: 80rpx;
+  width: 110rpx;
+  height: 110rpx;
+  border-radius: 50%;
+  font-size: 28rpx;
+  background: rgb(241, 83, 62);
+  /* z-index:100; */
+}
+
+.hover_1{
+  background: #698B22;
+}
+
+.hover_2{
+  background: rgb(241, 83, 62);
+}
+
+button::after {
+  border: none;
+}
+
+button {
+  border: 0;
+  background-color: transparent;
+  outline: none;
+}
