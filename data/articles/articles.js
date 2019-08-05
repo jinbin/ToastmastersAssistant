@@ -104,5 +104,40 @@ module.exports = {
 	"4、Serve as a club sponsor or conduct a Speechcraft or Youth Leadership program.",
 	"5、Serve as a district officer for one year.",
 	"6、Complete the DTM project. (Members are required to create and implement a project of their own design, in which they demonstrate the skills and expertise they have gained.) This project can be made available upon request after a member completes Level 3 of their second path. A member can request this from the Education Services Team by phone at +1 720-439-5050 or by email at EducationProgram@toastmasters.org."
-        ]
+        ],
+	"chineseHipHop": [
+	"https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/articles/ChineseHipHop/Table%20Topic%EF%BC%88Becky%EF%BC%89.001.jpeg",
+	"https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/articles/ChineseHipHop/Table%20Topic%EF%BC%88Becky%EF%BC%89.002.jpeg",
+	"https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/articles/ChineseHipHop/Table%20Topic%EF%BC%88Becky%EF%BC%89.003.jpeg",
+	"https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/articles/ChineseHipHop/Table%20Topic%EF%BC%88Becky%EF%BC%89.004.jpeg",
+	"https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/articles/ChineseHipHop/Table%20Topic%EF%BC%88Becky%EF%BC%89.005.jpeg",
+	"https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/articles/ChineseHipHop/Table%20Topic%EF%BC%88Becky%EF%BC%89.006.jpeg",
+	"https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/articles/ChineseHipHop/Table%20Topic%EF%BC%88Becky%EF%BC%89.007.jpeg",
+	"https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/articles/ChineseHipHop/Table%20Topic%EF%BC%88Becky%EF%BC%89.008.jpeg",
+	"https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/articles/ChineseHipHop/Table%20Topic%EF%BC%88Becky%EF%BC%89.009.jpeg",
+	"https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/articles/ChineseHipHop/Table%20Topic%EF%BC%88Becky%EF%BC%89.010.jpeg",
+	"https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/articles/ChineseHipHop/Table%20Topic%EF%BC%88Becky%EF%BC%89.011.jpeg",
+	"https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/articles/ChineseHipHop/Table%20Topic%EF%BC%88Becky%EF%BC%89.012.jpeg",
+	"https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/articles/ChineseHipHop/Table%20Topic%EF%BC%88Becky%EF%BC%89.013.jpeg",
+	"https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/articles/ChineseHipHop/Table%20Topic%EF%BC%88Becky%EF%BC%89.014.jpeg"
+	],
+	"membership": [
+		"https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/images/leveldesc.jpeg?sign=f93f8c0c45b8b532cd51be1137745801&t=1564649658",
+		"Lv1: 布衣演讲爱好者 初始状态",
+		"Lv2: 黑铁演讲爱好者 100积分以上",
+		"Lv3: 青铜演讲爱好者 200积分以上",
+		"Lv4: 白银演讲爱好者 400积分以上",
+		"Lv5: 黄金演讲爱好者 600积分以上",
+		"Lv6: 铂金演讲爱好者 800积分以上",
+		"Lv7: 钻石演讲爱好者 1000积分以上",
+		"Lv8: 闪烁演讲爱好者 2000积分以上",
+		"Lv9: 星耀演讲爱好者 4000积分以上",
+		"Lv10: 大师演讲爱好者 6000积分以上",
+		"Lv11: 王者演讲爱好者 8000积分以上",
+		"Lv12: 荣耀演讲爱好者 10000积分以上",
+		"",
+		"如何积分:",
+		"1. 每日签到, 积分+10",
+		"(更多积分渠道会逐步推出)",
+	]
 	}

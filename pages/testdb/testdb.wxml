@@ -1,2 +1,2 @@
 <!--pages/testdb/testdb.wxml-->
-<text>pages/testdb/testdb.wxml</text>
+<web-view src="{{url_src}}" />

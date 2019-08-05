@@ -26,17 +26,27 @@ Page({
       },
       {
         "url": "cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/jp_tm.jpg",
-        "bind": "saveOfficialQRCode"
+        "bind": "pageScrollToBottom"
       },
-      // {
-      //   "url": "cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/hequn1.jpeg",
-      //   "bind": "navigateToHequn"
-      // },
+      {
+        "url": "cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/dashangzhichi_banner.jpeg",
+        "bind": "dashang"
+      },
       {
         "url": "cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/TEDtalk2.jpeg",
         "bind": "saveOfficialQRCode"
       }
     ],
+    // guessYouLike: [
+    //   {
+    //     "title": "这组关于Chinese Hip Hop的即兴桌面话题，你敢挑战下吗？",
+    //     "src": "https://mp.weixin.qq.com/s/7PJ9bVP_tiUNpqdVycPP8g"
+    //   },
+    //   {
+    //     "title": "Before you overthink",
+    //     "src": "https://mp.weixin.qq.com/s/wGy_ZvMBmJ00_KXYA98iiQ"
+    //   }
+    // ],
     banner_height: 50,
     scrollTop: 0,
     threshold: 1300,
@@ -233,6 +243,11 @@ Page({
       wx.switchTab({
         url: '/pages/volItem/volItem',
       })
+    } else if (options.detail.target.id == "guess") {
+      // this.pageScrollToBottom()
+      wx.navigateTo({
+        url: '/pages/reading/reading',
+      })
     } else if (options.detail.target.id == "DTM") {
       wx.navigateTo({
         url: '/pages/webview/webview?article=DTM',
@@ -250,6 +265,10 @@ Page({
     } else if (options.detail.target.id == "audio_tm") {
       wx.navigateTo({
         url: '/pages/audio/audio?type=tm',
+      })
+    } else if (options.detail.target.id == "tmIntro") {
+      wx.switchTab({
+        url: '/pages/volItem/volItem',
       })
     } else if (options.detail.target.id == "todayaudio") {
       wx.showModal({
@@ -300,6 +319,12 @@ Page({
         complete: function(res) {},
       })
     }
+  },
+
+  leveldesc: function(options) {
+    wx.navigateTo({
+      url: '/pages/webview/webview?article=membership',
+    })
   },
 
   getPathways: function(options) {
@@ -361,6 +386,26 @@ Page({
     })
 
     var naviTo = '/pages/webview/webview?article=' + options.detail.target.id
+
+    if(options.detail.target.id == "timer"){
+      naviTo = '/pages/testdb/testdb?src=https://mp.weixin.qq.com/s/8qZ35ufgvfU9Vofey9cpoA'
+    } else if (options.detail.target.id == "grammarian"){
+      naviTo = '/pages/testdb/testdb?src=https://mp.weixin.qq.com/s/CgAhMmeHUhzk7ggP3bZjXQ'
+    } else if (options.detail.target.id == "ahcounter"){
+      naviTo = '/pages/testdb/testdb?src=https://mp.weixin.qq.com/s/Dgxafy9C2VbD7-zof0d6CA'
+    } else if (options.detail.target.id == "tm") {
+      naviTo = '/pages/testdb/testdb?src=https://mp.weixin.qq.com/s/kO0vAauBvhBpe2R_H6cx9g'
+    } else if (options.detail.target.id == "ttm") {
+      naviTo = '/pages/testdb/testdb?src=https://mp.weixin.qq.com/s/OCA3gVYNrwoYGKzlhBS_dw'
+    } else if (options.detail.target.id == "ge") {
+      naviTo = '/pages/testdb/testdb?src=https://mp.weixin.qq.com/s/iNsBSDOgzdGRuUZBAPj5NA'
+    } else if (options.detail.target.id == "ie") {
+      naviTo = '/pages/testdb/testdb?src=https://mp.weixin.qq.com/s/02os_4WjmHkPqg6_jjC1KA'
+    } else if (options.detail.target.id == "tte") {
+      naviTo = '/pages/testdb/testdb?src=https://mp.weixin.qq.com/s/mn1_Sexe6RxEDoHWxKKFJw'
+    } else if (options.detail.target.id == "SAA1") {
+      naviTo = '/pages/testdb/testdb?src=https://mp.weixin.qq.com/s/02os_4WjmHkPqg6_jjC1KA'
+    } 
 
     wx.navigateTo({
       url: naviTo,
@@ -435,11 +480,12 @@ Page({
         url: '/pages/contact/contact',
       })
     } else if (options.detail.target.id == "dashang") {
-      wx.navigateToMiniProgram({
-        appId: 'wx18a2ac992306a5a4',
-        path: 'pages/apps/largess/detail?id=LYFYxTFDv9E%3D'
-      })
+      util.dashang()
     }
+  },
+
+  dashang: function(e) {
+    util.dashang()
   },
 
   saveOfficialQRCode: function(e) {
@@ -462,6 +508,10 @@ Page({
         }
       }
     })
+  },
+
+  tmIntro: function(options) {
+    
   },
 
   checkin: function(options) {
@@ -498,7 +548,7 @@ Page({
                     }),
                     success: function() {
                       wx.showModal({
-                        content: "恭喜你发现了隐藏签到处！更多惊喜正在路上，明天继续来签到吧！",
+                        content: "恭喜你发现了隐藏签到处！更多惊喜正在路上，明天继续来签到吧！今日积分: +10 ",
                         showCancel: false,
                         // confirmText: '',
                         confirmColor: '#ff7f50',
@@ -512,7 +562,7 @@ Page({
                   if (res.data[0].date == util.formatTime(new Date())) {
                     //今天已经签到过
                     wx.showModal({
-                      content: "今天已打卡, 你已经打卡过" + res.data[0].checkin + "次, 明天再来打卡~\n今天已经有" + that.data.checkin_today_total + "人打卡了~",
+                      content: "今天已打卡, 你已经打卡过" + res.data[0].checkin + "次, 明天再来打卡~\n今日积分10已加\n今天已经有" + that.data.checkin_today_total + "人打卡了~",
                       showCancel: true,
                       cancelText: '今日听力',
                       cancelColor: '#008B45',
@@ -544,7 +594,7 @@ Page({
                       },
                       success: res1 => {
                         wx.showModal({
-                          content: "打卡成功！这是你的第" + (res.data[0].checkin + 1) + "次打卡 || 你是今天第" + (that.data.checkin_today_total + 1) + "位打卡者~",
+                          content: "打卡成功！这是你的第" + (res.data[0].checkin + 1) + "次打卡, 今日积分: +10 || 你是今天第" + (that.data.checkin_today_total + 1) + "位打卡者~",
                           showCancel: true,
                           cancelText: '今日听力',
                           cancelColor: '#008B45',
@@ -554,14 +604,10 @@ Page({
                             if (res.confirm) {
                               console.log("confirm")
                             } else {
-                              console.log("cancel")
-                              backgroundAudioManager.title = '演讲音频 by 头马助手'
-                              backgroundAudioManager.epname = '头马助手'
-                              backgroundAudioManager.singer = '头马助手'
-                              backgroundAudioManager.coverImgUrl = ''
-                              // 设置了 src 之后会自动播放
-                              //backgroundAudioManager.src = this.data.audiosrc[this.data.audioYear]
-                              backgroundAudioManager.src = "cloud://tmassistant-5275ad.746d-tmassistant-5275ad/audio/6min/Money_and_lifestyle.mp3"
+                              console.log(that.data.todayaudio[0]['text'])
+                              wx.navigateTo({
+                                url: '/pages/music/music?audio=' + that.data.todayaudio[0]["link"] + '&title=' + that.data.todayaudio[0]["title"] + "&todaysaudio=yes&text=https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/" + that.data.todayaudio[0]['text'],
+                              })
                               that.setData({
                                 isplay: true
                               })
@@ -583,6 +629,19 @@ Page({
     })
   },
 
+  // 获取容器高度，使页面滚动到容器底部
+  pageScrollToBottom: function () {
+    wx.createSelectorQuery().select('#cards').boundingClientRect(
+      function (rect) {
+        // 使页面滚动到底部
+        console.log(rect)
+        wx.pageScrollTo({
+          scrollTop: rect.bottom
+        })
+      }
+    ).exec()
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -593,7 +652,6 @@ Page({
     })
 
     db.collection("audio").where({
-      // type: "ted",
       onIndex: true
     }).get({
       success: function(e) {
@@ -601,16 +659,59 @@ Page({
         that.setData({
           todayaudio: e.data
         })
-        // db.collection("audio").where({
-        //   type: "tm",
-        //   onIndex: true
-        // }).get({
-        //   success: function(e) {
-        //     that.setData({
-        //       audiosrc: e.data
-        //     })
-        //   }
-        // })
+        db.collection("guessYouLike").get({
+          success: function (e) {
+            console.log(e)
+            that.setData({
+              guessYouLike: e.data
+            })
+          }
+        })
+        wx.cloud.callFunction({
+          name: "getOpenid",
+          success: res => {
+            that.setData({
+              openId: res.result.openid
+            })
+            var openid = res.result.openid
+            db.collection("checkin").where({
+              openid: res.result.openid
+            }).get({
+              success: function (res) {
+                console.log(res.data)
+                if (res.data.length == 0) {
+                  that.setData({
+                    level: "青铜"
+                  })
+                } else {
+                  var level_set = "布衣"
+                  var score = res.data[0].checkin * 10
+                  if (score < 100) {
+                  } else if (score < 200) {
+                    level_set = "黑铁"
+                  } else if (score < 400) {
+                    level_set = "青铜"
+                  } else if (score < 600) {
+                    level_set = "白银"
+                  } else if (score < 800) {
+                    level_set = "黄金"
+                  } else if (score < 1000) {
+                    level_set = "铂金"
+                  } else if (score < 2000) {
+                    level_set = "钻石"
+                  } else if (score < 4000) {
+                    level_set = "闪烁"
+                  } else {
+                    console.log("不在范围内")
+                  }
+                  that.setData({
+                    level: level_set
+                  })
+                }
+              }
+            })
+          }
+        })
       }
     })
   },
@@ -672,7 +773,7 @@ Page({
 
   onShareAppMessage: function(res) {
     return {
-      title: '头马, TED, 演讲, 英语, 超过2万名终身学习者的选择',
+      title: '头马, TED, 演讲, 英语, 超过3万名终身学习者的选择',
       imageUrl: '/images/indexforward-min.jpg'
     }
   }

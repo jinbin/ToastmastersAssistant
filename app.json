@@ -1,10 +1,11 @@
 {
   "pages": [
     "pages/merger/merger",
+    "pages/reading/reading",
+    "pages/testdb/testdb",
     "pages/manage/manage",
     "pages/music/music",
     "pages/audio/audio",
-    "pages/testdb/testdb",
     "pages/my/my",
     "pages/contact/contact",
     "pages/tools/checklist/checklist",
@@ -65,12 +66,8 @@
     "wxde40c5cf1d10c3d1"
   ],
   "plugins": {
-    "gdPlugin": {
-      "version": "0.2.4",
-      "provider": "wx34b0738d0eef5f78"
-    },
     "WechatSI": {
-      "version": "0.2.3",
+      "version": "0.3.0",
       "provider": "wx069ba97219f66d99"
     },
     "myPlugin": {

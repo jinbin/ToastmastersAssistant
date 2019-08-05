@@ -1,4 +1,11 @@
-// pages/testdb/testdb.js
+// pages/reading/reading.js
+
+const app = getApp()
+var util = require('../../utils/util.js');
+const db = wx.cloud.database({
+  env: "tmassistant-5275ad"
+})
+
 Page({
 
   /**
@@ -12,9 +19,30 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      url_src: options.src
+    var that = this
+    
+    db.collection("audio").where({
+      onIndex: true
+    }).get({
+      success: function (e) {
+        console.log(e)
+        that.setData({
+          todayaudio: e.data
+        })
+        db.collection("guessYouLike").get({
+          success: function (e) {
+            console.log(e)
+            that.setData({
+              guessYouLike: e.data
+            })
+          }
+        })
+      }
     })
+  },
+
+  saveOfficialQRCode: function(){
+    util.saveOfficialQRCode()
   },
 
   /**
@@ -62,13 +90,7 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function (options) {
-    // options.webViewUrl: https://mp.weixin.qq.com/s/wGy_ZvMBmJ00_KXYA98iiQ#wechat_redirect
-    return {
-      title: '这是一篇我喜欢的文章，你是我的好友，推荐你也看看',
-      // path: '/pages/testdb/testdb?src=' + options.webViewUrl,
-      path: '/pages/testdb/testdb?src=' + this.data.url_src,
-      // imageUrl: '/images/indexforward-min.jpg'
-    }
+  onShareAppMessage: function () {
+
   }
 })

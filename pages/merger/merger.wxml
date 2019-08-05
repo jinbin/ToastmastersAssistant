@@ -10,6 +10,32 @@
 
 <official-account></official-account>
 
+<view class="window3" style="padding-bottom: 0rpx;">
+  <view class="userinfo" style="padding: 10rpx">
+    <open-data class="userinfo-avatar" type="userAvatarUrl" background-size="cover"></open-data>
+  </view>
+  <view bindtap="leveldesc" style="padding: 10rpx; display:flex; flex-direction: column; justify-content: center;">
+    <view>
+      <open-data style="color:black" type="userNickName"></open-data>
+    </view>
+    <view class="downText">
+      <text style="color:#e46e0c">{{level}}</text>演讲爱好者
+    </view>
+  </view>
+  <view bindtap="checkin" style="padding: 10rpx; display:flex; flex-direction: column; justify-content: center; align-items: center; ">
+    <image style="width:60rpx;height:60rpx" src="../../images/daka.png"></image>
+    <view class="downText" style="font-size:12px;">每日打卡</view>
+  </view>
+  <view bindtap="leveldesc" style="padding: 10rpx; display:flex; flex-direction: column; justify-content: center; align-items: center; ">
+    <image style="width:60rpx;height:60rpx;left:10rpx;" src="../../images/info.png"></image>
+    <view class="downText" style="font-size:12px;">等级说明</view>
+  </view>
+  <!-- <view style="padding: 10rpx; display:flex; flex-direction: column; justify-content: center; align-items: center; ">
+    <image style="width:60rpx;height:60rpx" src="../../images/blocks1.png"></image>
+    <view class="downText">每日打卡</view>
+  </view> -->
+</view>
+
 <!-- <view bindtap="audioManage" id="continue" wx:if="{{!isplay}}" class="audio-float" style="background: #698B22">
   <button size="mini" formType="submit" style="color: #ffffff;font-size:23rpx;" hover-class="hover_1">继续</button>
 </view> -->
@@ -17,34 +43,40 @@
   <button size="mini" formType="submit" style="color: #ffffff;font-size:23rpx;" hover-class="hover_2">停止音频</button>
 </view>
 
-<view wx:if="{{scrollTop < windowHeight * 1.3}}" class="circle-float" style="background: #698B22">
+<!-- <view wx:if="{{scrollTop < windowHeight * 1.3}}" class="circle-float" style="background: #698B22">
   <button size="mini" open-type='share' formType="submit" style="color: #ffffff;font-size:23rpx;" hover-class="hover_1">分享</button>
 </view>
 <view wx:else class="circle-float" style="background: rgb(241, 83, 62);">
   <navigator style="color: #ffffff;font-size:23rpx;" open-type='navigate' target='miniProgram' app-id="wx18a2ac992306a5a4" path="pages/apps/largess/detail?id=LYFYxTFDv9E%3D">打赏</navigator>
-</view>
+</view> -->
 
 <view>
   <form report-submit="true" bindsubmit="getIntro">
     <view class="window3" style="padding:10rpx;">
       <view class="box3" style="">
-        <button id="todayaudio" size="mini" formType="submit">
+        <button id="tmIntro" size="mini" style="background-color: #E8E8E8" formType="submit">
+          <image style="width:60rpx;height:60rpx" src="../../images/blocks1.png"></image>
+        </button>
+         <view style="font-size:26rpx;">发现头马</view>
+      </view>
+      <view class="box3" style="">
+        <button id="todayaudio" size="mini" style="background-color: #E8E8E8" formType="submit">
           <!-- <image style="width:60rpx;height:60rpx" src="../../images/blocks.png"></image> -->
           <image style="width:60rpx;height:60rpx" src="../../images/听力.png"></image>
-          <view class="downText" style="color:#9d441b">今日听力</view>
         </button>
+        <view class="downText" style="color:#9d441b;font-size:26rpx;">今日听力</view>
       </view>
       <view class="box3" style="">
-        <button id="checkin" size="mini" formType="submit">
-          <image style="width:60rpx;height:60rpx" src="../../images/blocks1.png"></image>
-          <view class="downText">每日打卡</view>
+        <button id="guess" size="mini" style="background-color: #E8E8E8" formType="submit">
+          <image style="width:60rpx;height:60rpx" src="../../images/guess.png"></image>
         </button>
+        <view style="font-size:26rpx;">精彩文章</view>
       </view>
       <view class="box3" style="">
-        <button id="6" size="mini" formType="submit">
+        <button id="6" size="mini" style="background-color: #E8E8E8" formType="submit">
           <image style="width:60rpx;height:60rpx" src="../../images/blocks2.png"></image>
-          <view class="downText" style="color:#1E90FF">胜任演讲</view>
         </button>
+        <view class="downText" style="color:#1E90FF;font-size:26rpx;">胜任演讲</view>
       </view>
     </view>
   </form>
@@ -137,195 +169,8 @@
   </view>
 </form>
 
-<!-- <view class="container1">
-    <image bindtap="saveOfficialQRCode" style="width:100%" src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/TEDtalk.jpg" mode="widthFix"></image>
-</view> -->
-
-<!-- <view class="container1">
-
-  <view class="title">
-    <text style="color:DimGray">—</text> 音频专区
-    <text style="color:DimGray">—</text>
-  </view>
-
-  <view class="main_box" style="width:90%">
-
-    <view wx:for="{{audioTEDsrc}}" wx:for-index="index" wx:for-item="item" style="width:100%">
-      <view bindtap="playAudio" data-year="{{index}}" class="box" style="color:DarkCyan;font-size:15px;justify-content: flex-start">
-        <view class="label" wx:if="{{isplay && audioYear == index}}">
-          <image style="width:40rpx;height:40rpx;display: flex;flex-direction: row" src="../../images/audio_stop.png">
-          </image>
-          <view wx:if="{{item.type=='ted'}}">
-            <text style="color:#2E8B57">【TED推荐】</text>
-          </view>
-          <view wx:if="{{item.type=='tm'}}">
-            <text style="color:#2E8B57">【冠军演讲】</text>
-          </view>
-          <view wx:if="{{item.type=='6min'}}">
-            <text style="color:#2E8B57">【6分钟英语】</text>
-          </view>
-        </view>
-        <view class="label" wx:else>
-          <image style="width:50rpx;height:40rpx;display: flex;flex-direction: row" src="../../images/audio_orange.png">
-          </image>
-          <view wx:if="{{item.type=='ted'}}">
-            <text style="color:#2E8B57">【TED推荐】</text>
-          </view>
-          <view wx:if="{{item.type=='tm'}}">
-            <text style="color:#2E8B57">【冠军演讲】</text>
-          </view>
-          <view wx:if="{{item.type=='6min'}}">
-            <text style="color:#2E8B57">【6分钟英语】</text>
-          </view>
-        </view>
-
-        <view style="color:DimGray;width:91%;display: flex;flex-direction: row;justify-content:flex-start;">
-          {{item.title}}
-        </view>
-      </view>
-    </view>
-
-  </view>
-
-</view> -->
-
-<!-- <view class="container1" style="">
-  <view class="title">
-    <text style="color:DimGray">—</text> 冠军演讲
-    <text style="color:DimGray">—</text>
-  </view>
-  <view>
-    <text style="color:DimGray;font-size:10px;padding-bottom:10rpx;">头马国际演讲比赛历年冠军音频合集</text>
-  </view>
-
-  <form report-submit="true" bindsubmit="getAudio">
-    <view class="window1">
-      <view class="box2">
-        <button id="2018" size="mini" formType="submit">
-          <view wx:if="{{isplay && audioYear == 2018}}">
-            <image style="width:50rpx;height:50rpx;display: flex;flex-direction: row" src="../../images/audio_stop.png"></image>
-            </view>
-            <view wx:else>
-            <image style="width:50rpx;height:50rpx" src="../../images/audio_blue.png"></image>
-          </view>
-        </button>
-        <view class="downText">2018</view>
-      </view>
-      <view class="box2">
-        <button id="2017" size="mini" formType="submit">
-          <view wx:if="{{isplay && audioYear == 2017}}">
-            <image style="width:50rpx;height:50rpx;display: flex;flex-direction: row" src="../../images/audio_stop.png"></image>
-            </view>
-            <view wx:else>
-            <image style="width:50rpx;height:50rpx" src="../../images/audio_red.png"></image>
-          </view>
-        </button>
-        <view class="downText">2017</view>
-      </view>
-      <view class="box2">
-        <button id="2016" size="mini" formType="submit">
-          <view wx:if="{{isplay && audioYear == 2016}}">
-            <image style="width:50rpx;height:50rpx;display: flex;flex-direction: row" src="../../images/audio_stop.png"></image>
-            </view>
-            <view wx:else>
-            <image style="width:50rpx;height:50rpx" src="../../images/audio_darkblue.png"></image>
-          </view>
-        </button>
-        <view class="downText">2016</view>
-      </view>
-      <view class="box2">
-        <button id="2015" size="mini" formType="submit">
-          <view wx:if="{{isplay && audioYear == 2015}}">
-            <image style="width:50rpx;height:50rpx;display: flex;flex-direction: row" src="../../images/audio_stop.png"></image>
-            </view>
-            <view wx:else>
-            <image style="width:50rpx;height:50rpx" src="../../images/audio_red.png"></image>
-          </view>
-        </button>
-        <view class="downText">2015</view>
-      </view>
-      <view class="box2">
-        <button id="2014" size="mini" formType="submit">
-          <view wx:if="{{isplay && audioYear == 2014}}">
-            <image style="width:50rpx;height:50rpx;display: flex;flex-direction: row" src="../../images/audio_stop.png"></image>
-            </view>
-            <view wx:else>
-            <image style="width:50rpx;height:50rpx" src="../../images/audio1.png"></image>
-          </view>
-        </button>
-        <view class="downText">2014</view>
-      </view>
-      <view class="box2">
-        <button id="2013" size="mini" formType="submit">
-          <view wx:if="{{isplay && audioYear == 2013}}">
-            <image style="width:50rpx;height:50rpx;display: flex;flex-direction: row" src="../../images/audio_stop.png"></image>
-            </view>
-            <view wx:else>
-            <image style="width:50rpx;height:50rpx" src="../../images/audio2.png"></image>
-          </view>
-        </button>
-        <view class="downText">2013</view>
-      </view>
-      <view class="box2">
-        <button id="more" size="mini" formType="submit">
-          <image style="width:50rpx;height:50rpx" src="../../images/audio4.png"></image>
-        </button>
-        <view class="downText">点击更多</view>
-      </view>
-    </view>
-  </form>
-</view> -->
-
 <form report-submit="true" bindsubmit="getIntro">
-  <!-- <view class="edu">
-    <view class="audio_edu" style="background-color:#87CEFA;border:20rpx solid #F8F8F8; border-radius: 40rpx;width:30%">
-      <view class="title">
-        <text style="color:DimGray">—</text> 音频专区
-        <text style="color:DimGray">—</text>
-      </view>
-      <view wx:for="{{audioTEDsrc}}" wx:for-index="index" wx:for-item="item" style="width:100%">
-        <view bindtap="playAudio" data-year="{{index}}" class="box" style="color:DarkCyan;font-size:15px;justify-content: flex-start">
-          <view class="label" wx:if="{{isplay && audioYear == index}}">
-            <image style="width:40rpx;height:40rpx;display: flex;flex-direction: row" src="../../images/audio_stop.png">
-            </image>
-            <view wx:if="{{item.type=='ted'}}">
-              <text style="color:#2E8B57">【TED推荐】</text>
-            </view>
-            <view wx:if="{{item.type=='tm'}}">
-              <text style="color:#2E8B57">【冠军演讲】</text>
-            </view>
-            <view wx:if="{{item.type=='6min'}}">
-              <text style="color:#2E8B57">【6分钟英语】</text>
-            </view>
-          </view>
-          <view class="label" wx:else>
-            <image style="width:50rpx;height:40rpx;display: flex;flex-direction: row" src="../../images/audio_orange.png">
-            </image>
-            <view wx:if="{{item.type=='ted'}}">
-              <text style="color:#2E8B57">【TED推荐】</text>
-            </view>
-            <view wx:if="{{item.type=='tm'}}">
-              <text style="color:#2E8B57">【冠军演讲】</text>
-            </view>
-            <view wx:if="{{item.type=='6min'}}">
-              <text style="color:#2E8B57">【6分钟英语】</text>
-            </view>
-          </view>
-
-          <view style="color:DimGray;width:91%;display: flex;flex-direction: row;justify-content:flex-start;">
-            {{item.title}}
-          </view>
-        </view>
-      </view>
-    </view>
-  </view> -->
   <view class="edu" style="display:flex">
-    <!-- <view class="audio_edu" style="background-color:#E8E8E8;border:2rpx solid #F8F8F8">
-      <button id="10" size="mini" formType="submit">
-        <image style="width:50rpx;height:40rpx" src="../../images/audio_orange.png"></image>
-        <view class="downText" style="color:#1E90FF">6分钟英语</view>
-      </button>
-    </view> -->
     <view class="audio_edu" style="background-color:#C1FFC1;border:20rpx solid #F8F8F8; border-radius: 40rpx">
       <button id="audio_tm" size="mini" formType="submit">
         <image style="width:50rpx;height:40rpx" src="../../images/audio4.png"></image>
@@ -345,15 +190,10 @@
       <view class="downText" style="color:#1E90FF">6分钟英语</view>
     </view>
   </view>
-  <!-- <view class="container1" style="width:100%;">
-    <text style="color:DimGray;font-size:10px;padding:10rpx;">头马演讲和领导力教育体系Pathways项目中英文说明</text>
-  </view> -->
 </form>
 
 <view class="container1">
-  <!-- <view class="main_box"> -->
   <image bindtap="saveOfficialQRCode" style="width:100%" src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/accountpublicity2.jpeg" mode="widthFix"></image>
-  <!-- </view> -->
 </view>
 
 <view class="container1" style="">
@@ -483,12 +323,8 @@
 </view>
 
 <view class="container1">
-  <!-- <view class="main_box"> -->
-  <!-- <image bindtap="gotoGeizan" style="width:100%" src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/dashang.jpeg" mode="widthFix">
-  </image> -->
   <image bindtap="gotoGeizan" style="width:100%" src="https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/images/dashangzhichi.jpeg?sign=fc39302b32e0362f2bdb5f898e93c5b8&t=1564150183" mode="widthFix">
   </image>
-  <!-- </view> -->
 </view>
 
 <view class="container1">
@@ -536,4 +372,30 @@
   </form>
 </view>
 
-<image bindtap="saveOfficialQRCode" src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/theultimatetoastmasters_qian.jpg" mode="scaleToFill" class="banner"></image>
+<!-- <image bindtap="saveOfficialQRCode" src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/theultimatetoastmasters_qian.jpg" mode="scaleToFill" class="banner"></image> -->
+
+<!-- <view class="container1">
+  <image bindtap="saveOfficialQRCode" style="width:100%" src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/theultimatetoastmasters_qian.jpg" mode="widthFix"></image>
+</view> -->
+
+<!-- <view class="container1">
+  <image bindtap="saveOfficialQRCode" style="width:100%" src="https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/images/guesslike.jpeg?sign=a3eb1ca003a1079a467350b8a6572182&t=1564386974" mode="widthFix"></image>
+</view>
+
+<view class="cards" id="cards">
+
+  <view wx:for="{{guessYouLike}}">
+    <view class="line" style="background-color: #F8F8F8"></view>
+
+    <view class="card">
+      <view class="card_text">
+        <navigator url="/pages/testdb/testdb?src={{item.src}}">
+          {{item.title}}
+        </navigator>
+      </view>
+    </view>
+  </view>
+
+  <view class="line" style="background-color: #F8F8F8"></view>
+
+</view> -->

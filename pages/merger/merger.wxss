@@ -1,4 +1,27 @@
 /* pages/merger/merger.wxss */
+.container {
+  height: 100rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  /* padding: 50rpx 0; */
+  box-sizing: border-box;
+} 
+
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.userinfo-avatar {
+  width: 80rpx;
+  height: 80rpx;
+  margin: 5rpx;
+  border-radius: 50%;
+}
 
 button::after {
   border: none;
@@ -27,7 +50,7 @@ button {
   flex-direction: row;
   flex-wrap: wrap;
   padding: 10rpx;
-  justify-content:space-around;
+  justify-content:flex-start;
 }
 
 .box1 {
@@ -51,7 +74,7 @@ button {
 }
 
 .box3 {
-  width: 29%;
+  width: 22%;
   height: 140rpx;
   display: flex;
   flex-direction: column;
@@ -297,4 +320,28 @@ img {
   background: rgb(241, 83, 62);
 }
 
+.cards {
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+  /* background-color: #F8F8F8; */
+  background-color: white;
+  height: 140rpx;
+  padding: 10rpx;
+}
+
+.card_text {
+  padding: 30rpx;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+  font-size:15px;
+  color: #4F4F4F;
+  font-weight: bold;
+}
 
