@@ -8,21 +8,20 @@
     <view class="page__hd">
         <!-- <view class="summary__title">作者介绍</view> -->
           <text decode="true" class="page__desc">
-          金斌/Zyaire
-          头衔: CL, IP3
+          金斌/Zyaire (头衔: CL, IP3)
           2018.04—至今: 杭州西子双语演讲俱乐部会员
           2018.07—2018.12: 担任西子俱乐部教育副主席
           2019.01—2019.12: 担任西子俱乐部主席
           </text>
-          <image bindtap="gotoGeizan" style="width:100%" src="https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/images/laoshi.jpeg" mode="widthFix"></image>
+          <image style="width:100%" src="https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/images/laoshi.jpeg" mode="widthFix"></image>
           <text decode="true" class="page__desc">
           头马助手官方微信公众号:
           </text>
-          <p bindtap='copyText' data-text="头马助手Toastmasters Assistant" style="color:#8B0000">头马助手Toastmasters Assistant<text decode="true" class="page__desc">（点击复制）</text></p>
+          <p bindtap='copyText' data-text="头马演讲助手" style="color:#8B0000">头马演讲助手<text decode="true" class="page__desc">（点击复制）</text></p>
           <text decode="true" class="page__desc">
           头马小程序:
           </text>
-          <p bindtap='naviTo' style="color:#8B0000">即兴演讲助手<text decode="true" class="page__desc">（点击直达）</text></p>
+          <p bindtap='naviTo' style="color:#8B0000">中英双语演讲<text decode="true" class="page__desc">（点击直达）</text></p>
           <text decode="true" class="page__desc">
           合作及建议请加微信:
           </text>
@@ -46,8 +45,4 @@
       </navigator>
     </view> -->
 </view> 
-
-<!-- <view style="position: fixed; right: 0;left: 0; bottom: 20rpx; "> -->
-<!-- <ad style="padding-top: 30rpx" unit-id="adunit-ab171e6bb49115c5" binderror="aderror"></ad> -->
-<!-- </view> -->
 

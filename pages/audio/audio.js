@@ -39,14 +39,14 @@ Page({
       })
       //视频在公众号内
       // wx.showModal({
-      //   content: '因为小程序受限，所有优质视频内容存放在官方公众号内。搜索"头马助手"官方公众号, 获取历年头马世界冠军演讲、TED精选、英语口语技巧视频！',
+      //   content: '因为小程序受限，所有优质视频内容存放在官方公众号内。搜索"头马演讲助手"官方公众号, 获取历年头马世界冠军演讲、TED精选、英语口语技巧视频！',
       //   showCancel: false,
       //   confirmText: '去关注',
       //   confirmColor: '#ff7f50',
       //   success: function (res) {
       //     if (res.confirm) {
       //       wx.setClipboardData({
-      //         data: "头马助手 Toastmasters Assistant",
+      //         data: "头马演讲助手",
       //         success: function (res) {
       //           wx.showToast({
       //             title: "公众号名已复制"
@@ -67,14 +67,14 @@ Page({
 
   saveOfficialQRCode: function (e) {
     wx.showModal({
-      content: '搜索"头马助手"官方公众号, 获取历年头马世界冠军演讲视频！',
+      content: '搜索"头马演讲助手"官方公众号, 获取历年头马世界冠军演讲视频！',
       showCancel: false,
       confirmText: '去关注',
       confirmColor: '#ff7f50',
       success: function (res) {
         if (res.confirm) {
           wx.setClipboardData({
-            data: "头马助手 Toastmasters Assistant",
+            data: "头马演讲助手",
             success: function (res) {
               wx.showToast({
                 title: "公众号名已复制"
@@ -124,9 +124,9 @@ Page({
         // innerAudioContext.src = this.data.audiosrc[this.data.audioYear]
         // innerAudioContext.play()
 
-        backgroundAudioManager.title = this.data.audioYear + '演讲音频 by 头马助手'
-        backgroundAudioManager.epname = '头马助手'
-        backgroundAudioManager.singer = '头马助手'
+        backgroundAudioManager.title = this.data.audioYear + '演讲音频 by 头马演讲助手'
+        backgroundAudioManager.epname = '头马演讲助手'
+        backgroundAudioManager.singer = '头马演讲助手'
         backgroundAudioManager.coverImgUrl = ''
         // 设置了 src 之后会自动播放
         if (this.data.channel == "tm") {
@@ -157,9 +157,9 @@ Page({
         // innerAudioContext.src = this.data.audiosrc[this.data.audioYear]
         // innerAudioContext.play()
 
-        backgroundAudioManager.title = this.data.audioYear + '演讲音频 by 头马助手'
-        backgroundAudioManager.epname = '头马助手'
-        backgroundAudioManager.singer = '头马助手'
+        backgroundAudioManager.title = this.data.audioYear + '演讲音频 by 头马演讲助手'
+        backgroundAudioManager.epname = '头马演讲助手'
+        backgroundAudioManager.singer = '头马演讲助手'
         backgroundAudioManager.coverImgUrl = ''
         // 设置了 src 之后会自动播放
         if (this.data.channel == "tm") {
@@ -184,9 +184,9 @@ Page({
         // innerAudioContext.src = this.data.audiosrc[this.data.audioYear]
         // innerAudioContext.play()
 
-        backgroundAudioManager.title = this.data.audioYear + '演讲音频 by 头马助手'
-        backgroundAudioManager.epname = '头马助手'
-        backgroundAudioManager.singer = '头马助手'
+        backgroundAudioManager.title = this.data.audioYear + '演讲音频 by 头马演讲助手'
+        backgroundAudioManager.epname = '头马演讲助手'
+        backgroundAudioManager.singer = '头马演讲助手'
         backgroundAudioManager.coverImgUrl = ''
         // 设置了 src 之后会自动播放
         if (this.data.channel == "tm") {

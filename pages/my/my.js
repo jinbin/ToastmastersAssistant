@@ -27,7 +27,7 @@ Page({
       }
     },
     page_ft: {
-      data: "Copyright © 2018-2019 jinbin"
+      data: "Copyright © 2019-2020 可能性工作室"
     },
     extraData: {
       id: "43654",
@@ -216,7 +216,7 @@ Page({
 
   linkTA: function(e) {
     wx.showModal({
-      content: "关联步骤\n1. 登录微信公众号\n2. 小程序管理->添加\n3. 验证并关联小程序\n4. 输入小程序AppID\n5. 点击确认即可",
+      content: "关联步骤\n1. 登录微信公众号\n2. 小程序管理->添加\n3. 验证并关联小程序\n4. 输入小程序名称\n5. 点击确认即可",
       showCancel: true,
       confirmText: 'AppID',
       confirmColor: '#ff7f50',
@@ -226,7 +226,7 @@ Page({
             data: "wx16c76d4762cbe0b3",
             success: function(res) {
               wx.showToast({
-                title: "AppID复制成功"
+                title: "名称已复制"
               })
             }
           })
@@ -249,6 +249,12 @@ Page({
     })
   },
 
+  toBilingualSpeak: function (e) {
+    wx.navigateToMiniProgram({
+      appId: 'wx4c4b54bc609bd79e'
+    })
+  },
+
   aderror: function (options) {
     this.setData({
       isAdError: true
@@ -257,14 +263,14 @@ Page({
 
   saveOfficialQRCode: function(e) {
     wx.showModal({
-      content: '搜索"头马助手", 关注官方公众号, 回复"福利"有惊喜！',
+      content: '搜索"头马演讲助手", 关注官方公众号, 回复"福利"有惊喜！',
       showCancel: false,
       confirmText: '去关注',
       confirmColor: '#ff7f50',
       success: function(res) {
         if (res.confirm) {
           wx.setClipboardData({
-            data: "头马助手 Toastmasters Assistant",
+            data: "头马演讲助手",
             success: function(res) {
               wx.showToast({
                 title: "公众号名已复制"
@@ -407,14 +413,12 @@ Page({
    */
   onShareAppMessage: function() {
     return {
-      title: '头马, TED, 演讲, 英语, 超过2万名终身学习者的选择',
-      imageUrl: '/images/index.jpg'
+      title: '头马助手, 专注中英文双语演讲, 2万名终身学习者的选择',
+      imageUrl: '/images/indexforward-min.jpg'
     }
   },
 
   fromPageFt: function() {
-    wx.navigateToMiniProgram({
-      appId: this.data.tt_appId
-    })
+    util.saveOfficialQRCode("可能性工作室")
   }
 })

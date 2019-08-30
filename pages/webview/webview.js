@@ -58,14 +58,14 @@ Page({
 
   saveOfficialQRCode: function (e) {
     wx.showModal({
-      content: '微信搜索"头马助手 Toastmasters Assistant", 获取更多头马信息！',
+      content: '微信搜索"头马演讲助手", 获取更多头马信息！',
       showCancel: false,
       confirmText: '去关注',
       confirmColor: '#ff7f50',
       success: function (res) {
         if (res.confirm) {
           wx.setClipboardData({
-            data: "头马助手 Toastmasters Assistant",
+            data: "头马演讲助手",
             success: function (res) {
               wx.showToast({
                 title: "公众号名已复制"

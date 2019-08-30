@@ -33,7 +33,7 @@ Page({
           success: function (e) {
             console.log(e)
             that.setData({
-              guessYouLike: e.data
+              guessYouLike: e.data.reverse()
             })
           }
         })

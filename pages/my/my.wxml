@@ -26,7 +26,13 @@
     <image bindtap="saveOfficialQRCode" style="width:100%" src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/accountpublicity2.jpeg" mode="widthFix"></image>
   </view>
   <view wx:else>
-    <ad unit-id="adunit-ab171e6bb49115c5" binderror="aderror"></ad>
+    <!-- <ad unit-id="adunit-ab171e6bb49115c5" binderror="aderror"></ad> -->
+  <navigator target="miniProgram" open-type="navigate" app-id="wx4c4b54bc609bd79e" path="/pages/index/index" extra-data="" version="release" style="width:100%">
+    <view class="container1">
+        <image bindtap="toBilingualSpeak" style="width:100%" src="/images/topicscards-min.jpeg" mode="widthFix" style="width:95%; border-radius:25rpx;">
+        </image>
+    </view>
+    </navigator>
   </view>
   <!-- <view open-type="navigate" bindtap="bindViewTap" > <view style="position: relative; display: flex; width: 100%; overflow: hidden" > <image src="http://aldpicsh-1252823355.cossh.myqcloud.com/ad_advertiser/15614430131992.png" style="width: 100%; margin: 0px auto; height: 91.2715px;"></image> </view> </view> -->
 </view>
@@ -36,10 +42,10 @@
   </xm-ad>
 </view> -->
 <view class="window">
-  <view class="box" bindtap="navigateTo" id="/pages/contact/contact">  
+  <!-- <view class="box" bindtap="navigateTo" id="/pages/contact/contact">  
     <image style="width:80rpx;height:80rpx" src="../../images/setting1.png"></image>
     <view style="font-size:12px">认识作者</view>
-  </view>
+  </view> -->
   <view class="box" bindtap="saveQRCode" id="images/qrcode.jpg">
     <image style="width:80rpx;height:80rpx" src="../../images/setting2.png"></image> 
     <view style="font-size:12px">小程序码</view>
@@ -62,60 +68,13 @@
   </view> -->
   <view class="box" bindtap="navigateToMiniProgram" id="wx4c4b54bc609bd79e">
     <image style="width:80rpx;height:80rpx" src="../../images/setting4.png"></image> 
-    <view style="font-size:12px;">即兴助手</view>
+    <view style="font-size:12px;">双语演讲</view>
   </view>
 </view>
-
-<!--  <view class="page-body">
-  <view class="weui-cells weui-cells_after-title">
-
-    <navigator open-type="navigate" url="/pages/contact/contact" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-      <view class="weui-cell__bd" style="color:purple">联系作者</view>
-      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-    </navigator>
-
-    <view class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-      <view class="weui-cell__bd" bindtap="saveQRCode" id="images/qrcode.jpg" style="color:Orange">
-        获取小程序码
-      </view>
-      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-    </view>
-
-    <view class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-      <view class="weui-cell__bd" bindtap="saveQRCode" id="images/qrcode_for_account.jpg" style="color:DarkCyan">
-        关注公众号
-      </view>
-      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-    </view>
-
-    <navigator target="miniProgram" open-type="navigate" app-id="wx18a2ac992306a5a4" extra-data="{{ extraData }}" path="pages/apps/largess/detail?id=LYFYxTFDv9E%3D" version="release" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-      <view class="weui-cell__bd" style="color:red">打赏作者</view>
-      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-    </navigator>
-
-    <view class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-      <view class="weui-cell__bd" bindtap="linkTA" style="color:ForestGreen">
-        关联头马助手
-      </view>
-      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-    </view>
-
-    <navigator target="miniProgram" open-type="navigate" app-id="wx018f0c4c2a1ee727" extra-data="{{ extraData }}" path="pages/group-detail/index?groupid=16287827559774652520" version="release" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-      <view class="weui-cell__bd" style="color:#4876FF">加入头马中国群</view>
-      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-    </navigator>
-
-  </view>
-</view> -->
 
 <template is="contact_button" />
 
 <!-- <button open-type="contact">头马助手官方</button> -->
-
-<!-- <view class="page__ft" bindtap='toMiniProgram'>Powered by 
-  <p style="color:#00BFFF">可能性工作室</p>
-  <view class="weui-footer__text">Copyright © 2018-2018 jinbin</view>
-</view> -->
 
 <!-- <view class="xm_fixed">
   <xm-ad data-id="{{xmad.ad.fixed}}" adData="{{xmad.adData}}"

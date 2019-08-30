@@ -66,17 +66,5 @@
 
     </view>
 
-<!-- <view class="page__ft">
-  <navigator url="/pages/reward/reward">
-  <p style="color:#00BFFF">gratuity</p>
-  <view class="weui-footer__text">Copyright © 2018-2018 jinbin</view>
-  </navigator>
-</view> -->
-
-<!-- <view class="page__ft" bindtap='toMiniProgram'>Powered by 
-  <p style="color:#00BFFF">可能性工作室</p>
-  <view class="weui-footer__text">Copyright © 2018-2018 jinbin</view>
-</view> -->
-
 <import src="../../../templates/page_ft/page_ft.wxml"/>
 <template is="page_ft" data="{{...page_ft}}" />

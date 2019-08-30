@@ -16,42 +16,50 @@ Page({
   data: {
     texts: ["头马世界冠军教你四招搞定公众演讲", "必学！头马演讲达人给你的五条演讲建议"],
     page_ft: {
-      data: "Copyright © 2018-2019 jinbin"
+      data: "Copyright © 2019-2020 可能性工作室"
     },
     isplay: false,
     audioYear: 2018,
-    banners: [{
-        "url": "cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/accountpublicitybanner.jpeg",
-        "bind": "saveOfficialQRCode"
-      },
+    // guessYouLike: [
+    //   {
+    //     "src":"https://mp.weixin.qq.com/s/fHPAB2m3a7iFeYsTDFpkXA",
+    //     "title": "微信公众号如何关联头马助手小程序"
+    //   },
+    //   {
+    //     "src": "https://mp.weixin.qq.com/s/Gxe8j_cnzpNk5glPr7O93A",
+    //     "title": "头马助手小程序的初心"
+    //   }
+    // ],
+    banners: [
+      //{
+      //   "url": "cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/accountpublicitybanner.jpeg",
+      //   "bind": "saveOfficialQRCode"
+      // },
       {
         "url": "cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/jp_tm.jpg",
-        "bind": "pageScrollToBottom"
+        "bind": "saveOfficialQRCode"
       },
       {
         "url": "cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/dashangzhichi_banner.jpeg",
         "bind": "dashang"
-      },
-      {
-        "url": "cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/TEDtalk2.jpeg",
-        "bind": "saveOfficialQRCode"
       }
+      // {
+      //   "url": "cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/TEDtalk2.jpeg",
+      //   "bind": "saveOfficialQRCode"
+      // }
+      // {
+      //   "url": "https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/images/bilingualSpeak.jpeg?sign=559732267d212043dba93a6e0023d99f&t=1565749963",
+      //   "bind": "toBilingualSpeak"
+      // }
     ],
-    // guessYouLike: [
-    //   {
-    //     "title": "这组关于Chinese Hip Hop的即兴桌面话题，你敢挑战下吗？",
-    //     "src": "https://mp.weixin.qq.com/s/7PJ9bVP_tiUNpqdVycPP8g"
-    //   },
-    //   {
-    //     "title": "Before you overthink",
-    //     "src": "https://mp.weixin.qq.com/s/wGy_ZvMBmJ00_KXYA98iiQ"
-    //   }
-    // ],
     banner_height: 50,
     scrollTop: 0,
     threshold: 1300,
     windowHeight: wx.getSystemInfoSync().windowHeight,
-    userId: app.globalData.userInfo
+    userId: app.globalData.userInfo,
+    topics: [
+      "真人秀", "爱情", "嘻哈", "垃圾分类", "生活", "说谎", "996", "困境", "高考"
+    ]
   },
 
   onPageScroll: function(ev) {
@@ -270,6 +278,28 @@ Page({
       wx.switchTab({
         url: '/pages/volItem/volItem',
       })
+    } else if (options.detail.target.id == "linkAccount") {
+      wx.navigateTo({
+        url: '/pages/testdb/testdb?src=https://mp.weixin.qq.com/s/fHPAB2m3a7iFeYsTDFpkXA',
+      })
+    } else if (options.detail.target.id == "value") {
+      wx.navigateTo({
+        url: '/pages/testdb/testdb?src=https://mp.weixin.qq.com/s/Gxe8j_cnzpNk5glPr7O93A',
+      })
+    } else if (options.detail.target.id == "jixing") {
+      wx.navigateToMiniProgram({
+        appId: 'wx4c4b54bc609bd79e',
+        path: 'pages/volItem/volItem'
+      })
+    } else if (options.detail.target.id == "jixingku") {
+      wx.navigateToMiniProgram({
+        appId: 'wx4c4b54bc609bd79e',
+        path: 'pages/knowledge/knowledge'
+      })
+    } else if (options.detail.target.id == "topics") {
+      wx.navigateToMiniProgram({
+        appId: 'wx4c4b54bc609bd79e'
+      })
     } else if (options.detail.target.id == "todayaudio") {
       wx.showModal({
         content: "\"今日听力\"\n每天精选BBC Learning English 6分钟英语音频。\n适合初中级英语学习者锻炼听力，学习地道表达，以及扩充知识面。\n建议第一遍泛听，第二遍开始精听，至少听三遍以上。",
@@ -280,16 +310,6 @@ Page({
         confirmColor: '#ff7f50',
         success: function(res) {
           if (res.confirm) {
-            // backgroundAudioManager.title = '演讲音频 by 头马助手'
-            // backgroundAudioManager.epname = '头马助手'
-            // backgroundAudioManager.singer = '头马助手'
-            // backgroundAudioManager.coverImgUrl = ''
-            // // 设置了 src 之后会自动播放
-            // backgroundAudioManager.src = that.data.todayaudio[0]["link"]
-            // console.log(that.data.todayaudio[0]["link"])
-            // that.setData({
-            //   isplay: true
-            // })
             if (that.data.todayaudio[0]['text']) {
               wx.navigateTo({
                 url: '/pages/music/music?audio=' + that.data.todayaudio[0]["link"] + '&title=' + that.data.todayaudio[0]["title"] + "&todaysaudio=yes&text=https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/" + that.data.todayaudio[0]['text'],
@@ -488,16 +508,22 @@ Page({
     util.dashang()
   },
 
+  toBilingualSpeak: function(e) {
+    wx.navigateToMiniProgram({
+      appId: 'wx4c4b54bc609bd79e'
+    })
+  },
+
   saveOfficialQRCode: function(e) {
     wx.showModal({
-      content: '搜索"头马助手"官方公众号, 获取历年头马世界冠军演讲视频！',
+      content: '搜索"头马演讲助手"官方公众号, 获取历年头马世界冠军演讲视频！',
       showCancel: false,
       confirmText: '去关注',
       confirmColor: '#ff7f50',
       success: function(res) {
         if (res.confirm) {
           wx.setClipboardData({
-            data: "头马助手 Toastmasters Assistant",
+            data: "头马演讲助手",
             success: function(res) {
               wx.showToast({
                 title: "公众号名已复制"
@@ -659,11 +685,13 @@ Page({
         that.setData({
           todayaudio: e.data
         })
-        db.collection("guessYouLike").get({
+        db.collection("guessYouLike").where({
+          onIndex: true
+        }).get({
           success: function (e) {
             console.log(e)
             that.setData({
-              guessYouLike: e.data
+              guessYouLike: e.data.reverse()
             })
           }
         })
@@ -773,7 +801,7 @@ Page({
 
   onShareAppMessage: function(res) {
     return {
-      title: '头马, TED, 演讲, 英语, 超过3万名终身学习者的选择',
+      title: '头马助手, 专注中英文双语演讲, 2万名终身学习者的选择',
       imageUrl: '/images/indexforward-min.jpg'
     }
   }

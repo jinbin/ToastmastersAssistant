@@ -198,14 +198,14 @@ Page({
 
   saveOfficialQRCode: function (e) {
     wx.showModal({
-      content: '搜索"头马助手"官方公众号, 获取历年头马世界冠军演讲视频！',
+      content: '搜索"头马演讲助手"官方公众号, 获取历年头马世界冠军演讲视频！',
       showCancel: false,
       confirmText: '去关注',
       confirmColor: '#ff7f50',
       success: function (res) {
         if (res.confirm) {
           wx.setClipboardData({
-            data: "头马助手 Toastmasters Assistant",
+            data: "头马演讲助手",
             success: function (res) {
               wx.showToast({
                 title: "公众号名已复制"

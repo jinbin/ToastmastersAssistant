@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "bottom-button": "/components/bottom-button/index",
-    "result-bubble": "/components/result-bubble/index"
-  }
-}
