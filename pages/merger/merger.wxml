@@ -53,7 +53,7 @@
 <view>
   <form report-submit="true" bindsubmit="getIntro">
     <view class="window3" style="padding:10rpx;">
-      <view class="box3" style="">
+      <!-- <view class="box3" style="">
         <button id="audio_tm" size="mini" style="background-color: #E8E8E8" formType="submit">
           <image style="width:60rpx;height:60rpx" src="../../images/blocks1.png"></image>
         </button>
@@ -61,10 +61,21 @@
       </view>
       <view class="box3" style="">
         <button id="todayaudio" size="mini" style="background-color: #E8E8E8" formType="submit">
-          <!-- <image style="width:60rpx;height:60rpx" src="../../images/blocks.png"></image> -->
           <image style="width:60rpx;height:60rpx" src="../../images/听力.png"></image>
         </button>
         <view class="downText" style="color:#9d441b;font-size:26rpx;">今日听力</view>
+      </view> -->
+      <view class="box3" style="">
+        <button id="6" size="mini" style="background-color: #E8E8E8" formType="submit">
+          <image style="width:60rpx;height:60rpx" src="../../images/blocks2.png"></image>
+        </button>
+        <view class="downText" style="color:#1E90FF;font-size:26rpx;">胜任演讲</view>
+      </view>
+      <view class="box3" style="">
+        <button id="topics" size="mini" style="background-color: #E8E8E8" formType="submit">
+          <image style="width:60rpx;height:60rpx" src="../../images/topics_color9.png"></image>
+        </button>
+        <view class="downText" style="color:#9d441b;font-size:26rpx;">即兴演讲</view>
       </view>
       <view class="box3" style="">
         <button id="guess" size="mini" style="background-color: #E8E8E8" formType="submit">
@@ -73,10 +84,10 @@
         <view style="font-size:26rpx;">精彩文章</view>
       </view>
       <view class="box3" style="">
-        <button id="6" size="mini" style="background-color: #E8E8E8" formType="submit">
-          <image style="width:60rpx;height:60rpx" src="../../images/blocks2.png"></image>
+        <button id="roles" size="mini" style="background-color: #E8E8E8" formType="submit">
+          <image style="width:60rpx;height:60rpx" src="../../images/meeting11.png"></image>
         </button>
-        <view class="downText" style="color:#1E90FF;font-size:26rpx;">胜任演讲</view>
+        <view style="font-size:26rpx;">头马角色</view>
       </view>
     </view>
   </form>
@@ -196,20 +207,20 @@
   <view style="width:100%">
     <form report-submit="true" bindsubmit="getIntro">
       <view class="window3">
-        <view class="box3" style="padding:0rpx;width:20%" wx:for="{{topics}}" wx:for-index="idx">
-          <navigator target="miniProgram" open-type="navigate" app-id="wx4c4b54bc609bd79e" path="/pages/topics/topics?label={{item}}" extra-data="" version="release">
-            <image class="icon" src="../../images/topics_color{{idx}}.png"></image>
-          </navigator>
-          <navigator target="miniProgram" open-type="navigate" app-id="wx4c4b54bc609bd79e" path="/pages/topics/topics?label={{item}}" extra-data="" version="release">
-            <view class="downText">{{item}}</view>
-          </navigator>
-        </view>
         <view class="box3" style="padding:0rpx;width:20%">
           <navigator target="miniProgram" open-type="navigate" app-id="wx4c4b54bc609bd79e" path="/pages/collection/collection" extra-data="" version="release">
             <image class="icon" src="../../images/topics_color9.png"></image>
           </navigator>
           <navigator target="miniProgram" open-type="navigate" app-id="wx4c4b54bc609bd79e" path="/pages/collection/collection" extra-data="" version="release">
             <view class="downText">全部话题</view>
+          </navigator>
+        </view>
+        <view class="box3" style="padding:0rpx;width:20%" wx:for="{{topics}}" wx:for-index="idx">
+          <navigator target="miniProgram" open-type="navigate" app-id="wx4c4b54bc609bd79e" path="/pages/topics/topics?id={{item.id}}" extra-data="" version="release">
+            <image class="icon" src="../../images/topics_color{{idx}}.png"></image>
+          </navigator>
+          <navigator target="miniProgram" open-type="navigate" app-id="wx4c4b54bc609bd79e" path="/pages/topics/topics?id={{item.id}}" extra-data="" version="release">
+            <view class="downText">{{item.title}}</view>
           </navigator>
         </view>
       </view>
@@ -248,7 +259,7 @@
 </view>
 
 <view class="container1">
-  <image bindtap="" style="width:100%" src="/images/jiesuo-min.jpeg" mode="widthFix" style="width:95%; border-radius:25rpx;">
+  <image bindtap="toBilingualSpeak" id="jiesuo" style="width:100%" src="/images/jiesuo-min.jpeg" mode="widthFix" style="width:95%; border-radius:25rpx;">
   </image>
 </view>
 
@@ -394,12 +405,12 @@
 
   <form report-submit="true" bindsubmit="getTool" style="width:95%">
     <view class="window1">
-      <view class="box_tool">
+      <!-- <view class="box_tool">
         <button id="jixing" size="mini" formType="submit">
           <image style="width:60rpx;height:60rpx" src="../../images/tool1.png"></image>
         </button>
         <view class="downText">即兴演讲</view>
-      </view>
+      </view> -->
       <view class="box_tool">
         <button id="timertool" size="mini" formType="submit">
           <image style="width:60rpx;height:60rpx" src="../../images/tool2.png"></image>

@@ -42,10 +42,10 @@
   </xm-ad>
 </view> -->
 <view class="window">
-  <!-- <view class="box" bindtap="navigateTo" id="/pages/contact/contact">  
+  <view class="box" bindtap="navigateTo" id="/pages/contact/contact">  
     <image style="width:80rpx;height:80rpx" src="../../images/setting1.png"></image>
     <view style="font-size:12px">认识作者</view>
-  </view> -->
+  </view>
   <view class="box" bindtap="saveQRCode" id="images/qrcode.jpg">
     <image style="width:80rpx;height:80rpx" src="../../images/setting2.png"></image> 
     <view style="font-size:12px">小程序码</view>

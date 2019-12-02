@@ -20,27 +20,17 @@ Page({
     },
     isplay: false,
     audioYear: 2018,
-    // guessYouLike: [
-    //   {
-    //     "src":"https://mp.weixin.qq.com/s/fHPAB2m3a7iFeYsTDFpkXA",
-    //     "title": "微信公众号如何关联头马助手小程序"
-    //   },
-    //   {
-    //     "src": "https://mp.weixin.qq.com/s/Gxe8j_cnzpNk5glPr7O93A",
-    //     "title": "头马助手小程序的初心"
-    //   }
-    // ],
     banners: [
       //{
       //   "url": "cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/accountpublicitybanner.jpeg",
       //   "bind": "saveOfficialQRCode"
       // },
       {
-        "url": "cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/jp_tm.jpg",
+        "url": "../../images/tm_korea-min.jpg",
         "bind": "saveOfficialQRCode"
       },
       {
-        "url": "cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/dashangzhichi_banner.jpeg",
+        "url": "../../images/dashangzhichi_banner-min.jpeg",
         "bind": "dashang"
       }
       // {
@@ -57,9 +47,21 @@ Page({
     threshold: 1300,
     windowHeight: wx.getSystemInfoSync().windowHeight,
     userId: app.globalData.userInfo,
-    topics: [
-      "真人秀", "爱情", "嘻哈", "垃圾分类", "生活", "说谎", "996", "困境", "高考"
-    ]
+    // topics: [
+    //   {
+    //     "title": "真人秀"
+    //   }, 
+    //   {
+    //     "title": "爱情"
+    //   }, 
+    //   {
+    //     "title": "嘻哈"
+    //   }, 
+    //   {
+    //     "title": "垃圾分类"
+    //   }, 
+    //   { "title": "生活"}, { "title": "说谎" }, { "title": "996" }, { "title": "困境" }, { "title": "高考"}
+    // ]
   },
 
   onPageScroll: function(ev) {
@@ -256,6 +258,8 @@ Page({
       wx.navigateTo({
         url: '/pages/reading/reading',
       })
+    } else if (options.detail.target.id == "roles") {
+      this.pageScrollToBottom()
     } else if (options.detail.target.id == "DTM") {
       wx.navigateTo({
         url: '/pages/webview/webview?article=DTM',
@@ -589,9 +593,9 @@ Page({
                     //今天已经签到过
                     wx.showModal({
                       content: "今天已打卡, 你已经打卡过" + res.data[0].checkin + "次, 明天再来打卡~\n今日积分10已加\n今天已经有" + that.data.checkin_today_total + "人打卡了~",
-                      showCancel: true,
-                      cancelText: '今日听力',
-                      cancelColor: '#008B45',
+                      showCancel: false,
+                      // cancelText: '今日听力',
+                      // cancelColor: '#008B45',
                       // confirmText: '',
                       confirmColor: '#ff7f50',
                       success: function(res) {
@@ -621,9 +625,9 @@ Page({
                       success: res1 => {
                         wx.showModal({
                           content: "打卡成功！这是你的第" + (res.data[0].checkin + 1) + "次打卡, 今日积分: +10 || 你是今天第" + (that.data.checkin_today_total + 1) + "位打卡者~",
-                          showCancel: true,
-                          cancelText: '今日听力',
-                          cancelColor: '#008B45',
+                          showCancel: false,
+                          // cancelText: '今日听力',
+                          // cancelColor: '#008B45',
                           // confirmText: '',
                           confirmColor: '#ff7f50',
                           success: function(res) {
@@ -657,12 +661,12 @@ Page({
 
   // 获取容器高度，使页面滚动到容器底部
   pageScrollToBottom: function () {
-    wx.createSelectorQuery().select('#cards').boundingClientRect(
+    wx.createSelectorQuery().select('#jiesuo').boundingClientRect(
       function (rect) {
         // 使页面滚动到底部
         console.log(rect)
         wx.pageScrollTo({
-          scrollTop: rect.bottom
+          scrollTop: rect.top
         })
       }
     ).exec()
@@ -676,6 +680,10 @@ Page({
     this.setData({
       banner_height: 240 / wx.getSystemInfoSync().windowHeight * 100
     })
+
+    if(options.roles){
+      this.pageScrollToBottom()
+    }
 
     db.collection("audio").where({
       onIndex: true
@@ -692,6 +700,16 @@ Page({
             console.log(e)
             that.setData({
               guessYouLike: e.data.reverse()
+            })
+            db.collection("information").where({
+              type: "topics"
+            }).get({
+              success: function (e) {
+                console.log(e.data[0].topics)
+                that.setData({
+                  topics: e.data[0].topics
+                })
+              }
             })
           }
         })

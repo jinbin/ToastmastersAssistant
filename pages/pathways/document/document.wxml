@@ -9,7 +9,21 @@
     <button style="width:70%" bindtap="copyText" data-text="{{downloadUrl}}" type="primary">点击复制资料地址</button>
   </view>
 
-  <view style="position: fixed; right: 0;left: 0; bottom: 20rpx; ">
-    <ad class="ad" unit-id="adunit-7e2a919ed9ae5ab4"></ad>
+  <!-- <view>
+    <button style="width:70%" data-text="{{downloadUrl}}" type="primary">
+      <text>{{button_text}}</text>
+    </button>
+  </view> -->
+
+  <!-- <view style="position: fixed; right: 0;left: 0; bottom: 20rpx;"> -->
+  <view class="downbox">
+    <view class="adContainer">
+      <ad unit-id="adunit-a3ae6b7d69bb20fb" ad-type="video" ad-theme="black"></ad>
+    </view>
   </view>
+  <!-- </view> -->
+
+  <!-- <view style="position: fixed; right: 0;left: 0; bottom: 20rpx; ">
+    <ad class="ad" unit-id="adunit-7e2a919ed9ae5ab4"></ad>
+  </view> -->
 </view>

@@ -13,7 +13,7 @@
           2018.07—2018.12: 担任西子俱乐部教育副主席
           2019.01—2019.12: 担任西子俱乐部主席
           </text>
-          <image style="width:100%" src="https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/images/laoshi.jpeg" mode="widthFix"></image>
+          <!-- <image style="width:100%" src="https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/images/laoshi.jpeg" mode="widthFix"></image> -->
           <text decode="true" class="page__desc">
           头马助手官方微信公众号:
           </text>
@@ -34,7 +34,13 @@
           个人微信公众号:
           </text>
           <p bindtap='copyText' data-text="可能性工作室" style="color:#8B0000">可能性工作室<text decode="true" class="page__desc">（点击复制）</text></p>
-          <ad style="padding-top: 30rpx" unit-id="adunit-ab171e6bb49115c5" binderror="aderror"></ad>
+          <!-- <ad style="padding-top: 30rpx" unit-id="adunit-ab171e6bb49115c5" binderror="aderror"></ad> -->
+          <!-- <ad unit-id="adunit-a3ae6b7d69bb20fb" ad-type="video" ad-theme="white"></ad> -->
+          <view class="downbox">
+            <view class="adContainer">
+              <ad unit-id="adunit-a3ae6b7d69bb20fb" ad-type="video" ad-theme="black"></ad>
+            </view>
+          </view>
     </view>
     <!-- <view wx:if="{{surprise==false}}">
       <button class="ad" bindtap="openAd" size="mini" type="primary">观看视频解锁惊喜</button>

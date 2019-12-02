@@ -6,8 +6,8 @@
     <image style="width:100%" src="{{item}}" wx:if="{{imgIndex[index]}}" mode="widthFix"></image>
   </view>
 
-  <view class="bottomImage">
+  <!-- <view class="bottomImage">
     <image bindtap="saveOfficialQRCode" style="width:100%" src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/accountpublicity2.jpeg" mode="widthFix"></image>
-  </view>
+  </view> -->
 </view>
 

@@ -83,6 +83,10 @@ Page({
     }
   },
 
+  saveOfficialQRCode: function (){
+    util.saveOfficialQRCode("")
+  },
+
   onShareAppMessage: function () {
     return {
       title: 'Toastmasters是什么? 头马助手带你玩转头马',

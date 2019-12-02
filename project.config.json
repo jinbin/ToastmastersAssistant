@@ -45,9 +45,16 @@
 			"list": [
 				{
 					"id": 0,
-					"name": "Pathways手册",
+					"name": "pathways",
 					"pathName": "pages/pathways/desc/desc",
 					"query": "level=1",
+					"scene": null
+				},
+				{
+					"id": 1,
+					"name": "roles",
+					"pathName": "pages/merger/merger",
+					"query": "roles=true",
 					"scene": null
 				}
 			]

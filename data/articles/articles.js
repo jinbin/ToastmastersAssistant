@@ -122,7 +122,7 @@ module.exports = {
 	"https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/articles/ChineseHipHop/Table%20Topic%EF%BC%88Becky%EF%BC%89.014.jpeg"
 	],
 	"membership": [
-		"https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/images/leveldesc.jpeg?sign=f93f8c0c45b8b532cd51be1137745801&t=1564649658",
+		// "https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/images/leveldesc.jpeg?sign=f93f8c0c45b8b532cd51be1137745801&t=1564649658",
 		"Lv1: 布衣演讲爱好者 初始状态",
 		"Lv2: 黑铁演讲爱好者 100积分以上",
 		"Lv3: 青铜演讲爱好者 200积分以上",
