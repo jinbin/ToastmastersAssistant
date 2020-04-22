@@ -12,7 +12,8 @@
 
 <view class="window3" style="padding-bottom: 0rpx;">
   <view class="userinfo" style="padding: 10rpx">
-    <open-data class="userinfo-avatar" type="userAvatarUrl" background-size="cover"></open-data>
+    <open-data class="userinfo-avatar" type="userAvatarUrl" background-size="cover">
+    </open-data>
   </view>
   <view bindtap="leveldesc" style="padding: 10rpx; display:flex; flex-direction: column; justify-content: center;">
     <view>
@@ -78,16 +79,16 @@
         <view class="downText" style="color:#9d441b;font-size:26rpx;">即兴演讲</view>
       </view>
       <view class="box3" style="">
-        <button id="guess" size="mini" style="background-color: #E8E8E8" formType="submit">
-          <image style="width:60rpx;height:60rpx" src="../../images/guess.png"></image>
-        </button>
-        <view style="font-size:26rpx;">精彩文章</view>
-      </view>
-      <view class="box3" style="">
         <button id="roles" size="mini" style="background-color: #E8E8E8" formType="submit">
           <image style="width:60rpx;height:60rpx" src="../../images/meeting11.png"></image>
         </button>
         <view style="font-size:26rpx;">头马角色</view>
+      </view>
+      <view class="box3" style="">
+        <button id="myintro" size="mini" style="background-color: #E8E8E8" formType="submit">
+          <image style="width:60rpx;height:60rpx" src="../../images/冠军.png"></image>
+        </button>
+        <view style="font-size:26rpx;">精品库</view>
       </view>
     </view>
   </form>
@@ -196,6 +197,20 @@
 
   <view class="line" style="background-color: #E8E8E8; width:95%;"></view>
 
+  <!-- <scroll-view class="container2">
+  <navigator url="/pages/reading/reading">
+  <view class="scrolltxt">
+    <view class="marquee_box" style="background-color:black">
+      <view class="marquee_text" style="transform: translateX(-{{marqueeDistance}}px)">
+        <text style="font-size:13px;color:#F8F8F8;">{{text}}</text>
+        <text style="margin-right:{{marquee_margin}}px;font-size:13px;"></text>
+        <text style="margin-right:{{marquee_margin}}px;font-size:13px;color:#F8F8F8;">{{text}}</text>        
+      </view>
+    </view>
+  </view>
+  </navigator>
+  </scroll-view> -->
+
 </view>
 
 <view class="container1">
@@ -258,10 +273,10 @@
   </view>
 </view>
 
-<view class="container1">
+<!-- <view class="container1">
   <image bindtap="toBilingualSpeak" id="jiesuo" style="width:100%" src="/images/jiesuo-min.jpeg" mode="widthFix" style="width:95%; border-radius:25rpx;">
   </image>
-</view>
+</view> -->
 
 <view class="container1" style="">
   <view class="title">
@@ -438,6 +453,10 @@
     </view>
   </form>
 </view>
+
+<!-- <view class="container1">
+  <ad unit-id="adunit-a9a18369f7e6d2c6" ad-type="grid" grid-opacity="0.8" grid-count="5" ad-theme="white"></ad>
+</view> -->
 
 <!-- <image bindtap="saveOfficialQRCode" src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/theultimatetoastmasters_qian.jpg" mode="scaleToFill" class="banner"></image> -->
 

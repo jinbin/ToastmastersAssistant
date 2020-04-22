@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/merger/merger",
+    "pages/toutiao/toutiao",
     "pages/manage/manage",
     "pages/reading/reading",
     "pages/testdb/testdb",
@@ -36,7 +37,7 @@
   "tabBar": {
     "list": [
       {
-        "pagePath": "pages/volItem/volItem",
+        "pagePath": "pages/toutiao/toutiao",
         "iconPath": "./images/tabBar/homepage.png",
         "selectedIconPath": "./images/tabBar/homepage-sel.png",
         "text": "发现"
@@ -55,15 +56,12 @@
       }
     ]
   },
+
   "navigateToMiniProgramAppIdList": [
-    "wx09a49d05a365a4e6",
-    "wx8abaf00ee8c3202e",
     "wx4c4b54bc609bd79e",
-    "wx18a2ac992306a5a4",
-    "wxc1ee10069d40b79c",
-    "wx018f0c4c2a1ee727",
-    "wxde40c5cf1d10c3d1"
+    "wx05d1a8b0228bcf67"
   ],
+
   "plugins": {
     "myPlugin": {
       "version": "1.0.6",

@@ -7,7 +7,7 @@
     <open-data class="userinfo-avatar" type="userAvatarUrl" background-size="cover"></open-data>
   </view>
   <!-- <image src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/wordmark.jpg" style="height: 80px; width: 100%" /> -->
-  <image bindtap="navigateToMiniProgram" id="wx18a2ac992306a5a4" data-path="pages/apps/largess/detail?id=LYFYxTFDv9E%3D" src="/images/support-min.jpeg" style="height: 80px; width: 100%"/>
+  <image bindtap="gotoGeizan" src="/images/support-min.jpeg" style="height: 80px; width: 100%"/>
 </view>
 
 <!-- <image src="https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/images/learnmore.jpg?sign=724100720ef0ddd30c216dcec6655a62&t=1542367040" style="height: 160px; width: 100%" /> -->
@@ -23,16 +23,23 @@
 </view>
 <view wx:else>
   <view wx:if="{{isAdError}}">
-    <image bindtap="saveOfficialQRCode" style="width:100%" src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/accountpublicity2.jpeg" mode="widthFix"></image>
-  </view>
-  <view wx:else>
-    <!-- <ad unit-id="adunit-ab171e6bb49115c5" binderror="aderror"></ad> -->
-  <navigator target="miniProgram" open-type="navigate" app-id="wx4c4b54bc609bd79e" path="/pages/index/index" extra-data="" version="release" style="width:100%">
-    <view class="container1">
+    <!-- <image bindtap="saveOfficialQRCode" style="width:100%" src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/accountpublicity2.jpeg" mode="widthFix"></image> -->
+    <navigator target="miniProgram" open-type="navigate" app-id="wx4c4b54bc609bd79e" path="/pages/index/index" extra-data="" version="release" style="width:100%">
+      <view class="container1">
         <image bindtap="toBilingualSpeak" style="width:100%" src="/images/topicscards-min.jpeg" mode="widthFix" style="width:95%; border-radius:25rpx;">
         </image>
-    </view>
+      </view>
     </navigator>
+  </view>
+  <view wx:else>
+    <!-- <ad unit-id="adunit-ab171e6bb49115c5"></ad> -->
+    <ad unit-id="adunit-ab171e6bb49115c5" binderror="aderror"></ad>
+    <!-- <navigator target="miniProgram" open-type="navigate" app-id="wx4c4b54bc609bd79e" path="/pages/index/index" extra-data="" version="release" style="width:100%">
+      <view class="container1">
+        <image bindtap="toBilingualSpeak" style="width:100%" src="/images/topicscards-min.jpeg" mode="widthFix" style="width:95%; border-radius:25rpx;">
+        </image>
+      </view>
+    </navigator> -->
   </view>
   <!-- <view open-type="navigate" bindtap="bindViewTap" > <view style="position: relative; display: flex; width: 100%; overflow: hidden" > <image src="http://aldpicsh-1252823355.cossh.myqcloud.com/ad_advertiser/15614430131992.png" style="width: 100%; margin: 0px auto; height: 91.2715px;"></image> </view> </view> -->
 </view>
@@ -42,7 +49,8 @@
   </xm-ad>
 </view> -->
 <view class="window">
-  <view class="box" bindtap="navigateTo" id="/pages/contact/contact">  
+  <!-- <view class="box" bindtap="navigateTo" id="/pages/contact/contact">   -->
+  <view class="box" bindtap="navigateTo" id="/pages/testdb/testdb?src=https://mp.weixin.qq.com/s/bRbL1FC14X_ZgBbc2Q_k8g">  
     <image style="width:80rpx;height:80rpx" src="../../images/setting1.png"></image>
     <view style="font-size:12px">认识作者</view>
   </view>

@@ -60,16 +60,27 @@ Page({
   pauseBtn: function () {
     console.log("暂停按钮");
     clearTimeout(timer);
+    isStart = 0;
   },
 
   // 重新开始
   resetBtn: function() {
     clearTimeout(timer);
     console.log("Reset");
+    isStart = 0;
     this.setData({
       hour: 0,
       min: this.data.time,
       sec: 0
+    })
+
+    // reset之后恢复背景色为白色
+    this.setData({
+      color: "white"
+    }),
+      wx.setNavigationBarColor({
+        frontColor: '#ffffff',
+        backgroundColor: '#F8F8F8',
     })
 
     this.setData({

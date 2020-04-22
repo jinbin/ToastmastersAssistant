@@ -1,4 +1,5 @@
 {
   "usingComponents": {},
+  "enablePullDownRefresh": false,
   "navigationBarTitleText": "演讲图书馆"
 }

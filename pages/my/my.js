@@ -59,6 +59,13 @@ Page({
     })
   },
 
+  gotoGeizan: function (options) {
+    wx.previewImage({
+      current: 'cloud://tmassistant-5275ad.746d-tmassistant-5275ad-1258071577/images/zanshang-min.jpeg', // 当前显示图片的http链接
+      urls: ["cloud://tmassistant-5275ad.746d-tmassistant-5275ad-1258071577/images/zanshang-min.jpeg"] // 需要预览的图片http链接列表
+    })
+  },
+
   checkIn: function(e) {
     wx.showModal({
       content: "恭喜你发现神秘打卡通道，更多惊喜即将上线",

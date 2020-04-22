@@ -14,6 +14,18 @@ Page({
    * 页面的初始数据
    */
   data: {
+    /*
+      文字无限滚动
+    */
+
+    // text: "更多公众演讲和领导力的内容，点击这里;        更多公众演讲和领导力的内容，点击这里;  更多公众演讲和领导力的内容，点击这里;        更多公众演讲和领导力的内容，点击这里;        ",
+    text: "更多公众演讲和领导力的内容，点击这里\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t",
+    marqueePace: 0.5, //滚动速度
+    marqueeDistance: 0, //初始滚动距离
+    marquee_margin: 30,
+    size: 14,
+    interval: 20, // 时间间隔
+
     texts: ["头马世界冠军教你四招搞定公众演讲", "必学！头马演讲达人给你的五条演讲建议"],
     page_ft: {
       data: "Copyright © 2019-2020 可能性工作室"
@@ -31,7 +43,7 @@ Page({
       },
       {
         "url": "../../images/dashangzhichi_banner-min.jpeg",
-        "bind": "dashang"
+        "bind": "gotoGeizan"
       }
       // {
       //   "url": "cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/TEDtalk2.jpeg",
@@ -47,21 +59,24 @@ Page({
     threshold: 1300,
     windowHeight: wx.getSystemInfoSync().windowHeight,
     userId: app.globalData.userInfo,
-    // topics: [
-    //   {
-    //     "title": "真人秀"
-    //   }, 
-    //   {
-    //     "title": "爱情"
-    //   }, 
-    //   {
-    //     "title": "嘻哈"
-    //   }, 
-    //   {
-    //     "title": "垃圾分类"
-    //   }, 
-    //   { "title": "生活"}, { "title": "说谎" }, { "title": "996" }, { "title": "困境" }, { "title": "高考"}
-    // ]
+    topics: [
+      {
+        "title": "真人秀",
+        "id": "06f09e83-ede9-4de1-8fb5-c2ea5a0d7215"
+      }, 
+      {
+        "title": "困境",
+        "id": "2d5ccb4f-e90f-4ec6-9118-0697e366117b"
+      }, 
+      {
+        "title": "假如",
+        "id": "EUO7d4DhyO4kGeyLxgUfJmNOgFNBPJNmkXlDT8Vdm5KNUk3M"
+      }, 
+      {
+        "title": "高考",
+        "id": "b9fb62e7-2a49-4e66-bc10-71cb6dcd03a2"
+      }
+    ]
   },
 
   onPageScroll: function(ev) {
@@ -258,6 +273,17 @@ Page({
       wx.navigateTo({
         url: '/pages/reading/reading',
       })
+    } else if (options.detail.target.id == "myintro") {
+      // this.pageScrollToBottom()
+      // wx.navigateTo({
+      //   url: '/pages/testdb/testdb?src=https://mp.weixin.qq.com/s/MEBK_YdhKjXaqj7Ir-MsDQ',
+      // })
+      wx.switchTab({
+        url: '/pages/toutiao/toutiao',
+      })
+      // wx.navigateTo({
+      //   url: '/pages/reading/reading?type=champ',
+      // })
     } else if (options.detail.target.id == "roles") {
       this.pageScrollToBottom()
     } else if (options.detail.target.id == "DTM") {
@@ -361,9 +387,13 @@ Page({
   },
 
   gotoGeizan: function(options) {
-    wx.navigateToMiniProgram({
-      appId: 'wx18a2ac992306a5a4',
-      path: 'pages/apps/largess/detail?id=LYFYxTFDv9E%3D'
+    // wx.navigateToMiniProgram({
+    //   appId: 'wx18a2ac992306a5a4',
+    //   path: 'pages/apps/largess/detail?id=LYFYxTFDv9E%3D'
+    // })
+    wx.previewImage({
+      current: 'cloud://tmassistant-5275ad.746d-tmassistant-5275ad-1258071577/images/zanshang-min.jpeg', // 当前显示图片的http链接
+      urls: ["cloud://tmassistant-5275ad.746d-tmassistant-5275ad-1258071577/images/zanshang-min.jpeg"] // 需要预览的图片http链接列表
     })
   },
 
@@ -411,11 +441,11 @@ Page({
 
     var naviTo = '/pages/webview/webview?article=' + options.detail.target.id
 
-    if(options.detail.target.id == "timer"){
+    if (options.detail.target.id == "timer") {
       naviTo = '/pages/testdb/testdb?src=https://mp.weixin.qq.com/s/8qZ35ufgvfU9Vofey9cpoA'
-    } else if (options.detail.target.id == "grammarian"){
+    } else if (options.detail.target.id == "grammarian") {
       naviTo = '/pages/testdb/testdb?src=https://mp.weixin.qq.com/s/CgAhMmeHUhzk7ggP3bZjXQ'
-    } else if (options.detail.target.id == "ahcounter"){
+    } else if (options.detail.target.id == "ahcounter") {
       naviTo = '/pages/testdb/testdb?src=https://mp.weixin.qq.com/s/Dgxafy9C2VbD7-zof0d6CA'
     } else if (options.detail.target.id == "tm") {
       naviTo = '/pages/testdb/testdb?src=https://mp.weixin.qq.com/s/kO0vAauBvhBpe2R_H6cx9g'
@@ -429,7 +459,7 @@ Page({
       naviTo = '/pages/testdb/testdb?src=https://mp.weixin.qq.com/s/mn1_Sexe6RxEDoHWxKKFJw'
     } else if (options.detail.target.id == "SAA1") {
       naviTo = '/pages/testdb/testdb?src=https://mp.weixin.qq.com/s/02os_4WjmHkPqg6_jjC1KA'
-    } 
+    }
 
     wx.navigateTo({
       url: naviTo,
@@ -541,7 +571,7 @@ Page({
   },
 
   tmIntro: function(options) {
-    
+
   },
 
   checkin: function(options) {
@@ -660,9 +690,9 @@ Page({
   },
 
   // 获取容器高度，使页面滚动到容器底部
-  pageScrollToBottom: function () {
+  pageScrollToBottom: function() {
     wx.createSelectorQuery().select('#jiesuo').boundingClientRect(
-      function (rect) {
+      function(rect) {
         // 使页面滚动到底部
         console.log(rect)
         wx.pageScrollTo({
@@ -676,12 +706,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+
+    // wx.getNetworkType({
+    //   success(res) {
+    //     const networkType = res.networkType
+    //     console.log(res.networkType)
+    //   }
+    // })
+
     var that = this
     this.setData({
       banner_height: 240 / wx.getSystemInfoSync().windowHeight * 100
     })
 
-    if(options.roles){
+    if (options.roles) {
       this.pageScrollToBottom()
     }
 
@@ -696,7 +734,7 @@ Page({
         db.collection("guessYouLike").where({
           onIndex: true
         }).get({
-          success: function (e) {
+          success: function(e) {
             console.log(e)
             that.setData({
               guessYouLike: e.data.reverse()
@@ -704,60 +742,104 @@ Page({
             db.collection("information").where({
               type: "topics"
             }).get({
-              success: function (e) {
+              success: function(e) {
                 console.log(e.data[0].topics)
                 that.setData({
                   topics: e.data[0].topics
+                })
+                wx.cloud.callFunction({
+                  name: "getOpenid",
+                  success: res => {
+                    that.setData({
+                      openId: res.result.openid
+                    })
+                    var openid = res.result.openid
+                    db.collection("checkin").where({
+                      openid: res.result.openid
+                    }).get({
+                      success: function (res) {
+                        console.log(res.data)
+                        if (res.data.length == 0) {
+                          that.setData({
+                            level: "青铜"
+                          })
+                        } else {
+                          var level_set = "布衣"
+                          var score = res.data[0].checkin * 10
+                          if (score < 100) { } else if (score < 200) {
+                            level_set = "黑铁"
+                          } else if (score < 400) {
+                            level_set = "青铜"
+                          } else if (score < 600) {
+                            level_set = "白银"
+                          } else if (score < 800) {
+                            level_set = "黄金"
+                          } else if (score < 1000) {
+                            level_set = "铂金"
+                          } else if (score < 2000) {
+                            level_set = "钻石"
+                          } else if (score < 4000) {
+                            level_set = "闪烁"
+                          } else {
+                            console.log("不在范围内")
+                          }
+                          that.setData({
+                            level: level_set
+                          })
+                        }
+                      }
+                    })
+                  }
                 })
               }
             })
           }
         })
-        wx.cloud.callFunction({
-          name: "getOpenid",
-          success: res => {
-            that.setData({
-              openId: res.result.openid
-            })
-            var openid = res.result.openid
-            db.collection("checkin").where({
-              openid: res.result.openid
-            }).get({
-              success: function (res) {
-                console.log(res.data)
-                if (res.data.length == 0) {
-                  that.setData({
-                    level: "青铜"
-                  })
-                } else {
-                  var level_set = "布衣"
-                  var score = res.data[0].checkin * 10
-                  if (score < 100) {
-                  } else if (score < 200) {
-                    level_set = "黑铁"
-                  } else if (score < 400) {
-                    level_set = "青铜"
-                  } else if (score < 600) {
-                    level_set = "白银"
-                  } else if (score < 800) {
-                    level_set = "黄金"
-                  } else if (score < 1000) {
-                    level_set = "铂金"
-                  } else if (score < 2000) {
-                    level_set = "钻石"
-                  } else if (score < 4000) {
-                    level_set = "闪烁"
-                  } else {
-                    console.log("不在范围内")
-                  }
-                  that.setData({
-                    level: level_set
-                  })
-                }
-              }
-            })
-          }
-        })
+
+        // wx.cloud.callFunction({
+        //   name: "getOpenid",
+        //   success: res => {
+        //     that.setData({
+        //       openId: res.result.openid
+        //     })
+        //     var openid = res.result.openid
+        //     db.collection("checkin").where({
+        //       openid: res.result.openid
+        //     }).get({
+        //       success: function(res) {
+        //         console.log(res.data)
+        //         if (res.data.length == 0) {
+        //           that.setData({
+        //             level: "青铜"
+        //           })
+        //         } else {
+        //           var level_set = "布衣"
+        //           var score = res.data[0].checkin * 10
+        //           if (score < 100) {} else if (score < 200) {
+        //             level_set = "黑铁"
+        //           } else if (score < 400) {
+        //             level_set = "青铜"
+        //           } else if (score < 600) {
+        //             level_set = "白银"
+        //           } else if (score < 800) {
+        //             level_set = "黄金"
+        //           } else if (score < 1000) {
+        //             level_set = "铂金"
+        //           } else if (score < 2000) {
+        //             level_set = "钻石"
+        //           } else if (score < 4000) {
+        //             level_set = "闪烁"
+        //           } else {
+        //             console.log("不在范围内")
+        //           }
+        //           that.setData({
+        //             level: level_set
+        //           })
+        //         }
+        //       }
+        //     })
+        //   }
+        // })
       }
     })
   },
@@ -787,6 +869,43 @@ Page({
         }
       }
     })
+
+    var length = that.data.text.length * that.data.size; //文字长度
+    var windowWidth = wx.getSystemInfoSync().windowWidth; // 屏幕宽度
+    //console.log(length,windowWidth);
+    that.setData({
+      length: length,
+      windowWidth: windowWidth
+    });
+    that.scrolltxt(); // 第一个字消失后立即从右边出现
+  },
+
+  scrolltxt: function() {
+    var that = this;
+    var length = that.data.length; //滚动文字的宽度
+    var windowWidth = that.data.windowWidth; //屏幕宽度
+    if (length > windowWidth) {
+      var interval = setInterval(function() {
+        var maxscrollwidth = length + that.data.marquee_margin; //滚动的最大宽度，文字宽度+间距，如果需要一行文字滚完后再显示第二行可以修改marquee_margin值等于windowWidth即可
+        var crentleft = that.data.marqueeDistance;
+        if (crentleft < maxscrollwidth) { //判断是否滚动到最大宽度
+          that.setData({
+            marqueeDistance: crentleft + that.data.marqueePace
+          })
+        } else {
+          //console.log("替换");
+          that.setData({
+            marqueeDistance: 0 // 直接重新滚动
+          });
+          clearInterval(interval);
+          that.scrolltxt();
+        }
+      }, that.data.interval);
+    } else {
+      that.setData({
+        marquee_margin: "1000"
+      }); //只显示一条不滚动右边间距加大，防止重复显示
+    }
   },
 
   /**
@@ -819,7 +938,7 @@ Page({
 
   onShareAppMessage: function(res) {
     return {
-      title: '头马助手, 专注中英文双语演讲, 2万名终身学习者的选择',
+      title: '头马助手, 专注中英文双语演讲, 3万名终身学习者的选择',
       imageUrl: '/images/indexforward-min.jpg'
     }
   }
