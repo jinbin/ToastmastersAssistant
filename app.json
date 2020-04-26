@@ -1,7 +1,8 @@
 {
   "pages": [
     "pages/merger/merger",
-    "pages/toutiao/toutiao",
+    "pages/tm/clock/set/set",
+    "pages/tm/clock/countdown/countdown",
     "pages/manage/manage",
     "pages/reading/reading",
     "pages/testdb/testdb",
@@ -21,9 +22,7 @@
     "pages/pathways/document/document",
     "pages/pathways/article/article",
     "pages/edit/edit",
-    "pages/tm/clock/set/set",
     "pages/article/article",
-    "pages/tm/clock/countdown/countdown",
     "pages/xmadPage/copyInfo",
     "pages/xmadPage/sell",
     "pages/xmadPage/collect"
@@ -37,10 +36,10 @@
   "tabBar": {
     "list": [
       {
-        "pagePath": "pages/toutiao/toutiao",
+        "pagePath": "pages/reading/reading",
         "iconPath": "./images/tabBar/homepage.png",
         "selectedIconPath": "./images/tabBar/homepage-sel.png",
-        "text": "发现"
+        "text": "在看"
       },
       {
         "pagePath": "pages/merger/merger",
@@ -63,10 +62,6 @@
   ],
 
   "plugins": {
-    "myPlugin": {
-      "version": "1.0.6",
-      "provider": "wx5bc2ac602a747594"
-    }
   },
   "sitemapLocation": "sitemap.json",
   "requiredBackgroundModes": [

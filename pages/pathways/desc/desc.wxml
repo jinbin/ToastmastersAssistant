@@ -11,10 +11,6 @@
           </button>
           <view class="downText">{{list[index][0]}}</view>
           <view class="downText">{{list[index][1]}}</view>
-          <!-- <view class="downText">Level 1</view>
-        <view class="downText">Mastering Fundamentals</view> -->
-          <!-- <view class="downText">{{list[index][1]}}</view>
-        <view class="downText">{{list[index][0]}}</view> -->
         </view>
         <!-- <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
         <view class="page__title">
@@ -62,9 +58,10 @@
                     </view>
                     <view class="kind-list__item-bd {{item.open != 'false' ? 'kind-list__item-bd_show' : ''}}">
                       <view class="weui-cells {{item.open != 'false' ? 'weui-cells_show' : ''}}" style="padding: 20rpx;">
-                        <text space="ensp" selectable='true'>{{item.desc}}\n\n</text>
+                        <text space="ensp" selectable='true' class="descText">{{item.desc}}\n\n</text>
                         <!-- <navigator style="right: 20px; color:#00BFFF" url="/pages/canvas/canvas?texts={{item.desc}}">【图片转发】</navigator> -->
-                        <navigator wx:if="{{item.resource}}" style="right: 20px; color:#00BFFF" url="/pages/pathways/document/document?url={{'https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/tmcResources/Evaluation%20Resource/cn/CS' + item.resource + '.pdf'}}">【评估资料】</navigator>
+                        <navigator wx:if="{{item.resource}}" class="descText" style="right: 20px; color:#00BFFF" url="/pages/pathways/document/document?url={{'https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/tmcResources/Evaluation%20Resource/cn/CS' + item.resource + '.pdf'}}">【评估资料】</navigator>
+                        <navigator wx:if="{{item.sample_cn}}" class="descText" style="right: 20px; color:#00BFFF" url="/pages/testdb/testdb?src={{item.sample_cn}}">【参考范文】</navigator>
                       </view>
                     </view>
                   </view>
@@ -91,8 +88,9 @@
                     </view>
                     <view class="kind-list__item-bd {{item.open != 'false' ? 'kind-list__item-bd_show' : ''}}">
                       <view class="weui-cells {{item.open != 'false' ? 'weui-cells_show' : ''}}" style="padding: 20rpx;">
-                        <text space="ensp" selectable='true'>{{item.desc}}\n\n</text>
-                        <navigator wx:if="{{item.resource}}" style="right: 20px; color:#00BFFF" url="/pages/pathways/document/document?url={{'https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/tmcResources/Evaluation%20Resource/en/' + item.resource + '.pdf'}}">【Evaluation Resource】</navigator>
+                        <text space="ensp" selectable='true' class="descText">{{item.desc}}\n\n</text>
+                        <navigator wx:if="{{item.resource}}" class="descText" style="right: 20px; color:#00BFFF" url="/pages/pathways/document/document?url={{'https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/tmcResources/Evaluation%20Resource/en/' + item.resource + '.pdf'}}">【Evaluation Resource】</navigator>
+                        <navigator wx:if="{{item.sample_en}}" class="descText" style="right: 20px; color:#00BFFF" url="/pages/testdb/testdb?src={{item.sample_en}}">【Model Essay】</navigator>
                       </view>
                     </view>
                   </view>

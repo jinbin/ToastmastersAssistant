@@ -76,7 +76,7 @@
   </view> -->
   <view class="box" bindtap="navigateToMiniProgram" id="wx4c4b54bc609bd79e">
     <image style="width:80rpx;height:80rpx" src="../../images/setting4.png"></image> 
-    <view style="font-size:12px;">双语演讲</view>
+    <view style="font-size:12px;">即兴演讲</view>
   </view>
 </view>
 

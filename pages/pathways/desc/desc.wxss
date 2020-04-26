@@ -127,3 +127,7 @@ text.bold100{
   font-size:13px;
   color:#4F4F4F;
 }
+
+.descText {
+  font-size:15px;
+}

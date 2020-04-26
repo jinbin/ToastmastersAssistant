@@ -3,6 +3,40 @@
   font-family:'Courier New', Courier, monospace
 }
 
+button::after{ 
+	border: none; 
+}
+
+button {
+    border-radius: 30px;
+}
+
+.timeset {
+  display: flex;
+  flex-direction: row;
+}
+
+.configure {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding-right: 20rpx
+}
+
+.buttonArea {
+  display: flex;
+  flex-direction: row;
+  /* align-items: center; */
+  justify-content: space-around;
+}
+
+.colorArea {
+  display: flex;
+  /* align-items: center; */
+  /* align-content: center; */
+  justify-content: center;
+}
+
 .userinfo {
   margin-top: 40px;
   display: flex;

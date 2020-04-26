@@ -158,6 +158,14 @@ button {
   /* align-content: center; */
 }
 
+.text_title {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 5px;
+}
+
 .dailylisten {
   display: flex;
   flex-direction: row;

@@ -12,7 +12,54 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    currentId: "all",
+    types: [
+      // {
+      //   "text": "冠军演讲",
+      //   "id": "champ",
+      //   "icon": "matrix_DarkCyan.png"
+      // },
+      {
+        "text": "全部",
+        "id": "all",
+        "icon": "all.png"
+      },
+      {
+        "text": "做演讲",
+        "id": "speaking",
+        "icon": "speaking.png"
+      },
+      {
+        "text": "领导力",
+        "id": "leadership",
+        "icon": "leadership.png"
+      },
+      {
+        "text": "TED精选",
+        "id": "ted",
+        "icon": "幸福.png"
+      },
+      {
+        "text": "大地王子",
+        "id": "princeea",
+        "icon": "prince.png"
+      },
+      {
+        "text": "杰伊谢蒂",
+        "id": "jayshetty",
+        "icon": "jay.png"
+      },
+      {
+        "text": "冠军们",
+        "id": "champ",
+        "icon": "冠军.png"
+      }
+      // {
+      //   "text": "头马中国",
+      //   "id": "tmChina",
+      //   "icon": "matrix_orange.png"
+      // }
+    ]
   },
 
   /**
@@ -49,6 +96,35 @@ Page({
             wx.hideLoading()
           }
         })
+      }
+    })
+  },
+
+  changetype: function(options) {
+    console.log(options.currentTarget.id)
+    this.setData({
+      currentId: options.currentTarget.id
+    })
+
+    var that = this
+    console.log(that.data.currentId)
+
+    var type = undefined
+    if(that.data.currentId != "all"){
+      type = that.data.currentId
+    }
+
+    console.log(type)
+    db.collection("guessYouLike").where({
+      type: type
+    }).get({
+      success: function (e) {
+        console.log(e)
+        that.setData({
+          // guessYouLike: e.data.reverse()
+          guessYouLike: e.data
+        })
+        wx.hideLoading()
       }
     })
   },
@@ -110,16 +186,9 @@ Page({
    */
   onShareAppMessage: function(res) {
     console.log(this.data.type)
-    if (this.data.type == "champ") {
-      return {
-        title: '头马世界演讲冠军视频全集，全在这里~',
-        imageUrl: '/images/冠军-min.jpeg'
-      }
-    } else {
-      return {
-        title: '邀请你参观演讲图书馆，最全的头马冠军演讲视频全集',
-        imageUrl: '/images/图书馆-min.jpeg'
-      }
+    return {
+      title: '大家都在看的精彩文章~',
+      imageUrl: '/images/冠军-min.jpeg'
     }
   }
 })

@@ -274,15 +274,11 @@ Page({
         url: '/pages/reading/reading',
       })
     } else if (options.detail.target.id == "myintro") {
-      // this.pageScrollToBottom()
-      // wx.navigateTo({
-      //   url: '/pages/testdb/testdb?src=https://mp.weixin.qq.com/s/MEBK_YdhKjXaqj7Ir-MsDQ',
-      // })
       wx.switchTab({
-        url: '/pages/toutiao/toutiao',
+        url: '/pages/reading/reading',
       })
       // wx.navigateTo({
-      //   url: '/pages/reading/reading?type=champ',
+      //   url: '/pages/reading/reading',
       // })
     } else if (options.detail.target.id == "roles") {
       this.pageScrollToBottom()
@@ -328,9 +324,21 @@ Page({
       })
     } else if (options.detail.target.id == "topics") {
       wx.navigateToMiniProgram({
-        appId: 'wx4c4b54bc609bd79e'
+        appId: 'wx4c4b54bc609bd79e',
+        path: 'pages/index/index?challenge=true'
       })
-    } else if (options.detail.target.id == "todayaudio") {
+    } else if (options.detail.target.id == "timertool"){
+      wx.navigateTo({
+        url: '/pages/tm/clock/countdown/countdown',
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+    } else if (options.detail.target.id == "matrix") {
+      wx.navigateTo({
+        url: '/pages/knowledge/matrix/matrix',
+      })
+    }else if (options.detail.target.id == "todayaudio") {
       wx.showModal({
         content: "\"今日听力\"\n每天精选BBC Learning English 6分钟英语音频。\n适合初中级英语学习者锻炼听力，学习地道表达，以及扩充知识面。\n建议第一遍泛听，第二遍开始精听，至少听三遍以上。",
         showCancel: true,
@@ -485,7 +493,7 @@ Page({
 
     if (options.detail.target.id == "timertool") {
       wx.navigateTo({
-        url: '/pages/tm/clock/set/set',
+        url: '/pages/tm/clock/countdown/countdown',
         success: function(res) {},
         fail: function(res) {},
         complete: function(res) {},
@@ -691,7 +699,7 @@ Page({
 
   // 获取容器高度，使页面滚动到容器底部
   pageScrollToBottom: function() {
-    wx.createSelectorQuery().select('#jiesuo').boundingClientRect(
+    wx.createSelectorQuery().select('#juese').boundingClientRect(
       function(rect) {
         // 使页面滚动到底部
         console.log(rect)
@@ -716,7 +724,7 @@ Page({
 
     var that = this
     this.setData({
-      banner_height: 240 / wx.getSystemInfoSync().windowHeight * 100
+      banner_height: 220 / wx.getSystemInfoSync().windowHeight * 110
     })
 
     if (options.roles) {

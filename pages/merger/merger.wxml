@@ -19,16 +19,16 @@
     <view>
       <open-data style="color:black" type="userNickName"></open-data>
     </view>
-    <view class="downText">
+    <view class="downText" style="font-size:12px;">
       <text style="color:#e46e0c">{{level}}</text>演讲爱好者
     </view>
   </view>
   <view bindtap="checkin" style="padding: 10rpx; display:flex; flex-direction: column; justify-content: center; align-items: center; ">
-    <image style="width:60rpx;height:60rpx" src="../../images/daka.png"></image>
+    <image style="width:45rpx;height:45rpx" src="../../images/daka.png"></image>
     <view class="downText" style="font-size:12px;">每日打卡</view>
   </view>
   <view bindtap="leveldesc" style="padding: 10rpx; display:flex; flex-direction: column; justify-content: center; align-items: center; ">
-    <image style="width:60rpx;height:60rpx;left:10rpx;" src="../../images/info.png"></image>
+    <image style="width:45rpx;height:45rpx;left:10rpx;" src="../../images/info.png"></image>
     <view class="downText" style="font-size:12px;">等级说明</view>
   </view>
   <!-- <view style="padding: 10rpx; display:flex; flex-direction: column; justify-content: center; align-items: center; ">
@@ -66,29 +66,41 @@
         </button>
         <view class="downText" style="color:#9d441b;font-size:26rpx;">今日听力</view>
       </view> -->
-      <view class="box3" style="">
-        <button id="6" size="mini" style="background-color: #E8E8E8" formType="submit">
-          <image style="width:60rpx;height:60rpx" src="../../images/blocks2.png"></image>
+      <view class="box3">
+        <button id="6" size="mini" style="" formType="submit">
+          <image style="width:70rpx;height:70rpx" src="../../images/speech.png"></image>
         </button>
         <view class="downText" style="color:#1E90FF;font-size:26rpx;">胜任演讲</view>
       </view>
       <view class="box3" style="">
-        <button id="topics" size="mini" style="background-color: #E8E8E8" formType="submit">
-          <image style="width:60rpx;height:60rpx" src="../../images/topics_color9.png"></image>
+        <button id="myintro" size="mini" style="" formType="submit">
+          <image style="width:70rpx;height:70rpx" src="../../images/在看.png"></image>
         </button>
-        <view class="downText" style="color:#9d441b;font-size:26rpx;">即兴演讲</view>
+        <view style="color:#CD9B1D;font-size:26rpx;">大家都在看</view>
       </view>
       <view class="box3" style="">
-        <button id="roles" size="mini" style="background-color: #E8E8E8" formType="submit">
-          <image style="width:60rpx;height:60rpx" src="../../images/meeting11.png"></image>
+        <button id="topics" size="" style="" formType="submit">
+          <image style="width:70rpx;height:70rpx" src="../../images/核心业务.png"></image>
         </button>
-        <view style="font-size:26rpx;">头马角色</view>
+        <view class="downText" style="color:#9d441b;font-size:26rpx;">即兴挑战</view>
       </view>
       <view class="box3" style="">
-        <button id="myintro" size="mini" style="background-color: #E8E8E8" formType="submit">
-          <image style="width:60rpx;height:60rpx" src="../../images/冠军.png"></image>
+        <button id="roles" size="mini" style="" formType="submit">
+          <image style="width:70rpx;height:70rpx" src="../../images/核心.png"></image>
         </button>
-        <view style="font-size:26rpx;">精品库</view>
+        <view style="color:#CD5555;font-size:26rpx;">头马角色</view>
+      </view>
+      <view class="box3" style="">
+        <button id="timertool" size="mini" style="" formType="submit">
+          <image style="width:70rpx;height:70rpx" src="../../images/timer.png"></image>
+        </button>
+        <view style="color:#008B8B;font-size:26rpx;">头马计时器</view>
+      </view>
+      <view class="box3" style="">
+        <button id="matrix" size="mini" style="" formType="submit">
+          <image style="width:70rpx;height:70rpx" src="../../images/pdf.png"></image>
+        </button>
+        <view style="color:#B22222;font-size:26rpx;">Pathways</view>
       </view>
     </view>
   </form>
@@ -182,7 +194,14 @@
 </form>
 
 <view class="cards" id="cards" style="padding:15rpx">
-
+  <view class="text_title">
+    <view style="padding-left: 25px;">大家都在看</view>
+    <view style="padding-right: 30px; font-size: 13px;">
+      <navigator url="/pages/reading/reading" open-type="switchTab">
+        查看全部
+      </navigator>
+    </view>
+  </view>
   <view wx:for="{{guessYouLike}}" style="width:95%;">
     <view class="line" style="background-color: #E8E8E8"></view>
 
@@ -278,7 +297,7 @@
   </image>
 </view> -->
 
-<view class="container1" style="">
+<view class="container1" id="juese" style="">
   <view class="title">
     <text style="color:DimGray">—</text> 头马会议
     <text style="color:DimGray">—</text>
@@ -428,7 +447,7 @@
       </view> -->
       <view class="box_tool">
         <button id="timertool" size="mini" formType="submit">
-          <image style="width:60rpx;height:60rpx" src="../../images/tool2.png"></image>
+          <image style="width:60rpx;height:60rpx" src="../../images/timer.png"></image>
         </button>
         <view class="downText">演讲计时</view>
       </view>
@@ -438,15 +457,15 @@
         </button>
         <view class="downText">语音翻译</view>
       </view> -->
-      <view class="box_tool">
+      <!-- <view class="box_tool">
         <button id="check" size="mini" formType="submit">
           <image style="width:60rpx;height:60rpx" src="../../images/tool4.png"></image>
         </button>
         <view class="downText">头马清单</view>
-      </view>
+      </view> -->
       <view class="box_tool">
         <button id="matrix" size="mini" formType="submit">
-          <image style="width:60rpx;height:60rpx" src="../../images/tool5.png"></image>
+          <image style="width:60rpx;height:60rpx" src="../../images/matrix-active.png"></image>
         </button>
         <view class="downText">Matrix</view>
       </view>

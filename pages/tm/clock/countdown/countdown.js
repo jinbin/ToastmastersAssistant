@@ -3,22 +3,51 @@ const app = getApp()
 
 var timer
 
-var isStart = 0
+//var isStart = 0
 
 Page({
   data: {
-    hour: 0,
     min: 0,
-    sec: 0
+    sec: 0,
+    time_all: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+    index: 6,
+    isStart: 0
+  },
+
+  setTime(e) {
+    var that = this
+    that.pauseBtn()
+    that.setData({
+      index: e.detail.value// 事件后触发获取的值
+    })
+    that.setData({
+      min: that.data.time_all[that.data.index],
+      sec: 0
+    })
+
+    that.setData({
+      xmin: zeroFill(that.data.min, 2),
+      xsec: zeroFill(that.data.sec, 2),
+    })
+    // //设置时间时，计时暂停
+    // if(isStart == 0){
+    //   //未在计时
+    // }else{
+    //   //计时中，先暂停
+    // }
+    console.log(e)
   },
 
   onLoad: function (options) {
-    if(options.time){
+    var that = this
+    if(options.min){
+      var sec_value = 0;
+      if(options.sec){
+        sec_value = options.sec
+      }
       this.setData({
-        time: options.time,
-        hour: 0,
-        min: options.time,
-        sec: 0,
+        min: options.min,
+        sec: sec_value,
         green_time: 2,
         yellow_time: 1,
         red_time: 15,
@@ -26,16 +55,15 @@ Page({
       })
     }else{
       this.setData({
-        time: 3,
+        // time: 3,
         hour: 0,
-        min: 3,
+        min: that.data.time_all[that.data.index],
         sec: 0,
         color: "white"
       })
     }
 
     this.setData({
-      xhour: zeroFill(this.data.hour, 2),
       xmin: zeroFill(this.data.min, 2),
       xsec: zeroFill(this.data.sec, 2),
     })
@@ -49,10 +77,12 @@ Page({
 
   // 自定义的开始按钮
   startBtn: function() {
-    if (!isStart){
+    if (!this.data.isStart){
       console.log("开始按钮")
       Countdown(this)
-      isStart = 1
+      this.setData({
+        isStart: 1
+      })
     }
   },
 
@@ -60,17 +90,20 @@ Page({
   pauseBtn: function () {
     console.log("暂停按钮");
     clearTimeout(timer);
-    isStart = 0;
+    this.setData({
+      isStart: 0
+    })
   },
 
   // 重新开始
   resetBtn: function() {
     clearTimeout(timer);
     console.log("Reset");
-    isStart = 0;
     this.setData({
-      hour: 0,
-      min: this.data.time,
+      isStart: 0
+    })
+    this.setData({
+      min: this.data.time_all[this.data.index],
       sec: 0
     })
 
@@ -84,7 +117,6 @@ Page({
     })
 
     this.setData({
-      xhour: zeroFill(this.data.hour, 2),
       xmin: zeroFill(this.data.min, 2),
       xsec: zeroFill(this.data.sec, 2),
     })
@@ -127,10 +159,27 @@ Page({
     }
   },
 
+  gotoSetting: function() {
+    // wx.navigateTo({
+    //   url: '/pages/tm/clock/set/set',
+    // })
+    wx.showModal({
+      content: "计时器使用说明\n点击\"当前选择\"，设置需要倒计时的时间。\n当剩余2分钟，背景色自动变为绿色并振动；当剩余1分钟，背景色自动变为黄色并振动；当剩余15秒，背景色自动变为红色并振动；当时间走完，振动提醒。\n点击最下方的颜色按钮，可以主动设置背景色，将计时器作为颜色卡片使用。",
+      showCancel: false,
+      confirmText: '知道啦',
+      confirmColor: '#ff7f50',
+      success: function (res) {
+        if (res.confirm) {
+        }
+      }
+    })
+  },
+
   onShareAppMessage: function () {
     return {
-      title: this.data.time+"分钟演讲计时器",
-      path: "/pages/tm/clock/countdown/countdown?time=" + this.data.time
+      title: "最简洁好用的演讲计时器！",
+      imageUrl: "/images/timer_forward-min.png",
+      path: "/pages/tm/clock/countdown/countdown"
     }
   }
 
@@ -164,7 +213,6 @@ function Countdown(pointer) {
         pointer.data.sec = 59
         pointer.data.min = pointer.data.min - 1
         pointer.setData({
-          xhour: zeroFill(pointer.data.hour, 2),
           xmin: zeroFill(pointer.data.min, 2),
           xsec: zeroFill(pointer.data.sec, 2),
         })
@@ -172,12 +220,13 @@ function Countdown(pointer) {
       }else{
         console.log("完成")
         pointer.setData({
-          color: ""
+          color: "",
+          isStart: 0
         })
         wx.setNavigationBarColor({
           frontColor: '#ffffff',
           backgroundColor: '#F8F8F8',
-        }) 
+        })
         wx.vibrateLong()
       }
     }else{
@@ -191,7 +240,6 @@ function Countdown(pointer) {
         })
       }
       pointer.setData({
-        xhour: zeroFill(pointer.data.hour,2),
         xmin: zeroFill(pointer.data.min, 2),
         xsec: zeroFill(pointer.data.sec, 2),
       })
