@@ -450,6 +450,14 @@
   </view>
 
   <form report-submit="true" bindsubmit="getTool" style="width:95%">
+    <view class="text_title">
+      <view style="padding-left: 25px;"></view>
+      <view style="padding-right: 30px; font-size: 13px;">
+      <navigator url="/pages/tm/eggs/eggs">
+        查看全部彩蛋
+      </navigator>
+      </view>
+    </view>
     <view class="window1">
       <!-- <view class="box_tool">
         <button id="translator" size="mini" formType="submit">

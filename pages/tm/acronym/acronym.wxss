@@ -27,14 +27,14 @@
 }
 
 .box_tool {
-  width: 30%;
+  width: 33%;
   height: 120rpx;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   align-content: center;
-  padding: 5rpx;
+  padding-top: 5rpx;
 }
 
 button::after {

@@ -1,5 +1,6 @@
 <!--pages/tm/acronym/acronym.wxml-->
 <view class="container1">
+    <image class='background' src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad-1258071577/images/star.gif" mode="aspectFill"></image>
     <view class="window1">
       <block wx:for="{{top_icons}}">
         <view class="top">
@@ -14,10 +15,12 @@
     <text style="color:white;font-size:12px;padding-bottom:10rpx;">打开彩蛋，后果自负，概不负责</text>
   </view>
     <view class="window1">
-      <block wx:for="{{eggs}}">
-        <view class="box_tool" bindtap="egg" data-id="{{item}}">
-          <image style="width:60rpx;height:60rpx" src="../../../images/淡色任务-彩蛋.png"></image>
-          <view class="downText">彩蛋</view>
+      <block wx:for="{{eggs}}" wx:for-index="key"  wx:for-item="value">
+        <view class="box_tool" bindtap="egg" data-id="{{key}}">
+          <image wx:if="{{!value}}" style="width:60rpx;height:60rpx" src="../../../images/淡色任务-彩蛋.png"></image>
+          <view wx:if="{{!value}}">彩蛋</view>
+          <image wx:if="{{value}}" style="width:60rpx;height:60rpx" src="../../../images/鸡蛋2.png"></image>
+          <view wx:if="{{value}}" style="color:#90EE90">彩蛋</view>
         </view>
       </block>
     </view>
