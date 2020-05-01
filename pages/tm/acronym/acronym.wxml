@@ -1,0 +1,21 @@
+<!--pages/tm/acronym/acronym.wxml-->
+<view class="container1">
+  <image style="width:100rpx;height:100rpx" src="../../../images/词典.png"></image>
+  <view style="padding-top:15rpx;">
+    <text style="color:DimGray;font-size:12px;padding-bottom:10rpx;">当你第一次看到CC, ACB, LDREXC, DCP, DTM...</text>
+  </view>
+  <view>
+    <text style="color:DimGray;font-size:12px;padding-bottom:10rpx;">你是否也曾一头雾水，满脸问号？</text>
+  </view>
+  <view style="padding-bottom:15rpx;">
+    <text style="color:DimGray;font-size:12px;padding-bottom:30rpx;">不要怕，这是全世界最全的头马缩略词大全(翻译进行中)</text>
+  </view>
+    <view class="window1">
+      <block wx:for="{{explains}}" wx:for-index="key"  wx:for-item="value">
+        <view class="box_tool" bindtap="explain" data-id="{{key}}">
+          <image style="width:60rpx;height:60rpx" src="../../../images/acronym.png"></image>
+          <view class="downText">{{key}}</view>
+        </view>
+      </block>
+    </view>
+</view>

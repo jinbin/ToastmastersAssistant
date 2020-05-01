@@ -2,7 +2,10 @@
   <view class="vol-card" bindtap="saveOfficialQRCode">
     <image class="vol-picture" src="{{item.hp_img_url}}" mode="aspectFit"></image>
     <view class="vol-content">
-      <text class="vol-content-text">{{item.hp_content}}</text>
+      <text class="vol-content-content">{{item.hp_content}}</text>
+    </view>
+    <view class="vol-content">
+      <text class="vol-content-anwser">{{item.hp_anwser}}</text>
     </view>
   </view>
 </template>

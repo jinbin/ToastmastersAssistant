@@ -1,6 +1,10 @@
 {
   "pages": [
     "pages/merger/merger",
+    "pages/tm/eggs/eggs",
+    "pages/tm/acronym/acronym",
+    "pages/volItem/volItem",
+    "pages/my/my",
     "pages/tm/clock/set/set",
     "pages/tm/clock/countdown/countdown",
     "pages/manage/manage",
@@ -8,7 +12,6 @@
     "pages/testdb/testdb",
     "pages/music/music",
     "pages/audio/audio",
-    "pages/my/my",
     "pages/contact/contact",
     "pages/tools/checklist/checklist",
     "pages/canvas/canvas",
@@ -16,7 +19,7 @@
     "pages/knowledge/knowledge",
     "pages/webview/webview",
     "pages/knowledge/matrix/matrix",
-    "pages/volItem/volItem",
+    
     "pages/agenda/agenda",
     "pages/pathways/desc/desc",
     "pages/pathways/document/document",

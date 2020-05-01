@@ -85,14 +85,14 @@ button {
 }
 
 .box_tool {
-  width: 30%;
+  width: 33%;
   height: 120rpx;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   align-content: center;
-  padding: 10rpx;
+  padding-top: 10rpx;
 }
 
 .big_edu {

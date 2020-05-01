@@ -6,7 +6,7 @@ var Page = require('../../utils/xmadx_sdk.min.js').xmad(Page).xmPage
 
 Page({
   data: {
-    vols: app.vols,
+    vols: app.jokes,
     current: 0,
     indicatorDots: true,
     vertical: false,

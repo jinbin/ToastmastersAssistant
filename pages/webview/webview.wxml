@@ -1,13 +1,8 @@
-<!--pages/webview/webview.wxml-->
 
 <view class="container1">
   <view class="content" wx:for="{{content}}">
     <text class="vol-content-text" wx:if="{{!imgIndex[index]}}">{{item}}</text>
     <image style="width:100%" src="{{item}}" wx:if="{{imgIndex[index]}}" mode="widthFix"></image>
   </view>
-
-  <!-- <view class="bottomImage">
-    <image bindtap="saveOfficialQRCode" style="width:100%" src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/accountpublicity2.jpeg" mode="widthFix"></image>
-  </view> -->
 </view>
 

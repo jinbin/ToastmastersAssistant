@@ -67,6 +67,12 @@
         <view class="downText" style="color:#9d441b;font-size:26rpx;">今日听力</view>
       </view> -->
       <view class="box3">
+        <button id="tmIntro" size="mini" style="" formType="submit">
+          <image style="width:70rpx;height:70rpx" src="../../images/Toastmasters-min.jpeg"></image>
+        </button>
+        <view class="downText" style="color:#3f5e7d;font-size:26rpx;">了解头马</view>
+      </view>
+      <view class="box3">
         <button id="6" size="mini" style="" formType="submit">
           <image style="width:70rpx;height:70rpx" src="../../images/speech.png"></image>
         </button>
@@ -101,6 +107,12 @@
           <image style="width:70rpx;height:70rpx" src="../../images/pdf.png"></image>
         </button>
         <view style="color:#B22222;font-size:26rpx;">Pathways</view>
+      </view>
+      <view class="box3" style="">
+        <button id="repost" size="mini" style="" open-type="share">
+          <image style="width:70rpx;height:70rpx" src="../../images/分享.png"></image>
+        </button>
+        <view style="color:green;font-size:26rpx;">转发小程序</view>
       </view>
     </view>
   </form>
@@ -430,27 +442,15 @@
 
 <view class="container1">
   <view class="title">
-    <text style="color:DimGray">—</text> 实用工具
+    <text style="color:DimGray">—</text> 任务彩蛋
     <text style="color:DimGray">—</text>
   </view>
   <view>
-    <text style="color:DimGray;font-size:10px;padding-bottom:10rpx;">演讲，英语，学习工具一网打尽</text>
+    <text style="color:DimGray;font-size:10px;padding-bottom:10rpx;">既然你已经翻到了最后......我给你留了几个彩蛋，不定期增加</text>
   </view>
 
   <form report-submit="true" bindsubmit="getTool" style="width:95%">
     <view class="window1">
-      <!-- <view class="box_tool">
-        <button id="jixing" size="mini" formType="submit">
-          <image style="width:60rpx;height:60rpx" src="../../images/tool1.png"></image>
-        </button>
-        <view class="downText">即兴演讲</view>
-      </view> -->
-      <view class="box_tool">
-        <button id="timertool" size="mini" formType="submit">
-          <image style="width:60rpx;height:60rpx" src="../../images/timer.png"></image>
-        </button>
-        <view class="downText">演讲计时</view>
-      </view>
       <!-- <view class="box_tool">
         <button id="translator" size="mini" formType="submit">
           <image style="width:60rpx;height:60rpx" src="../../images/tool3.png"></image>
@@ -463,11 +463,26 @@
         </button>
         <view class="downText">头马清单</view>
       </view> -->
-      <view class="box_tool">
-        <button id="matrix" size="mini" formType="submit">
-          <image style="width:60rpx;height:60rpx" src="../../images/matrix-active.png"></image>
+      <view class="box_tool" bindtap="egg" data-id="egg1">
+        <button size="mini" formType="submit">
+          <image wx:if="{{egg1}}" style="width:60rpx;height:60rpx" src="../../images/鸡蛋2.png"></image>
+          <image wx:if="{{!egg1}}" style="width:60rpx;height:60rpx" src="../../images/任务-彩蛋.png"></image>
         </button>
-        <view class="downText">Matrix</view>
+        <view class="downText">彩蛋</view>
+      </view>
+      <view class="box_tool" bindtap="egg" data-id="egg2">
+        <button id="xxxx" size="mini" formType="submit">
+          <image wx:if="{{egg2}}" style="width:60rpx;height:60rpx" src="../../images/鸡蛋2.png"></image>
+          <image wx:if="{{!egg2}}" style="width:60rpx;height:60rpx" src="../../images/任务-彩蛋.png"></image>
+        </button>
+        <view class="downText">彩蛋</view>
+      </view>
+      <view class="box_tool" bindtap="egg" data-id="egg3">
+        <button id="xxxx" size="mini" formType="submit">
+          <image wx:if="{{egg3}}" style="width:60rpx;height:60rpx" src="../../images/鸡蛋2.png"></image>
+          <image wx:if="{{!egg3}}" style="width:60rpx;height:60rpx" src="../../images/任务-彩蛋.png"></image>
+        </button>
+        <view class="downText">彩蛋</view>
       </view>
     </view>
   </form>

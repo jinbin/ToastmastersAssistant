@@ -1,0 +1,48 @@
+/* pages/tm/acronym/acronym.wxss */
+
+.container1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
+.title {
+  font-size: 16px;
+  padding-top: 0rpx;
+  color: #333;
+  line-height: 1.75;
+}
+
+.window1 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /* padding: 10rpx; */
+  width: 100%;
+  /* padding-left: 30rpx;
+  padding-right: 30rpx; */
+  /* justify-content:space-around;
+  align-items: center;
+  align-content: center; */
+}
+
+.box_tool {
+  width: 30%;
+  height: 120rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  padding: 5rpx;
+}
+
+button::after {
+  border: none;
+}
+
+button {
+  border: 0;
+  background-color: transparent;
+  outline: none;
+}

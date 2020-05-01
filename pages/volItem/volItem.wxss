@@ -48,6 +48,16 @@
   display: inline-block;
 }
 
+.vol-content-content {
+  background-color: #1E90FF;
+  font-size: 20px;
+  color: white;
+}
+
+.vol-content-anwser {
+  font-size: 20px;
+}
+
 .vol-makettime {
   font-size: 12px;
   color:  #888;

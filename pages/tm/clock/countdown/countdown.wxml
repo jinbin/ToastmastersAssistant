@@ -7,7 +7,10 @@
     </view>
   </view>
 
+
+
   <view class="container">
+    <!-- <view style="font-size: 20px">{{tip}}</view> -->
     <view class="userinfo">
       <view class="usermotto">{{xmin}}:{{xsec}}</view>
       <view>

@@ -1,0 +1,24 @@
+<!--pages/tm/acronym/acronym.wxml-->
+<view class="container1">
+    <view class="window1">
+      <block wx:for="{{top_icons}}">
+        <view class="top">
+          <image style="width:60rpx;height:60rpx" src="../../../images/court/{{item}}"></image>
+        </view>
+      </block>
+    </view>
+  <view style="padding-top:15rpx;">
+    <text style="color:white;font-size:12px;padding-bottom:10rpx;">点击打开彩蛋，一旦解锁永久有效</text>
+  </view>
+  <view>
+    <text style="color:white;font-size:12px;padding-bottom:10rpx;">打开彩蛋，后果自负，概不负责</text>
+  </view>
+    <view class="window1">
+      <block wx:for="{{eggs}}">
+        <view class="box_tool" bindtap="egg" data-id="{{item}}">
+          <image style="width:60rpx;height:60rpx" src="../../../images/淡色任务-彩蛋.png"></image>
+          <view class="downText">彩蛋</view>
+        </view>
+      </block>
+    </view>
+</view>

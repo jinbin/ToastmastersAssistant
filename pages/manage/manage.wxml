@@ -75,8 +75,6 @@
         </div> 
       </div>  -->
 
-
-
      <view class="section btn-area">  
       <!-- <button class="hide{{show?'show':''}}" formType="submit" >提交</button>  -->
       <button class="fixed_btn" type="primary" plain="true" formType="submit"  style="width: 80px">发送</button> 

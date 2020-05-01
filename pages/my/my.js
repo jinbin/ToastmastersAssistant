@@ -6,6 +6,7 @@ const db = wx.cloud.database({
 })
 
 var Page = require('../../utils/xmadx_sdk.min.js').xmad(Page).xmPage;
+var app = getApp();
 
 Page({
 
@@ -13,7 +14,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    openId: "",
+    score: 0,
+    // openId: "",
     time: "",
     appId: "wx8abaf00ee8c3202e",
     tt_appId: "wx4c4b54bc609bd79e",
@@ -42,9 +44,51 @@ Page({
   },
 
   onLoad: function(options) {
+    console.log("F: " + app.globalData.openId)
     this.setData({
       time: util.formatTime(new Date())
     })
+
+    var that = this
+    // wx.cloud.callFunction({
+    //   name: "getOpenid",
+    //   success: res => {
+    //     that.setData({
+    //       openId: res.result.openid
+    // //     })
+    //     var openid = res.result.openid
+    //     console.log("openid: " + openid)
+    db.collection("checkin").where({
+      openid: app.globalData.openId
+    }).get({
+      success: function(res) {
+        console.log(res)
+        var score = app.globalData.jifen
+        if (res.data.length != 0) {
+          console.log(res)
+          console.log(res.data[0]["rewardedvideo"])
+          if (res.data[0]["rewardedvideo"]) {
+            console.log(res.data[0].rewardedvideo)
+            score = score + res.data[0].rewardedvideo * 10
+          }
+          console.log(res.data[0]["checkin"])
+          if (res.data[0]["checkin"]) {
+            console.log(res.data[0].checkin)
+            score = score + res.data[0].checkin * 10
+          }
+          app.globalData.jifen = score
+          that.setData({
+            score: score
+          })
+        } else {
+          // that.setData({
+          //   score: 0
+          // })
+        }
+      }
+    })
+    //   }
+    // })
   },
 
   bindViewTap() {
@@ -59,145 +103,246 @@ Page({
     })
   },
 
-  gotoGeizan: function (options) {
-    wx.previewImage({
-      current: 'cloud://tmassistant-5275ad.746d-tmassistant-5275ad-1258071577/images/zanshang-min.jpeg', // 当前显示图片的http链接
-      urls: ["cloud://tmassistant-5275ad.746d-tmassistant-5275ad-1258071577/images/zanshang-min.jpeg"] // 需要预览的图片http链接列表
-    })
+  gotoGeizan: function(options) {
+    if (options.currentTarget.dataset.img) {
+      wx.previewImage({
+        current: options.currentTarget.dataset.img, // 当前显示图片的http链接
+        urls: [options.currentTarget.dataset.img] // 需要预览的图片http链接列表
+      })
+    } else {
+      wx.previewImage({
+        current: 'cloud://tmassistant-5275ad.746d-tmassistant-5275ad-1258071577/images/zanshang-min.jpeg', // 当前显示图片的http链接
+        urls: ["cloud://tmassistant-5275ad.746d-tmassistant-5275ad-1258071577/images/zanshang-min.jpeg"] // 需要预览的图片http链接列表
+      })
+    }
   },
 
-  checkIn: function(e) {
+  watchAd: function() {
+    var that = this
+
     wx.showModal({
-      content: "恭喜你发现神秘打卡通道，更多惊喜即将上线",
-      showCancel: false,
-      // confirmText: '',
+      content: "获取积分\n观看视频广告可以获得10积分",
+      showCancel: true,
+      cancelText: '不，不看',
+      confirmText: '立即观看',
       confirmColor: '#ff7f50',
       success: function(res) {
         if (res.confirm) {
-          // wx.setClipboardData({
-          //   data: "wx16c76d4762cbe0b3",
-          //   success: function (res) {
-          //     wx.showToast({
-          //       title: "AppID复制成功"
-          //     })
-          //   }
-          // })
+          // 在页面中定义激励视频广告
+          let videoAd = null
+
+          // 在页面onLoad回调事件中创建激励视频广告实例
+          if (wx.createRewardedVideoAd) {
+            videoAd = wx.createRewardedVideoAd({
+              adUnitId: 'adunit-83fb3cf4237d8f94'
+            })
+            videoAd.onLoad(() => {})
+            videoAd.onError((err) => {})
+            videoAd.onClose((status) => {
+              if (status && status.isEnded || status === undefined) {
+                console.log(res)
+                // 正常播放结束，下发奖励
+                // continue you code
+                var score = that.data.score + 10
+                app.globalData.jifen = score
+
+                that.setData({
+                  score: score
+                })
+
+                // 更新数据库
+                db.collection("checkin").where({
+                  openid: app.globalData.openId
+                }).get({
+                  success: function(res) {
+                    console.log("res")
+                    console.log(res)
+                    // 从来没签到过
+                    if (res.data.length == 0) {
+                      console.log("res.data.length == 0")
+                      db.collection('checkin').add({
+                        data: ({
+                          checkin: 0,
+                          //date: util.formatTime(new Date()),
+                          openid: app.globalData.openId,
+                          created_at: util.formatTime(new Date()),
+                          rewardedvideo: 1
+                        }),
+                        success: function(res1) {
+                          console.log(res1)
+                        }
+                      })
+                    } else {
+                      var doc = db.collection('checkin').doc(res.data[0]._id)
+                      console.log("doc")
+                      console.log(res.data[0])
+                      //有点过激励广告
+                      if (res.data[0]["rewardedvideo"]) {
+                        console.log("有点过激励广告")
+                        db.collection('checkin').doc(res.data[0]._id).update({
+                          data: {
+                            rewardedvideo: db.command.inc(1)
+                          },
+                          success: res1 => {
+                            wx.showModal({
+                              content: "达成任务！积分: +10",
+                              showCancel: false,
+                              confirmColor: '#ff7f50',
+                              success: function(res) {
+                                if (res.confirm) {
+                                  console.log("confirm")
+                                }
+                              }
+                            })
+                          }
+                        })
+                      } else {
+                        //没有点过激励广告
+                        console.log("没有点过激励广告")
+                        console.log(res.data[0]._id)
+                        console.log(db.collection('checkin').doc(res.data[0]._id))
+                        db.collection('checkin').doc(res.data[0]._id).update({
+                          data: {
+                            rewardedvideo: 1
+                          },
+                          success: res1 => {
+                            console.log(res1)
+
+                            wx.showModal({
+                              content: "达成任务！积分: +10",
+                              showCancel: false,
+                              confirmColor: '#ff7f50',
+                              success: function(res) {
+                                if (res.confirm) {
+                                  console.log("confirm")
+                                }
+                              }
+                            })
+                          }
+                        })
+                      }
+                    }
+                  }
+                })
+              } else {
+                // 播放中途退出，进行提示
+              }
+            })
+          }
+
+          // 用户触发广告后，显示激励视频广告
+          if (videoAd) {
+            videoAd.show().catch(() => {
+              // 失败重试
+              videoAd.load()
+                .then(() => videoAd.show())
+                .catch(err => {
+                  console.log('激励视频 广告显示失败')
+                })
+            })
+          }
         }
       }
     })
   },
 
-  checkin: function(options) {
-    var that = this
-    wx.cloud.callFunction({
-      name: "getOpenid",
-      success: res => {
-        that.setData({
-          openId: res.result.openid
-        })
-        var openid = res.result.openid
-        db.collection("checkin").where({
-          openid: res.result.openid
-        }).get({
-          success: function(res) {
-            console.log(res.data)
-            if (res.data.length == 0) {
-              db.collection('checkin').add({
-                data:({
-                  checkin: 1,
-                  date: util.formatTime(new Date()),
-                  openid: openid
-                }),
-                success: function(){
-                  wx.showModal({
-                    content: "恭喜你发现了隐藏签到处！更多惊喜正在路上，明天继续来签到吧！",
-                    showCancel: false,
-                    // confirmText: '',
-                    confirmColor: '#ff7f50',
-                    success: function (res) {
-                      if (res.confirm) { }
-                    }
-                  })
-                }
-              })
-            } else {
-              if (res.data[0].date == util.formatTime(new Date())) {
-                //今天已经签到过
-                wx.showModal({
-                  content: "今天已签到, 你已经签到过" + res.data[0].checkin + "次, 明天再来打卡~",
-                  showCancel: false,
-                  // confirmText: '',
-                  confirmColor: '#ff7f50',
-                  success: function(res) {
-                    if (res.confirm) {}
-                  }
-                })
-              } else {
-                //今天第一次签到
-                db.collection('checkin').doc(res.data[0]._id).update({
-                  data: {
-                    checkin: db.command.inc(1),
-                    date: util.formatTime(new Date())
-                  },
-                  success: res1 => {
-                    wx.showModal({
-                      content: "签到成功！这是你的第" + (res.data[0].checkin+1) + "次签到",
-                      showCancel: false,
-                      // confirmText: '',
-                      confirmColor: '#ff7f50',
-                      success: function(res) {
-                        if (res.confirm) {}
-                      }
-                    })
-                  }
-                })
-              }
-            } //数据库已经有对应人的信息
-          },
-          fail: function(e) {
-            console.log("fail")
-          }
-        })
-      }
-    })
-  },
+  // checkin: function(options) {
+  //   var that = this
+  //   wx.cloud.callFunction({
+  //     name: "getOpenid",
+  //     success: res => {
+  //       that.setData({
+  //         openId: res.result.openid
+  //       })
+  //       var openid = res.result.openid
+  //       db.collection("checkin").where({
+  //         openid: res.result.openid
+  //       }).get({
+  //         success: function(res) {
+  //           console.log(res.data)
+  //           if (res.data.length == 0) {
+  //             db.collection('checkin').add({
+  //               data:({
+  //                 checkin: 1,
+  //                 date: util.formatTime(new Date()),
+  //                 openid: openid
+  //               }),
+  //               success: function(){
+  //                 wx.showModal({
+  //                   content: "恭喜你发现了隐藏签到处！更多惊喜正在路上，明天继续来签到吧！",
+  //                   showCancel: false,
+  //                   // confirmText: '',
+  //                   confirmColor: '#ff7f50',
+  //                   success: function (res) {
+  //                     if (res.confirm) { }
+  //                   }
+  //                 })
+  //               }
+  //             })
+  //           } else {
+  //             if (res.data[0].date == util.formatTime(new Date())) {
+  //               //今天已经签到过
+  //               wx.showModal({
+  //                 content: "今天已签到, 你已经签到过" + res.data[0].checkin + "次, 明天再来打卡~",
+  //                 showCancel: false,
+  //                 // confirmText: '',
+  //                 confirmColor: '#ff7f50',
+  //                 success: function(res) {
+  //                   if (res.confirm) {}
+  //                 }
+  //               })
+  //             } else {
+  //               //今天第一次签到
+  //               db.collection('checkin').doc(res.data[0]._id).update({
+  //                 data: {
+  //                   checkin: db.command.inc(1),
+  //                   date: util.formatTime(new Date())
+  //                 },
+  //                 success: res1 => {
+  //                   wx.showModal({
+  //                     content: "签到成功！这是你的第" + (res.data[0].checkin+1) + "次签到",
+  //                     showCancel: false,
+  //                     // confirmText: '',
+  //                     confirmColor: '#ff7f50',
+  //                     success: function(res) {
+  //                       if (res.confirm) {}
+  //                     }
+  //                   })
+  //                 }
+  //               })
+  //             }
+  //           } //数据库已经有对应人的信息
+  //         },
+  //         fail: function(e) {
+  //           console.log("fail")
+  //         }
+  //       })
+  //     }
+  //   })
+  // },
 
   onShow: function(options) {
 
-    wx.cloud.callFunction({
-      name: "isOwner",
-      complete: owner_res => {
-        wx.cloud.callFunction({
-          name: 'getOpenid',
-          complete: res => {
-            //牛逼哄哄的作者openid
-            for (var index in owner_res.result.data.owners) {
-              if (res.result.openid == owner_res.result.data.owners[index]) {
-                this.setData({
-                  isOwner: true
-                })
-              }
-            }
-          }
-        })
-      }
+    this.setData({
+      score: app.globalData.jifen
     })
 
-    ///isLogin
-    // var that = this
-    // wx.getSetting({
-    //   success: res => {
-    //     if (res.authSetting['scope.userInfo']) {
-    //       console.log("true")
-    //       that.setData({
-    //         isLogin: "已登录"
-    //       })
-    //     } else {
-    //       console.log("false")
-    //       that.setData({
-    //         isLogin: "登录了解更多"
-    //       })
-    //     }
+    // wx.cloud.callFunction({
+    //   name: "isOwner",
+    //   complete: owner_res => {
+    //     wx.cloud.callFunction({
+    //       name: 'getOpenid',
+    //       complete: res => {
+    //         //牛逼哄哄的作者openid
+    //         for (var index in owner_res.result.data.owners) {
+    //           if (res.result.openid == owner_res.result.data.owners[index]) {
+    //             this.setData({
+    //               isOwner: true
+    //             })
+    //           }
+    //         }
+    //       }
+    //     })
     //   }
     // })
   },
@@ -243,26 +388,26 @@ Page({
     })
   },
 
-  navigateTo: function (options) {
+  navigateTo: function(options) {
     wx.navigateTo({
       url: options.currentTarget.id
     })
   },
 
-  navigateToMiniProgram: function (options) {
+  navigateToMiniProgram: function(options) {
     wx.navigateToMiniProgram({
       appId: options.currentTarget.id,
       path: options.currentTarget.dataset.path
     })
   },
 
-  toBilingualSpeak: function (e) {
+  toBilingualSpeak: function(e) {
     wx.navigateToMiniProgram({
       appId: 'wx4c4b54bc609bd79e'
     })
   },
 
-  aderror: function (options) {
+  aderror: function(options) {
     this.setData({
       isAdError: true
     })
@@ -329,23 +474,6 @@ Page({
                 })
                 wx.openSetting({})
               }
-              // wx.getSetting({
-              //   success(res) {
-              //     if(!res.authSetting["scope.writePhotosAlbum"]){
-              //       wx.openSetting({})
-              //     }
-              //   }
-              // })
-              // wx.openSetting({
-              //   success(res) {
-              //     console.log("open Setting success")
-              //     console.log(res)
-              //   },
-              //   fail(res) {
-              //     console.log("open Setting fail")
-              //     console.log(res)
-              //   }
-              // })
             }
           })
         }

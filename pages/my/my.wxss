@@ -92,8 +92,33 @@ button {
   outline: none;
   text-align: left;
 }
+.jifen_up {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
 
-/* button_title {
-  font-size: 1rem;
-} */
+.jifen {
+  display: flex;
+  flex-direction: row;
+  width: 98%;
+  height: 100%;
+  border-radius:15px;
+  background-color: white;
+  align-items: center;
+}
+
+.jinfen_item {
+  width: 33%; 
+  margin: 2px;
+  display:flex; 
+  justify-content:center; 
+  align-items:center;
+  flex-direction:column;
+}
+
+
 
