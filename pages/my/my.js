@@ -65,7 +65,7 @@ Page({
         console.log(res)
         var score = app.globalData.jifen
         if (res.data.length != 0) {
-          console.log(res)
+          console.log("xxxx_res: " + res)
           console.log(res.data[0]["rewardedvideo"])
           if (res.data[0]["rewardedvideo"]) {
             console.log(res.data[0].rewardedvideo)

@@ -121,14 +121,6 @@ Page({
                   // continue you code
 
                   let new_eggs = that.data.eggs
-                  
-                  // if (options.currentTarget["dataset"].id == "egg1") {
-                  //   new_eggs["egg1"] = true;
-                  // } else if (options.currentTarget["dataset"].id == "egg2") {
-                  //   new_eggs["egg2"] = true;
-                  // } else if (options.currentTarget["dataset"].id == "egg3") {
-                  //   new_eggs["egg3"] = true;
-                  // }
 
                   if (options.currentTarget["dataset"].id){
                     new_eggs[options.currentTarget["dataset"].id] = true

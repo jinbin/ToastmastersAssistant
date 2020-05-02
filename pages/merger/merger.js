@@ -27,6 +27,11 @@ Page({
     interval: 20, // 时间间隔
 
     egg_names: ["egg1", "eggs"],
+    eggs: {
+      "egg1": false,
+      "egg2": false,
+      "egg3": false
+    },
 
     texts: ["头马世界冠军教你四招搞定公众演讲", "必学！头马演讲达人给你的五条演讲建议"],
     page_ft: {
@@ -768,31 +773,37 @@ Page({
                 that.setData({
                   topics: e.data[0].topics
                 })
-                // wx.cloud.callFunction({
-                //   name: "getOpenid",
-                //   success: res => {
-                // that.setData({
-                //   openId: res.result.openid
-                // })
-                // var openid = res.result.openid
                 db.collection("checkin").where({
                   openid: app.globalData.openId
                 }).get({
                   success: function(res) {
                     console.log(res.data[0])
-                    if (res.data[0]["egg"]) {
-                      if(res.data[0]["egg"].indexOf("egg1") > -1){
-                        that.setData({
-                          egg1: true
-                        })
-                      }
-                      
-                      if (res.data[0]["egg"].indexOf("egg2") > -1){
-                        that.setData({
-                          egg2: true
-                        })
-                      }
+
+                    if(res.data[0]["eggs"]){
+                      that.setData({
+                        eggs: res.data[0]["eggs"]
+                      })
                     }
+
+                    // if (res.data[0]["egg"]) {
+                    //   if(res.data[0]["egg"].indexOf("egg1") > -1){
+                    //     that.setData({
+                    //       egg1: true
+                    //     })
+                    //   }
+                      
+                    //   if (res.data[0]["egg"].indexOf("egg2") > -1){
+                    //     that.setData({
+                    //       egg2: true
+                    //     })
+                    //   }
+
+                    //   if (res.data[0]["egg"].indexOf("egg2\3") > -1) {
+                    //     that.setData({
+                    //       egg3: true
+                    //     })
+                    //   }
+                    // }
                     if (res.data.length == 0) {
                       that.setData({
                         level: "青铜"
@@ -914,7 +925,7 @@ Page({
     
     if (options.currentTarget["dataset"].id == "egg1"){
       //彩蛋已经打开, 标记为egg1
-      if (this.data.egg1) {
+      if (this.data.eggs["egg1"]) {
         wx.navigateTo({
           url: "/pages/volItem/volItem",
         })
@@ -923,7 +934,7 @@ Page({
       }
     } else if (options.currentTarget["dataset"].id == "egg3"){
       //彩蛋已经打开, 标记为egg3
-      if (this.data.egg3) {
+      if (this.data.eggs["egg3"]) {
         wx.showModal({
           title: '空彩蛋',
           showCancel: false,
@@ -939,7 +950,7 @@ Page({
       } 
     } else if (options.currentTarget["dataset"].id == "egg2") {
         //彩蛋已经打开, 标记为egg2
-        if (this.data.egg2) {
+        if (this.data.eggs["egg2"]) {
           wx.navigateTo({
             url: '/pages/tm/acronym/acronym',
           })
@@ -977,22 +988,33 @@ Page({
                   videoAd.offClose()
                   // 正常播放结束，下发奖励
                   // continue you code
-                  if (options.currentTarget["dataset"].id == "egg1"){
-                    that.setData({
-                      egg1: true
-                    })
-                  } else if(options.currentTarget["dataset"].id == "egg2") {
-                    that.setData({
-                      egg2: true
-                    })                    
+                  // if (options.currentTarget["dataset"].id == "egg1"){
+                  //   that.setData({
+                  //     egg1: true
+                  //   })
+                  // } else if(options.currentTarget["dataset"].id == "egg2") {
+                  //   that.setData({
+                  //     egg2: true
+                  //   })                    
+                  // }
+
+                  let new_eggs = that.data.eggs
+
+                  if (options.currentTarget["dataset"].id) {
+                    new_eggs[options.currentTarget["dataset"].id] = true
                   }
+
+                  that.setData({
+                    eggs: new_eggs
+                  })
 
                   console.log("openId: " + app.globalData.openId)
                   db.collection('checkin').where({
                     openid: app.globalData.openId
                   }).update({
                     data: {
-                      egg: db.command.push(options.currentTarget["dataset"].id)
+                      // egg: db.command.push(options.currentTarget["dataset"].id)
+                      eggs: new_eggs
                     },
                     success: function(res){
                       console.log(res)

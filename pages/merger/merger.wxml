@@ -459,19 +459,15 @@
       </view>
     </view>
     <view class="window1">
-      <!-- <view class="box_tool">
-        <button id="translator" size="mini" formType="submit">
-          <image style="width:60rpx;height:60rpx" src="../../images/tool3.png"></image>
-        </button>
-        <view class="downText">语音翻译</view>
-      </view> -->
-      <!-- <view class="box_tool">
-        <button id="check" size="mini" formType="submit">
-          <image style="width:60rpx;height:60rpx" src="../../images/tool4.png"></image>
-        </button>
-        <view class="downText">头马清单</view>
-      </view> -->
-      <view class="box_tool" bindtap="egg" data-id="egg1">
+      <block wx:for="{{eggs}}" wx:for-index="key"  wx:for-item="value">
+        <view class="box_tool" bindtap="egg" data-id="{{key}}">
+          <image wx:if="{{!value}}" style="width:60rpx;height:60rpx" src="../../images/任务-彩蛋.png"></image>
+          <view class="downText" wx:if="{{!value}}">彩蛋</view>
+          <image wx:if="{{value}}" style="width:60rpx;height:60rpx" src="../../images/鸡蛋2.png"></image>
+          <view class="downText" wx:if="{{value}}">彩蛋</view>
+        </view>
+      </block>
+      <!-- <view class="box_tool" bindtap="egg" data-id="egg1">
         <button size="mini" formType="submit">
           <image wx:if="{{egg1}}" style="width:60rpx;height:60rpx" src="../../images/鸡蛋2.png"></image>
           <image wx:if="{{!egg1}}" style="width:60rpx;height:60rpx" src="../../images/任务-彩蛋.png"></image>
@@ -491,7 +487,7 @@
           <image wx:if="{{!egg3}}" style="width:60rpx;height:60rpx" src="../../images/任务-彩蛋.png"></image>
         </button>
         <view class="downText">彩蛋</view>
-      </view>
+      </view> -->
     </view>
   </form>
 </view>
