@@ -24,7 +24,7 @@
 		"enhance": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.10.4",
+	"libVersion": "2.11.0",
 	"appid": "wx16c76d4762cbe0b3",
 	"projectname": "tmUtils",
 	"debugOptions": {

@@ -1,7 +1,7 @@
 <!--pages/tm/acronym/acronym.wxml-->
 <view class="container1">
     <view class="window1">
-      <block wx:for="{{top_icons}}">
+      <block wx:for="{{top_icons}}" wx:key="*this">
         <view class="top">
           <image style="width:60rpx;height:60rpx" src="../../../images/court/{{item}}"></image>
         </view>
@@ -14,7 +14,7 @@
     <text style="color:white;font-size:12px;padding-bottom:10rpx;">打开彩蛋，后果自负，概不负责</text>
   </view>
     <view class="window1">
-      <block wx:for="{{eggs}}" wx:for-index="key"  wx:for-item="value">
+      <block wx:for="{{eggs}}" wx:key="id" wx:for-index="key"  wx:for-item="value">
         <view class="box_tool" bindtap="egg" data-id="{{key}}">
           <image wx:if="{{!value}}" style="width:60rpx;height:60rpx" src="../../../images/淡色任务-彩蛋.png"></image>
           <view class="downText" wx:if="{{!value}}">彩蛋</view>

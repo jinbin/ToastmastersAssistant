@@ -1,7 +1,7 @@
 <!--pages/merger/merger.wxml-->
 
 <swiper class="swiper" style="height: {{banner_height}}%" indicator-dots="true" autoplay="true" interval="5000" duration="1000" circular="true">
-  <block wx:for="{{banners}}">
+  <block wx:for="{{banners}}" wx:key="url">
     <swiper-item>
       <image src="{{item.url}}" bindtap="{{item.bind}}" class="banner" mode="widthFix" />
     </swiper-item>
@@ -214,7 +214,7 @@
       </navigator>
     </view>
   </view>
-  <view wx:for="{{guessYouLike}}" style="width:95%;">
+  <view wx:for="{{guessYouLike}}" wx:key="id" style="width:95%;">
     <view class="line" style="background-color: #E8E8E8"></view>
 
     <view class="card">
@@ -261,7 +261,7 @@
             <view class="downText">全部话题</view>
           </navigator>
         </view>
-        <view class="box3" style="padding:0rpx;width:20%" wx:for="{{topics}}" wx:for-index="idx">
+        <view class="box3" style="padding:0rpx;width:20%" wx:for="{{topics}}" wx:key="title" wx:for-index="idx">
           <navigator target="miniProgram" open-type="navigate" app-id="wx4c4b54bc609bd79e" path="/pages/topics/topics?id={{item.id}}" extra-data="" version="release">
             <image class="icon" src="../../images/topics_color{{idx}}.png"></image>
           </navigator>
@@ -459,7 +459,7 @@
       </view>
     </view>
     <view class="window1">
-      <block wx:for="{{eggs}}" wx:for-index="key"  wx:for-item="value">
+      <block wx:for="{{eggs}}" wx:key="id" wx:for-index="key"  wx:for-item="value">
         <view class="box_tool" bindtap="egg" data-id="{{key}}">
           <image wx:if="{{!value}}" style="width:60rpx;height:60rpx" src="../../images/任务-彩蛋.png"></image>
           <view class="downText" wx:if="{{!value}}">彩蛋</view>
