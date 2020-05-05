@@ -24,25 +24,25 @@
 
     <view class="card">
       <view wx:if="{{index % 7 == 0}}" class="item_type">
-        <image src="/images/幸福涂鸦.png" style="width:50px;height:50px"></image>
+        <image src="/images/xingfutuya.png" style="width:50px;height:50px"></image>
       </view>
       <view wx:elif="{{index % 7 == 1}}" class="item_type">
-        <image src="/images/配图-min.jpeg" style="width:50px;height:50px"></image>
+        <image src="/images/peitu-min.jpeg" style="width:50px;height:50px"></image>
       </view>
       <view wx:elif="{{index % 7 == 2}}" class="item_type">
-        <image src="/images/配图1-min.jpg" style="width:50px;height:50px"></image>
+        <image src="/images/peitu1-min.jpg" style="width:50px;height:50px"></image>
       </view>
       <view wx:elif="{{index % 7 == 3}}" class="item_type">
-        <image src="/images/配图2-min.jpg" style="width:50px;height:50px"></image>
+        <image src="/images/peitu2-min.jpg" style="width:50px;height:50px"></image>
       </view>
       <view wx:elif="{{index % 7 == 4}}" class="item_type">
-        <image src="/images/配图3-min.jpg" style="width:50px;height:50px"></image>
+        <image src="/images/peitu3-min.jpg" style="width:50px;height:50px"></image>
       </view>
       <view wx:elif="{{index % 7 == 5}}" class="item_type">
-        <image src="/images/配图4-min.jpeg" style="width:50px;height:50px"></image>
+        <image src="/images/peitu4-min.jpeg" style="width:50px;height:50px"></image>
       </view>
       <view wx:else class="item_type"> 
-        <image src="/images/更多.png" style="width:50px;height:50px"></image> 
+        <image src="/images/gengduo.png" style="width:50px;height:50px"></image> 
       </view>
       <view class="card_text">
         <navigator url="/pages/testdb/testdb?src={{item.src}}">

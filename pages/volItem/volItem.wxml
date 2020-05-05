@@ -1,7 +1,7 @@
 <official-account></official-account>
 
 <swiper indicator-dots="true" class="vol-swiper" current="{{current}}" bindchange="handleChange">
-  <block wx:for="{{vols}}" wx:for-index="idx" wx:key="{{hpcontent_id}}">
+  <block wx:for="{{vols}}" wx:key="id" wx:for-index="idx" wx:key="{{hpcontent_id}}">
     <swiper-item class="vol-swiper-item">
       <!-- <view style="display:flex; flex-direction: column; align-items:flex-end;">
         <navigator open-type='switchTab'url="/pages/pathways/levels/levels">

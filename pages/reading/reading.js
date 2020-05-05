@@ -37,7 +37,7 @@ Page({
       {
         "text": "TED精选",
         "id": "ted",
-        "icon": "幸福.png"
+        "icon": "xingfu.png"
       },
       {
         "text": "大地王子",
@@ -52,7 +52,7 @@ Page({
       {
         "text": "冠军们",
         "id": "champ",
-        "icon": "冠军.png"
+        "icon": "guanjun.png"
       }
       // {
       //   "text": "头马中国",
@@ -187,8 +187,7 @@ Page({
   onShareAppMessage: function(res) {
     console.log(this.data.type)
     return {
-      title: '大家都在看的精彩文章~',
-      imageUrl: '/images/冠军-min.jpeg'
+      title: '大家都在看的精彩文章~'
     }
   }
 })
