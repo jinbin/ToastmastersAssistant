@@ -76,14 +76,14 @@ Page({
       title: '精彩马上呈现',
     })
 
-    db.collection("audio").where({
-      onIndex: true
-    }).get({
-      success: function(e) {
-        console.log(e)
-        that.setData({
-          todayaudio: e.data
-        })
+    // db.collection("audio").where({
+    //   onIndex: true
+    // }).get({
+    //   success: function(e) {
+    //     console.log(e)
+    //     that.setData({
+    //       todayaudio: e.data
+    //     })
         db.collection("guessYouLike").where({
           type: options.type
         }).get({
@@ -96,8 +96,8 @@ Page({
             wx.hideLoading()
           }
         })
-      }
-    })
+    //   }
+    // })
   },
 
   changetype: function(options) {
