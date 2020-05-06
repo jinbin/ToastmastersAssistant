@@ -7,7 +7,6 @@
     <open-data class="userinfo-avatar" type="userAvatarUrl" background-size="cover"></open-data>
   </view>
   <!-- <image src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/wordmark.jpg" style="height: 80px; width: 100%" /> -->
-  <!-- <image bindtap="gotoGeizan" src="/images/support-min.jpeg" style="height: 80px; width: 100%"/> -->
   <view class="jifen_up">
     <view class="jifen">
       <view class="jinfen_item">

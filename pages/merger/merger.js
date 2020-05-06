@@ -18,27 +18,24 @@ Page({
       文字无限滚动
     */
 
-    // text: "更多公众演讲和领导力的内容，点击这里;        更多公众演讲和领导力的内容，点击这里;  更多公众演讲和领导力的内容，点击这里;        更多公众演讲和领导力的内容，点击这里;        ",
-    text: "更多公众演讲和领导力的内容，点击这里\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t",
-    marqueePace: 0.5, //滚动速度
-    marqueeDistance: 0, //初始滚动距离
-    marquee_margin: 30,
-    size: 14,
-    interval: 20, // 时间间隔
+    // text: "更多公众演讲和领导力的内容，点击这里\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t",
+    // marqueePace: 0.5, //滚动速度
+    // marqueeDistance: 0, //初始滚动距离
+    // marquee_margin: 30,
+    // size: 14,
+    // interval: 20, // 时间间隔
 
-    egg_names: ["egg1", "eggs"],
     eggs: {
       "egg1": false,
       "egg2": false,
       "egg3": false
     },
 
-    texts: ["头马世界冠军教你四招搞定公众演讲", "必学！头马演讲达人给你的五条演讲建议"],
-    page_ft: {
-      data: "Copyright © 2019-2020 可能性工作室"
-    },
-    isplay: false,
-    audioYear: 2018,
+    // page_ft: {
+    //  data: "Copyright © 2019-2020 可能性工作室"
+    //},
+    //isplay: false,
+    //audioYear: 2018,
     banners: [
       //{
       //   "url": "cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/accountpublicitybanner.jpeg",

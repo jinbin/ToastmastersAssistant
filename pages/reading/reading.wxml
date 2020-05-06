@@ -1,9 +1,5 @@
 <!--pages/reading/reading.wxml-->
 
-<!-- <view class="container1">
-  <image bindtap="saveOfficialQRCode" style="width:100%;" mode="widthFix" src="/images/文章精选-min.jpeg" mode="widthFix"></image>
-</view> -->
-
 <view class="reading_type">
   <block wx:for="{{types}}">
     <view wx:if="{{currentId == item.id}}" bindtap="changetype" id="{{item.id}}"class="item_type" style="width: 20%; background-color:#FFDEAD">

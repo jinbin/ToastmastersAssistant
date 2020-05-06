@@ -63,12 +63,9 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function (options) {
-    // options.webViewUrl: https://mp.weixin.qq.com/s/wGy_ZvMBmJ00_KXYA98iiQ#wechat_redirect
     return {
       title: '这是一篇我喜欢的文章，你是我的好友，推荐你也看看',
-      // path: '/pages/testdb/testdb?src=' + options.webViewUrl,
       path: '/pages/testdb/testdb?src=' + this.data.url_src,
-      // imageUrl: '/images/indexforward-min.jpg'
     }
   }
 })

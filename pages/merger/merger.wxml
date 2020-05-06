@@ -308,11 +308,6 @@
   </view>
 </view>
 
-<!-- <view class="container1">
-  <image bindtap="toBilingualSpeak" id="jiesuo" style="width:100%" src="/images/jiesuo-min.jpeg" mode="widthFix" style="width:95%; border-radius:25rpx;">
-  </image>
-</view> -->
-
 <view class="container1" id="juese" style="">
   <view class="title">
     <text style="color:DimGray">—</text> 头马会议

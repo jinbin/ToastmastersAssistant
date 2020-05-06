@@ -548,8 +548,8 @@ Page({
    */
   onShareAppMessage: function() {
     return {
-      title: '头马助手, 专注中英文双语演讲, 2万名终身学习者的选择',
-      imageUrl: '/images/indexforward-min.jpg'
+      title: '头马助手, 演讲一站式服务, 可能是最好的演讲类小程序',
+      imageUrl: '/images/homepage-min.png'
     }
   },
 

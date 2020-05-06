@@ -38,7 +38,7 @@
 
   <view class="colorArea">
     <view>
-      <image src="../../../../images/颜色.png" bindtap="changebg" style="padding-top:80px; width:40px; height:40px;"></image>
+      <image src="../../../../images/yanse.png" bindtap="changebg" style="padding-top:80px; width:40px; height:40px;"></image>
     </view>
   </view>
 
