@@ -1,6 +1,9 @@
 {
   "pages": [
     "pages/merger/merger",
+    "pages/tm/topics/topics",
+    "pages/tm/topics/topic/topic",
+    "pages/tm/champ/champ",
     "pages/tm/eggs/eggs",
     "pages/tm/acronym/acronym",
     "pages/volItem/volItem",
@@ -45,10 +48,22 @@
         "text": "在看"
       },
       {
+        "pagePath": "pages/tm/topics/topics",
+        "iconPath": "./images/tabBar/cart.png",
+        "selectedIconPath": "./images/tabBar/cart-sel.png",
+        "text": "即兴"
+      },
+      {
         "pagePath": "pages/merger/merger",
         "iconPath": "./images/tabBar/miniprogram.png",
         "selectedIconPath": "images/tabBar/miniprogram-sel.png",
         "text": "首页"
+      },
+      {
+        "pagePath": "pages/tm/champ/champ",
+        "iconPath": "./images/tabBar/path.png",
+        "selectedIconPath": "images/tabBar/path-sel.png",
+        "text": "演讲"
       },
       {
         "pagePath": "pages/my/my",

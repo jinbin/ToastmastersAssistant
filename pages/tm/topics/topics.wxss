@@ -1,0 +1,84 @@
+/* pages/tm/topics/topics.wxss */
+
+.frame {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 10rpx;
+  justify-content:flex-start;
+}
+
+.container1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
+.window3 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /* padding: 5rpx; */
+  justify-content:flex-start;
+}
+
+.box3 {
+  width: 20%;
+  height: 180rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.icon {
+  width:60rpx;
+  height:60rpx;
+}
+
+.downText {
+  font-size:13px;
+  color:#4F4F4F;
+}
+
+.title {
+  color:#4F4F4F;
+  font-size:30rpx;
+  text-align:center;
+}
+
+button::after {
+  border: none;
+}
+
+button {
+  border: 0;
+  background-color: transparent;
+  outline: none;
+}
+
+.circle-float{
+  color: #ffffff;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 20rpx;
+  right: 20rpx;
+  width: 110rpx;
+  height: 110rpx;
+  border-radius: 50%;
+  font-size: 28rpx;
+  background: #00CD66;
+  z-index:100;
+}
+
+.button-hover {
+  background-color: #00CD66;
+}
+
+.switch {
+  display: flex;
+  flex-direction: row-reverse;
+}

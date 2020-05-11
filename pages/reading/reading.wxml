@@ -1,7 +1,7 @@
 <!--pages/reading/reading.wxml-->
 
 <view class="reading_type">
-  <block wx:for="{{types}}">
+  <block wx:for="{{types}}" wx:key="*item">
     <view wx:if="{{currentId == item.id}}" bindtap="changetype" id="{{item.id}}"class="item_type" style="width: 20%; background-color:#FFDEAD">
       <image style="width:70rpx;height:70rpx;padding-bottom:10px;" src="/images/{{item.icon}}"></image> 
       <view style="font-size: 13px;">{{item.text}}</view>
@@ -15,7 +15,7 @@
 
 <view class="cards" id="cards">
 
-  <view wx:for="{{guessYouLike}}" wx:for-index="index" style="width:100%;">
+  <view wx:for="{{guessYouLike}}" wx:key="id" wx:for-index="index" style="width:100%;">
     <view class="line" style="background-color: #F8F8F8"></view>
 
     <view class="card">
@@ -60,7 +60,9 @@
     <view wx:if="{{index % 11 == 5}}" class="adBlock">
       <view class="adContainer">
         <!-- Banner广告 -->
-        <ad unit-id="adunit-ab171e6bb49115c5" ad-intervals="30"></ad>
+        <!-- <ad unit-id="adunit-ab171e6bb49115c5" ad-intervals="30"></ad> -->
+        <!-- 视频广告 -->
+        <ad unit-id="adunit-a3ae6b7d69bb20fb" ad-type="video" ad-theme="white"></ad>
       </view>
     </view>
   </view>

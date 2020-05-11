@@ -2,7 +2,7 @@
 import util from '../../utils/util.js'
 
 const app = getApp()
-var Page = require('../../utils/xmadx_sdk.min.js').xmad(Page).xmPage
+//var Page = require('../../utils/xmadx_sdk.min.js').xmad(Page).xmPage
 
 Page({
   data: {

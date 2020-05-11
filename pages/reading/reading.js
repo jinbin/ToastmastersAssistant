@@ -49,11 +49,11 @@ Page({
         "id": "jayshetty",
         "icon": "jay.png"
       },
-      {
-        "text": "冠军们",
-        "id": "champ",
-        "icon": "guanjun.png"
-      }
+      // {
+      //   "text": "冠军们",
+      //   "id": "champ",
+      //   "icon": "guanjun.png"
+      // }
       // {
       //   "text": "头马中国",
       //   "id": "tmChina",
@@ -76,28 +76,34 @@ Page({
       title: '精彩马上呈现',
     })
 
-    // db.collection("audio").where({
-    //   onIndex: true
+    // db.collection("guessYouLike").where({
+    //   type: options.type
     // }).get({
     //   success: function(e) {
     //     console.log(e)
     //     that.setData({
-    //       todayaudio: e.data
+    //       // guessYouLike: e.data.reverse()
+    //       guessYouLike: e.data
     //     })
-        db.collection("guessYouLike").where({
-          type: options.type
-        }).get({
-          success: function(e) {
-            console.log(e)
-            that.setData({
-              // guessYouLike: e.data.reverse()
-              guessYouLike: e.data
-            })
-            wx.hideLoading()
-          }
-        })
+    //     wx.hideLoading()
     //   }
     // })
+
+    console.log("云函数")
+    wx.cloud.callFunction({
+      name: "getYouLike", 
+      data: {
+        type: options.type
+      },
+      success: function(res){
+        console.log(res.result)
+        that.setData({
+          // guessYouLike: e.data.reverse()
+          guessYouLike: res.result.data
+        })
+        wx.hideLoading()
+      }
+    })
   },
 
   changetype: function(options) {
@@ -110,19 +116,34 @@ Page({
     console.log(that.data.currentId)
 
     var type = undefined
-    if(that.data.currentId != "all"){
+    if (that.data.currentId != "all") {
       type = that.data.currentId
     }
 
     console.log(type)
-    db.collection("guessYouLike").where({
-      type: type
-    }).get({
-      success: function (e) {
-        console.log(e)
+    // db.collection("guessYouLike").where({
+    //   type: type
+    // }).get({
+    //   success: function(e) {
+    //     console.log(e)
+    //     that.setData({
+    //       // guessYouLike: e.data.reverse()
+    //       guessYouLike: e.data
+    //     })
+    //     wx.hideLoading()
+    //   }
+    // })
+
+    wx.cloud.callFunction({
+      name: "getYouLike",
+      data: {
+        type: type
+      },
+      success: function (res) {
+        console.log(res.result)
         that.setData({
           // guessYouLike: e.data.reverse()
-          guessYouLike: e.data
+          guessYouLike: res.result.data
         })
         wx.hideLoading()
       }

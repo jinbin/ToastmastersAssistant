@@ -42,7 +42,8 @@
     </navigator>
   </view>
   <view wx:else>
-    <ad unit-id="adunit-ab171e6bb49115c5" binderror="aderror"></ad>
+    <!-- <ad unit-id="adunit-ab171e6bb49115c5" binderror="aderror"></ad> -->
+    <ad unit-id="adunit-a3ae6b7d69bb20fb" ad-type="video" ad-theme="white"></ad>
     <!-- <navigator target="miniProgram" open-type="navigate" app-id="wx4c4b54bc609bd79e" path="/pages/index/index" extra-data="" version="release" style="width:100%">
       <view class="container1">
         <image bindtap="toBilingualSpeak" style="width:100%" src="/images/topicscards-min.jpeg" mode="widthFix" style="width:95%; border-radius:25rpx;">
@@ -58,15 +59,19 @@
   </xm-ad>
 </view> -->
 <view class="window">
-  <view class="box" bindtap="navigateTo" id="/pages/testdb/testdb?src=https://mp.weixin.qq.com/s/bRbL1FC14X_ZgBbc2Q_k8g">  
+  <!-- <view class="box" bindtap="navigateTo" id="/pages/testdb/testdb?src=https://mp.weixin.qq.com/s/bRbL1FC14X_ZgBbc2Q_k8g">  
     <image style="width:80rpx;height:80rpx" src="../../images/setting1.png"></image>
     <view style="font-size:12px">认识作者</view>
+  </view> -->
+  <view class="box" bindtap="navigateTo" id="/pages/testdb/testdb?src=https://mp.weixin.qq.com/s/Ax1BFJ9HAbTvewUS-b15Nw">  
+    <image style="width:80rpx;height:80rpx" src="../../images/setting1.png"></image>
+    <view style="font-size:12px">使用介绍</view>
   </view>
   <view class="box" bindtap="saveQRCode" id="images/qrcode.jpg">
     <image style="width:80rpx;height:80rpx" src="../../images/setting2.png"></image> 
     <view style="font-size:12px">小程序码</view>
   </view>
-  <view class="box" bindtap="saveQRCode" id="images/qrcode_for_account.jpg">
+  <view class="box" bindtap="navigateTo" id="/pages/testdb/testdb?src=https://mp.weixin.qq.com/s/uybVCD6KfKgSoCq0Jo4g_A">
     <image style="width:80rpx;height:80rpx" src="../../images/setting6.png"></image> 
     <view style="font-size:12px">关注公众号</view>
   </view>

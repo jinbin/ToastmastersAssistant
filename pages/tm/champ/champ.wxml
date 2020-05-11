@@ -1,0 +1,16 @@
+<!--pages/tm/acronym/acronym.wxml-->
+<view class="container1">
+  <!-- <view style="padding-top:10rpx; padding-bottom:20rpx">
+  </view> -->
+    <view class="window1">
+      <block wx:for="{{champs}}" wx:key="key">
+        <view class="box" style="background-image: url('https://7072-production-a65b5c-1258290025.tcb.qcloud.la/images/champ/{{item.key}}champ.png')"  bindtap="do_champ" data-id="{{index}}">
+          <view class="downText" style="">{{item.key}}</view>
+        </view>
+      </block>
+    </view>
+</view>
+
+<view class="circle-float">
+  <button style="color: #ffffff;font-size:23rpx;" hover-class='button-hover' open-type='share'>转发</button>
+</view>

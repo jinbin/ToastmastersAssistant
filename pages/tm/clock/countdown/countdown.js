@@ -178,7 +178,7 @@ Page({
   onShareAppMessage: function () {
     return {
       title: "最简洁好用的演讲计时器！",
-      imageUrl: "/images/timer_forward-min.png",
+      // imageUrl: "/images/timer_forward-min.png",
       path: "/pages/tm/clock/countdown/countdown"
     }
   }

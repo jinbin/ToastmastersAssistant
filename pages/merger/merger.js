@@ -434,25 +434,28 @@ Page({
   },
 
   saveOfficialQRCode: function(e) {
-    wx.showModal({
-      content: '搜索"头马演讲助手"官方公众号, 获取历年头马世界冠军演讲视频！',
-      showCancel: false,
-      confirmText: '去关注',
-      confirmColor: '#ff7f50',
-      success: function(res) {
-        if (res.confirm) {
-          wx.setClipboardData({
-            data: "头马演讲助手",
-            success: function(res) {
-              wx.showToast({
-                title: "公众号名已复制"
-              })
-            }
-          })
-          console.log('用户点击确定');
-        }
-      }
+    wx.navigateTo({
+      url: '/pages/testdb/testdb?src=https://mp.weixin.qq.com/s/uybVCD6KfKgSoCq0Jo4g_A',
     })
+    // wx.showModal({
+    //   content: '搜索"头马演讲助手"官方公众号, 获取历年头马世界冠军演讲视频！',
+    //   showCancel: false,
+    //   confirmText: '去关注',
+    //   confirmColor: '#ff7f50',
+    //   success: function(res) {
+    //     if (res.confirm) {
+    //       wx.setClipboardData({
+    //         data: "头马演讲助手",
+    //         success: function(res) {
+    //           wx.showToast({
+    //             title: "公众号名已复制"
+    //           })
+    //         }
+    //       })
+    //       console.log('用户点击确定');
+    //     }
+    //   }
+    // })
   },
 
   tmIntro: function(options) {
@@ -578,7 +581,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
     // wx.getNetworkType({
     //   success(res) {
     //     const networkType = res.networkType
@@ -624,10 +626,12 @@ Page({
             that.setData({
               topics: e.data[0].topics
             })
+            //以下这段在onShow重复，但如果不写，则eggs的状态不会正确
             db.collection("checkin").where({
               openid: app.globalData.openId
             }).get({
               success: function(res) {
+                console.log("yyyyyyyyy")
                 console.log(res.data[0])
 
                 if (res.data[0]["eggs"]) {
@@ -676,16 +680,12 @@ Page({
                     level: level_set
                   })
                 }
-                //   }
-                // })
               }
             })
           }
         })
       }
     })
-  // }
-  // })
 },
 
 /**
@@ -698,31 +698,63 @@ onReady: function() {
 /**
  * 生命周期函数--监听页面显示
  */
-// onShow: function() {
-//   var that = this
-//   wx.getBackgroundAudioPlayerState({
-//     success(res) {
-//       if (res.status == 1) {
-//         that.setData({
-//           isplay: true
-//         })
-//       } else {
-//         that.setData({
-//           isplay: false
-//         })
-//       }
-//     }
-//   })
+onShow: function() {
+  var that = this 
+  db.collection("checkin").where({
+    openid: app.globalData.openId
+  }).get({
+    success: function (res) {
+      console.log(res.data[0])
 
-//   var length = that.data.text.length * that.data.size; //文字长度
-//   var windowWidth = wx.getSystemInfoSync().windowWidth; // 屏幕宽度
-//   //console.log(length,windowWidth);
-//   that.setData({
-//     length: length,
-//     windowWidth: windowWidth
-//   });
-//   that.scrolltxt(); // 第一个字消失后立即从右边出现
-// },
+      if (res.data[0]["eggs"]) {
+        that.setData({
+          eggs: res.data[0]["eggs"]
+        })
+      }
+
+      if (res.data.length == 0) {
+        that.setData({
+          level: "青铜"
+        })
+      } else {
+        var level_set = "布衣"
+        var score = res.data[0].checkin * 10
+        if (res.data[0]["rewardedvideo"]) {
+          score = res.data[0].rewardedvideo * 10
+        }
+        if (score < 100) { } else if (score < 200) {
+          level_set = "黑铁"
+        } else if (score < 400) {
+          level_set = "青铜"
+        } else if (score < 800) {
+          level_set = "白银"
+        } else if (score < 1200) {
+          level_set = "黄金"
+        } else if (score < 2000) {
+          level_set = "铂金"
+        } else if (score < 4000) {
+          level_set = "钻石"
+        } else if (score < 7000) {
+          level_set = "闪烁"
+        } else if (score < 10000) {
+          level_set = "星耀"
+        } else if (score < 20000) {
+          level_set = "大师"
+        } else if (score < 30000) {
+          level_set = "王者"
+          // 这里100000只是个虚数，并无实际含义
+        } else if (score < 100000) {
+          level_set = "荣耀"
+        } else {
+          console.log("不在范围内")
+        }
+        that.setData({
+          level: level_set
+        })
+      }
+    }
+  })
+},
 
 // scrolltxt: function() {
 //   var that = this;

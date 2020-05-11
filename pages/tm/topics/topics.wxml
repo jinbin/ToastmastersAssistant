@@ -1,0 +1,40 @@
+<view class="container1" bindtap="navigateTo" id="/pages/testdb/testdb?src=https://mp.weixin.qq.com/s/uybVCD6KfKgSoCq0Jo4g_A">
+    <image src="https://7072-production-a65b5c-1258290025.tcb.qcloud.la/images/topicscards.jpeg?sign=844ce8b711fc9442ef27b9136e30a18a&t=1566616723" mode="widthFix" style="width:95%; padding-top: 20rpx;"></image>
+</view>
+
+<view class="frame">
+  <view class="switch" style="width:100%">
+    <view style="display: flex; align-items: center; padding-left: 20rpx;">
+      <switch bindchange="switchChange"/>
+    </view>
+    <view style="display: flex; align-items: center;">
+      <text class="downText" style="font-weight:bold;">{{language}}</text>
+    </view>
+  </view>
+  <view style="width:100%">
+    <form report-submit="true" bindsubmit="getIntro">
+      <view class="window3">
+        <view class="box3" wx:for="{{topics}}" wx:key="id" wx:for-index="idx">
+          <navigator url="/pages/tm/topics/topic/topic?label={{item.label}}&id={{item._id}}">
+            <image class="icon" src="../../../images/topics_color{{idx % 10}}.png"></image>
+          </navigator>
+          <navigator url="/pages/tm/topics/topic/topic?label={{item.label}}&id={{item._id}}">
+            <view class="downText">{{item.label}}</view>
+          </navigator>
+        </view>
+      </view>
+    </form>
+  </view>
+</view>
+
+<view class="circle-float">
+  <button style="color: #ffffff;font-size:23rpx;" hover-class='button-hover' open-type='share'>转发</button>
+</view>
+
+<!-- <view class="container1">
+  <navigator open-type="switchTab" url="/pages/index/index">
+    <button size="mini" type="primary" style="font-size:30rpx">
+      返回首页
+    </button>
+  </navigator>
+</view> -->

@@ -18,30 +18,13 @@ Page({
     top_icons: ["003-cop.png", "004-judge.png", "007-detective.png", "010-eyewitness.png", "023-gavel.png"]
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
+  onShow: function (options) {
     var that = this
     db.collection("checkin").where({
       openid: app.globalData.openId
     }).get({
       success: function (res) {
-        // let eggs_new = res.data[0]["eggs"]
-        //console.log(eggs_new.keySet())
         if (res.data[0]["eggs"]) {
-          // if (res.data[0]["eggs"]["egg1"]) {
-          //   eggs_new["egg1"] = true
-          // }
-
-          // if (res.data[0]["eggs"]["egg2"]) {
-          //   eggs_new["egg2"] = true
-          // }
-
-          // if (res.data[0]["eggs"]["egg3"]) {
-          //   eggs_new["egg3"] = true
-          // }
-
           that.setData({
             eggs: res.data[0]["eggs"]
           })
@@ -224,9 +207,9 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  // onShow: function () {
 
-  },
+  // },
 
   /**
    * 生命周期函数--监听页面隐藏

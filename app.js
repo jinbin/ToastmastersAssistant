@@ -2,7 +2,7 @@
 
 const utils = require('./utils/util.js')
 
-var App = require('./utils/xmadx_sdk.min.js').xmad(App,'App').xmApp;
+//var App = require('./utils/xmadx_sdk.min.js').xmad(App,'App').xmApp;
 
 App({
   articles: require('./data/articles/articles'),

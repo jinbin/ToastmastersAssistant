@@ -5,7 +5,7 @@ const db = wx.cloud.database({
   env: "tmassistant-5275ad"
 })
 
-var Page = require('../../utils/xmadx_sdk.min.js').xmad(Page).xmPage;
+//var Page = require('../../utils/xmadx_sdk.min.js').xmad(Page).xmPage;
 var app = getApp();
 
 Page({
@@ -43,37 +43,23 @@ Page({
     isAdError: false
   },
 
-  onLoad: function(options) {
+  onShow: function(options) {
     console.log("F: " + app.globalData.openId)
-    this.setData({
-      time: util.formatTime(new Date())
-    })
+    // this.setData({
+    //   time: util.formatTime(new Date())
+    // })
 
     var that = this
-    // wx.cloud.callFunction({
-    //   name: "getOpenid",
-    //   success: res => {
-    //     that.setData({
-    //       openId: res.result.openid
-    // //     })
-    //     var openid = res.result.openid
-    //     console.log("openid: " + openid)
     db.collection("checkin").where({
       openid: app.globalData.openId
     }).get({
       success: function(res) {
-        console.log(res)
-        var score = app.globalData.jifen
+        var score = 0
         if (res.data.length != 0) {
-          console.log("xxxx_res: " + res)
-          console.log(res.data[0]["rewardedvideo"])
           if (res.data[0]["rewardedvideo"]) {
-            console.log(res.data[0].rewardedvideo)
             score = score + res.data[0].rewardedvideo * 10
           }
-          console.log(res.data[0]["checkin"])
           if (res.data[0]["checkin"]) {
-            console.log(res.data[0].checkin)
             score = score + res.data[0].checkin * 10
           }
           app.globalData.jifen = score
@@ -81,9 +67,7 @@ Page({
             score: score
           })
         } else {
-          // that.setData({
-          //   score: 0
-          // })
+          // score仍为0
         }
       }
     })
@@ -246,106 +230,11 @@ Page({
     })
   },
 
-  // checkin: function(options) {
-  //   var that = this
-  //   wx.cloud.callFunction({
-  //     name: "getOpenid",
-  //     success: res => {
-  //       that.setData({
-  //         openId: res.result.openid
-  //       })
-  //       var openid = res.result.openid
-  //       db.collection("checkin").where({
-  //         openid: res.result.openid
-  //       }).get({
-  //         success: function(res) {
-  //           console.log(res.data)
-  //           if (res.data.length == 0) {
-  //             db.collection('checkin').add({
-  //               data:({
-  //                 checkin: 1,
-  //                 date: util.formatTime(new Date()),
-  //                 openid: openid
-  //               }),
-  //               success: function(){
-  //                 wx.showModal({
-  //                   content: "恭喜你发现了隐藏签到处！更多惊喜正在路上，明天继续来签到吧！",
-  //                   showCancel: false,
-  //                   // confirmText: '',
-  //                   confirmColor: '#ff7f50',
-  //                   success: function (res) {
-  //                     if (res.confirm) { }
-  //                   }
-  //                 })
-  //               }
-  //             })
-  //           } else {
-  //             if (res.data[0].date == util.formatTime(new Date())) {
-  //               //今天已经签到过
-  //               wx.showModal({
-  //                 content: "今天已签到, 你已经签到过" + res.data[0].checkin + "次, 明天再来打卡~",
-  //                 showCancel: false,
-  //                 // confirmText: '',
-  //                 confirmColor: '#ff7f50',
-  //                 success: function(res) {
-  //                   if (res.confirm) {}
-  //                 }
-  //               })
-  //             } else {
-  //               //今天第一次签到
-  //               db.collection('checkin').doc(res.data[0]._id).update({
-  //                 data: {
-  //                   checkin: db.command.inc(1),
-  //                   date: util.formatTime(new Date())
-  //                 },
-  //                 success: res1 => {
-  //                   wx.showModal({
-  //                     content: "签到成功！这是你的第" + (res.data[0].checkin+1) + "次签到",
-  //                     showCancel: false,
-  //                     // confirmText: '',
-  //                     confirmColor: '#ff7f50',
-  //                     success: function(res) {
-  //                       if (res.confirm) {}
-  //                     }
-  //                   })
-  //                 }
-  //               })
-  //             }
-  //           } //数据库已经有对应人的信息
-  //         },
-  //         fail: function(e) {
-  //           console.log("fail")
-  //         }
-  //       })
-  //     }
+  // onShow: function(options) {
+  //   this.setData({
+  //     score: app.globalData.jifen
   //   })
   // },
-
-  onShow: function(options) {
-
-    this.setData({
-      score: app.globalData.jifen
-    })
-
-    // wx.cloud.callFunction({
-    //   name: "isOwner",
-    //   complete: owner_res => {
-    //     wx.cloud.callFunction({
-    //       name: 'getOpenid',
-    //       complete: res => {
-    //         //牛逼哄哄的作者openid
-    //         for (var index in owner_res.result.data.owners) {
-    //           if (res.result.openid == owner_res.result.data.owners[index]) {
-    //             this.setData({
-    //               isOwner: true
-    //             })
-    //           }
-    //         }
-    //       }
-    //     })
-    //   }
-    // })
-  },
 
   login: function(e) {
     var that = this
