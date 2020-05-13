@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/merger/merger",
+    "pages/tm/jixing/jixing",
     "pages/tm/topics/topics",
     "pages/tm/topics/topic/topic",
     "pages/tm/champ/champ",

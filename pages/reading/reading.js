@@ -99,7 +99,7 @@ Page({
         console.log(res.result)
         that.setData({
           // guessYouLike: e.data.reverse()
-          guessYouLike: res.result.data
+          guessYouLike: res.result.data.reverse()
         })
         wx.hideLoading()
       }

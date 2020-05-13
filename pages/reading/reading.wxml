@@ -1,7 +1,7 @@
 <!--pages/reading/reading.wxml-->
 
 <view class="reading_type">
-  <block wx:for="{{types}}" wx:key="*item">
+  <block wx:for="{{types}}" wx:key="id">
     <view wx:if="{{currentId == item.id}}" bindtap="changetype" id="{{item.id}}"class="item_type" style="width: 20%; background-color:#FFDEAD">
       <image style="width:70rpx;height:70rpx;padding-bottom:10px;" src="/images/{{item.icon}}"></image> 
       <view style="font-size: 13px;">{{item.text}}</view>
@@ -50,11 +50,11 @@
     <view wx:if="{{index % 11 == 0}}" class="adBlock">
       <view wx:if="{{index != 0}}" class="adContainer">
         <!-- Banner广告 -->
-        <ad unit-id="adunit-ab171e6bb49115c5" ad-intervals="30"></ad>
+        <!-- <ad unit-id="adunit-ab171e6bb49115c5" ad-intervals="30"></ad> -->
         <!-- 格子广告 -->
         <!-- <ad unit-id="adunit-a9a18369f7e6d2c6" ad-type="grid" grid-opacity="0.8" grid-count="5" ad-theme="white"></ad> -->
         <!-- 视频广告 -->
-        <!-- <ad unit-id="adunit-a3ae6b7d69bb20fb" ad-type="video" ad-theme="white"></ad> -->
+        <ad unit-id="adunit-a3ae6b7d69bb20fb" ad-type="video" ad-theme="white"></ad>
       </view>
     </view>
     <view wx:if="{{index % 11 == 5}}" class="adBlock">

@@ -194,9 +194,12 @@ Page({
         path: 'pages/knowledge/knowledge'
       })
     } else if (options.detail.target.id == "topics") {
-      wx.navigateToMiniProgram({
-        appId: 'wx4c4b54bc609bd79e',
-        path: 'pages/index/index?challenge=true'
+      // wx.navigateToMiniProgram({
+      //   appId: 'wx4c4b54bc609bd79e',
+      //   path: 'pages/index/index?challenge=true'
+      // })
+      wx.navigateTo({
+        url: '/pages/tm/jixing/jixing',
       })
     } else if (options.detail.target.id == "timertool") {
       wx.navigateTo({
@@ -618,14 +621,14 @@ Page({
         that.setData({
           guessYouLike: e.data.reverse()
         })
-        db.collection("information").where({
-          type: "topics"
-        }).get({
-          success: function(e) {
-            console.log(e.data[0].topics)
-            that.setData({
-              topics: e.data[0].topics
-            })
+        // db.collection("information").where({
+        //   type: "topics"
+        // }).get({
+          // success: function(e) {
+            // console.log(e.data[0].topics)
+            // that.setData({
+            //   topics: e.data[0].topics
+            // })
             //以下这段在onShow重复，但如果不写，则eggs的状态不会正确
             db.collection("checkin").where({
               openid: app.globalData.openId
@@ -682,8 +685,8 @@ Page({
                 }
               }
             })
-          }
-        })
+          // }
+        // })
       }
     })
 },

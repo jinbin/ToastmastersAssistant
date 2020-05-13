@@ -1,5 +1,5 @@
 <!--list.wxml-->
-<image src="{{image}}" bindtap="" style="width:100%" mode="widthFix" />
+<image src="{{image}}" bindtap="" style="width:100%;" mode="widthFix" />
 <view class="page">
   <view class="page__hd" style="display: flex;flex-wrap: nowrap; justify-content: space-between;">
     <view class="container1">
