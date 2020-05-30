@@ -19,14 +19,13 @@ Page({
   },
 
   onShow: function (options) {
-    var that = this
-    db.collection("checkin").where({
-      openid: app.globalData.openId
-    }).get({
-      success: function (res) {
-        if (res.data[0]["eggs"]) {
+    var that = this 
+    wx.cloud.callFunction({
+      name: 'getPersonalInfo',
+      success: res => {
+        if (res.result.data[0]["eggs"]) {
           that.setData({
-            eggs: res.data[0]["eggs"]
+            eggs: res.result.data[0]["eggs"]
           })
         }
       }

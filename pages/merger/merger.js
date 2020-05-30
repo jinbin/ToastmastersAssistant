@@ -609,174 +609,37 @@ Page({
       onIndex: true
     }).get({
       success: function (e) {
-        console.log(e)
         that.setData({
           guessYouLike: e.data.reverse()
         })
-        console.log("openid: " + app.globalData.openId)
 
-        wx.cloud.callFunction({
-          name: 'getPersonalInfo',
-          success: res => {
-            console.log("from yun: ")
-            console.log(res.result.data[0])
-            console.log(res.result.data[0]["eggs"])
-
-            if (res.result.data[0]["eggs"]) {
-              that.setData({
-                eggs: res.result.data[0]["eggs"]
-              })
-            }
-
-            console.log("eggs" + that.data.eggs["egg1"])
-            console.log("eggs" + that.data.eggs["egg2"])
-            console.log("eggs" + that.data.eggs["egg3"])
-
-            if (res.result.data.length == 0) {
-              that.setData({
-                level: "青铜"
-              })
-            } else {
-              var level_set = "布衣"
-              var score = res.result.data[0].checkin * 10
-              if (res.result.data[0]["rewardedvideo"]) {
-                score = res.result.data[0].rewardedvideo * 10
-              }
-              if (score < 100) {} else if (score < 200) {
-                level_set = "黑铁"
-              } else if (score < 400) {
-                level_set = "青铜"
-              } else if (score < 800) {
-                level_set = "白银"
-              } else if (score < 1200) {
-                level_set = "黄金"
-              } else if (score < 2000) {
-                level_set = "铂金"
-              } else if (score < 4000) {
-                level_set = "钻石"
-              } else if (score < 7000) {
-                level_set = "闪烁"
-              } else if (score < 10000) {
-                level_set = "星耀"
-              } else if (score < 20000) {
-                level_set = "大师"
-              } else if (score < 30000) {
-                level_set = "王者"
-                // 这里100000只是个虚数，并无实际含义
-              } else if (score < 100000) {
-                level_set = "荣耀"
-              } else {
-                console.log("不在范围内")
-              }
-              that.setData({
-                level: level_set
-              })
-            }
-
-            // db.collection("checkin").where({
-            //   openid: app.globalData.openId
-            // }).get({
-            //   success: function (res) {
-            //     // console.log("yyyyyyyyy")
-            //     // console.log("openid: " + app.globalData.openId)
-            //     // console.log(res)
-            //     // console.log(res.data)
-            //     // console.log(res.data[0])
-    
-            //     // if (res.data[0]["eggs"]) {
-            //     //   that.setData({
-            //     //     eggs: res.data[0]["eggs"]
-            //     //   })
-            //     // }
-    
-            //     // console.log("eggs" + that.data.eggs["egg1"])
-            //     // console.log("eggs" + that.data.eggs["egg2"])
-            //     // console.log("eggs" + that.data.eggs["egg3"])
-    
-            //     // if (res.data.length == 0) {
-            //     //   that.setData({
-            //     //     level: "青铜"
-            //     //   })
-            //     // } else {
-            //     //   var level_set = "布衣"
-            //     //   var score = res.data[0].checkin * 10
-            //     //   if (res.data[0]["rewardedvideo"]) {
-            //     //     score = res.data[0].rewardedvideo * 10
-            //     //   }
-            //     //   if (score < 100) {} else if (score < 200) {
-            //     //     level_set = "黑铁"
-            //     //   } else if (score < 400) {
-            //     //     level_set = "青铜"
-            //     //   } else if (score < 800) {
-            //     //     level_set = "白银"
-            //     //   } else if (score < 1200) {
-            //     //     level_set = "黄金"
-            //     //   } else if (score < 2000) {
-            //     //     level_set = "铂金"
-            //     //   } else if (score < 4000) {
-            //     //     level_set = "钻石"
-            //     //   } else if (score < 7000) {
-            //     //     level_set = "闪烁"
-            //     //   } else if (score < 10000) {
-            //     //     level_set = "星耀"
-            //     //   } else if (score < 20000) {
-            //     //     level_set = "大师"
-            //     //   } else if (score < 30000) {
-            //     //     level_set = "王者"
-            //     //     // 这里100000只是个虚数，并无实际含义
-            //     //   } else if (score < 100000) {
-            //     //     level_set = "荣耀"
-            //     //   } else {
-            //     //     console.log("不在范围内")
-            //     //   }
-            //     //   that.setData({
-            //     //     level: level_set
-            //     //   })
-            //     // }
-            //   }
-            // })
-          }
-        })
-
-        //以下这段在onShow重复，但如果不写，则eggs的状态不会正确
+        //that.updatePersonalInfo()
 
       }
     })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
+  updatePersonalInfo: function() {
+    var that = this 
+    wx.cloud.callFunction({
+      name: 'getPersonalInfo',
+      success: res => {
 
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    var that = this
-    db.collection("checkin").where({
-      openid: app.globalData.openId
-    }).get({
-      success: function (res) {
-        console.log(res.data[0])
-
-        if (res.data[0]["eggs"]) {
+        if (res.result.data[0]["eggs"]) {
           that.setData({
-            eggs: res.data[0]["eggs"]
+            eggs: res.result.data[0]["eggs"]
           })
         }
 
-        if (res.data.length == 0) {
+        if (res.result.data.length == 0) {
           that.setData({
             level: "青铜"
           })
         } else {
           var level_set = "布衣"
-          var score = res.data[0].checkin * 10
-          if (res.data[0]["rewardedvideo"]) {
-            score = res.data[0].rewardedvideo * 10
+          var score = res.result.data[0].checkin * 10
+          if (res.result.data[0]["rewardedvideo"]) {
+            score = res.result.data[0].rewardedvideo * 10
           }
           if (score < 100) {} else if (score < 200) {
             level_set = "黑铁"
@@ -810,6 +673,75 @@ Page({
         }
       }
     })
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {  
+    this.updatePersonalInfo()
+    // var that = this
+    // db.collection("checkin").where({
+    //   openid: app.globalData.openId
+    // }).get({
+    //   success: function (res) {
+    //     console.log(res.data[0])
+
+    //     if (res.data[0]["eggs"]) {
+    //       that.setData({
+    //         eggs: res.data[0]["eggs"]
+    //       })
+    //     }
+
+    //     if (res.data.length == 0) {
+    //       that.setData({
+    //         level: "青铜"
+    //       })
+    //     } else {
+    //       var level_set = "布衣"
+    //       var score = res.data[0].checkin * 10
+    //       if (res.data[0]["rewardedvideo"]) {
+    //         score = res.data[0].rewardedvideo * 10
+    //       }
+    //       if (score < 100) {} else if (score < 200) {
+    //         level_set = "黑铁"
+    //       } else if (score < 400) {
+    //         level_set = "青铜"
+    //       } else if (score < 800) {
+    //         level_set = "白银"
+    //       } else if (score < 1200) {
+    //         level_set = "黄金"
+    //       } else if (score < 2000) {
+    //         level_set = "铂金"
+    //       } else if (score < 4000) {
+    //         level_set = "钻石"
+    //       } else if (score < 7000) {
+    //         level_set = "闪烁"
+    //       } else if (score < 10000) {
+    //         level_set = "星耀"
+    //       } else if (score < 20000) {
+    //         level_set = "大师"
+    //       } else if (score < 30000) {
+    //         level_set = "王者"
+    //         // 这里100000只是个虚数，并无实际含义
+    //       } else if (score < 100000) {
+    //         level_set = "荣耀"
+    //       } else {
+    //         console.log("不在范围内")
+    //       }
+    //       that.setData({
+    //         level: level_set
+    //       })
+    //     }
+    //   }
+    // })
   },
 
   // scrolltxt: function() {
