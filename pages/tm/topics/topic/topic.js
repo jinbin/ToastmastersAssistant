@@ -86,7 +86,7 @@ Page({
   onShareAppMessage: function () {
     return {
       title: "让我们聊聊这个即兴话题:《" + this.data.label + "》",
-      path: "/pages/topics/topics?label=" + this.data.label + "&id=" + this.data.id
+      path: "/pages/tm/topics/topic/topic?label=" + this.data.label + "&id=" + this.data.id
     }
   }
 })

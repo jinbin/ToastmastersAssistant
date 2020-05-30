@@ -86,8 +86,8 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  bottom: 20rpx;
-  right: 20rpx;
+  bottom: 100rpx;
+  right: 40rpx;
   width: 110rpx;
   height: 110rpx;
   border-radius: 50%;

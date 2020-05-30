@@ -49,6 +49,16 @@ Page({
         "id": "jayshetty",
         "icon": "jay.png"
       },
+      {
+        "text": "即兴冠军",
+        "id": "jixing",
+        "icon": "jushou.png"
+      },
+      {
+        "text": "马云",
+        "id": "jackma",
+        "icon": "mayun-min.png"
+      }
       // {
       //   "text": "冠军们",
       //   "id": "champ",
@@ -121,18 +131,6 @@ Page({
     }
 
     console.log(type)
-    // db.collection("guessYouLike").where({
-    //   type: type
-    // }).get({
-    //   success: function(e) {
-    //     console.log(e)
-    //     that.setData({
-    //       // guessYouLike: e.data.reverse()
-    //       guessYouLike: e.data
-    //     })
-    //     wx.hideLoading()
-    //   }
-    // })
 
     wx.cloud.callFunction({
       name: "getYouLike",
@@ -143,7 +141,7 @@ Page({
         console.log(res.result)
         that.setData({
           // guessYouLike: e.data.reverse()
-          guessYouLike: res.result.data
+          guessYouLike: res.result.data.reverse()
         })
         wx.hideLoading()
       }

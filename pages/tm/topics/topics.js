@@ -8,7 +8,7 @@ Page({
    */
   data: {
     is_English: true,
-    language: "英文"
+    language: "English"
   },
 
   switchChange: function() {
@@ -20,7 +20,7 @@ Page({
     } else {
       this.setData({
         is_English: true,
-        language: "英文"
+        language: "English"
       })
     }
 
