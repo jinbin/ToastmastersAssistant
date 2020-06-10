@@ -99,21 +99,40 @@ Page({
     //   }
     // })
 
-    console.log("云函数")
-    wx.cloud.callFunction({
-      name: "getYouLike", 
-      data: {
-        type: options.type
-      },
+    db.collection("information").doc("config").get({
       success: function(res){
-        console.log(res.result)
+        console.log(res.data["reading"])
         that.setData({
-          // guessYouLike: e.data.reverse()
-          guessYouLike: res.result.data.reverse()
+          currentId: res.data["default"],
+          types: res.data["reading"]
         })
-        wx.hideLoading()
+
+        var select_type = ""
+        if(that.data.currentId != "all"){
+          select_type = that.data.currentId
+        }
+        
+        wx.cloud.callFunction({
+          name: "getYouLike", 
+          data: {
+            type: select_type
+          },
+          success: function(res){
+            console.log(res.result)
+            that.setData({
+              // guessYouLike: e.data.reverse()
+              guessYouLike: res.result.data.reverse()
+            })
+            wx.hideLoading()
+          }
+        })
       }
     })
+
+    console.log("云函数")
+
+
+
   },
 
   changetype: function(options) {
