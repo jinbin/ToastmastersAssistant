@@ -365,7 +365,6 @@ Page({
 
   onShareAppMessage: function (res) {
     return {
-      imageUrl: '/images/audioforward-min.jpeg',
       title: '头马, TED, 冠军演讲音频，这里全都有!',
     }
   }

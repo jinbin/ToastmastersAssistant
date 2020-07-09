@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/merger/merger",
+    "pages/chat/chat",
     "pages/tm/jixing/jixing",
     "pages/tm/topics/topics",
     "pages/tm/topics/topic/topic",
@@ -49,10 +50,10 @@
         "text": "在看"
       },
       {
-        "pagePath": "pages/tm/topics/topics",
-        "iconPath": "./images/tabBar/cart.png",
-        "selectedIconPath": "./images/tabBar/cart-sel.png",
-        "text": "即兴"
+        "pagePath": "pages/tm/champ/champ",
+        "iconPath": "./images/tabBar/path.png",
+        "selectedIconPath": "images/tabBar/path-sel.png",
+        "text": "演讲"
       },
       {
         "pagePath": "pages/merger/merger",
@@ -61,10 +62,10 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/tm/champ/champ",
-        "iconPath": "./images/tabBar/path.png",
-        "selectedIconPath": "images/tabBar/path-sel.png",
-        "text": "演讲"
+        "pagePath": "pages/chat/chat",
+        "iconPath": "./images/tabBar/robot_light.png",
+        "selectedIconPath": "./images/tabBar/robot_dark.png",
+        "text": "AI助手"
       },
       {
         "pagePath": "pages/my/my",
@@ -77,10 +78,18 @@
 
   "navigateToMiniProgramAppIdList": [
     "wx4c4b54bc609bd79e",
-    "wx05d1a8b0228bcf67"
+    "wx05d1a8b0228bcf67",
+    "wx16c76d4762cbe0b3"
   ],
-
   "plugins": {
+    "chatbot": {
+      "version": "1.1.23",
+      "provider": "wx8c631f7e9f2465e1"
+    },
+    "WechatSI": {
+      "version": "0.3.4",
+      "provider": "wx069ba97219f66d99"
+    }
   },
   "sitemapLocation": "sitemap.json",
   "requiredBackgroundModes": [

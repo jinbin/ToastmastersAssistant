@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "头马AI助手",
+  "usingComponents": {
+    "chat": "plugin://chatbot/chat"
+  }
+}

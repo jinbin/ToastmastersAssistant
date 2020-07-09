@@ -46,6 +46,10 @@ Page({
         "bind": "saveOfficialQRCode"
       },
       {
+        "url": "cloud://tmassistant-5275ad.746d-tmassistant-5275ad-1258071577/images/posters/robot_banner_900x600-min.png",
+        "bind": "gotoRobot"
+      },
+      {
         "url": "../../images/dashangzhichi_banner-min.jpeg",
         "bind": "gotoGeizan"
       }
@@ -103,6 +107,12 @@ Page({
   //   }
   // },
 
+  gotoRobot: function (e) {
+    wx.switchTab({
+      url: '/pages/chat/chat',
+    })
+  },
+
   playTEDaudio: function (e) {
     console.log("TED audio")
   },
@@ -135,7 +145,15 @@ Page({
       wx.switchTab({
         url: '/pages/volItem/volItem',
       })
-    } else if (options.detail.target.id == "tmIntro") {
+    } else if(options.detail.target.id == "ai"){
+      wx.switchTab({
+        url: '/pages/chat/chat',
+      })
+    }else if(options.detail.target.id == "jixingtopics"){
+      wx.navigateTo({
+        url: '/pages/tm/topics/topics',
+      })      
+    }else if (options.detail.target.id == "tmIntro") {
       wx.navigateTo({
         url: '/pages/testdb/testdb?src=https://mp.weixin.qq.com/s/_G4wk0RYs2uBZfnfRt9oCg',
       })
@@ -593,8 +611,9 @@ Page({
 
     wx.showShareMenu({
       // shareTicket 是获取转发目标群信息的票据，只有拥有 shareTicket 才能拿到群信息，用户每次转发都会生成对应唯一的shareTicket 。
-      withShareTicket: true
-    });
+      withShareTicket: true,
+      menus: ['shareAppMessage', 'shareTimeline']
+    })
 
     var that = this
     this.setData({
@@ -983,6 +1002,13 @@ Page({
   },
 
   onShareAppMessage: function (res) {
+    return {
+      title: '头马助手, 演讲一站式服务, 可能是最好的演讲类小程序',
+      imageUrl: '/images/homepage-min.png'
+    }
+  },
+
+  onShareTimeline: function (res) {
     return {
       title: '头马助手, 演讲一站式服务, 可能是最好的演讲类小程序',
       imageUrl: '/images/homepage-min.png'

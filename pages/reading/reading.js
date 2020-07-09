@@ -227,5 +227,12 @@ Page({
     return {
       title: '大家都在看的精彩文章~'
     }
+  },
+
+  onShareTimeline: function (res) {
+    return {
+      title: '在头马小程序里，大家都在看的精彩文章~',
+      // imageUrl: '/images/homepage-min.png'
+    }
   }
 })

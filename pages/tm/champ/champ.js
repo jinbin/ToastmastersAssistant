@@ -104,7 +104,11 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {},
+  onLoad: function(options) {
+    wx.showShareMenu({
+      menus: ['shareAppMessage', 'shareTimeline']
+    })
+  },
 
   do_champ: function(options) {
     console.log(options.currentTarget.dataset.id)
@@ -162,6 +166,13 @@ Page({
   onShareAppMessage: function (res) {
     return {
       title: '头马世界演讲冠军全集，赶紧收藏！',
+      imageUrl: '/images/champ-min.png'
+    }
+  },
+
+  onShareTimeline: function (res) {
+    return {
+      title: '头马世界演讲冠军全集，值得收藏！',
       imageUrl: '/images/champ-min.png'
     }
   }

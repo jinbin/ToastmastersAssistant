@@ -14,6 +14,10 @@ Page({
   onLoad: function (options) {
     this.setData({
       url_src: options.src
+    }),
+
+    wx.showShareMenu({
+      menus: ['shareAppMessage', 'shareTimeline']
     })
   },
 
@@ -66,6 +70,13 @@ Page({
     return {
       title: '这是一篇我喜欢的文章，你是我的好友，推荐你也看看',
       path: '/pages/testdb/testdb?src=' + this.data.url_src,
+    }
+  },
+
+  onShareTimeline: function (res) {
+    return {
+      title: '这是一篇我喜欢的文章，你是我的好友，推荐你也看看',
+      path: '/pages/testdb/testdb?src=' + this.data.url_src
     }
   }
 })

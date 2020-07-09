@@ -84,6 +84,18 @@ button {
   padding: 10rpx;
 }
 
+
+.box3_5 {
+  width: 20%;
+  height: 140rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  padding-bottom: 15rpx;
+}
+
 .box_tool {
   width: 33%;
   height: 120rpx;
