@@ -216,9 +216,6 @@
       </view>
     </view>
   </view>
-  <!-- <view class="container1" style="width:100%;">
-    <text style="color:DimGray;font-size:10px;padding:10rpx;">头马演讲和领导力教育体系Pathways项目中英文说明</text>
-  </view> -->
 </form>
 
 <view class="cards" id="cards" style="padding:15rpx">
@@ -290,7 +287,7 @@
   </view> -->
 
   <view class="container1">
-    <image bindtap="toBilingualSpeak" src="/images/topicskills_small.jpeg" mode="widthFix" style="width:95%; border-radius:25rpx;"></image>
+    <image bindtap="saveOfficialQRCode" src="/images/topicskills_small.jpeg" mode="widthFix" style="width:95%; border-radius:25rpx;"></image>
   </view>
   <view class="window3" style="padding:10rpx;">
     <view class="box3_5" style="">

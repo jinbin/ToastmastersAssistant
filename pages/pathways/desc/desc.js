@@ -35,7 +35,9 @@ Page({
     index: 0,
     indexPath: 0,
     highlight: [],
-    pathStyle: false 
+    pathStyle: false,
+    currentTab: 0,
+    paths: app.Paths
   },
 
   onLoad: function (options) {
@@ -52,50 +54,57 @@ Page({
     let name_en
     let name_cn
 
+    console.log("HHHHHHHH")
+    console.log(options.level)
+
     this.setData({
       index: options.level -1 
     })
 
-    if(options.level == 1){
+    var options_level = options.level
+    console.log("options")
+    console.log(options)
+
+    if(options_level == 1){
       name_en = "Level 1: Mastering Fundamentals"
       name_cn = "阶段一: 掌握基础"
       this.setData({
         color0: "#FFB90F"
       })
-    } else if (options.level == 2){
+    } else if (options_level == 2){
       name_en = "Level 2: Learning Your Style"
       name_cn = "阶段二：学习风格"
       this.setData({
         color1: "#FFB90F"
       })
-    } else if (options.level == 3) {
+    } else if (options_level == 3) {
       name_en = "Level 3: Increasing Knowledge"
       name_cn = "阶段三：丰富知识"
       this.setData({
         color2: "#FFB90F"
       })
-    } else if (options.level == 4) {
+    } else if (options_level == 4) {
       name_en = "Level 4: Building Skills"
       name_cn = "阶段四：培养技能"
       this.setData({
         color3: "#FFB90F"
       })
-    } else if (options.level == 5) {
+    } else if (options_level == 5) {
       name_en = "Level 5: Demonstrating Expertise"
       name_cn = "阶段五：专业展示"
       this.setData({
         color4: "#FFB90F"
       })
-    } else if (options.level == 6) {
+    } else if (options_level == 6) {
       name_en = "Competent Communication"
       name_cn = "胜任沟通"
       this.setData({
         color5: "#FFB90F"
       })
-    } else if (options.level == 7) {
+    } else if (options_level == 7) {
       name_en = "Pathways资料"
       name_cn = "Pathways Resources"
-    } else if (options.level == 10) {
+    } else if (options_level == 10) {
       name_en = "Pathways: 11条路径"
       name_cn = "Pathways是2018年在中国正式上线的Toastmasters新一代教育系统的称呼。Pathways包含11条路径，每条路径包含一定量的project，将为全球的头马会员提供新的成长服务。"      
     }
@@ -104,11 +113,11 @@ Page({
       level_name_ch: name_cn
     })
 
-    if (options.level == 6){
+    if (options_level == 6){
       this.setData({
         projects: app.CC
       })
-    } else if (options.level == 10){
+    } else if (options_level == 10){
       this.setData({
         projects: app.Paths
       })
@@ -116,10 +125,23 @@ Page({
       wx.showLoading({
         title: '精彩马上呈现',
       })
+      // 创新计划 0
+      // 动态领导力 1
+      // 高效教练 2
+      // 领导力发展 3
+      // 激励策略 4
+      // 战略关系 5
+      // 有说服力的影响 6
+      // 精通演讲 7
+      // 团队协作 8
+      // 愿景沟通 9
+      // 幽默路径 10
+      console.log("currentTab: " + that.data.currentTab)
       wx.cloud.callFunction({
         name: 'getPathways',
         data: {
-          level: options.level
+          level: options.level,
+          path: that.data.currentTab
         },
         success: res => {
           console.log(res)
@@ -132,8 +154,46 @@ Page({
     }
   },
 
+  swichNav: function (e) {
+    var that = this 
+    this.setData({
+      currentTab: e.currentTarget.dataset.current
+    })
+
+    wx.showLoading({
+      title: '精彩马上呈现',
+    })
+    // 创新计划 0
+    // 动态领导力 1
+    // 高效教练 2
+    // 领导力发展 3
+    // 激励策略 4
+    // 战略关系 5
+    // 有说服力的影响 6
+    // 精通演讲 7
+    // 团队协作 8
+    // 愿景沟通 9
+    // 幽默路径 10
+    console.log("currentTab: " + that.data.currentTab)
+    console.log("level: " + (that.data.index + 1))
+    wx.cloud.callFunction({
+      name: 'getPathways',
+      data: {
+        level: parseInt(that.data.index)+ 1,
+        path: parseInt(that.data.currentTab)
+      },
+      success: res => {
+        console.log(res)
+        that.setData({
+          projects: res.result.data
+        })
+        wx.hideLoading()
+      }
+    })
+  },
+
   changebook: function (e) {
-    console.log(e.currentTarget.id)
+    console.log(e.currentTarget.dataset.id)
 
     this.setData({
       color0: "",
@@ -143,31 +203,31 @@ Page({
       color4: ""
     })
 
-    if (e.currentTarget.id == 0){
+    if (e.currentTarget.dataset.id == 0){
       this.setData({
         color0: "#FFB90F"
       })
-    } else if (e.currentTarget.id == 1){
+    } else if (e.currentTarget.dataset.id == 1){
       this.setData({
         color1: "#FFB90F"
       })
-    } else if (e.currentTarget.id == 2) {
+    } else if (e.currentTarget.dataset.id == 2) {
       this.setData({
         color2: "#FFB90F"
       })
-    } else if (e.currentTarget.id == 3) {
+    } else if (e.currentTarget.dataset.id == 3) {
       this.setData({
         color3: "#FFB90F"
       })
-    } else if (e.currentTarget.id == 4) {
+    } else if (e.currentTarget.dataset.id == 4) {
       this.setData({
         color4: "#FFB90F"
       })
     }
 
-    console.log('选择改变，携带值为', e.currentTarget.id)
+    console.log('选择改变，携带值为', e.currentTarget.dataset.id)
 
-    if (e.currentTarget.id == 5) {
+    if (e.currentTarget.dataset.id == 5) {
       wx.switchTab({
         url: '/pages/merger/merger',
       })
@@ -175,16 +235,22 @@ Page({
     }
 
     this.setData({
-      index: e.currentTarget.id
+      index: parseInt(e.currentTarget.dataset.id)
     })
     var that = this
     wx.showLoading({
       title: '精彩马上呈现',
     })
+
+    console.log("wwwwwwwww")
+    console.log(that.data.currentTab)
+    console.log(parseInt(e.currentTarget.dataset.id) + 1)
+
     wx.cloud.callFunction({
       name: 'getPathways',
       data: {
-        level: parseInt(e.currentTarget.id) + 1
+        level: parseInt(e.currentTarget.dataset.id) + 1,
+        path: parseInt(that.data.currentTab)
       },
       success: res => {
         console.log(res)
@@ -273,9 +339,10 @@ Page({
   },
 
   tabClick: function (e) {
+    console.log(this.data.activeIndex)
     this.setData({
       sliderOffset: e.currentTarget.offsetLeft,
-      activeIndex: e.currentTarget.id
+      activeIndex: parseInt(e.currentTarget.id)
     });
   },
 
@@ -403,6 +470,13 @@ Page({
     return {
       title: '头马Pathways手册: 100+演讲进阶项目一站搞定', 
       // path: '/pages/pathways/desc/desc?level=' + options.level
+      imageUrl: '/images/pathwaysbookforward-min.jpeg'
+    }
+  },
+
+  onShareTimeline: function (options) {
+    return {
+      title: '头马Pathways手册: 100+演讲进阶项目一站搞定', 
       imageUrl: '/images/pathwaysbookforward-min.jpeg'
     }
   }

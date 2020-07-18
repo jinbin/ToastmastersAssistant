@@ -1,43 +1,43 @@
 module.exports = [
     {
       id: 1,
-      name: 'Dynamic Leadership',
-      desc: "This path helps you build your skills as a strategic leader and negotiator. You will work through projects that focus on understanding leadership and communication styles, the effect of conflict on a group and the skills needed to defuse and direct conflict. Each project also emphasizes the development of strategies to facilitate change in an organization or group, interpersonal communication and public speaking. The Dynamic Leadership path culminates in a project focused on applying your leadership skills. Not available in non-English printed materials.",
-      open: 'false',
-      lang: 'en'
-    },
-    {
-      id: 2,
-      name: '动态领导力',
-      desc: '本路线帮助您培养成为策略型领导者的技能。本路线中项目的重点：了解您的领导风格、冲突对团队的影响以及化解和管理冲突所需的技能。这些项目还注重制定并促进组织或团队中改革的策略、人际沟通以及公众演讲。本路线以注重运用你所学到的领导技能的项目而告终。 不提供非英语打印材料。',
-      open: 'false',
-      lang: 'cn'
-    },
-    {
-      id: 3,
-      name: 'Effective Coaching',
-      desc: "This path helps you build your skills as a positive communicator, leader and coach. You will work through projects that focus on understanding and building consensus, contributing to the development of others by coaching and establishing strong public speaking skills. Each project emphasizes the importance of effective interpersonal communication. The Effective Coaching path culminates in a “High Performance Leadership” project of your design.Not available in printed materials.",
-      open: 'false',
-      lang: 'en'
-    },
-    {
-      id: 4,
-      name: '高效教练',
-      desc: '本路线帮助您培养作为积极沟通者和领导者的技能。本路线中项目的重点：理解和达成共识、通过辅导促进他人发展以及培养强大的公众演讲技能。每个项目都注重有效人际沟通的重要性。本路线以您的设计的 “高效领导力” 项目而告终。 不提供打印材料。',
-      open: 'false',
-      lang: 'cn'
-    },
-    {
-      id: 5,
       name: 'Innovative Planning',
       desc: "This path helps you build your skills as a public speaker, leader and project manager. Your projects focus on creating innovative solutions and building public speaking skills. These skills include developing strong audience connections, speech writing and delivery. Each project contributes to building an understanding of the steps needed to manage a project. The Innovative Planning path culminates in a “High Performance Leadership” project of your design.Not available in printed materials.",
       open: 'false',
       lang: 'en'
     },
     {
-      id: 6,
+      id: 2,
       name: '创新计划',
       desc: '本路线帮助您培养成为公众演讲者和领导者的技能。本路线中项目的重点：发表演讲、撰写演讲稿以及发表演讲时，与听众建立密切的关系。这些项目有助于了解管理项目的步骤和制定创新解决方案。本路线以您的设计的 “高效领导力” 项目而告终。 不提供打印材料。',
+      open: 'false',
+      lang: 'cn'
+    },
+    {
+      id: 3,
+      name: 'Dynamic Leadership',
+      desc: "This path helps you build your skills as a strategic leader and negotiator. You will work through projects that focus on understanding leadership and communication styles, the effect of conflict on a group and the skills needed to defuse and direct conflict. Each project also emphasizes the development of strategies to facilitate change in an organization or group, interpersonal communication and public speaking. The Dynamic Leadership path culminates in a project focused on applying your leadership skills. Not available in non-English printed materials.",
+      open: 'false',
+      lang: 'en'
+    },
+    {
+      id: 4,
+      name: '动态领导力',
+      desc: '本路线帮助您培养成为策略型领导者的技能。本路线中项目的重点：了解您的领导风格、冲突对团队的影响以及化解和管理冲突所需的技能。这些项目还注重制定并促进组织或团队中改革的策略、人际沟通以及公众演讲。本路线以注重运用你所学到的领导技能的项目而告终。 不提供非英语打印材料。',
+      open: 'false',
+      lang: 'cn'
+    },
+    {
+      id: 5,
+      name: 'Effective Coaching',
+      desc: "This path helps you build your skills as a positive communicator, leader and coach. You will work through projects that focus on understanding and building consensus, contributing to the development of others by coaching and establishing strong public speaking skills. Each project emphasizes the importance of effective interpersonal communication. The Effective Coaching path culminates in a “High Performance Leadership” project of your design.Not available in printed materials.",
+      open: 'false',
+      lang: 'en'
+    },
+    {
+      id: 6,
+      name: '高效教练',
+      desc: '本路线帮助您培养作为积极沟通者和领导者的技能。本路线中项目的重点：理解和达成共识、通过辅导促进他人发展以及培养强大的公众演讲技能。每个项目都注重有效人际沟通的重要性。本路线以您的设计的 “高效领导力” 项目而告终。 不提供打印材料。',
       open: 'false',
       lang: 'cn'
     },

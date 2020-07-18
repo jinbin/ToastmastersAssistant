@@ -97,13 +97,21 @@ module.exports = {
 	],
         "DTM": [
 	"https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/images/PathwaysDTM.jpg",
+	"DTM(Distinguished Toastmaster) 代表了Toastmasters中最高的教育成就，也是所有头马会员努力实现的目标。",
 	"The new requirements for the DTM award are:",
+	"Pathways体系下实现DTM的要求：",
 	"1、Complete two unique learning paths.",
+	"1、完成两条不同的学习路径",
 	"2、Serve as a club officer for 12 months. (If your club has six-month terms for officers, you can fulfill this requirement by serving as a club officer twice, but you don’t have to do it in consecutive terms.)",
+	"2、担任至少12个月的俱乐部官员。（如果你的俱乐部官员任期是6个月，你可以担任两次俱乐部官员来完成这个要求，但这两次不需要连续。）",
 	"3、Serve as a club mentor or coach.",
+	"3、担任俱乐部导师或教练。",
 	"4、Serve as a club sponsor or conduct a Speechcraft or Youth Leadership program.",
+	"4、担任过俱乐部导师或举办过Speechcraft项目或者年轻领导力项目",
 	"5、Serve as a district officer for one year.",
-	"6、Complete the DTM project. (Members are required to create and implement a project of their own design, in which they demonstrate the skills and expertise they have gained.) This project can be made available upon request after a member completes Level 3 of their second path. A member can request this from the Education Services Team by phone at +1 720-439-5050 or by email at EducationProgram@toastmasters.org."
+	"5、担任至少一年的大区官员。",
+	"6、Complete the DTM project. (Members are required to create and implement a project of their own design, in which they demonstrate the skills and expertise they have gained.) This project can be made available upon request after a member completes Level 3 of their second path. A member can request this from the Education Services Team by phone at +1 720-439-5050 or by email at EducationProgram@toastmasters.org.",
+	"6、完成DTM项目。（要求成员创建并实施自己设计的项目，并在其中展示所获得的技能和专业知识。）会员在完成第二条路径的Level 3后，可以要求提供此项目。会员可以通过电话+1 720-439-5050 向教育服务团队提出要求，或通过电子邮件发送至EducationProgram@toastmasters.org。"
         ],
 	"chineseHipHop": [
 	"https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/articles/ChineseHipHop/Table%20Topic%EF%BC%88Becky%EF%BC%89.001.jpeg",

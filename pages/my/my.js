@@ -443,6 +443,6 @@ Page({
   },
 
   fromPageFt: function() {
-    util.saveOfficialQRCode("可能性工作室")
+    util.saveOfficialQRCode("头马演讲助手")
   }
 })
