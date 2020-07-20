@@ -41,16 +41,20 @@ Page({
       //   "url": "cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/accountpublicitybanner.jpeg",
       //   "bind": "saveOfficialQRCode"
       // },
+      // {
+      //   "url": "../../images/tm_korea-min.jpg",
+      //   "bind": "saveOfficialQRCode"
+      // },
+      // {
+      //   "url": "cloud://tmassistant-5275ad.746d-tmassistant-5275ad-1258071577/images/posters/robot_banner_900x600-min.png",
+      //   "bind": "gotoRobot"
+      // },
+      // {
+      //   "url": "../../images/dashangzhichi_banner-min.jpeg",
+      //   "bind": "gotoGeizan"
+      // },
       {
-        "url": "../../images/tm_korea-min.jpg",
-        "bind": "saveOfficialQRCode"
-      },
-      {
-        "url": "cloud://tmassistant-5275ad.746d-tmassistant-5275ad-1258071577/images/posters/robot_banner_900x600-min.png",
-        "bind": "gotoRobot"
-      },
-      {
-        "url": "../../images/dashangzhichi_banner-min.jpeg",
+        "url": "cloud://tmassistant-5275ad.746d-tmassistant-5275ad-1258071577/images/tmbanner.jpeg",
         "bind": "gotoGeizan"
       }
       // {
@@ -261,6 +265,48 @@ Page({
       })
     } else {
       var naviTo = '/pages/pathways/desc/desc?level=' + options.detail.target.id
+
+      wx.navigateTo({
+        url: naviTo,
+        success: function (res) {},
+        fail: function (res) {},
+        complete: function (res) {},
+      })
+    }
+  },
+
+  distribution: function (options) {
+    console.log(options.currentTarget.dataset.id)
+
+    var id = options.currentTarget.dataset.id
+    if(id == "intro"){
+      wx.navigateTo({
+        url: '/pages/testdb/testdb?src=https://mp.weixin.qq.com/s/_G4wk0RYs2uBZfnfRt9oCg',
+      })
+    }else if(id == "CC"){
+      var naviTo = '/pages/pathways/desc/desc?level=6'
+
+      wx.navigateTo({
+        url: naviTo,
+        success: function (res) {},
+        fail: function (res) {},
+        complete: function (res) {},
+      })
+    }else if(id == "mentor"){
+      var naviTo = '/pages/pathways/desc/desc?level=0'
+
+      wx.navigateTo({
+        url: naviTo,
+        success: function (res) {},
+        fail: function (res) {},
+        complete: function (res) {},
+      })
+    }else if(id == "dtm"){
+      wx.navigateTo({
+        url: '/pages/webview/webview?article=DTM',
+      })
+    }else if(id == "pathways"){
+      var naviTo = '/pages/pathways/desc/desc?level=1'
 
       wx.navigateTo({
         url: naviTo,

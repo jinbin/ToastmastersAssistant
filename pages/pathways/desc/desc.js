@@ -65,6 +65,11 @@ Page({
     console.log("options")
     console.log(options)
 
+    if(options_level == 0){
+      name_en = "After L2 of any path, you can start your Pathways Mentor Program Project. There are 3 projects."
+      name_cn = "完成任意Path的Level 2 之后即可开启你的导师计划。导师计划分为3个项目。"
+    }
+
     if(options_level == 1){
       name_en = "Level 1: Mastering Fundamentals"
       name_cn = "阶段一: 掌握基础"

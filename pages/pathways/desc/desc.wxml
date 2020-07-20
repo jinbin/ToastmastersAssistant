@@ -47,6 +47,19 @@
 	</view>
 </view>
 
+<view wx:if="{{index == -1}}">
+	<view class="page">
+		<view class="page__hd" style="display: flex;flex-wrap: nowrap; justify-content: space-between;">
+			<view class="container1">
+				<view class="page__desc">
+					<view wx:if="{{activeIndex == 0}}">完成任意Path的Level 2 之后即可开启你的导师计划。导师计划分为3个项目。</view>
+					<view wx:if="{{activeIndex == 1}}">After L2 of any path, you can start your Pathways Mentor Program Project. There are 3 projects.</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>
+
 <view wx:if="{{index == 0 || index == 1 || index == 2 || index == 3 || index == 4}}">
 	<scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}">
 		<view wx:if="{{activeIndex == 0}}" class="tabline">
