@@ -13,6 +13,7 @@ Page({
    */
   data: {
     currentId: "all",
+    isChecking: false,
     types: [
       // {
       //   "text": "冠军演讲",
@@ -104,13 +105,22 @@ Page({
         console.log(res.data["reading"])
         that.setData({
           currentId: res.data["default"],
-          types: res.data["reading"]
+          types: res.data["reading"],
+          isChecking: res.data["isChecking"]
         })
+
+        if(that.data.isChecking){
+          that.setData({
+            currentId: "speaking"
+          })
+        }
 
         var select_type = ""
         if(that.data.currentId != "all"){
           select_type = that.data.currentId
         }
+
+
         
         wx.cloud.callFunction({
           name: "getYouLike", 

@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    currentTab: 0,
     champs: [
       {
         key: "2019",
@@ -99,6 +100,52 @@ Page({
         url: "https://mp.weixin.qq.com/s/Kq4Bw-CxWHUOGbJwrQkWcA"
       }
     ],
+    jixing_champs: [
+      {
+        key: "1",
+        url: "https://mp.weixin.qq.com/s/DAOjgsID2L8YCnRhNGnAbA"
+      },
+      {
+        key: "2",
+        url: "https://mp.weixin.qq.com/s/DszeVTHRLUIpaR_fuifQBQ"
+      },
+      {
+        key: "3",
+        url: "https://mp.weixin.qq.com/s/hy4VltLD_atgD4wAfPmQIg"
+      },
+      {
+        key: "4",
+        url: "https://mp.weixin.qq.com/s/Up64ZgPIrLoGuHZ7tNwsBQ"
+      },
+      {
+        key: "5",
+        url: "https://mp.weixin.qq.com/s/jN50eKmnLnNOrRxPdjgK8w"
+      },
+      {
+        key: "6",
+        url: "https://mp.weixin.qq.com/s/mbNfl8ps6DA-kAv8jL4FWA"
+      },
+      {
+        key: "7",
+        url: "https://mp.weixin.qq.com/s/0Ln11jGjykhzAR1QcvWEKg"
+      },
+      {
+        key: "8",
+        url: "https://mp.weixin.qq.com/s/40VJc3x8SvCUplpGBULpsA"
+      },
+      {
+        key: "9",
+        url: "https://mp.weixin.qq.com/s/MGY0Q4_eX4OghKssITmd0A"
+      },
+      {
+        key: "10",
+        url: "https://mp.weixin.qq.com/s/h8OOlmnt8WJWiTrgaTxWcA"
+      },
+      {
+        key: "11",
+        url: "https://mp.weixin.qq.com/s/ZEXQ0TL6iHrJ5O7pFEEOoQ"
+      }
+    ]
   },
 
   /**
@@ -107,6 +154,18 @@ Page({
   onLoad: function(options) {
     wx.showShareMenu({
       menus: ['shareAppMessage', 'shareTimeline']
+    })
+
+    if(options.currentTab==1){
+      this.setData({
+        currentTab: 1
+      })
+    }
+  },
+
+  change: function(options) {
+    this.setData({
+      currentTab: options.currentTarget.dataset.id
     })
   },
 

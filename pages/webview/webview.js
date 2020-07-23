@@ -29,7 +29,8 @@ Page({
     for (var i = 0; i < this.data.content.length; i++){
       console.log(this.data.content[i])
       var reg = /^http/
-      if (reg.test(this.data.content[i])){
+      var reg1 = /^cloud/
+      if (reg.test(this.data.content[i]) || reg1.test(this.data.content[i])){
         console.log("true")
         imgIndex[i] = true
       }else{

@@ -1,7 +1,10 @@
 <!--list.wxml-->
-<!-- <image src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/pathwaysbook.jpeg" bindtap="" style="width:100%" mode="widthFix" /> -->
-<view>
+<!-- <view>
 	<image src="/images/pathwaysbook-min.jpeg" bindtap="" style="width:100%" mode="widthFix" />
+</view> -->
+
+<view>
+	<image src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad-1258071577/images/backgroud/11paths.png" bindtap="saveOfficialQRCode" style="width:100%" mode="widthFix" />
 </view>
 
 <view wx:if="{{index == 0 || index == 1 || index == 2 || index == 3 || index == 4}}">

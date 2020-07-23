@@ -267,25 +267,31 @@ Page({
     })
   },
 
+  // saveOfficialQRCode: function (e) {
+  //   wx.showModal({
+  //     content: '搜索"头马演讲助手"官方公众号, 获取历年头马世界冠军演讲视频！',
+  //     showCancel: false,
+  //     confirmText: '去关注',
+  //     confirmColor: '#ff7f50',
+  //     success: function (res) {
+  //       if (res.confirm) {
+  //         wx.setClipboardData({
+  //           data: "头马演讲助手",
+  //           success: function (res) {
+  //             wx.showToast({
+  //               title: "公众号名已复制"
+  //             })
+  //           }
+  //         })
+  //         console.log('用户点击确定');
+  //       }
+  //     }
+  //   })
+  // },
+
   saveOfficialQRCode: function (e) {
-    wx.showModal({
-      content: '搜索"头马演讲助手"官方公众号, 获取历年头马世界冠军演讲视频！',
-      showCancel: false,
-      confirmText: '去关注',
-      confirmColor: '#ff7f50',
-      success: function (res) {
-        if (res.confirm) {
-          wx.setClipboardData({
-            data: "头马演讲助手",
-            success: function (res) {
-              wx.showToast({
-                title: "公众号名已复制"
-              })
-            }
-          })
-          console.log('用户点击确定');
-        }
-      }
+    wx.navigateTo({
+      url: '/pages/testdb/testdb?src=https://mp.weixin.qq.com/s/uybVCD6KfKgSoCq0Jo4g_A',
     })
   },
 

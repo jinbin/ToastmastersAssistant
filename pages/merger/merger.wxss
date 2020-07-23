@@ -1,5 +1,46 @@
 /* pages/merger/merger.wxss */
 
+.tab-h {
+  height: 80rpx;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  line-height: 80rpx;
+  background: #F7F7F7;
+  font-size: 14px;
+  white-space: nowrap;
+  top: 0;
+  left: 0;
+  z-index: 99;
+}
+
+.tab-h1 {
+  height: 110rpx;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  line-height: 80rpx;
+  background: #F7F7F7;
+  font-size: 14px;
+  white-space: nowrap;
+  top: 0;
+  left: 0;
+  z-index: 99;
+}
+
+.tab-item1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tab-item.active {
+  /* color: #4675F9; */
+  color: green;
+  position: relative;
+  font-weight: bold;
+}
+
 .jinjie {
   display: flex;
   flex-direction: row;
@@ -68,7 +109,7 @@ button {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  padding: 10rpx;
+  padding: 20rpx;
   /* padding-left: 30rpx;
   padding-right: 30rpx; */
   /* justify-content:space-around;
@@ -79,9 +120,16 @@ button {
 .window3 {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
-  padding: 10rpx;
+  /* flex-wrap: wrap; */
+  padding: 0rpx;
   justify-content:flex-start;
+}
+
+.headline {
+  display: flex;
+  flex-direction: row;
+  /* flex-wrap: wrap; */
+  justify-content:space-between;
 }
 
 .box1 {

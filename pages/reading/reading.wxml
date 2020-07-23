@@ -7,7 +7,7 @@
       <image style="width:70rpx;height:70rpx;padding-bottom:10px;" src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad-1258071577/images/{{item.icon}}"></image> 
       <view style="font-size: 13px;">{{item.text}}</view>
     </view>
-    <view wx:elif="{{item.show == true}}" bindtap="changetype" id="{{item.id}}" class="item_type" style="width: 20%;">
+    <view wx:elif="{{item.show == true && isChecking == false}}" bindtap="changetype" id="{{item.id}}" class="item_type" style="width: 20%;">
       <image style="width:70rpx;height:70rpx;padding-bottom:10px;" src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad-1258071577/images/{{item.icon}}"></image>
       <view style="font-size: 13px;">{{item.text}}</view>
     </view>

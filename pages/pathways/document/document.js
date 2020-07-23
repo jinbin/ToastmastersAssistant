@@ -53,6 +53,12 @@ Page({
     })
   },
 
+  saveOfficialQRCode: function (e) {
+    wx.navigateTo({
+      url: '/pages/testdb/testdb?src=https://mp.weixin.qq.com/s/uybVCD6KfKgSoCq0Jo4g_A',
+    })
+  },
+
   copyText: function (e) {
     wx.setClipboardData({
       data: e.currentTarget.dataset.text,

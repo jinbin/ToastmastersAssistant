@@ -91,6 +91,10 @@
     <image style="width:80rpx;height:80rpx" src="../../images/setting5.png"></image> 
     <view style="font-size:12px;">打赏作者</view>
   </view>
+  <view class="box" bindtap="navigateTo" id="/pages/testdb/testdb?src=https://mp.weixin.qq.com/s/RXzq956DJmBoObbanndTrQ">
+    <image style="width:80rpx;height:80rpx" src="../../images/setting2.png"></image> 
+    <view style="font-size:12px;">更新历史</view>
+  </view>
 </view>
 
 <template is="contact_button" />

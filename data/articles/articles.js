@@ -148,5 +148,29 @@ module.exports = {
 		"1. 每日签到, 积分+10",
                 "2. 我的页面，获取积分",
 		"(更多积分渠道会逐步推出)",
-	]
+	],
+        "MOT": [
+                "cloud://tmassistant-5275ad.746d-tmassistant-5275ad-1258071577/images/MOT/MOT1.jpeg",
+                "cloud://tmassistant-5275ad.746d-tmassistant-5275ad-1258071577/images/MOT/MOT2.jpeg",
+                "cloud://tmassistant-5275ad.746d-tmassistant-5275ad-1258071577/images/MOT/MOT3.jpeg",
+                "cloud://tmassistant-5275ad.746d-tmassistant-5275ad-1258071577/images/MOT/MOT4.jpeg",
+                "cloud://tmassistant-5275ad.746d-tmassistant-5275ad-1258071577/images/MOT/MOT5.jpeg",
+                "cloud://tmassistant-5275ad.746d-tmassistant-5275ad-1258071577/images/MOT/MOT6.jpeg",
+                "cloud://tmassistant-5275ad.746d-tmassistant-5275ad-1258071577/images/MOT/MOT7.jpeg",
+                "cloud://tmassistant-5275ad.746d-tmassistant-5275ad-1258071577/images/MOT/MOT8.jpeg",
+                "cloud://tmassistant-5275ad.746d-tmassistant-5275ad-1258071577/images/MOT/MOT9.jpeg",
+                "cloud://tmassistant-5275ad.746d-tmassistant-5275ad-1258071577/images/MOT/MOT10.jpeg",
+                "cloud://tmassistant-5275ad.746d-tmassistant-5275ad-1258071577/images/MOT/MOT11.jpeg",
+                "cloud://tmassistant-5275ad.746d-tmassistant-5275ad-1258071577/images/MOT/MOT12.jpeg",
+        ],
+        "DCP": [
+		"杰出俱乐部计划是一项年度计划，从7月1日至第二年6月30日，包含了整个Toastmasters年度。该计划包括俱乐部在此期间应努力实现的10个目标。",
+		"Toastmasters International会跟踪俱乐部全年实现这些目标的进度，并且每天都会在Toastmasters International网站上发布更新的报告。",
+		"到年底，Toastmasters International会计算俱乐部实现的目标数量，并根据已实现的目标数量和拥有的会员数量来进行表彰。",
+                "cloud://tmassistant-5275ad.746d-tmassistant-5275ad-1258071577/images/operation/DCP/DCP1.jpg",
+                "cloud://tmassistant-5275ad.746d-tmassistant-5275ad-1258071577/images/operation/DCP/DCP2.jpg",
+                "cloud://tmassistant-5275ad.746d-tmassistant-5275ad-1258071577/images/operation/DCP/DCP3.jpg",
+                "cloud://tmassistant-5275ad.746d-tmassistant-5275ad-1258071577/images/operation/DCP/DCP4.jpg",
+                "cloud://tmassistant-5275ad.746d-tmassistant-5275ad-1258071577/images/operation/DCP/DCP5.jpg",
+        ]
 	}

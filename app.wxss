@@ -2,6 +2,46 @@
 
 @import 'styles/weui.min.wxss';
 
+.tab-h {
+  height: 80rpx;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  line-height: 80rpx;
+  background: #F7F7F7;
+  font-size: 14px;
+  white-space: nowrap;
+  top: 0;
+  left: 0;
+  z-index: 99;
+}
+
+.tab-item {
+  margin: 0 24rpx;
+  display: inline-block;
+  font-weight: 440;
+}
+
+.tab-item.active {
+  /* color: #4675F9; */
+  color: #1C1C1C;
+  position: relative;
+  font-weight: bold;
+}
+
+.tab-item.active:after {
+  content: "";
+  display: block;
+  height: 8rpx;
+  width: 52rpx;
+  width: 100rpx;
+  /* background: #4675F9; */
+  position: absolute;
+  bottom: 0;
+  left: 5rpx;
+  border-radius: 16rpx;
+}
+
 .page__hd {
     padding: 20px;
 }

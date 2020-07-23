@@ -1,13 +1,14 @@
 {
   "pages": [
-    
     "pages/merger/merger",
+    "pages/tm/champ/champ",
+    
     "pages/pathways/desc/desc",
     "pages/chat/chat",
     "pages/tm/jixing/jixing",
     "pages/tm/topics/topics",
     "pages/tm/topics/topic/topic",
-    "pages/tm/champ/champ",
+    
     "pages/tm/eggs/eggs",
     "pages/tm/acronym/acronym",
     "pages/volItem/volItem",
@@ -40,7 +41,7 @@
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#F8F8F8",
-    "navigationBarTitleText": "头马助手",
+    "navigationBarTitleText": "头马演讲助手",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
@@ -78,11 +79,6 @@
     ]
   },
 
-  "navigateToMiniProgramAppIdList": [
-    "wx4c4b54bc609bd79e",
-    "wx05d1a8b0228bcf67",
-    "wx16c76d4762cbe0b3"
-  ],
   "plugins": {
     "chatbot": {
       "version": "1.1.24",

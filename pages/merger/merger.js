@@ -87,7 +87,8 @@ Page({
         "title": "高考",
         "id": "b9fb62e7-2a49-4e66-bc10-71cb6dcd03a2"
       }
-    ]
+    ],
+    currentTab: 0
   },
 
   // onPageScroll: function(ev) {
@@ -149,15 +150,19 @@ Page({
       wx.switchTab({
         url: '/pages/volItem/volItem',
       })
-    } else if(options.detail.target.id == "ai"){
+    } else if (options.detail.target.id == "ai") {
       wx.switchTab({
         url: '/pages/chat/chat',
       })
-    }else if(options.detail.target.id == "jixingtopics"){
+    } else if (options.detail.target.id == "jixingtopics") {
       wx.navigateTo({
         url: '/pages/tm/topics/topics',
-      })      
-    }else if (options.detail.target.id == "tmIntro") {
+      })
+    } else if (options.detail.target.id == "diary") {
+      wx.navigateTo({
+        url: '/pages/tm/acronym/acronym'
+      })
+    } else if (options.detail.target.id == "tmIntro") {
       wx.navigateTo({
         url: '/pages/testdb/testdb?src=https://mp.weixin.qq.com/s/_G4wk0RYs2uBZfnfRt9oCg',
       })
@@ -275,15 +280,22 @@ Page({
     }
   },
 
+  change: function (options) {
+    this.setData({
+      currentTab: options.currentTarget.dataset.id
+    })
+  },
+
   distribution: function (options) {
     console.log(options.currentTarget.dataset.id)
 
     var id = options.currentTarget.dataset.id
-    if(id == "intro"){
+    
+    if (id == "intro") {
       wx.navigateTo({
         url: '/pages/testdb/testdb?src=https://mp.weixin.qq.com/s/_G4wk0RYs2uBZfnfRt9oCg',
       })
-    }else if(id == "CC"){
+    } else if (id == "CC") {
       var naviTo = '/pages/pathways/desc/desc?level=6'
 
       wx.navigateTo({
@@ -292,7 +304,7 @@ Page({
         fail: function (res) {},
         complete: function (res) {},
       })
-    }else if(id == "mentor"){
+    } else if (id == "mentor") {
       var naviTo = '/pages/pathways/desc/desc?level=0'
 
       wx.navigateTo({
@@ -301,12 +313,62 @@ Page({
         fail: function (res) {},
         complete: function (res) {},
       })
-    }else if(id == "dtm"){
+    } else if (id == "dtm") {
       wx.navigateTo({
         url: '/pages/webview/webview?article=DTM',
       })
-    }else if(id == "pathways"){
+    } else if (id == "pathways") {
       var naviTo = '/pages/pathways/desc/desc?level=1'
+
+      wx.navigateTo({
+        url: naviTo,
+        success: function (res) {},
+        fail: function (res) {},
+        complete: function (res) {},
+      })
+    } else if (id == "ai"){
+      wx.switchTab({
+        url: '/pages/chat/chat',
+      })
+    } else if (id == "timertool"){
+      wx.navigateTo({
+        url: '/pages/tm/clock/countdown/countdown',
+        success: function (res) {},
+        fail: function (res) {},
+        complete: function (res) {},
+      })
+    } else if (id == "jixingtopics") {
+      wx.navigateTo({
+        url: '/pages/tm/topics/topics',
+      })
+    }else if( id == "matrix" ) {
+      wx.navigateTo({
+        url: '/pages/knowledge/matrix/matrix',
+      })
+    }else {
+      var naviTo = '/pages/webview/webview?article=' + id
+
+      if (id == "timer") {
+        naviTo = '/pages/testdb/testdb?src=https://mp.weixin.qq.com/s/8qZ35ufgvfU9Vofey9cpoA'
+      } else if (id == "grammarian") {
+        naviTo = '/pages/testdb/testdb?src=https://mp.weixin.qq.com/s/CgAhMmeHUhzk7ggP3bZjXQ'
+      } else if (id == "ahcounter") {
+        naviTo = '/pages/testdb/testdb?src=https://mp.weixin.qq.com/s/Dgxafy9C2VbD7-zof0d6CA'
+      } else if (id == "host") {
+        naviTo = '/pages/testdb/testdb?src=https://mp.weixin.qq.com/s/kO0vAauBvhBpe2R_H6cx9g'
+      } else if (id == "ttm") {
+        naviTo = '/pages/testdb/testdb?src=https://mp.weixin.qq.com/s/OCA3gVYNrwoYGKzlhBS_dw'
+      } else if (id == "ge") {
+        naviTo = '/pages/testdb/testdb?src=https://mp.weixin.qq.com/s/iNsBSDOgzdGRuUZBAPj5NA'
+      } else if (id == "ie") {
+        naviTo = '/pages/testdb/testdb?src=https://mp.weixin.qq.com/s/02os_4WjmHkPqg6_jjC1KA'
+      } else if (id == "tte") {
+        naviTo = '/pages/testdb/testdb?src=https://mp.weixin.qq.com/s/mn1_Sexe6RxEDoHWxKKFJw'
+      } else if (id == "buildnew"){
+        naviTo = '/pages/testdb/testdb?src=https://mp.weixin.qq.com/s/9T6dBxpRUF8uICz-QEWt9Q'
+      } else if (id == "Speechcraft"){
+        naviTo = '/pages/testdb/testdb?src=https://mp.weixin.qq.com/s/h5sfgw4pOzjwSDnBOMdvTw'
+      }
 
       wx.navigateTo({
         url: naviTo,
@@ -665,8 +727,8 @@ Page({
     })
   },
 
-  updatePersonalInfo: function() {
-    var that = this 
+  updatePersonalInfo: function () {
+    var that = this
     wx.cloud.callFunction({
       name: 'getPersonalInfo',
       success: res => {
@@ -731,7 +793,7 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {  
+  onShow: function () {
     this.updatePersonalInfo()
     // var that = this
     // db.collection("checkin").where({
@@ -1031,14 +1093,14 @@ Page({
   onShareAppMessage: function (res) {
     return {
       title: '头马助手, 演讲一站式服务, 可能是最好的演讲类小程序',
-      imageUrl: '/images/homepage-min.png'
+      imageUrl: '/images/homepage2-min.jpeg'
     }
   },
 
   onShareTimeline: function (res) {
     return {
       title: '头马助手, 演讲一站式服务, 可能是最好的演讲类小程序',
-      imageUrl: '/images/homepage-min.png'
+      imageUrl: '/images/homepage2-min.jpeg'
     }
   }
 })
