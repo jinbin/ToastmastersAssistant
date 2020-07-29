@@ -138,11 +138,7 @@ Page({
         })
       }
     })
-
-    console.log("云函数")
-
-
-
+    
   },
 
   changetype: function(options) {

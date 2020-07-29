@@ -36,7 +36,7 @@
             </view>
           </view>
         </view>
-        <navigator open-type="switchTab" url="/pages/tm/topics/topics">
+        <navigator url="/pages/tm/topics/topics">
           <button type="primary" style="font-size:30rpx">
             返回话题卡片集
           </button>

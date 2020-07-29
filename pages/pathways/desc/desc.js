@@ -49,7 +49,17 @@ Page({
           sliderOffset: res.windowWidth / that.data.tabs.length * that.data.activeIndex
         });
       }
-    });
+    })
+
+    db.collection("information").doc("config").get({
+      success: function(res){
+        console.log("pathways_external")
+        console.log(res.data["pathways_external"])
+        that.setData({
+          pathways_external: res.data["pathways_external"],
+        })
+      }
+    })
 
     let name_en
     let name_cn
@@ -481,14 +491,14 @@ Page({
     return {
       title: '头马Pathways手册: 100+演讲进阶项目一站搞定', 
       // path: '/pages/pathways/desc/desc?level=' + options.level
-      imageUrl: '/images/pathwaysbookforward-min.jpeg'
+      // imageUrl: '/images/pathwaysbookforward-min.jpeg'
     }
   },
 
   onShareTimeline: function (options) {
     return {
       title: '头马Pathways手册: 100+演讲进阶项目一站搞定', 
-      imageUrl: '/images/pathwaysbookforward-min.jpeg'
+      // imageUrl: '/images/pathwaysbookforward-min.jpeg'
     }
   }
 })

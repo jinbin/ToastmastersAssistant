@@ -29,7 +29,7 @@ Page({
       }
     },
     page_ft: {
-      data: "Copyright © 2019-2020 可能性工作室"
+      data: "Copyright © 2020-2021 可能性工作室"
     },
     extraData: {
       id: "43654",

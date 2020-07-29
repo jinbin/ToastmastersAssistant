@@ -8,8 +8,8 @@
 	</block>
 </swiper> -->
 
-<view>
-	<image src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad-1258071577/images/backgroud/speechpeople1.png" style="width:100%" mode="widthFix" bindtap="saveOfficialQRCode"></image>
+<view id="top">
+	<image src="https://6261-backup-osmic-1258071577.tcb.qcloud.la/images/banner/speech3-min.png" style="width:100%" mode="widthFix" bindtap="saveOfficialQRCode"></image>
 </view>
 
 <official-account></official-account>
@@ -75,7 +75,11 @@
 
 <view style="display:flex; flex-direction: column; align-content:center;align-items: center;">
 <view class="headline" style="width:90%">
-	<view bindtap="distribution" data-id="ai" style="padding:15rpx; display:flex; flex-direction: column; justify-content: center; align-items: center; ">
+	<view bindtap="distribution" data-id="champion" style="padding:15rpx; display:flex; flex-direction: column; justify-content: center; align-items: center; ">
+		<image style="width:70rpx;height:70rpx" src="../../images/champion.png"></image>
+		<view class="downText" style="padding-top:15rpx;color:#9d441b;font-size:26rpx;">冠军演讲</view>
+	</view>
+	<view bindtap="distribution" data-id="dictionary" style="padding:15rpx; display:flex; flex-direction: column; justify-content: center; align-items: center; ">
 		<image style="width:70rpx;height:70rpx" src="../../images/diary.png"></image>
 		<view class="downText" style="padding-top:15rpx;color:#9d441b;font-size:26rpx;">头马词典</view>
 	</view>
@@ -203,7 +207,7 @@
 		</view>
 	</view>
 	<view class="jinjie1">
-		<view class="inbox_edu" bindtap="distribution" data-id="pathways" style="background-color:#E8E8E8;border:5rpx solid green">
+		<view class="inbox_edu" bindtap="distribution" data-id="pathways" style="background-color:#E8E8E8;border:5rpx solid green; background-image: url('https://6261-backup-osmic-1258071577.tcb.qcloud.la/images/banner/greenbg-min.jpeg'); background-size: cover;">
 			<image style="width:80rpx;height:80rpx" src="../../images/manual.png"></image>
 			<text style="font-size:28rpx;">Pathways手册</text>
 			<text style="font-size:20rpx;">覆盖11条路径，100多个项目</text>
@@ -220,7 +224,7 @@
 <view style="padding-bottom: 20rpx">
 	<scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}">
 		<!-- <view class="tabline"> -->
-		<view class="tab-item {{currentTab==0?'active':''}}" data-id="0" bindtap="change">头马会议</view>
+		<view class="tab-item {{currentTab==0?'active':''}}" data-id="0" bindtap="change">头马会议角色</view>
 		<view class="tab-item {{currentTab==1?'active':''}}" data-id="1" bindtap="change">俱乐部官员</view>
 		<view class="tab-item {{currentTab==2?'active':''}}" data-id="2" bindtap="change">俱乐部运营</view>
 		<!-- </view> -->
@@ -364,7 +368,42 @@
 </view>
 
 <view style="padding-top: 10rpx; padding-bottom: 10rpx;">
-	<image src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad-1258071577/images/backgroud/speech.jpeg" style="width:100%" mode="widthFix" bindtap="saveOfficialQRCode"></image>
+	<image src="https://6261-backup-osmic-1258071577.tcb.qcloud.la/images/banner/speech-min.jpeg" style="width:100%" mode="widthFix" bindtap="saveOfficialQRCode"></image>
+</view>
+
+
+
+<view class="jinjie" id="cards">
+	<view class="jinjie1" style="">
+		<view class="jinjie2">
+			<view class="inbox_edu" bindtap="distribution" data-id="jixing" style="background-color:#E8E8E8;border:5rpx solid #F8F8F8">
+				<image style="width:70rpx;height:70rpx" src="../../images/zhishiku.png"></image>
+				<text style="font-size:26rpx;">即兴演讲</text>
+				<text style="font-size:18rpx;">1-2分钟即兴技巧</text>
+			</view>
+			<view class="inbox_edu" bindtap="distribution" data-id="speech" style="background-color:#E8E8E8;border:5rpx solid #F8F8F8">
+				<image style="width:70rpx;height:70rpx" src="../../images/speech.png"></image>
+				<text style="font-size:26rpx;">备稿演讲</text>
+				<text style="font-size:18rpx;">做好5-7分钟演讲</text>
+			</view>
+		</view>
+		<view class="jinjie2">
+			<view class="inbox_edu" bindtap="distribution" data-id="jixingtopics" style="background-color:#E8E8E8;border:5rpx solid #F8F8F8">
+				<image style="width:70rpx;height:70rpx" src="../../images/jixingtopics.png"></image>
+				<text style="font-size:26rpx;">话题全集</text>
+				<text style="font-size:18rpx;">精选上百道演讲话题</text>
+			</view>
+		</view>
+	</view>
+	<view class="jinjie1">
+		<view class="inbox_edu" bindtap="distribution" data-id="champion" style="background-color:#E8E8E8;border:5rpx solid green; background-image: url('https://6261-backup-osmic-1258071577.tcb.qcloud.la/images/banner/renwubg.png'); background-size: cover;">
+			<image style="width:80rpx;height:80rpx" src="../../images/guanjun.png"></image>
+			<text style="font-size:28rpx;">冠军演讲</text>
+			<text style="font-size:20rpx;">头马世界冠军演讲</text>
+			<text style="font-size:20rpx;">即兴冠军演讲</text>
+			<text style="font-size:20rpx;">最好的演讲学习范本</text>
+		</view>
+	</view>
 </view>
 
 <!-- <form report-submit="true" bindsubmit="getIntro">
@@ -421,12 +460,12 @@
 	</view>
 </form> -->
 
-<view class="frame" style="">
+<!-- <view class="frame" style="">
 	<view class="container1">
 		<image bindtap="saveOfficialQRCode" src="/images/topicskills_small.jpeg" mode="widthFix" style="width:95%; border-radius:25rpx;"></image>
 	</view>
 	<view class="window3" style="padding:10rpx;">
-		<view class="box3_5" style="">
+		<view class="box3_4" style="">
 			<navigator url="/pages/tm/topics/topics">
 				<image class="icon" src="../../images/jixingtopics.png"></image>
 			</navigator>
@@ -434,15 +473,7 @@
 				<view class="downText" style="color:#9d441b;">话题全集</view>
 			</navigator>
 		</view>
-		<view class="box3_5" style="">
-			<navigator url="/pages/tm/jixing/jixing">
-				<image class="icon" src="../../images/guzhang.png"></image>
-			</navigator>
-			<navigator url="/pages/tm/champ/jixing">
-				<view class="downText" style="color:#9d441b;">即兴冠军</view>
-			</navigator>
-		</view>
-		<view class="box3_5" style="">
+		<view class="box3_4" style="">
 			<navigator url="/pages/testdb/testdb?src=https://mp.weixin.qq.com/s/cXyYOR6AAnBHmC2EU5bR1Q">
 				<image class="icon" src="../../images/zhishiku.png"></image>
 			</navigator>
@@ -450,7 +481,7 @@
 				<view class="downText" style="color:#9d441b;">即兴技巧</view>
 			</navigator>
 		</view>
-		<view class="box3_5" style="">
+		<view class="box3_4" style="">
 			<navigator url="/pages/testdb/testdb?src=https://mp.weixin.qq.com/s/_t-FhuLXs3qEEEnJuZL4BQ">
 				<image class="icon" src="../../images/matrix.png"></image>
 			</navigator>
@@ -458,7 +489,7 @@
 				<view class="downText">即兴脚本</view>
 			</navigator>
 		</view>
-		<view class="box3_5" style="">
+		<view class="box3_4" style="">
 			<navigator url="/pages/testdb/testdb?src=https://mp.weixin.qq.com/s/lGgxKJDSNRfza8ZDZ-l9LA">
 				<image class="icon" src="../../images/zhuchi.png"></image>
 			</navigator>
@@ -467,9 +498,9 @@
 			</navigator>
 		</view>
 	</view>
-</view>
+</view> -->
 
-<view class="cards" id="cards" style="padding:15rpx">
+<view class="cards" style="padding:15rpx">
 	<view class="text_title">
 		<view style="padding-left: 25px;">大家都在看</view>
 		<view style="padding-right: 30px; font-size: 13px;">
@@ -727,3 +758,4 @@
   <view class="line" style="background-color: #F8F8F8"></view>
 
 </view> -->
+

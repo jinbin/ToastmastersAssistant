@@ -31,8 +31,10 @@ Page({
       "egg3": false
     },
 
+    isTop: true,
+
     // page_ft: {
-    //  data: "Copyright © 2019-2020 可能性工作室"
+    //  data: "Copyright © 2020-2021 可能性工作室"
     //},
     //isplay: false,
     //audioYear: 2018,
@@ -151,7 +153,10 @@ Page({
         url: '/pages/volItem/volItem',
       })
     } else if (options.detail.target.id == "ai") {
-      wx.switchTab({
+      // wx.switchTab({
+      //   url: '/pages/chat/chat',
+      // })
+      wx.navigateTo({
         url: '/pages/chat/chat',
       })
     } else if (options.detail.target.id == "jixingtopics") {
@@ -327,7 +332,10 @@ Page({
         complete: function (res) {},
       })
     } else if (id == "ai"){
-      wx.switchTab({
+      // wx.switchTab({
+      //   url: '/pages/chat/chat',
+      // })
+      wx.navigateTo({
         url: '/pages/chat/chat',
       })
     } else if (id == "timertool"){
@@ -344,6 +352,14 @@ Page({
     }else if( id == "matrix" ) {
       wx.navigateTo({
         url: '/pages/knowledge/matrix/matrix',
+      })
+    }else if( id == "dictionary"){
+      wx.navigateTo({
+        url: '/pages/tm/acronym/acronym'
+      })
+    }else if( id == "champion"){
+      wx.navigateTo({
+        url: '/pages/tm/champ/champ'
       })
     }else {
       var naviTo = '/pages/webview/webview?article=' + id
@@ -368,6 +384,10 @@ Page({
         naviTo = '/pages/testdb/testdb?src=https://mp.weixin.qq.com/s/9T6dBxpRUF8uICz-QEWt9Q'
       } else if (id == "Speechcraft"){
         naviTo = '/pages/testdb/testdb?src=https://mp.weixin.qq.com/s/h5sfgw4pOzjwSDnBOMdvTw'
+      } else if (id == "jixing") {
+        naviTo = '/pages/testdb/testdb?src=https://mp.weixin.qq.com/s/cXyYOR6AAnBHmC2EU5bR1Q'
+      } else if (id == "speech"){
+        naviTo = '/pages/testdb/testdb?src=https://mp.weixin.qq.com/s/dM7Ipkipb7nFH4q4-8r3_A'
       }
 
       wx.navigateTo({
@@ -570,6 +590,23 @@ Page({
 
   tmIntro: function (options) {
 
+  },
+
+  onTabItemTap(){
+    let pages = getCurrentPages()
+    console.log(pages)
+    
+    if(this.data.isTop){
+      this.pageScrollToBottom('#cards')
+      this.setData({
+        isTop: false
+      })
+    }else{
+      this.pageScrollToBottom('#top')
+      this.setData({
+        isTop: true
+      })
+    }
   },
 
   checkin: function (options) {
@@ -795,61 +832,9 @@ Page({
    */
   onShow: function () {
     this.updatePersonalInfo()
-    // var that = this
-    // db.collection("checkin").where({
-    //   openid: app.globalData.openId
-    // }).get({
-    //   success: function (res) {
-    //     console.log(res.data[0])
-
-    //     if (res.data[0]["eggs"]) {
-    //       that.setData({
-    //         eggs: res.data[0]["eggs"]
-    //       })
-    //     }
-
-    //     if (res.data.length == 0) {
-    //       that.setData({
-    //         level: "青铜"
-    //       })
-    //     } else {
-    //       var level_set = "布衣"
-    //       var score = res.data[0].checkin * 10
-    //       if (res.data[0]["rewardedvideo"]) {
-    //         score = res.data[0].rewardedvideo * 10
-    //       }
-    //       if (score < 100) {} else if (score < 200) {
-    //         level_set = "黑铁"
-    //       } else if (score < 400) {
-    //         level_set = "青铜"
-    //       } else if (score < 800) {
-    //         level_set = "白银"
-    //       } else if (score < 1200) {
-    //         level_set = "黄金"
-    //       } else if (score < 2000) {
-    //         level_set = "铂金"
-    //       } else if (score < 4000) {
-    //         level_set = "钻石"
-    //       } else if (score < 7000) {
-    //         level_set = "闪烁"
-    //       } else if (score < 10000) {
-    //         level_set = "星耀"
-    //       } else if (score < 20000) {
-    //         level_set = "大师"
-    //       } else if (score < 30000) {
-    //         level_set = "王者"
-    //         // 这里100000只是个虚数，并无实际含义
-    //       } else if (score < 100000) {
-    //         level_set = "荣耀"
-    //       } else {
-    //         console.log("不在范围内")
-    //       }
-    //       that.setData({
-    //         level: level_set
-    //       })
-    //     }
-    //   }
-    // })
+    this.setData({
+      isTop: false
+    })
   },
 
   // scrolltxt: function() {

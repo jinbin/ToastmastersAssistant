@@ -1,4 +1,9 @@
 // pages/tm/champ/champ.js
+
+const db = wx.cloud.database({
+  env: "tmassistant-5275ad"
+})
+
 Page({
 
   /**
@@ -6,8 +11,8 @@ Page({
    */
   data: {
     currentTab: 0,
-    champs: [
-      {
+    isChecking: false,
+    champs: [{
         key: "2019",
         url: "https://mp.weixin.qq.com/s/AGXrq_DrbyQ-uEj4S0bX6g"
       },
@@ -100,8 +105,7 @@ Page({
         url: "https://mp.weixin.qq.com/s/Kq4Bw-CxWHUOGbJwrQkWcA"
       }
     ],
-    jixing_champs: [
-      {
+    jixing_champs: [{
         key: "1",
         url: "https://mp.weixin.qq.com/s/DAOjgsID2L8YCnRhNGnAbA"
       },
@@ -151,25 +155,34 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
+    var that = this
+    db.collection("information").doc("config").get({
+      success: function (res) {
+        that.setData({
+          isChecking: res.data["isChecking"]
+        })
+      }
+    })
+
     wx.showShareMenu({
       menus: ['shareAppMessage', 'shareTimeline']
     })
 
-    if(options.currentTab==1){
+    if (options.currentTab == 1) {
       this.setData({
         currentTab: 1
       })
     }
   },
 
-  change: function(options) {
+  change: function (options) {
     this.setData({
       currentTab: options.currentTarget.dataset.id
     })
   },
 
-  do_champ: function(options) {
+  do_champ: function (options) {
     console.log(options.currentTarget.dataset.id)
     console.log(this.data.champs[options.currentTarget.dataset.id])
     wx.navigateTo({
@@ -180,42 +193,42 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {
+  onReady: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
+  onShow: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function() {
+  onHide: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function() {
+  onUnload: function () {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function() {
+  onPullDownRefresh: function () {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {
+  onReachBottom: function () {
 
   },
 

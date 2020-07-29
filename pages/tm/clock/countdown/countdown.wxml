@@ -17,7 +17,7 @@
         <picker mode="selector" range="{{time_all}}" value="{{index}}" bindchange="setTime">
           <view class="timeset">
             <view>
-              <image style="width:20px; height:20px; padding-right:10px;" src="../../../../images/配置.png"></image>
+              <image style="width:20px; height:20px; padding-right:10px;" src="../../../../images/conf.png"></image>
             </view>
             <view style="font-size:16px">当前选择: {{time_all[index]}}</view>
           </view>

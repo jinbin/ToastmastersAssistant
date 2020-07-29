@@ -96,7 +96,7 @@ module.exports = {
 	"接待官还应在事务会议，演讲比赛或者其它俱乐部活动上履行职责。例如，在进行会员入会投票时，接待官需引导这些候选人离开会议场地，以确保投票的公正性。在进行演讲比赛时，接待官需在会场门口进行出入管制，以确保迟到者不会对演讲选手造成不必要的干扰。"
 	],
         "DTM": [
-	"https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/images/PathwaysDTM.jpg",
+	"https://6261-backup-osmic-1258071577.tcb.qcloud.la/images/banner/PathwaysDTM-min.jpeg",
 	"DTM(Distinguished Toastmaster) 代表了Toastmasters中最高的教育成就，也是所有头马会员努力实现的目标。",
 	"The new requirements for the DTM award are:",
 	"Pathways体系下实现DTM的要求：",

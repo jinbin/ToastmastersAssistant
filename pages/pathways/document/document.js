@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    button_text: "云资源耗尽，服务改造中\n暂不提供下载和预览服务"
+    button_text: "云资源耗尽，服务改造中\n暂不提供下载和预览服务",
+    ifShowCopyUrl: true
   },
 
   /**
@@ -13,16 +14,26 @@ Page({
    */
   onLoad: function (options) {
 
-    let interstitialAd = null
+    // let interstitialAd = null
     
-    if (wx.createInterstitialAd){
-      interstitialAd = wx.createInterstitialAd({
-        adUnitId: 'adunit-61bc632530119796'
-      })
-    }
+    // if (wx.createInterstitialAd){
+    //   interstitialAd = wx.createInterstitialAd({
+    //     adUnitId: 'adunit-61bc632530119796'
+    //   })
+    // }
 
     console.log(options)
     var url = options.url 
+
+    console.log("url: " + url)
+
+    // var reg = /smsp-assets.oss/
+    // if (reg.test(url)){
+    //   this.setData({
+    //     ifShowCopyUrl: false
+    //   })
+    // }
+    
     this.setData({
       downloadUrl: url
     })
@@ -32,7 +43,7 @@ Page({
       })
     }else {
       this.setData({
-        prompt: "PDF下载需要一点时间，稍候自动打开。\n资料地址可通过以下按钮复制获取。(因每月CDN流量有限，流量耗尽则无法下载，尽情谅解。)"
+        prompt: "PDF下载需要一点时间，稍候自动打开。\n资料地址可通过以下按钮复制获取。(因每月CDN流量有限，流量耗尽则不提供下载按钮，敬情谅解。)"
       })      
     }
     wx.downloadFile({
@@ -43,10 +54,13 @@ Page({
         wx.openDocument({
           filePath: filePath,
           success: function (res) {
-            console.log('打开文档成功')
+            console.log('打开文档成功: ' + filePath)
 
-            interstitialAd.show()
-              .catch(err => console.log(err.errMsg))
+            // interstitialAd.show()
+            //   .catch(err => console.log(err.errMsg))
+          },
+          fail: function (res) {
+            console.log('打开文档失败： ' + res)
           }
         })
       }

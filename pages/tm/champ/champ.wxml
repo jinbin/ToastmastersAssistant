@@ -15,7 +15,10 @@
 
 	<view wx:if="{{currentTab==0}}" class="window1">
 		<block wx:for="{{champs}}" wx:key="key">
-			<view class="box" style="background-image: url('https://7072-production-a65b5c-1258290025.tcb.qcloud.la/images/champ/{{item.key}}champ.png')" bindtap="do_champ" data-id="{{index}}">
+			<view wx:if="{{isChecking}}" class="box" style="background-image: url('https://7072-production-a65b5c-1258290025.tcb.qcloud.la/images/champ/{{item.key}}champ.png')" data-id="{{index}}">
+				<view class="downText" style="">{{item.key}}</view>
+			</view>
+			<view wx:if="{{!isChecking}}" class="box" style="background-image: url('https://7072-production-a65b5c-1258290025.tcb.qcloud.la/images/champ/{{item.key}}champ.png')" bindtap="do_champ" data-id="{{index}}">
 				<view class="downText" style="">{{item.key}}</view>
 			</view>
 		</block>
@@ -23,7 +26,10 @@
 
 	<view wx:if="{{currentTab==1}}" class="window1">
 		<block wx:for="{{jixing_champs}}" wx:key="key">
-			<view class="jixing_box" style="background-image: url('https://7072-production-a65b5c-1258290025.tcb.qcloud.la/images/jixing_champ/{{12-item.key}}.png')" bindtap="do_champ" data-id="{{index}}">
+			<view wx:if="{{isChecking}}" class="jixing_box" style="background-image: url('https://7072-production-a65b5c-1258290025.tcb.qcloud.la/images/jixing_champ/{{12-item.key}}.png')" data-id="{{index}}">
+				<view class="downText" style="">{{item.key}}</view>
+			</view>
+			<view wx:if="{{!isChecking}}" class="jixing_box" style="background-image: url('https://7072-production-a65b5c-1258290025.tcb.qcloud.la/images/jixing_champ/{{12-item.key}}.png')" bindtap="do_champ" data-id="{{index}}">
 				<view class="downText" style="">{{item.key}}</view>
 			</view>
 		</block>

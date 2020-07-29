@@ -53,22 +53,10 @@
         "text": "在看"
       },
       {
-        "pagePath": "pages/tm/champ/champ",
-        "iconPath": "./images/tabBar/path.png",
-        "selectedIconPath": "images/tabBar/path-sel.png",
-        "text": "演讲"
-      },
-      {
         "pagePath": "pages/merger/merger",
         "iconPath": "./images/tabBar/miniprogram.png",
         "selectedIconPath": "images/tabBar/miniprogram-sel.png",
         "text": "首页"
-      },
-      {
-        "pagePath": "pages/chat/chat",
-        "iconPath": "./images/tabBar/robot_light.png",
-        "selectedIconPath": "./images/tabBar/robot_dark.png",
-        "text": "AI助手"
       },
       {
         "pagePath": "pages/my/my",

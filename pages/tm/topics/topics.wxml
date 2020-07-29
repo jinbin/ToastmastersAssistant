@@ -27,9 +27,9 @@
   </view>
 </view>
 
-<view class="circle-float">
+<!-- <view class="circle-float">
   <button style="color: #ffffff;font-size:23rpx;" hover-class='button-hover' open-type='share'>转发</button>
-</view>
+</view> -->
 
 <!-- <view class="container1">
   <navigator open-type="switchTab" url="/pages/index/index">

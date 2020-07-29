@@ -5,13 +5,13 @@
 		<text>{{prompt}}</text>
 	</view>
 	<!-- <p bindtap='copyText' data-text="{{downloadUrl}}" style="color:#00BFFF">【点击直接复制资料地址】</p> -->
-	<view>
+	<view wx:if="{{ifShowCopyUrl}}">
 		<button style="width:100%;" bindtap="copyText" data-text="{{downloadUrl}}" type="primary">点击复制资料地址</button>
 	</view>
 
-	<view style="padding-top: 50rpx;" bindtap="saveOfficialQRCode">
-		<image src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad-1258071577/images/accountpublicity2.jpeg" mode="widthFix"></image>
-	</view>
+	<!-- <view style="padding-top: 50rpx;" bindtap="saveOfficialQRCode">
+		<image src="https://6261-backup-osmic-1258071577.tcb.qcloud.la/images/banner/accountpublicity2.jpeg" mode="widthFix"></image>
+	</view> -->
 
 	<!-- <view>
     <button style="width:70%" data-text="{{downloadUrl}}" type="primary">
