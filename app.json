@@ -1,6 +1,8 @@
 {
   "pages": [
     "pages/merger/merger",
+    "pages/agenda/agenda",
+    
     "pages/tm/champ/champ",
     
     "pages/pathways/desc/desc",
@@ -28,7 +30,7 @@
     "pages/webview/webview",
     "pages/knowledge/matrix/matrix",
     
-    "pages/agenda/agenda",
+    
     
     "pages/pathways/document/document",
     "pages/pathways/article/article",

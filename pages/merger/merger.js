@@ -420,8 +420,8 @@ Page({
     //   path: 'pages/apps/largess/detail?id=LYFYxTFDv9E%3D'
     // })
     wx.previewImage({
-      current: 'cloud://tmassistant-5275ad.746d-tmassistant-5275ad-1258071577/images/zanshang-min.jpeg', // 当前显示图片的http链接
-      urls: ["cloud://tmassistant-5275ad.746d-tmassistant-5275ad-1258071577/images/zanshang-min.jpeg"] // 需要预览的图片http链接列表
+      current: 'https://6261-backup-osmic-1258071577.tcb.qcloud.la/images/personal/zanshang.jpeg', // 当前显示图片的http链接
+      urls: ["https://6261-backup-osmic-1258071577.tcb.qcloud.la/images/personal/zanshang.jpeg"] // 需要预览的图片http链接列表
     })
   },
 
@@ -770,7 +770,7 @@ Page({
       name: 'getPersonalInfo',
       success: res => {
 
-        if (res.result.data[0]["eggs"]) {
+        if (res.result.data[0] && res.result.data[0]["eggs"]) {
           that.setData({
             eggs: res.result.data[0]["eggs"]
           })

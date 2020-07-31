@@ -675,7 +675,7 @@
 	</image>
 </view>
 
-<view class="container1">
+<!-- <view class="container1">
 	<view class="title">
 		<text style="color:DimGray">—</text> 任务彩蛋
 		<text style="color:DimGray">—</text>
@@ -702,60 +702,8 @@
 					<view class="downText" wx:if="{{value}}">彩蛋</view>
 				</view>
 			</block>
-			<!-- <view class="box_tool" bindtap="egg" data-id="egg1">
-        <button size="mini" formType="submit">
-          <image wx:if="{{egg1}}" style="width:60rpx;height:60rpx" src="../../images/鸡蛋2.png"></image>
-          <image wx:if="{{!egg1}}" style="width:60rpx;height:60rpx" src="../../images/renwucaidan.png"></image>
-        </button>
-        <view class="downText">彩蛋</view>
-      </view>
-      <view class="box_tool" bindtap="egg" data-id="egg2">
-        <button id="xxxx" size="mini" formType="submit">
-          <image wx:if="{{egg2}}" style="width:60rpx;height:60rpx" src="../../images/鸡蛋2.png"></image>
-          <image wx:if="{{!egg2}}" style="width:60rpx;height:60rpx" src="../../images/renwucaidan.png"></image>
-        </button>
-        <view class="downText">彩蛋</view>
-      </view>
-      <view class="box_tool" bindtap="egg" data-id="egg3">
-        <button id="xxxx" size="mini" formType="submit">
-          <image wx:if="{{egg3}}" style="width:60rpx;height:60rpx" src="../../images/鸡蛋2.png"></image>
-          <image wx:if="{{!egg3}}" style="width:60rpx;height:60rpx" src="../../images/任务-彩蛋.png"></image>
-        </button>
-        <view class="downText">彩蛋</view>
-      </view> -->
 		</view>
 	</form>
-</view>
-
-<!-- <view class="container1">
-  <ad unit-id="adunit-a9a18369f7e6d2c6" ad-type="grid" grid-opacity="0.8" grid-count="5" ad-theme="white"></ad>
 </view> -->
 
-<!-- <image bindtap="saveOfficialQRCode" src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/theultimatetoastmasters_qian.jpg" mode="scaleToFill" class="banner"></image> -->
-
-<!-- <view class="container1">
-  <image bindtap="saveOfficialQRCode" style="width:100%" src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/theultimatetoastmasters_qian.jpg" mode="widthFix"></image>
-</view> -->
-
-<!-- <view class="container1">
-  <image bindtap="saveOfficialQRCode" style="width:100%" src="https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/images/guesslike.jpeg?sign=a3eb1ca003a1079a467350b8a6572182&t=1564386974" mode="widthFix"></image>
-</view>
-
-<view class="cards" id="cards">
-
-  <view wx:for="{{guessYouLike}}">
-    <view class="line" style="background-color: #F8F8F8"></view>
-
-    <view class="card">
-      <view class="card_text">
-        <navigator url="/pages/testdb/testdb?src={{item.src}}">
-          {{item.title}}
-        </navigator>
-      </view>
-    </view>
-  </view>
-
-  <view class="line" style="background-color: #F8F8F8"></view>
-
-</view> -->
 

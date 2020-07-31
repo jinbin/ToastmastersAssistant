@@ -1,18 +1,28 @@
 // pages/agenda/agenda.js
+
+const db = wx.cloud.database({
+  env: "backup-osmic"
+})
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    posters: [
+      "cloud://backup-osmic.6261-backup-osmic-1258071577/images/poster/poster1.jpeg",
+      "cloud://backup-osmic.6261-backup-osmic-1258071577/images/poster/poster2.jpeg",
+      "cloud://backup-osmic.6261-backup-osmic-1258071577/images/poster/poster3.jpeg",
+      "cloud://backup-osmic.6261-backup-osmic-1258071577/images/poster/poster4.jpeg",
+    ]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    db.collection
   },
 
   /**
