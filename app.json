@@ -1,16 +1,14 @@
 {
   "pages": [
     "pages/merger/merger",
-    "pages/agenda/agenda",
-    
+    "pages/reading/reading",
+    "pages/agenda/agenda", 
     "pages/tm/champ/champ",
-    
     "pages/pathways/desc/desc",
     "pages/chat/chat",
     "pages/tm/jixing/jixing",
     "pages/tm/topics/topics",
     "pages/tm/topics/topic/topic",
-    
     "pages/tm/eggs/eggs",
     "pages/tm/acronym/acronym",
     "pages/volItem/volItem",
@@ -18,7 +16,6 @@
     "pages/tm/clock/set/set",
     "pages/tm/clock/countdown/countdown",
     "pages/manage/manage",
-    "pages/reading/reading",
     "pages/testdb/testdb",
     "pages/music/music",
     "pages/audio/audio",
@@ -71,7 +68,7 @@
 
   "plugins": {
     "chatbot": {
-      "version": "1.1.24",
+      "version": "1.2.3",
       "provider": "wx8c631f7e9f2465e1"
     },
     "WechatSI": {

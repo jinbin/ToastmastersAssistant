@@ -95,8 +95,8 @@ Page({
       })
     } else {
       wx.previewImage({
-        current: 'cloud://tmassistant-5275ad.746d-tmassistant-5275ad-1258071577/images/zanshang-min.jpeg', // 当前显示图片的http链接
-        urls: ["cloud://tmassistant-5275ad.746d-tmassistant-5275ad-1258071577/images/zanshang-min.jpeg"] // 需要预览的图片http链接列表
+        current: 'https://6261-backup-osmic-1258071577.tcb.qcloud.la/images/personal/zanshang.jpeg', // 当前显示图片的http链接
+        urls: ["https://6261-backup-osmic-1258071577.tcb.qcloud.la/images/personal/zanshang.jpeg"] // 需要预览的图片http链接列表
       })
     }
   },
@@ -284,6 +284,7 @@ Page({
   },
 
   navigateToMiniProgram: function(options) {
+    console.log(options)
     wx.navigateToMiniProgram({
       appId: options.currentTarget.id,
       path: options.currentTarget.dataset.path

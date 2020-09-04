@@ -1,7 +1,7 @@
 /* pages/merger/merger.wxss */
 
 .tab-h {
-  height: 80rpx;
+  height: 70rpx;
   width: 100%;
   box-sizing: border-box;
   overflow: hidden;

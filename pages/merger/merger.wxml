@@ -9,7 +9,7 @@
 </swiper> -->
 
 <view id="top">
-	<image src="https://6261-backup-osmic-1258071577.tcb.qcloud.la/images/banner/speech3-min.png" style="width:100%" mode="widthFix" bindtap="saveOfficialQRCode"></image>
+	<image src="https://6261-backup-osmic-1258071577.tcb.qcloud.la/images/banner/speech6-min.jpg" style="width:100%" mode="widthFix" bindtap="saveOfficialQRCode"></image>
 </view>
 
 <official-account></official-account>
@@ -19,20 +19,20 @@
 		<open-data class="userinfo-avatar" type="userAvatarUrl" background-size="cover">
 		</open-data>
 	</view>
-	<view bindtap="leveldesc" style="padding: 10rpx; display:flex; flex-direction: column; justify-content: center;">
+	<view bindtap="leveldesc" style="padding: 5rpx; display:flex; flex-direction: column; justify-content: center;">
 		<view>
-			<open-data style="color:black" type="userNickName"></open-data>
+			<open-data style="color:black; font-size:22rpx;" type="userNickName"></open-data>
 		</view>
-		<view class="downText" style="font-size:12px;">
+		<view class="downText" style="font-size:20rpx;">
 			<text style="color:#e46e0c">{{level}}</text>演讲爱好者
 		</view>
 	</view>
 	<view class="headline">
-		<view bindtap="checkin" style="padding: 15rpx; display:flex; flex-direction: column; justify-content: center; align-items: center; ">
+		<view bindtap="checkin" style="padding: 12rpx; display:flex; flex-direction: column; justify-content: center; align-items: center; ">
 			<image style="width:45rpx;height:45rpx" src="../../images/daka.png"></image>
 			<view class="downText" style="font-size:12px;">打卡</view>
 		</view>
-		<view bindtap="leveldesc" style="padding: 15rpx; display:flex; flex-direction: column; justify-content: center; align-items: center; ">
+		<view bindtap="leveldesc" style="padding: 12rpx; display:flex; flex-direction: column; justify-content: center; align-items: center; ">
 			<image style="width:45rpx;height:45rpx;left:10rpx;" src="../../images/info.png"></image>
 			<view class="downText" style="font-size:12px;">等级</view>
 		</view>
@@ -40,15 +40,15 @@
 		<image style="width:45rpx;height:45rpx;left:10rpx;" src="../../images/jidan2.png"></image>
 		<view class="downText" style="font-size:12px;">彩蛋</view>
 		</view> -->
-		<view bindtap="saveOfficialQRCode" style="padding:15rpx; display:flex; flex-direction: column; justify-content: center; align-items: center; ">
+		<view bindtap="saveOfficialQRCode" style="padding:12rpx; display:flex; flex-direction: column; justify-content: center; align-items: center; ">
 			<image style="width:45rpx;height:45rpx;left:10rpx;" src="../../images/gzh.png"></image>
 			<view class="downText" style="font-size:12px;">公众号</view>
 		</view>
-		<view bindtap="distribution" data-id="ai" style="padding:15rpx; display:flex; flex-direction: column; justify-content: center; align-items: center; ">
+		<view bindtap="distribution" data-id="ai" style="padding:12rpx; display:flex; flex-direction: column; justify-content: center; align-items: center; ">
 			<image style="width:45rpx;height:45rpx;left:10rpx;" src="../../images/tabBar/robot_dark.png"></image>
 			<view class="downText" style="font-size:12px;">AI助手</view>
 		</view>
-		<view bindtap="gotoGeizan" style="padding:15rpx; display:flex; flex-direction: column; justify-content: center; align-items: center; ">
+		<view bindtap="gotoGeizan" style="padding:12rpx; display:flex; flex-direction: column; justify-content: center; align-items: center; ">
 			<image style="width:45rpx;height:45rpx;left:10rpx;" src="../../images/dashang.png"></image>
 			<view class="downText" style="font-size:12px;">赞赏</view>
 		</view>
@@ -79,10 +79,14 @@
 		<image style="width:70rpx;height:70rpx" src="../../images/champion.png"></image>
 		<view class="downText" style="padding-top:15rpx;color:#9d441b;font-size:26rpx;">冠军演讲</view>
 	</view>
-	<view bindtap="distribution" data-id="dictionary" style="padding:15rpx; display:flex; flex-direction: column; justify-content: center; align-items: center; ">
+	<view bindtap="distribution" data-id="addr" style="padding:15rpx; display:flex; flex-direction: column; justify-content: center; align-items: center; ">
+		<image style="width:70rpx;height:70rpx" src="../../images/club.png"></image>
+		<view class="downText" style="padding-top:15rpx;color:#9d441b;font-size:26rpx;">地址</view>
+	</view>
+	<!-- <view bindtap="distribution" data-id="dictionary" style="padding:15rpx; display:flex; flex-direction: column; justify-content: center; align-items: center; ">
 		<image style="width:70rpx;height:70rpx" src="../../images/diary.png"></image>
 		<view class="downText" style="padding-top:15rpx;color:#9d441b;font-size:26rpx;">头马词典</view>
-	</view>
+	</view> -->
 	<view bindtap="distribution" data-id="timertool" style="padding:15rpx; display:flex; flex-direction: column; justify-content: center; align-items: center; ">
 		<image style="width:70rpx;height:70rpx" src="../../images/timer.png"></image>
 		<view class="downText" style="padding-top:15rpx;color:#9d441b;font-size:26rpx;">计时器</view>
@@ -224,15 +228,17 @@
 <view style="padding-bottom: 20rpx">
 	<scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}">
 		<!-- <view class="tabline"> -->
-		<view class="tab-item {{currentTab==0?'active':''}}" data-id="0" bindtap="change">头马会议角色</view>
-		<view class="tab-item {{currentTab==1?'active':''}}" data-id="1" bindtap="change">俱乐部官员</view>
+		<view class="tab-item {{currentTab==0?'active':''}}" data-id="0" bindtap="change">会议角色</view>
+		<view class="tab-item {{currentTab==1?'active':''}}" data-id="1" bindtap="change">头马官员</view>
 		<view class="tab-item {{currentTab==2?'active':''}}" data-id="2" bindtap="change">俱乐部运营</view>
+		<view class="tab-item {{currentTab==3?'active':''}}" data-id="3" bindtap="change">实用工具</view>
 		<!-- </view> -->
 	</scroll-view>
 	<view class="container1" id="juese" style="">
 		<text wx:if="{{currentTab == 0}}" style="color:DimGray;font-size:10px;">常规头马会议包含一些固定角色，这里有角色介绍和中英文模板</text>
 		<text wx:if="{{currentTab == 1}}" style="color:DimGray;font-size:10px;">头马俱乐部的组织有其特有方式，来看看管理团队每个人的职责</text>
 		<text wx:if="{{currentTab == 2}}" style="color:DimGray;font-size:10px;">运营好一家头马俱乐部的工具和秘诀都在这里</text>
+		<text wx:if="{{currentTab == 3}}" style="color:DimGray;font-size:10px;">恭喜你发现了一个宝藏，好用的工具都在这里</text>
 	</view>
 </view>
 
@@ -365,10 +371,30 @@
 			</view>
 		</view>
 	</scroll-view>
+	<scroll-view wx:if="{{currentTab == 3}}" scroll-x="true" class="tab-h1" scroll-left="{{scrollLeft}}">
+		<view class="tab-item" bindtap="distribution" data-id="timertool">
+			<view class="tab-item1">
+				<image style="width:50rpx;height:50rpx" src="../../images/timer.png"></image>
+				<text style="height:10rpx;font-size:26rpx;">计时器</text>
+			</view>
+		</view>
+		<view class="tab-item" bindtap="distribution" data-id="dictionary">
+			<view class="tab-item1">
+				<image style="width:50rpx;height:50rpx" src="../../images/diary.png"></image>
+				<text style="height:10rpx;font-size:26rpx;">头马词典</text>
+			</view>
+		</view>
+		<view class="tab-item" bindtap="distribution" data-id="matrix">
+			<view class="tab-item1">
+				<image style="width:50rpx;height:50rpx" src="../../images/pdf.png"></image>
+				<text style="height:10rpx;font-size:26rpx;">Pathways PDF</text>
+			</view>
+		</view>
+	</scroll-view>
 </view>
 
-<view style="padding-top: 10rpx; padding-bottom: 10rpx;">
-	<image src="https://6261-backup-osmic-1258071577.tcb.qcloud.la/images/banner/speech-min.jpeg" style="width:100%" mode="widthFix" bindtap="saveOfficialQRCode"></image>
+<view>
+	<image src="../../images/gap-min.png" style="width:100%" mode="widthFix" bindtap="saveOfficialQRCode"></image>
 </view>
 
 
@@ -514,7 +540,7 @@
 
 		<view class="card">
 			<view class="card_text">
-				<navigator url="/pages/testdb/testdb?src={{item.src}}">
+				<navigator url="/pages/testdb/testdb?src={{item.src}}&title={{item.title}}">
 					{{item.title}}
 				</navigator>
 			</view>

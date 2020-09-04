@@ -12,6 +12,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options)
     this.setData({
       url_src: options.src
     }),
@@ -68,7 +69,7 @@ Page({
    */
   onShareAppMessage: function (options) {
     return {
-      title: '这是一篇我喜欢的文章，你是我的好友，推荐你也看看',
+      title: '这是一篇我喜欢的文章，你是我的好友，推荐你也看看:',
       path: '/pages/testdb/testdb?src=' + this.data.url_src,
     }
   },

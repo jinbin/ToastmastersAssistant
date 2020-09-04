@@ -388,6 +388,8 @@ Page({
         naviTo = '/pages/testdb/testdb?src=https://mp.weixin.qq.com/s/cXyYOR6AAnBHmC2EU5bR1Q'
       } else if (id == "speech"){
         naviTo = '/pages/testdb/testdb?src=https://mp.weixin.qq.com/s/dM7Ipkipb7nFH4q4-8r3_A'
+      } else if (id == "addr"){
+        naviTo = '/pages/testdb/testdb?src=https://mp.weixin.qq.com/s/l1mAnE5LcmuGfgIckW64Yg'
       }
 
       wx.navigateTo({
@@ -1077,14 +1079,14 @@ Page({
 
   onShareAppMessage: function (res) {
     return {
-      title: '头马助手, 演讲一站式服务, 可能是最好的演讲类小程序',
+      title: '演讲一站式服务, 最好的演讲类小程序，学演讲，你用得上！',
       imageUrl: '/images/homepage2-min.jpeg'
     }
   },
 
   onShareTimeline: function (res) {
     return {
-      title: '头马助手, 演讲一站式服务, 可能是最好的演讲类小程序',
+      title: '演讲一站式服务, 最好的演讲类小程序，学演讲，你用得上！',
       imageUrl: '/images/homepage2-min.jpeg'
     }
   }

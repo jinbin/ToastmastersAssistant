@@ -83,10 +83,6 @@
     <image style="width:80rpx;height:80rpx" src="../../images/setting3.png"></image> 
     <view style="font-size:12px;">获取积分</view>
   </view>
-  <view class="box" bindtap="navigateToMiniProgram" id="wx4c4b54bc609bd79e">
-    <image style="width:80rpx;height:80rpx" src="../../images/setting4.png"></image> 
-    <view style="font-size:12px;">即兴演讲</view>
-  </view>
   <view class="box" bindtap="gotoGeizan">
     <image style="width:80rpx;height:80rpx" src="../../images/setting5.png"></image> 
     <view style="font-size:12px;">打赏作者</view>
@@ -94,6 +90,10 @@
   <view class="box" bindtap="navigateTo" id="/pages/testdb/testdb?src=https://mp.weixin.qq.com/s/RXzq956DJmBoObbanndTrQ">
     <image style="width:80rpx;height:80rpx" src="../../images/setting2.png"></image> 
     <view style="font-size:12px;">更新历史</view>
+  </view>
+  <view class="box" bindtap="navigateToMiniProgram" id="wx4b74228baa15489a" data-path="lib/shop/dist/pages/index/index?shopId=832749&userid=832749">
+    <image style="width:80rpx;height:80rpx" src="../../images/setting4.png"></image> 
+    <view style="font-size:12px;">学霸书店</view>
   </view>
 </view>
 

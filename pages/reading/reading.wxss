@@ -10,6 +10,29 @@ button {
   outline: none;
 }
 
+.head_text {
+  display: flex;
+  justify-content: center;
+}
+
+scroll-view {
+  width: 100%;
+  white-space: nowrap;
+}
+
+.tab-item {
+  width: 15%; 
+  height: 60px;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
 .reading_type {
   display: flex;
   flex-direction: row;
@@ -35,6 +58,7 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center; 
+  /* justify-content: center; */
 }
 
 .card {
@@ -43,7 +67,7 @@ button {
   /* background-color: #F8F8F8; */
   background-color: white;
   /* height: 140rpx; */
-  height: 80px;
+  height: 70px;
   padding: 10rpx;
   /* justify-content: space-between; */
   justify-content: flex-start;
@@ -61,6 +85,11 @@ button {
   font-weight: bold;
 }
 
+.article_icon {
+  width:30px;
+  height:30px;
+}
+
 .adBlock {
   display: flex;
   flex-direction: column;
@@ -68,7 +97,7 @@ button {
 }
 
 .adContainer {
-  width: 98%;
+  width: 100%;
 }
 
 .circle-float{

@@ -12,7 +12,12 @@ Page({
   data: {
     currentTab: 0,
     isChecking: false,
-    champs: [{
+    champs: [
+      {
+        key: "2020",
+        url: "https://mp.weixin.qq.com/s/JnS-jpeC1fLrWmpRuVg1_A"
+      },
+      {
         key: "2019",
         url: "https://mp.weixin.qq.com/s/AGXrq_DrbyQ-uEj4S0bX6g"
       },

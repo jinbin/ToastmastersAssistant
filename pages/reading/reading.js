@@ -12,65 +12,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    currentId: "all",
     isChecking: false,
-    types: [
-      // {
-      //   "text": "冠军演讲",
-      //   "id": "champ",
-      //   "icon": "matrix_DarkCyan.png"
-      // },
-      {
-        "text": "全部",
-        "id": "all",
-        "icon": "all.png"
-      },
-      {
-        "text": "做演讲",
-        "id": "speaking",
-        "icon": "speaking.png"
-      },
-      {
-        "text": "领导力",
-        "id": "leadership",
-        "icon": "leadership.png"
-      },
-      {
-        "text": "TED精选",
-        "id": "ted",
-        "icon": "xingfu.png"
-      },
-      {
-        "text": "大地王子",
-        "id": "princeea",
-        "icon": "prince.png"
-      },
-      {
-        "text": "杰伊谢蒂",
-        "id": "jayshetty",
-        "icon": "jay.png"
-      },
-      {
-        "text": "即兴冠军",
-        "id": "jixing",
-        "icon": "jushou.png"
-      },
-      {
-        "text": "马云",
-        "id": "jackma",
-        "icon": "mayun-min.png"
-      }
-      // {
-      //   "text": "冠军们",
-      //   "id": "champ",
-      //   "icon": "guanjun.png"
-      // }
-      // {
-      //   "text": "头马中国",
-      //   "id": "tmChina",
-      //   "icon": "matrix_orange.png"
-      // }
-    ]
   },
 
   /**
@@ -86,19 +28,6 @@ Page({
     wx.showLoading({
       title: '精彩马上呈现',
     })
-
-    // db.collection("guessYouLike").where({
-    //   type: options.type
-    // }).get({
-    //   success: function(e) {
-    //     console.log(e)
-    //     that.setData({
-    //       // guessYouLike: e.data.reverse()
-    //       guessYouLike: e.data
-    //     })
-    //     wx.hideLoading()
-    //   }
-    // })
 
     db.collection("information").doc("config").get({
       success: function(res){
@@ -120,8 +49,6 @@ Page({
           select_type = that.data.currentId
         }
 
-
-        
         wx.cloud.callFunction({
           name: "getYouLike", 
           data: {
@@ -130,7 +57,6 @@ Page({
           success: function(res){
             console.log(res.result)
             that.setData({
-              // guessYouLike: e.data.reverse()
               guessYouLike: res.result.data.reverse()
             })
             wx.hideLoading()
@@ -175,12 +101,6 @@ Page({
 
   saveOfficialQRCode: function() {
     util.saveOfficialQRCode()
-  },
-
-  backtoLib: function() {
-    wx.switchTab({
-      url: '/pages/toutiao/toutiao',
-    })
   },
 
   /**
