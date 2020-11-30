@@ -413,12 +413,13 @@ img {
   align-items: center;
   justify-content: center;
   bottom: 20rpx;
-  right: 20rpx;
+  /* right: 20rpx; */
+  right: 320rpx;
   width: 110rpx;
   height: 110rpx;
   border-radius: 50%;
   font-size: 28rpx;
-  background: rgb(56, 243, 56);
+  /* background: rgb(56, 243, 56); */
   z-index:100;
 }
 
@@ -430,14 +431,14 @@ img {
   background: rgb(241, 83, 62);
 }
 
-.cards {
+.cards1 {
   display: flex;
   flex-direction: column;
   align-content: center;
   align-items: center;
 }
 
-.card {
+.card1 {
   display: flex;
   flex-direction: row;
   /* background-color: #F8F8F8; */
@@ -445,7 +446,7 @@ img {
   height: 100rpx;
 }
 
-.card_text {
+.card_text1 {
   padding: 30rpx;
   display: flex;
   flex-direction: row;
@@ -463,35 +464,83 @@ img {
   height:60rpx;
 }
 
-.container2 {
-  padding-top: 5rpx;
-  padding-left: 30rpx;
-  padding-right: 30rpx;
-  height: 100%;
+/* 以下是在看页面的wxss */
+
+.head_text {
+  display: flex;
+  justify-content: center;
+}
+
+scroll-view {
+  width: 100%;
+  white-space: nowrap;
+}
+
+.tab-item {
+  width: 15%; 
+  height: 70px;
+}
+
+.item {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 
-.scrolltxt{
-  padding:0 20rpx;
-  background:#f8f8f8;
+.reading_type {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 10px;
 }
 
-.marquee_box {
-  position:relative;
-  color:#4F4F4F;
-  height:90rpx;
-  display:block;
-  overflow:hidden;
-} 
+.item_type {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+}
 
-.marquee_text {
-  white-space: nowrap;
-  position:absolute;
-  top:0;
-  font-size:14px;
-  height:90rpx;
-  line-height:90rpx;
+.cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  /* justify-content: center; */
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+  /* background-color: #F8F8F8; */
+  background-color: white;
+  /* height: 140rpx; */
+  height: 70px;
+  padding: 10rpx;
+  /* justify-content: space-between; */
+  justify-content: flex-start;
+}
+
+.card_text {
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+  font-size:15px;
+  color: #4F4F4F;
+  font-weight: bold;
+}
+
+.adBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.adContainer {
+  width: 100%;
 }

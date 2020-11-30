@@ -1,7 +1,7 @@
 <!--pages/reading/reading.wxml-->
 
 <view class="head_text">
-	<view style="font-size: 13px; color: #8B8989; width:90%; padding-bottom: 10rpx">常读的栏目</view>
+	<view style="font-size: 13px; color: #8B8989; width:90%; padding: 10rpx">常读的栏目</view>
 </view>
 
 <scroll-view scroll-x="true">
@@ -38,7 +38,7 @@
 			</view>
 		</view>
 
-		<div wx:if="{{index % 11 == 0}}">
+		<div wx:if="{{index % 20 == 0}}">
 			<view wx:if="{{index != 0}}" class="line" style="background-color: #F8F8F8; height: 20rpx;"></view>
 			<view class="adBlock">
 				<view wx:if="{{index != 0}}" class="adContainer">
@@ -51,7 +51,7 @@
 				</view>
 			</view>
 		</div>
-		<div wx:if="{{index % 11 == 5}}">
+		<div wx:if="{{index % 20 == 10}}">
 			<view class="line" style="background-color: #F8F8F8; height: 20rpx;"></view>
 			<view class="adBlock">
 				<view class="adContainer">
@@ -67,3 +67,5 @@
 	<view class="line" style="background-color: #F8F8F8; height: 20rpx;"></view>
 
 </view>
+
+<!-- <view class="circle-float"></view> -->

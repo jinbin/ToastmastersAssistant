@@ -118,8 +118,6 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-    var title
-    var imageUrl 
     var dict = { 
       "toumazhushou": ["数万中国头马会员都需要的\"头马助手\"，到底是怎么诞生的？","/images/whytm.jpg"],
       "timer": ["头马知识库 | 时间官", '/images/roles.png'],

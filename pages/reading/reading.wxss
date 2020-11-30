@@ -48,12 +48,6 @@ scroll-view {
   padding-top: 10px;
 }
 
-.container1 {
-  display: flex;
-  flex-direction: column;
-  align-items: center; 
-}
-
 .cards {
   display: flex;
   flex-direction: column;
@@ -85,11 +79,6 @@ scroll-view {
   font-weight: bold;
 }
 
-.article_icon {
-  width:30px;
-  height:30px;
-}
-
 .adBlock {
   display: flex;
   flex-direction: column;
@@ -114,8 +103,4 @@ scroll-view {
   font-size: 28rpx;
   background: rgb(56, 243, 56);
   z-index:100;
-}
-
-.hover_1{
-  background: #698B22;
 }

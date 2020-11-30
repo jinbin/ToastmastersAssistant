@@ -121,14 +121,14 @@ Page({
   onShareAppMessage: function (res) {
     return {
       title: '头马AI助手, 一站式智能问答服务，有问必答，快来体验~',
-      imageUrl: '/images/robot.jpeg'
+      // imageUrl: '/images/robot.jpeg'
     }
   },
 
   onShareTimeline: function (res) {
     return {
       title: '头马AI助手, 一站式智能问答服务，有问必答，快来体验~',
-      imageUrl: '/images/robot.jpeg'
+      // imageUrl: '/images/robot.jpeg'
     }
   }
 })

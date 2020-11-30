@@ -93,12 +93,6 @@ Page({
     currentTab: 0
   },
 
-  // onPageScroll: function(ev) {
-  //   this.setData({
-  //     scrollTop: ev.scrollTop
-  //   })
-  // },
-
   // audioManage: function(options) {
   //   console.log(options.currentTarget.id)
   //   if (options.currentTarget.id == "continue") {
@@ -596,10 +590,10 @@ Page({
 
   onTabItemTap(){
     let pages = getCurrentPages()
-    console.log(pages)
     
     if(this.data.isTop){
-      this.pageScrollToBottom('#cards')
+      // this.pageScrollToBottom('#cards')
+      this.pageScrollToBottom('#articles')
       this.setData({
         isTop: false
       })
@@ -718,24 +712,23 @@ Page({
     wx.createSelectorQuery().select(tag).boundingClientRect(
       function (rect) {
         // 使页面滚动到底部
-        console.log(rect)
-        wx.pageScrollTo({
-          scrollTop: rect.top
-        })
+        if(rect){
+          wx.pageScrollTo({
+            scrollTop: rect.top
+          })
+        }
       }
     ).exec()
+  },
+
+  scrollToTop: function() {
+    this.pageScrollToBottom('#top')
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // wx.getNetworkType({
-    //   success(res) {
-    //     const networkType = res.networkType
-    //     console.log(res.networkType)
-    //   }
-    // })
 
     wx.showShareMenu({
       // shareTicket 是获取转发目标群信息的票据，只有拥有 shareTicket 才能拿到群信息，用户每次转发都会生成对应唯一的shareTicket 。
@@ -743,7 +736,6 @@ Page({
       menus: ['shareAppMessage', 'shareTimeline']
     })
 
-    var that = this
     this.setData({
       banner_height: 220 / wx.getSystemInfoSync().windowHeight * 110
     })
@@ -752,16 +744,114 @@ Page({
       this.pageScrollToBottom()
     }
 
-    db.collection("guessYouLike").where({
-      onIndex: true
-    }).get({
-      success: function (e) {
+    // db.collection("guessYouLike").where({
+    //   onIndex: true
+    // }).get({
+    //   success: function (e) {
+    //     that.setData({
+    //       recommendData: e.data.reverse()
+    //     })
+    //   }
+    // })
+
+    this.getArticles()
+  },
+
+  onPageScroll: function(ev) {
+    var that = this
+    wx.createSelectorQuery().select("#top").boundingClientRect(
+      function (res) {
+        let top = res.top
+        // console.log("距离顶部：" + top)
+        if(top < -600){
+          that.setData({
+            upflag: true
+          })
+        }
+
+        if(top > -600){
+          that.setData({
+            upflag: false
+          })
+        }
+      }
+    ).exec()
+  },
+
+  changetype: function(options) {
+    this.setData({
+      currentId: options.currentTarget.id
+    })
+
+    var that = this
+
+    var type = undefined
+    if (that.data.currentId != "all") {
+      type = that.data.currentId
+    }
+
+    wx.cloud.callFunction({
+      name: "getYouLike",
+      data: {
+        type: type
+      },
+      success: function (res) {
+        console.log(res.result)
         that.setData({
-          guessYouLike: e.data.reverse()
+          // guessYouLike: e.data.reverse()
+          guessYouLike: res.result.data.reverse()
+        })
+        wx.hideLoading()
+      }
+    })
+  },
+
+  getArticles: function (e) {
+    // this.setData({
+    //   type: options.type
+    // })
+
+    var that = this 
+
+    //在首页不需要加载提示
+    // wx.showLoading({
+    //   title: '精彩马上呈现',
+    // })
+
+    db.collection("information").doc("config").get({
+      success: function(res){
+        console.log(res.data["reading"])
+        that.setData({
+          currentId: res.data["default"],
+          types: res.data["reading"],
+          isChecking: res.data["isChecking"]
         })
 
-        //that.updatePersonalInfo()
+        if(that.data.isChecking){
+          that.setData({
+            currentId: "speaking"
+          })
+        }
 
+        var select_type = ""
+        if(that.data.currentId != "all"){
+          select_type = that.data.currentId
+        }
+
+        wx.cloud.callFunction({
+          name: "getYouLike", 
+          data: {
+            type: select_type
+          },
+          success: function(res){
+            console.log(res.result)
+            that.setData({
+              guessYouLike: res.result.data.reverse()
+            })
+            // 在首页不需要加载提示
+            wx.hideLoading()
+          }
+        })
       }
     })
   },

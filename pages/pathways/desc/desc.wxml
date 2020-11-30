@@ -4,7 +4,8 @@
 </view> -->
 
 <view>
-	<image src="https://6261-backup-osmic-1258071577.tcb.qcloud.la/images/banner/11paths.png" bindtap="saveOfficialQRCode" style="width:100%" mode="widthFix" />
+	<!-- <image src="https://6261-backup-osmic-1258071577.tcb.qcloud.la/images/banner/11paths.png" bindtap="saveOfficialQRCode" style="width:100%" mode="widthFix" /> -->
+	<image src="https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/images/posters/11paths-min.png" bindtap="saveOfficialQRCode" style="width:100%" mode="widthFix" />
 </view>
 
 <view wx:if="{{index == 0 || index == 1 || index == 2 || index == 3 || index == 4}}">

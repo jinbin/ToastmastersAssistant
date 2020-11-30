@@ -1,5 +1,7 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "txv-video": "plugin://tencentvideo/video"
+  },
   "navigationStyle": "custom",
   "enablePullDownRefresh": false
 }

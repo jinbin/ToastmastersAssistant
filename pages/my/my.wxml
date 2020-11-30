@@ -1,4 +1,3 @@
-<!--index.wxml-->
 
 <import src="../../templates/contact_button/contact_button.wxml" />
 
@@ -51,13 +50,8 @@
       </view>
     </navigator> -->
   </view>
-  <!-- <view open-type="navigate" bindtap="bindViewTap" > <view style="position: relative; display: flex; width: 100%; overflow: hidden" > <image src="http://aldpicsh-1252823355.cossh.myqcloud.com/ad_advertiser/15614430131992.png" style="width: 100%; margin: 0px auto; height: 91.2715px;"></image> </view> </view> -->
 </view>
 
-<!-- <view class="xm_insert">
-  <xm-ad data-id="{{xmad.ad.insert}}" adData="{{xmad.adData}}" bindadload="adImgLoad" bindclick="appoIntView" bindclose="xmadClose" class="xm_component">
-  </xm-ad>
-</view> -->
 <view class="window">
   <!-- <view class="box" bindtap="navigateTo" id="/pages/testdb/testdb?src=https://mp.weixin.qq.com/s/bRbL1FC14X_ZgBbc2Q_k8g">  
     <image style="width:80rpx;height:80rpx" src="../../images/setting1.png"></image>
@@ -79,10 +73,10 @@
     <image style="width:80rpx;height:80rpx" src="../../images/setting7.png"></image> 
     <view style="font-size:12px;">关联小程序</view>
   </view>
-  <view class="box" bindtap="watchAd">
+  <!-- <view class="box" bindtap="watchAd">
     <image style="width:80rpx;height:80rpx" src="../../images/setting3.png"></image> 
     <view style="font-size:12px;">获取积分</view>
-  </view>
+  </view> -->
   <view class="box" bindtap="gotoGeizan">
     <image style="width:80rpx;height:80rpx" src="../../images/setting5.png"></image> 
     <view style="font-size:12px;">打赏作者</view>
