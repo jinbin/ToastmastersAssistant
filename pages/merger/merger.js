@@ -761,18 +761,21 @@ Page({
     var that = this
     wx.createSelectorQuery().select("#top").boundingClientRect(
       function (res) {
-        let top = res.top
-        // console.log("距离顶部：" + top)
-        if(top < -600){
-          that.setData({
-            upflag: true
-          })
-        }
+        // 避免线上报错 Cannot read property 'top' of null
+        if(res){
+          let top = res.top
+          // console.log("距离顶部：" + top)
+          if(top < -600){
+            that.setData({
+              upflag: true
+            })
+          }
 
-        if(top > -600){
-          that.setData({
-            upflag: false
-          })
+          if(top > -600){
+            that.setData({
+              upflag: false
+            })
+          }
         }
       }
     ).exec()

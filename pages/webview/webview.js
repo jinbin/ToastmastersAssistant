@@ -119,21 +119,24 @@ Page({
    */
   onShareAppMessage: function () {
     var dict = { 
-      "toumazhushou": ["数万中国头马会员都需要的\"头马助手\"，到底是怎么诞生的？","/images/whytm.jpg"],
-      "timer": ["头马知识库 | 时间官", '/images/roles.png'],
-      "ahcounter": ["头马知识库 | 哼哈官", '/images/roles.png'],
-      "grammarian": ["头马知识库 | 语法官", '/images/roles.png'],
-      "tm": ["头马知识库 | 主持人", '/images/roles.png'],
-      "ttm": ["头马知识库 | 即兴主持", '/images/roles.png'],
-      "ie": ["头马知识库 | 个人评估", '/images/roles.png'],
-      "ge": ["头马知识库 | 总评", '/images/roles.png'],
-      "tte": ["头马知识库 | 即兴评估", '/images/roles.png'],
-      "SAA": ["头马知识库 | 接待官", '/images/roles.png']
+      "toumazhushou": ["数万中国头马会员都需要的\"头马助手\"，到底是怎么诞生的？"],
+      "timer": ["头马知识库 | 时间官"],
+      "ahcounter": ["头马知识库 | 哼哈官"],
+      "grammarian": ["头马知识库 | 语法官"],
+      "tm": ["头马知识库 | 主持人"],
+      "ttm": ["头马知识库 | 即兴主持",],
+      "ie": ["头马知识库 | 个人评估"],
+      "ge": ["头马知识库 | 总评"],
+      "tte": ["头马知识库 | 即兴评估"],
+      "SAA": ["头马知识库 | 接待官"],
+      "DTM": ["头马知识库 | DTM介绍"],
+      "membership": ["头马演讲助手小程序：会员体系介绍"]
     }
 
-    return {
-      title: dict[this.data.article][0],
-      imageUrl: dict[this.data.article][1]
+    if(dict[this.data.article]){
+      return {
+        title: dict[this.data.article][0]
+      }
     }
   }
 })

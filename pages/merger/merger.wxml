@@ -476,20 +476,20 @@
 				</view>
 			</view>
 
-			<div wx:if="{{index % 20 == 0}}">
+			<div wx:if="{{index % 30 == 0}}">
 				<view wx:if="{{index != 0}}" class="line" style="background-color: #F8F8F8; height: 20rpx;"></view>
 				<view class="adBlock">
 					<view wx:if="{{index != 0}}" class="adContainer">
 						<!-- Banner广告 -->
-						<ad unit-id="adunit-ab171e6bb49115c5" ad-intervals="30"></ad>
+						<!-- <ad unit-id="adunit-ab171e6bb49115c5" ad-intervals="30"></ad> -->
 						<!-- 格子广告 -->
 						<!-- <ad unit-id="adunit-a9a18369f7e6d2c6" ad-type="grid" grid-opacity="0.8" grid-count="5" ad-theme="white"></ad> -->
 						<!-- 视频广告 -->
-						<!-- <ad unit-id="adunit-a3ae6b7d69bb20fb" ad-type="video" ad-theme="white"></ad> -->
+						<ad unit-id="adunit-a3ae6b7d69bb20fb" ad-type="video" ad-theme="white"></ad>
 					</view>
 				</view>
 			</div>
-			<div wx:if="{{index % 20 == 10}}">
+			<div wx:if="{{index % 30 == 15}}">
 				<view class="line" style="background-color: #F8F8F8; height: 20rpx;"></view>
 				<view class="adBlock">
 					<view class="adContainer">
