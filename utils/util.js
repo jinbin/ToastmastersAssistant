@@ -36,7 +36,7 @@ function dashang() {
 function saveOfficialQRCode(content) {
   console.log(content)
   if(content == "" || content == undefined){
-    content = "头马演讲助手"
+    content = "公众演讲助手"
   }
   wx.showModal({
     content: '搜索"'+ content + '"官方公众号, 获取更多精品演讲视频，学习资料！',

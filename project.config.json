@@ -45,17 +45,13 @@
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
   "condition": {
-    "search": {
-      "list": []
-    },
-    "conversation": {
-      "list": []
-    },
     "plugin": {
       "list": []
     },
     "game": {
-      "currentL": -1,
+      "list": []
+    },
+    "gamePlugin": {
       "list": []
     },
     "miniprogram": {
@@ -68,10 +64,9 @@
           "scene": null
         },
         {
-          "id": 1,
           "name": "roles",
-          "pathName": "pages/merger/merger",
-          "query": "roles=true",
+          "pathName": "pages/toutiao/toutiao",
+          "query": "",
           "scene": null
         }
       ]
