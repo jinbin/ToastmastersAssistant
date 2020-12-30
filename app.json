@@ -1,8 +1,10 @@
 {
   "pages": [
     "pages/merger/merger",
+    "pages/video/page/page",
+    "pages/video/vcollection/vcollection",
     "pages/reading/reading",
-    "pages/agenda/agenda", 
+    "pages/agenda/agenda",
     "pages/tm/champ/champ",
     "pages/pathways/desc/desc",
     "pages/chat/chat",
@@ -26,9 +28,6 @@
     "pages/knowledge/knowledge",
     "pages/webview/webview",
     "pages/knowledge/matrix/matrix",
-    
-    
-    
     "pages/pathways/document/document",
     "pages/pathways/article/article",
     "pages/edit/edit",
@@ -49,6 +48,12 @@
         "pagePath": "pages/reading/reading",
         "iconPath": "./images/tabBar/homepage.png",
         "selectedIconPath": "./images/tabBar/homepage-sel.png",
+        "text": "在读"
+      },
+      {
+        "pagePath": "pages/video/vcollection/vcollection",
+        "iconPath": "./images/tabBar/video_light.png",
+        "selectedIconPath": "./images/tabBar/video_color.png",
         "text": "在看"
       },
       {
@@ -65,10 +70,9 @@
       }
     ]
   },
-
   "plugins": {
     "chatbot": {
-      "version": "1.2.8",
+      "version": "1.2.10",
       "provider": "wx8c631f7e9f2465e1"
     },
     "WechatSI": {
@@ -76,9 +80,12 @@
       "provider": "wx069ba97219f66d99"
     },
     "tencentvideo": {
-      "version": "1.3.16",
+      "version": "1.3.18",
       "provider": "wxa75efa648b60994b"
     }
+  },
+  "useExtendedLib": {
+    "weui": true
   },
   "sitemapLocation": "sitemap.json",
   "requiredBackgroundModes": [

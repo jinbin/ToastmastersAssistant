@@ -1,0 +1,36 @@
+<!--pages/video/page/page.wxml-->
+<view wx:if="{{vid}}" class="video_page">
+  <view>
+    <txv-video vid="{{vid}}" playerid="txv1"></txv-video>
+  </view>
+  <view class="title" style="height: 100rpx; padding: 20rpx; font-weight:250;">
+    <view style="width: 90%">
+      <text>{{title}}</text>
+    </view>
+    <view>
+      <button open-type="share" data-vid="{{vid}}" data-title="{{title}}">
+        <mp-icon icon="share" color="black" size="{{25}}">
+        </mp-icon>
+      </button>
+    </view>
+    <view>
+      <navigator open-type="switchTab" url="/pages/video/vcollection/vcollection">
+        <mp-icon icon="home" color="black" size="{{25}}">
+        </mp-icon>
+      </navigator>
+    </view>
+  </view>
+  <view class="sub_title" style="color:DimGray;font-size:28rpx; padding: 20rpx;">- 更多精彩推荐 -</view>
+  <view class="recommend">
+    <block wx:for="{{rec_list}}" wx:key="id">
+      <view class="rec_item">
+        <view style="width: 30%">
+          <txv-video vid="{{item.vid}}" playerid="txv1"></txv-video>
+        </view>
+        <view bindtap="ToVideoPage" data-vid="{{item.vid}}" data-title="{{item.title}}"style="width: 70%; padding: 20rpx; font-weight:250;" class="rec_title">
+          <text>{{item.title}}</text>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

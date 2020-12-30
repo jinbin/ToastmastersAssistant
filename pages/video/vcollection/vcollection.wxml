@@ -1,0 +1,31 @@
+<!--pages/video/vcollection/vcollection.wxml-->
+<view class="container1">
+  <scroll-view scroll-x="true">
+    <block wx:for="{{types}}" wx:key="id">
+      <div class="tab-item" style="" bindtap="changetype" id="{{item.id}}">
+        <view class="item">
+          <view style="">{{item.text}}</view>
+        </view>
+      </div>
+    </block>
+  </scroll-view>
+  <block wx:for="{{videos}}" wx:key="id">
+    <view>
+      <txv-video vid="{{item.vid}}" playerid="txv1">
+        <view class='txv-video-slot'>video slot</view>
+      </txv-video>
+      <view class="title" style="height: 100rpx; padding: 20rpx; font-weight:250;">
+        <view bindtap="ToVideoPage" data-vid="{{item.vid}}" data-title="{{item.title}}" style="width: 90%">
+          <text>{{item.title}}</text>
+        </view>
+        <view>
+          <button open-type="share" data-vid="{{item.vid}}" data-title="{{item.title}}">
+            <mp-icon icon="share" color="black" size="{{25}}">
+            </mp-icon>
+          </button>
+        </view>
+      </view>
+    </view>
+    <view class='line'></view>
+  </block>
+</view>

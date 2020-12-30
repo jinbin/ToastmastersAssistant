@@ -398,8 +398,6 @@
 	<image src="../../images/gap-min.png" style="width:100%" mode="widthFix" bindtap="saveOfficialQRCode"></image>
 </view>
 
-
-
 <view class="jinjie" id="cards">
 	<view class="jinjie1" style="">
 		<view class="jinjie2">

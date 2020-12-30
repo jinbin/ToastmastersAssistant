@@ -93,21 +93,6 @@ Page({
     currentTab: 0
   },
 
-  // audioManage: function(options) {
-  //   console.log(options.currentTarget.id)
-  //   if (options.currentTarget.id == "continue") {
-  //     backgroundAudioManager.play()
-  //     this.setData({
-  //       isplay: true,
-  //     })
-  //   } else if (options.currentTarget.id == "stop") {
-  //     backgroundAudioManager.stop()
-  //     this.setData({
-  //       isplay: false
-  //     })
-  //   }
-  // },
-
   gotoRobot: function (e) {
     wx.switchTab({
       url: '/pages/chat/chat',
@@ -140,16 +125,12 @@ Page({
     if (options.detail.target.id == "") {
       return
     }
-
-
+    
     if (options.detail.target.id == "intro") {
       wx.switchTab({
         url: '/pages/volItem/volItem',
       })
     } else if (options.detail.target.id == "ai") {
-      // wx.switchTab({
-      //   url: '/pages/chat/chat',
-      // })
       wx.navigateTo({
         url: '/pages/chat/chat',
       })
@@ -174,9 +155,6 @@ Page({
       wx.switchTab({
         url: '/pages/reading/reading',
       })
-      // wx.navigateTo({
-      //   url: '/pages/reading/reading',
-      // })
     } else if (options.detail.target.id == "roles") {
       this.pageScrollToBottom('#juese')
     } else if (options.detail.target.id == "DTM") {
