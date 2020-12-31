@@ -29,7 +29,7 @@ module.exports = [
     "hp_img_url": "/images/Toastmasters-min.jpeg"
   },
   {
-    "hp_content": "快跟你的好友分享关于头马的知识吧！关注公众号\"头马演讲助手\"，了解你所在城市的头马俱乐部，以及更多关于头马和中英文演讲的信息!",
+    "hp_content": "快跟你的好友分享关于头马的知识吧！关注公众号\"公众演讲助手\"，了解你所在城市的头马俱乐部，以及更多关于头马和中英文演讲的信息!",
     "hp_img_url": "/images/homepage-min.png"
   }
   ]

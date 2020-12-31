@@ -1,8 +1,5 @@
 {
   "navigationBarTitleText": "演讲视频",
   "usingComponents": {
-    "txv-video": "plugin://tencentvideo/video",
-    "txv-live": "plugin://tencentvideo/video",
-    "mp-icon": "weui-miniprogram/icon/icon"
   }
 }

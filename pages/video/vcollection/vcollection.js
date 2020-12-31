@@ -1,37 +1,16 @@
 // pages/video/vcollection/vcollection.js
-Page({
+const db = wx.cloud.database({
+  env: "tmassistant-5275ad"
+})
 
+Page({
   /**
    * 页面的初始数据
    */
   data: {
-    // types: [
-    //   {
-    //     "text": "头马冠军"
-    //   }
-    // ],
-    videos: [
-      {
-        "vid": "u0175o3ko9f",
-        "title": "官方宣传片：The Toastmasters Experience 头马会议初体验"
-      },
-      {
-        "vid": "z0892eywrcu",
-        "title": "马云在2017年阿里巴巴年会上的压轴演讲"
-      },
-      {
-        "vid": "z0892eywrcu",
-        "title": "压轴演讲"
-      },
-      {
-        "vid": "z0892eywrcu",
-        "title": "马云在2017年阿里巴巴年会上的压轴演讲"
-      },
-      {
-        "vid": "z0892eywrcu",
-        "title": "马云在2017年阿里巴巴年会上的压轴演讲"
-      }
-    ]
+    hasMoreData: true,
+    pageNum: 0,
+    pageSize: 5
   },
 
   /**
@@ -39,25 +18,32 @@ Page({
    */
   onLoad: function (options) {
     var that = this
-    wx.cloud.callFunction({
-      name: "getVideos",
-      data: {
-        db: "videos"
-      },
-      success: function (res) {
-        console.log(res.result)
-        that.setData({
-          // guessYouLike: e.data.reverse()
-          videos: res.result.data
-        })
-      }
-    })
+    // wx.cloud.callFunction({
+    //   name: "getVideos",
+    //   data: {
+    //     db: "videos"
+    //   },
+    //   success: function (res) {
+    //     console.log(res.result)
+    //     that.setData({
+    //       // guessYouLike: e.data.reverse()
+    //       videos: res.result.data
+    //     })
+    //   }
+    // })
+    db.collection("videos").orderBy("title", "desc")
+      .skip(that.data.pageNum * that.data.pageSize)
+      .limit(that.data.pageSize)
+      .get({
+        success(res) {
+          that.setData({
+            videos: res.data
+          })
+        }
+      })
   },
 
   ToVideoPage: function (options) {
-    console.log(options)
-    console.log(options.currentTarget.dataset.vid)
-    console.log(options.currentTarget.dataset.title)
     var that = this
     wx.navigateTo({
       url: '/pages/video/page/page?vid=' + options.currentTarget.dataset.vid + '&title=' + options.currentTarget.dataset.title,
@@ -95,28 +81,61 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
-
-  },
+  onPullDownRefresh: function () {},
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    var that = this
+    // 还有数据可以加载
+    if (this.data.hasMoreData) {
+      that.setData({
+        pageNum: that.data.pageNum + 1
+      })
+      db.collection("videos").orderBy("order", "desc")
+        .skip(that.data.pageNum * that.data.pageSize)
+        .limit(that.data.pageSize)
+        .get({
+          success(res) {
+            var list = []
+            if (res.data.length != 0) {
+              // 还有未加载的数据
+              console.log("还有未加载的数据")
+              list = that.data.videos.concat(res.data)
+              that.setData({
+                videos: list,
+                hasMoreData: true
+              })
+            } else {
+              // 所有数据已经加载完
+              console.log("所有数据已经加载完")
+              list = that.data.videos.concat(res.data)
+              that.setData({
+                videos: list,
+                hasMoreData: false
+              })
+            }
+          }
+        })
+      // end
+    } else {
+      wx.showToast({
+        title: '没有更多数据',
+      })
+    }
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function (res) {
-    if(res.from == "button"){
-      console.log(res)
+    if (res.from == "button") {
       return {
         title: res.target.dataset.title,
         path: '/pages/video/page/page?vid=' + res.target.dataset.vid + '&title=' + res.target.dataset.title
       }
-    }else{
+    } else {
       return {
         title: '演讲视频'
       }

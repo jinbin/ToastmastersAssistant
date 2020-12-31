@@ -26,9 +26,6 @@ Page({
    */
   onLoad: function (options) {
     var random = this.random(0,2)
-    console.log("Randomm mmmmmmmmmmmmmmmmm")
-    console.log(random)
-    console.log(this.data.rec_list.slice(random, random+1))
     wx.setNavigationBarTitle({
       title: options.title
     })
@@ -101,7 +98,8 @@ Page({
   onShareAppMessage: function () {
     var that = this
     return {
-      title: that.data.title
+      title: that.data.title,
+      path: '/pages/video/page/page?vid=' + that.data.vid + '&title=' + that.data.title
     }
   },
 

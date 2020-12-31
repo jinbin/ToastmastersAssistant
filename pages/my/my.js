@@ -29,7 +29,7 @@ Page({
       }
     },
     page_ft: {
-      data: "Copyright © 2020-2021 可能性工作室"
+      data: "Copyright © 2021-2022 创造可能"
     },
     extraData: {
       id: "43654",
@@ -305,14 +305,14 @@ Page({
 
   saveOfficialQRCode: function(e) {
     wx.showModal({
-      content: '搜索"头马演讲助手", 关注官方公众号, 回复"福利"有惊喜！',
+      content: '搜索"公众演讲助手", 关注官方公众号, 回复"福利"有惊喜！',
       showCancel: false,
       confirmText: '去关注',
       confirmColor: '#ff7f50',
       success: function(res) {
         if (res.confirm) {
           wx.setClipboardData({
-            data: "头马演讲助手",
+            data: "公众演讲助手",
             success: function(res) {
               wx.showToast({
                 title: "公众号名已复制"
@@ -444,6 +444,6 @@ Page({
   },
 
   fromPageFt: function() {
-    util.saveOfficialQRCode("头马演讲助手")
+    util.saveOfficialQRCode("公众演讲助手")
   }
 })

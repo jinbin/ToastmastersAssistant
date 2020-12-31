@@ -123,14 +123,14 @@ Page({
 
   saveOfficialQRCode: function (e) {
     wx.showModal({
-      content: '关注"头马演讲助手"官方公众号, 回复"交流"获取作者联系方式',
+      content: '关注"公众演讲助手"官方公众号, 回复"交流"获取作者联系方式',
       showCancel: false,
       confirmText: '去关注',
       confirmColor: '#ff7f50',
       success: function (res) {
         if (res.confirm) {
           wx.setClipboardData({
-            data: "头马演讲助手",
+            data: "公众演讲助手",
             success: function (res) {
               wx.showToast({
                 title: "名称已复制"

@@ -24,33 +24,7 @@
   </view>
 </view>
 
-<view wx:if="{{xmad&&xmad.adData&&xmad.ad&&xmad.ad.banner&&xmad.adData  [xmad.ad.banner]&&xmad.adData[xmad.ad.banner].hasshow}}">
-  <view class="xm_banner" style="width:100%">
-    <xm-ad data-id="{{xmad.ad.banner}}" adData="{{xmad.adData}}" bindadload="adImgLoad" bindclick="appoIntView" bindclose="xmadClose" class="xm_component">
-    </xm-ad>
-  </view>
-</view>
-<view wx:else>
-  <view wx:if="{{isAdError}}">
-    <!-- <image bindtap="saveOfficialQRCode" style="width:100%" src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/accountpublicity2.jpeg" mode="widthFix"></image> -->
-    <navigator target="miniProgram" open-type="navigate" app-id="wx4c4b54bc609bd79e" path="/pages/index/index" extra-data="" version="release" style="width:100%">
-      <view class="container1">
-        <image bindtap="toBilingualSpeak" style="width:100%" src="/images/topicscards-min.jpeg" mode="widthFix" style="width:95%; border-radius:25rpx;">
-        </image>
-      </view>
-    </navigator>
-  </view>
-  <view wx:else>
-    <!-- <ad unit-id="adunit-ab171e6bb49115c5" binderror="aderror"></ad> -->
-    <ad unit-id="adunit-a3ae6b7d69bb20fb" ad-type="video" ad-theme="white"></ad>
-    <!-- <navigator target="miniProgram" open-type="navigate" app-id="wx4c4b54bc609bd79e" path="/pages/index/index" extra-data="" version="release" style="width:100%">
-      <view class="container1">
-        <image bindtap="toBilingualSpeak" style="width:100%" src="/images/topicscards-min.jpeg" mode="widthFix" style="width:95%; border-radius:25rpx;">
-        </image>
-      </view>
-    </navigator> -->
-  </view>
-</view>
+<ad unit-id="adunit-73c0cca1fd394429" ad-type="video" ad-theme="white"></ad>
 
 <view class="window">
   <!-- <view class="box" bindtap="navigateTo" id="/pages/testdb/testdb?src=https://mp.weixin.qq.com/s/bRbL1FC14X_ZgBbc2Q_k8g">  

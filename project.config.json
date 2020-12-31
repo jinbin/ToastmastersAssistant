@@ -4,7 +4,6 @@
     "ignore": []
   },
   "cloudfunctionRoot": "functions/",
-  "miniprogramRoot": "/",
   "setting": {
     "urlCheck": false,
     "es6": true,
@@ -35,7 +34,6 @@
     "useIsolateContext": true,
     "useCompilerModule": true,
     "userConfirmedUseCompilerModuleSwitch": false,
-    "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
     "minifyWXSS": true

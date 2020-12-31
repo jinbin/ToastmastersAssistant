@@ -9,7 +9,7 @@
       </div>
     </block>
   </scroll-view>
-  <block wx:for="{{videos}}" wx:key="id">
+  <block wx:for="{{videos}}" wx:key="id" wx:for-index="idx">
     <view>
       <txv-video vid="{{item.vid}}" playerid="txv1">
         <view class='txv-video-slot'>video slot</view>
@@ -19,13 +19,14 @@
           <text>{{item.title}}</text>
         </view>
         <view>
-          <button open-type="share" data-vid="{{item.vid}}" data-title="{{item.title}}">
-            <mp-icon icon="share" color="black" size="{{25}}">
+          <button style="background-color: #57bd6a;" open-type="share" data-vid="{{item.vid}}" data-title="{{item.title}}">
+            <mp-icon icon="share" color="white" size="{{25}}">
             </mp-icon>
           </button>
         </view>
       </view>
     </view>
+    <ad wx:if="{{idx != 0 && idx % 3 == 0}}" unit-id="adunit-bdf768fb9e1c9fe1" ad-type="video" ad-theme="white"></ad>
     <view class='line'></view>
   </block>
 </view>
