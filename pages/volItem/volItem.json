@@ -1,6 +1,6 @@
 {
   "navigationBarTitleText": "发现",
   "usingComponents": {
-    "xm-ad": "/components/xmAD/xmAD"
+    
   }
 }

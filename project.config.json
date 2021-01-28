@@ -13,8 +13,8 @@
     "minified": true,
     "newFeature": true,
     "coverView": true,
-    "nodeModules": false,
-    "autoAudits": false,
+    "nodeModules": true,
+    "autoAudits": true,
     "showShadowRootInWxmlPanel": true,
     "scopeDataCheck": false,
     "uglifyFileName": true,
@@ -22,7 +22,7 @@
     "checkSiteMap": true,
     "uploadWithSourceMap": true,
     "compileHotReLoad": false,
-    "useMultiFrameRuntime": false,
+    "useMultiFrameRuntime": true,
     "useApiHook": true,
     "babelSetting": {
       "ignore": [],
@@ -34,12 +34,14 @@
     "useIsolateContext": true,
     "useCompilerModule": true,
     "userConfirmedUseCompilerModuleSwitch": false,
+    "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
-    "minifyWXSS": true
+    "minifyWXSS": true,
+    "useApiHostProcess": true
   },
   "compileType": "miniprogram",
-  "libVersion": "2.11.0",
+  "libVersion": "2.14.1",
   "appid": "wx16c76d4762cbe0b3",
   "projectname": "tmUtils",
   "debugOptions": {

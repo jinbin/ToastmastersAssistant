@@ -192,6 +192,14 @@ button {
   right: 15px
 }
 
+.weui-tab__panel {
+  box-sizing: border-box;
+  height: 100%;
+  padding-top: 50px;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 .kind-list__item {
   margin: 10px 0;
   background-color: #fff;

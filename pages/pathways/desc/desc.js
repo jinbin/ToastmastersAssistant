@@ -163,6 +163,7 @@ Page({
           that.setData({
             projects: res.result.data
           })
+          console.log(that.data.projects)
           wx.hideLoading()
         }
       })

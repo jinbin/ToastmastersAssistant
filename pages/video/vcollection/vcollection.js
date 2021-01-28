@@ -10,27 +10,29 @@ Page({
   data: {
     hasMoreData: true,
     pageNum: 0,
-    pageSize: 5
+    pageSize: 5,
+    tabs: [],
+    activeTab: 0,
+    // current: 'tm-champ',
+    current_scroll: 'tm-champ'
   },
+
+  handleChangeScroll ({ detail }) {
+    this.setData({
+        current_scroll: detail.key
+    });
+    console.log(detail)
+},
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    const titles = ['头马世界冠军', 'TED']
+    const tabs = titles.map(item => ({title: item}))
+    this.setData({tabs})
+
     var that = this
-    // wx.cloud.callFunction({
-    //   name: "getVideos",
-    //   data: {
-    //     db: "videos"
-    //   },
-    //   success: function (res) {
-    //     console.log(res.result)
-    //     that.setData({
-    //       // guessYouLike: e.data.reverse()
-    //       videos: res.result.data
-    //     })
-    //   }
-    // })
     db.collection("videos").orderBy("title", "desc")
       .skip(that.data.pageNum * that.data.pageSize)
       .limit(that.data.pageSize)
@@ -133,7 +135,8 @@ Page({
     if (res.from == "button") {
       return {
         title: res.target.dataset.title,
-        path: '/pages/video/page/page?vid=' + res.target.dataset.vid + '&title=' + res.target.dataset.title
+        path: '/pages/video/page/page?vid=' + res.target.dataset.vid + '&title=' + res.target.dataset.title,
+        imageUrl: '../../../images/tm-cover-min.jpeg'
       }
     } else {
       return {

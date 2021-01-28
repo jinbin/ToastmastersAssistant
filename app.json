@@ -88,14 +88,14 @@
   "useExtendedLib": {
     "weui": true
   },
-  "sitemapLocation": "sitemap.json",
-  "requiredBackgroundModes": [
-    "audio"
-  ],
-  "lazyCodeLoading": "requiredComponents",
   "usingComponents": {
     "txv-video": "plugin://tencentvideo/video",
     "txv-live": "plugin://tencentvideo/video",
     "mp-icon": "weui-miniprogram/icon/icon"
-  }
+  },
+  "sitemapLocation": "sitemap.json",
+  "requiredBackgroundModes": [
+    "audio"
+  ],
+  "lazyCodeLoading": "requiredComponents"
 }

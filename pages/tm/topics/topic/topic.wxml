@@ -20,7 +20,7 @@
           </block>
         </view>
         <view class="weui-tab__panel">
-          <view class="weui-tab__content">
+          <view class="">
             <view class="page__bd page__bd_spacing">
               <view class="kind-list">
                 <block wx:for="{{topics}}" wx:key="id">

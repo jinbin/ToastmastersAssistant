@@ -44,24 +44,6 @@
         <button id="matrix" class="weui-btn mini-btn" style="width:170px" type="default" size="mini" formType="submit" plain="true">matrix</button>
         </view>
 
-        <!-- <view class="container">
-        <button id="6" class="weui-btn mini-btn" style="width:170px;" type="default" size="mini" formType="submit" plain="true">CC说明</button>
-        <button id="contact" class="weui-btn mini-btn" style="width:170px" type="default" size="mini" formType="submit" plain="true">认识作者</button>
-        </view> -->
-
-        <!-- <view class="container">
-        <picker style="width:180px" bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-          <button style="width:180px"type="primary" size="mini">
-            <view class="picker">当前{{array[index]}}</view>
-          </button>
-        </picker>
-        <picker style="width:180px" bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-          <button style="width:180px" type="primary" size="mini">
-            <view class="picker">当前{{array[index]}}</view>
-          </button>
-        </picker>
-        </view> -->
-
     </form>
 
     </view>

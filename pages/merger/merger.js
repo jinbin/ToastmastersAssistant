@@ -5,9 +5,6 @@ const db = wx.cloud.database({
   env: "tmassistant-5275ad"
 })
 
-// const innerAudioContext = wx.createInnerAudioContext()
-const backgroundAudioManager = wx.getBackgroundAudioManager()
-
 Page({
 
   /**
@@ -721,16 +718,6 @@ Page({
     if (options.roles) {
       this.pageScrollToBottom()
     }
-
-    // db.collection("guessYouLike").where({
-    //   onIndex: true
-    // }).get({
-    //   success: function (e) {
-    //     that.setData({
-    //       recommendData: e.data.reverse()
-    //     })
-    //   }
-    // })
 
     this.getArticles()
   },

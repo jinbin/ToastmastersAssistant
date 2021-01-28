@@ -1,17 +1,73 @@
 <!--pages/video/vcollection/vcollection.wxml-->
-<view class="container1">
-  <scroll-view scroll-x="true">
-    <block wx:for="{{types}}" wx:key="id">
-      <div class="tab-item" style="" bindtap="changetype" id="{{item.id}}">
-        <view class="item">
-          <view style="">{{item.text}}</view>
+<!-- <mp-searchbar bindselectresult="selectResult" search="{{search}}"></mp-searchbar> 
+-->
+<i-tabs current="{{current_scroll}}" scroll bindchange="handleChangeScroll" scroll="true" i-class="tabs-style" color="#000000">
+    <i-tab key="tm-champ" title="头马冠军" i-class="xxx"></i-tab>
+    <!-- <i-tab key="tm-china" title="头马中国" i-class="xxx"></i-tab> -->
+</i-tabs>
+
+<!-- <mp-tabs tabs="{{tabs}}" activeTab="{{activeTab}}" bindtabclick="onTabCLick" swiperClass="weui-tabs-swiper"
+  bindchange="onChange" activeClass="tab-bar-title__selected">
+  <block wx:for="{{tabs}}" wx:key="title">
+    <view class="tab-content" slot="tab-content-{{index}}">
+      {{111111}}
+      <view class="container1">
+        <block wx:for="{{videos}}" wx:key="id" wx:for-index="idx" style="height: 100%; width: 100%">
+          <view>
+            <txv-video isNeedMutex="true" vid="{{item.vid}}" playerid="{{item.vid}}" style="height: 100%; width: 100%">
+              <view class='txv-video-slot'>video slot</view>
+            </txv-video>
+            <view class="title" style="height: 100rpx; padding: 20rpx; font-weight:250;">
+              <view bindtap="ToVideoPage" data-vid="{{item.vid}}" data-title="{{item.title}}" style="width: 90%">
+                <text>{{item.title}}</text>
+              </view>
+              <view>
+                <button style="background-color: #57bd6a;" open-type="share" data-vid="{{item.vid}}"
+                  data-title="{{item.title}}">
+                  <mp-icon icon="share" color="white" size="{{25}}">
+                  </mp-icon>
+                </button>
+              </view>
+            </view>
+          </view>
+          <ad wx:if="{{idx != 0 && idx % 3 == 0}}" unit-id="adunit-bdf768fb9e1c9fe1" ad-type="video" ad-theme="white">
+          </ad>
+          <view class='line'></view>
+        </block>
+      </view>
+    </view>
+
+    <view class="container1">
+      <block wx:for="{{videos}}" wx:key="id" wx:for-index="idx">
+        <view>
+          <txv-video isNeedMutex="true" vid="{{item.vid}}" playerid="{{item.vid}}" style="height: 100%; width: 100%">
+            <view class='txv-video-slot'>video slot</view>
+          </txv-video>
+          <view class="title" style="height: 100rpx; padding: 20rpx; font-weight:250;">
+            <view bindtap="ToVideoPage" data-vid="{{item.vid}}" data-title="{{item.title}}" style="width: 90%">
+              <text>{{item.title}}</text>
+            </view>
+            <view>
+              <button style="background-color: #57bd6a;" open-type="share" data-vid="{{item.vid}}"
+                data-title="{{item.title}}">
+                <mp-icon icon="share" color="white" size="{{25}}">
+                </mp-icon>
+              </button>
+            </view>
+          </view>
         </view>
-      </div>
-    </block>
-  </scroll-view>
+        <ad wx:if="{{idx != 0 && idx % 3 == 0}}" unit-id="adunit-bdf768fb9e1c9fe1" ad-type="video" ad-theme="white">
+        </ad>
+        <view class='line'></view>
+      </block>
+    </view>
+  </block>
+</mp-tabs> -->
+
+<view class="container1">
   <block wx:for="{{videos}}" wx:key="id" wx:for-index="idx">
     <view>
-      <txv-video vid="{{item.vid}}" playerid="txv1">
+      <txv-video isNeedMutex="true" vid="{{item.vid}}" playerid="{{item.vid}}">
         <view class='txv-video-slot'>video slot</view>
       </txv-video>
       <view class="title" style="height: 100rpx; padding: 20rpx; font-weight:250;">
@@ -19,14 +75,18 @@
           <text>{{item.title}}</text>
         </view>
         <view>
-          <button style="background-color: #57bd6a;" open-type="share" data-vid="{{item.vid}}" data-title="{{item.title}}">
-            <mp-icon icon="share" color="white" size="{{25}}">
+          <!-- <mp-icon icon="share" color="black" type="field" size="{{25}}"></mp-icon> -->
+          <button style="" open-type="share" data-vid="{{item.vid}}"
+            data-title="{{item.title}}">
+            <mp-icon icon="share" color="#45BA4F" type="field" size="{{25}}">
             </mp-icon>
           </button>
         </view>
       </view>
     </view>
-    <ad wx:if="{{idx != 0 && idx % 3 == 0}}" unit-id="adunit-bdf768fb9e1c9fe1" ad-type="video" ad-theme="white"></ad>
+    <!-- <ad wx:if="{{idx != 0 && idx % 3 == 0}}" unit-id="adunit-bdf768fb9e1c9fe1" ad-type="video" ad-theme="white"></ad> -->
+    <!-- 页面中只放置一个广告位 -->
+    <ad-custom wx:if="{{idx == 4}}" unit-id="adunit-4775d31e84902764"></ad-custom>
     <view class='line'></view>
   </block>
 </view>

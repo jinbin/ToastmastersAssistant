@@ -84,17 +84,7 @@
 </view>
 
 <view class="page">
-	<view class="page__hd" style="display: flex;flex-wrap: nowrap; justify-content: space-between;">
 		<view class="container1">
-			<!-- <view wx:if="{{index != 5 && index != 6 && index != 9}}" class="window1">
-				<view wx:for="{{[color0, color1, color2, color3, color4]}}" class="box1" style="background-color:{{item}}" bindtap="changebook" id="{{index}}">
-					<button size="mini" formType="submit">
-						<image style="width:60rpx;height:60rpx" src="/images/book{{index+1}}.png"></image>
-					</button>
-					<view class="downText">{{list[index][0]}}</view>
-					<view class="downText">{{list[index][1]}}</view>
-				</view>
-			</view> -->
 			<view wx:if="{{index == 5}}">
 				<view class="page__desc">"胜任演讲"(Competent Communicator)是头马2018年之前的沟通路径，共包含10个项目，分别培养你在公共演讲上不同方向的能力。学习者从CC1开始，通过演讲锻炼某个方面的能力，直到CC10为止。以下是这10个项目的中英文说明。更多细节的项目说明，请关注"头马演讲助手"官方微信号获取。</view>
 			</view>
@@ -102,7 +92,7 @@
 				<view class="page__desc">Pathways演讲进阶：Pathways是头马2018年最新上线的教育体系，共分为11条路径，分别培养你不同方向的能力。每个路径包含5个阶段，每个阶段包含若干必修和选修项目。学习者从第一阶段开始，通过演讲和项目实践锻炼不同方面的能力，直到第五阶段。以下是这11条路径的中英文说明。更多细节的项目说明，请关注"头马演讲助手"官方微信号获取。</view>
 			</view>
 		</view>
-	</view>
+	<!-- </view> -->
 
 	<view class="page">
 		<view class="page__bd">
@@ -116,11 +106,10 @@
 					<view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
 				</view>
 				<view class="weui-tab__panel">
-					<view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+					<view class="" hidden="{{activeIndex != 0}}">
 						<view class="page__bd page__bd_spacing">
 							<view class="kind-list">
 								<block wx:for="{{projects}}" wx:key="id">
-									<!-- <view wx:if="{{item.lang == 'cn'}}" class="kind-list__item" bindtouchstart="touchstart" bindtouchmove='touchmove' bindtouchend='touchend'> -->
 									<view wx:if="{{item.lang == 'cn' && (pathStyle == false || pathStyle && item.highlight)}}" class="kind-list__item">
 										<view id="{{item.id}}" class="weui-flex kind-list__item-hd {{item.open != 'false' ? 'kind-list__item-hd_show' : ''}}" bindtap="kindToggle">
 											<view wx:if="{{item.highlight}}" class="titleItem" style="color:blue">
@@ -147,7 +136,7 @@
 						</view>
 					</view>
 
-					<view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+					<view class="" hidden="{{activeIndex != 1}}">
 						<view class="page__bd page__bd_spacing">
 							<view class="kind-list">
 								<block wx:for="{{projects}}" wx:key="id">
@@ -181,5 +170,3 @@
 		</view>
 	</view>
 </view>
-
-<!-- <image bindtap="saveOfficialQRCode" style="width:100%" src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/accountpublicity2.jpeg" mode="widthFix"></image> -->

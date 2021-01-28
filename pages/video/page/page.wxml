@@ -33,4 +33,5 @@
       </view>
     </block>
   </view>
+  <!-- <txv-video vid="{{vid}}" playerid="txv1"></txv-video> -->
 </view>
