@@ -5,11 +5,11 @@
   </view>
   <view class="title" style="height: 100rpx; padding: 20rpx; font-weight:250;">
     <view style="width: 90%">
-      <text>{{title}}</text>
+      <text style="font-weight: 400">{{title}}</text>
     </view>
     <view>
       <button open-type="share" data-vid="{{vid}}" data-title="{{title}}">
-        <mp-icon icon="share" color="black" size="{{25}}">
+        <mp-icon icon="share" color="#14B96C" size="{{25}}">
         </mp-icon>
       </button>
     </view>

@@ -66,27 +66,31 @@
 
 <view class="container1">
   <block wx:for="{{videos}}" wx:key="id" wx:for-index="idx">
+    <!-- 视频广告 -->
+    <ad wx:if="{{idx != 0 && idx % 4 == 0}}" unit-id="adunit-bdf768fb9e1c9fe1" ad-type="video" ad-theme="white"></ad>
     <view>
       <txv-video isNeedMutex="true" vid="{{item.vid}}" playerid="{{item.vid}}">
         <view class='txv-video-slot'>video slot</view>
       </txv-video>
-      <view class="title" style="height: 100rpx; padding: 20rpx; font-weight:250;">
-        <view bindtap="ToVideoPage" data-vid="{{item.vid}}" data-title="{{item.title}}" style="width: 90%">
-          <text>{{item.title}}</text>
+      <view class="title" style="height: 120rpx; font-weight:250;">
+        <view bindtap="ToVideoPage" data-vid="{{item.vid}}" data-title="{{item.title}}" style="width: 50%">
+          <text style="font-weight: 400">{{item.title}}</text>
         </view>
         <view>
           <!-- <mp-icon icon="share" color="black" type="field" size="{{25}}"></mp-icon> -->
-          <button style="" open-type="share" data-vid="{{item.vid}}"
-            data-title="{{item.title}}">
-            <mp-icon icon="share" color="#45BA4F" type="field" size="{{25}}">
-            </mp-icon>
+          <button class="btn" open-type="share" type="primary" size="mini" data-vid="{{item.vid}}"
+                  data-title="{{item.title}}">
+            <!-- <mp-icon icon="share" color="#45BA4F" type="field" size="{{25}}">
+            </mp-icon> -->
+            <!-- 分享好友 -->
+            <text style="font-size: 15px; color: #FFFFFF">分享给好友</text>
           </button>
         </view>
       </view>
     </view>
     <!-- <ad wx:if="{{idx != 0 && idx % 3 == 0}}" unit-id="adunit-bdf768fb9e1c9fe1" ad-type="video" ad-theme="white"></ad> -->
-    <!-- 页面中只放置一个广告位 -->
-    <ad-custom wx:if="{{idx == 4}}" unit-id="adunit-4775d31e84902764"></ad-custom>
+    <!-- 自定义广告位 -->
+    <!-- <ad-custom wx:if="{{idx == 4}}" unit-id="adunit-4775d31e84902764"></ad-custom> -->
     <view class='line'></view>
   </block>
 </view>

@@ -38,7 +38,7 @@ scroll-view {
 .title {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -46,6 +46,14 @@ scroll-view {
   margin: 0 auto;
   height: 5rpx;
   background-color: #696969;
+}
+
+.btn {
+  background-color:#14B96C; 
+  width: 100%;
+  text-align: center;
+  /* height: 60rpx;
+  line-height: 60rpx; */
 }
 
 button::after {

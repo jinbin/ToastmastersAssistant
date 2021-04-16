@@ -64,7 +64,6 @@ Page({
     let name_en
     let name_cn
 
-    console.log("HHHHHHHH")
     console.log(options.level)
 
     this.setData({

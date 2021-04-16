@@ -231,6 +231,7 @@
 		<!-- <view class="tabline"> -->
 		<view class="tab-item {{currentTab==0?'active':''}}" data-id="0" bindtap="change">会议角色</view>
 		<view class="tab-item {{currentTab==1?'active':''}}" data-id="1" bindtap="change">头马官员</view>
+		<view class="tab-item {{currentTab==4?'active':''}}" data-id="4" bindtap="change">演讲比赛</view>
 		<view class="tab-item {{currentTab==2?'active':''}}" data-id="2" bindtap="change">俱乐部运营</view>
 		<view class="tab-item {{currentTab==3?'active':''}}" data-id="3" bindtap="change">实用工具</view>
 		<!-- </view> -->
@@ -240,6 +241,7 @@
 		<text wx:if="{{currentTab == 1}}" style="color:DimGray;font-size:10px;">头马俱乐部的组织有其特有方式，来看看管理团队每个人的职责</text>
 		<text wx:if="{{currentTab == 2}}" style="color:DimGray;font-size:10px;">运营好一家头马俱乐部的工具和秘诀都在这里</text>
 		<text wx:if="{{currentTab == 3}}" style="color:DimGray;font-size:10px;">恭喜你发现了一个宝藏，好用的工具都在这里</text>
+		<text wx:if="{{currentTab == 4}}" style="color:DimGray;font-size:10px;">选自头马官方《Toastmasters speech contest rulebook》中文版说明</text>
 	</view>
 </view>
 
@@ -392,6 +394,32 @@
 			</view>
 		</view>
 	</scroll-view>
+	<scroll-view wx:if="{{currentTab == 4}}" scroll-x="true" class="tab-h1" scroll-left="{{scrollLeft}}">
+		<view class="tab-item" bindtap="distribution" data-id="contest-speaker">
+			<view class="tab-item1">
+				<image style="width:50rpx;height:50rpx" src="../../images/face-xiao.png"></image>
+				<text style="height:10rpx;font-size:26rpx;">参赛者</text>
+			</view>
+		</view>
+		<view class="tab-item" bindtap="distribution" data-id="contest-chair">
+			<view class="tab-item1">
+				<image style="width:50rpx;height:50rpx" src="../../images/face-xingxing.png"></image>
+				<text style="height:10rpx;font-size:26rpx;">比赛主席</text>
+			</view>
+		</view>
+		<view class="tab-item" bindtap="distribution" data-id="contest-judge">
+			<view class="tab-item1">
+				<image style="width:50rpx;height:50rpx" src="../../images/face-ziya.png"></image>
+				<text style="height:10rpx;font-size:26rpx;">总评委</text>
+			</view>
+		</view>
+		<view class="tab-item" bindtap="distribution" data-id="contest-timer">
+			<view class="tab-item1">
+				<image style="width:50rpx;height:50rpx" src="../../images/face-tiaopi.png"></image>
+				<text style="height:10rpx;font-size:26rpx;">时间规则</text>
+			</view>
+		</view>
+	</scroll-view>
 </view>
 
 <view>
@@ -436,8 +464,10 @@
 </view>
 
 <div wx:if="{{guessYouLike}}">
-	<view class="head_text">
-		<view style="font-size: 13px; color: #8B8989; width:90%; padding: 10rpx">常读的栏目</view>
+	<view class="head_text" id="column">
+		<view style="font-size: 13px; color: #8B8989; width:90%; padding: 10rpx; padding-left: 40rpx;">近期热门文章视频</view>
+		<mp-icon bindtap="updateRec" style="padding-right: 40rpx;" icon="refresh" color="#45BA4F" type="field" size="{{20}}">
+    </mp-icon>
 	</view>
 
 	<scroll-view scroll-x="true" id="articles">
@@ -505,9 +535,6 @@
 	</view>
 </div>
 
-<!-- <view class="circle-float"></view> -->
-
-<view wx:if="{{upflag}}" class="circle-float" bindtap="scrollToTop">
-  <!-- <button style="color: #ffffff;font-size:20rpx;" hover-class='button-hover' open-type='share'>回到顶部</button> -->
+<!-- <view wx:if="{{upflag}}" class="circle-float" bindtap="scrollToTop">
 	<image style="width:70rpx; height:70rpx;" src="../../images/up1.png"></image>
-</view>
+</view> -->
