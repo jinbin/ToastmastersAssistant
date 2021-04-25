@@ -1,68 +1,9 @@
 <!--pages/video/vcollection/vcollection.wxml-->
-<!-- <mp-searchbar bindselectresult="selectResult" search="{{search}}"></mp-searchbar> 
--->
+
 <i-tabs current="{{current_scroll}}" scroll bindchange="handleChangeScroll" scroll="true" i-class="tabs-style" color="#000000">
     <i-tab key="tm-champ" title="头马冠军" i-class="xxx"></i-tab>
     <!-- <i-tab key="tm-china" title="头马中国" i-class="xxx"></i-tab> -->
 </i-tabs>
-
-<!-- <mp-tabs tabs="{{tabs}}" activeTab="{{activeTab}}" bindtabclick="onTabCLick" swiperClass="weui-tabs-swiper"
-  bindchange="onChange" activeClass="tab-bar-title__selected">
-  <block wx:for="{{tabs}}" wx:key="title">
-    <view class="tab-content" slot="tab-content-{{index}}">
-      {{111111}}
-      <view class="container1">
-        <block wx:for="{{videos}}" wx:key="id" wx:for-index="idx" style="height: 100%; width: 100%">
-          <view>
-            <txv-video isNeedMutex="true" vid="{{item.vid}}" playerid="{{item.vid}}" style="height: 100%; width: 100%">
-              <view class='txv-video-slot'>video slot</view>
-            </txv-video>
-            <view class="title" style="height: 100rpx; padding: 20rpx; font-weight:250;">
-              <view bindtap="ToVideoPage" data-vid="{{item.vid}}" data-title="{{item.title}}" style="width: 90%">
-                <text>{{item.title}}</text>
-              </view>
-              <view>
-                <button style="background-color: #57bd6a;" open-type="share" data-vid="{{item.vid}}"
-                  data-title="{{item.title}}">
-                  <mp-icon icon="share" color="white" size="{{25}}">
-                  </mp-icon>
-                </button>
-              </view>
-            </view>
-          </view>
-          <ad wx:if="{{idx != 0 && idx % 3 == 0}}" unit-id="adunit-bdf768fb9e1c9fe1" ad-type="video" ad-theme="white">
-          </ad>
-          <view class='line'></view>
-        </block>
-      </view>
-    </view>
-
-    <view class="container1">
-      <block wx:for="{{videos}}" wx:key="id" wx:for-index="idx">
-        <view>
-          <txv-video isNeedMutex="true" vid="{{item.vid}}" playerid="{{item.vid}}" style="height: 100%; width: 100%">
-            <view class='txv-video-slot'>video slot</view>
-          </txv-video>
-          <view class="title" style="height: 100rpx; padding: 20rpx; font-weight:250;">
-            <view bindtap="ToVideoPage" data-vid="{{item.vid}}" data-title="{{item.title}}" style="width: 90%">
-              <text>{{item.title}}</text>
-            </view>
-            <view>
-              <button style="background-color: #57bd6a;" open-type="share" data-vid="{{item.vid}}"
-                data-title="{{item.title}}">
-                <mp-icon icon="share" color="white" size="{{25}}">
-                </mp-icon>
-              </button>
-            </view>
-          </view>
-        </view>
-        <ad wx:if="{{idx != 0 && idx % 3 == 0}}" unit-id="adunit-bdf768fb9e1c9fe1" ad-type="video" ad-theme="white">
-        </ad>
-        <view class='line'></view>
-      </block>
-    </view>
-  </block>
-</mp-tabs> -->
 
 <view class="container1">
   <block wx:for="{{videos}}" wx:key="id" wx:for-index="idx">

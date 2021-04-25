@@ -53,26 +53,8 @@
 			<image style="width:45rpx;height:45rpx;left:10rpx;" src="../../images/dashang.png"></image>
 			<view class="downText" style="font-size:12px;">赞赏</view>
 		</view>
-		<!-- <view style="padding: 10rpx; display:flex; flex-direction: column; justify-content: center; align-items: center; ">
-    <image style="width:60rpx;height:60rpx" src="../../images/blocks1.png"></image>
-    <view class="downText">每日打卡</view>
-  </view> -->
 	</view>
 </view>
-
-<!-- <view bindtap="audioManage" id="continue" wx:if="{{!isplay}}" class="audio-float" style="background: #698B22">
-  <button size="mini" formType="submit" style="color: #ffffff;font-size:23rpx;" hover-class="hover_1">继续</button>
-</view> -->
-<!-- <view bindtap="audioManage" id="stop" wx:if="{{isplay}}" class="audio-float" style="background: rgb(241, 83, 62);">
-  <button size="mini" formType="submit" style="color: #ffffff;font-size:23rpx;" hover-class="hover_2">停止音频</button>
-</view> -->
-
-<!-- <view wx:if="{{scrollTop < windowHeight * 1.3}}" class="circle-float" style="background: #698B22">
-  <button size="mini" open-type='share' formType="submit" style="color: #ffffff;font-size:23rpx;" hover-class="hover_1">分享</button>
-</view>
-<view wx:else class="circle-float" style="background: rgb(241, 83, 62);">
-  <navigator style="color: #ffffff;font-size:23rpx;" open-type='navigate' target='miniProgram' app-id="wx18a2ac992306a5a4" path="pages/apps/largess/detail?id=LYFYxTFDv9E%3D">打赏</navigator>
-</view> -->
 
 <view style="display:flex; flex-direction: column; align-content:center;align-items: center;">
 	<view class="headline" style="width:90%">
@@ -81,13 +63,9 @@
 			<view class="downText" style="padding-top:15rpx;color:#9d441b;font-size:26rpx;">冠军演讲</view>
 		</view>
 		<view bindtap="distribution" data-id="addr" style="padding:15rpx; display:flex; flex-direction: column; justify-content: center; align-items: center; ">
-			<image style="width:70rpx;height:70rpx" src="../../images/club.png"></image>
+			<image style="width:70rpx;height:70rpx" src="../../images/club-min.png"></image>
 			<view class="downText" style="padding-top:15rpx;color:#9d441b;font-size:26rpx;">地址</view>
 		</view>
-		<!-- <view bindtap="distribution" data-id="dictionary" style="padding:15rpx; display:flex; flex-direction: column; justify-content: center; align-items: center; ">
-		<image style="width:70rpx;height:70rpx" src="../../images/diary.png"></image>
-		<view class="downText" style="padding-top:15rpx;color:#9d441b;font-size:26rpx;">头马词典</view>
-	</view> -->
 		<view bindtap="distribution" data-id="timertool" style="padding:15rpx; display:flex; flex-direction: column; justify-content: center; align-items: center; ">
 			<image style="width:70rpx;height:70rpx" src="../../images/timer.png"></image>
 			<view class="downText" style="padding-top:15rpx;color:#9d441b;font-size:26rpx;">计时器</view>
@@ -102,87 +80,6 @@
 		</view>
 	</view>
 </view>
-
-<!--
-<view>
-	<form report-submit="true" bindsubmit="getIntro">
-		<view class="window3" style="padding:10rpx;">
-			<!-- <view class="box3" style="">
-        <button id="audio_tm" size="mini" style="background-color: #E8E8E8" formType="submit">
-          <image style="width:60rpx;height:60rpx" src="../../images/blocks1.png"></image>
-        </button>
-        <view style="font-size:26rpx;">演讲音频</view>
-      </view>
-      <view class="box3" style="">
-        <button id="todayaudio" size="mini" style="background-color: #E8E8E8" formType="submit">
-          <image style="width:60rpx;height:60rpx" src="../../images/听力.png"></image>
-        </button>
-        <view class="downText" style="color:#9d441b;font-size:26rpx;">今日听力</view>
-      </view> -->
-<!-- <view class="box3_5" style="">
-				<button id="ai" size="mini" style="" formType="submit">
-					<image style="width:70rpx;height:70rpx" src="../../images/tabBar/robot_dark.png"></image>
-				</button>
-				<view class="downText" style="color:#9d441b;font-size:26rpx;">AI助手</view>
-			</view> -->
-<!-- <view class="box3_4" style="">
-				<button id="diary" size="mini" style="" formType="submit">
-					<image style="width:70rpx;height:70rpx" src="../../images/diary.png"></image>
-				</button>
-				<view class="downText" style="color:#9d441b;font-size:26rpx;">头马词典</view>
-			</view>
-			<view class="box3_4" style="">
-				<button id="timertool" size="mini" style="" formType="submit">
-					<image style="width:70rpx;height:70rpx" src="../../images/timer.png"></image>
-				</button>
-				<view style="color:#008B8B;font-size:26rpx;">计时器</view>
-			</view>
-			<!-- <view class="box3_5">
-				<button id="tmIntro" size="mini" style="" formType="submit">
-					<image style="width:70rpx;height:70rpx" src="../../images/Toastmasters-min.jpeg"></image>
-				</button>
-				<view class="downText" style="color:#3f5e7d;font-size:26rpx;">了解头马</view>
-			</view>
-			<view class="box3_5">
-				<button id="6" size="mini" style="" formType="submit">
-					<image style="width:70rpx;height:70rpx" src="../../images/speech.png"></image>
-				</button>
-				<view class="downText" style="color:#1E90FF;font-size:26rpx;">胜任演讲</view>
-			</view> -->
-<!-- <view class="box3_5" style="">
-				<button id="myintro" size="mini" style="" formType="submit">
-					<image style="width:70rpx;height:70rpx" src="../../images/zaikan.png"></image>
-				</button>
-				<view style="color:#CD9B1D;font-size:26rpx;">大家都在看</view>
-			</view> -->
-<!-- <view class="box3_5" style="">
-				<button id="roles" size="mini" style="" formType="submit">
-					<image style="width:70rpx;height:70rpx" src="../../images/hexin.png"></image>
-				</button>
-				<view style="color:#CD5555;font-size:26rpx;">头马角色</view>
-			</view> -->
-<!-- <view class="box3_4" style="">
-				<button id="jixingtopics" size="mini" style="" formType="submit">
-					<image style="width:70rpx;height:70rpx" src="../../images/jixingtopics.png"></image>
-				</button>
-				<view class="downText" style="color:#9d441b;font-size:26rpx;">即兴话题</view>
-			</view>
-			<view class="box3_4" style="">
-				<button id="matrix" size="mini" style="" formType="submit">
-					<image style="width:70rpx;height:70rpx" src="../../images/pdf.png"></image>
-				</button>
-				<view style="color:#B22222;font-size:26rpx;">Pathways</view>
-			</view>
-			<!-- <view class="box3_5" style="">
-				<button id="repost" size="mini" style="" open-type="share">
-					<image style="width:70rpx;height:70rpx" src="../../images/fenxiang.png"></image>
-				</button>
-				<view style="color:green;font-size:26rpx;">转发小程序</view>
-			</view> -->
-<!-- </view>
-	</form>
-</view> -->
-
 
 <view class="jinjie" style="">
 	<view class="jinjie1" style="">
@@ -221,10 +118,6 @@
 		</view>
 	</view>
 </view>
-
-<!-- <view style="padding-top: 10rpx; padding-bottom: 10rpx;">
-	<image src="cloud://tmassistant-5275ad.746d-tmassistant-5275ad-1258071577/images/backgroud/speech.jpeg" style="width:100%" mode="widthFix" bindtap="saveOfficialQRCode"></image>
-</view> -->
 
 <view style="padding-bottom: 20rpx">
 	<scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}">
@@ -534,7 +427,3 @@
 
 	</view>
 </div>
-
-<!-- <view wx:if="{{upflag}}" class="circle-float" bindtap="scrollToTop">
-	<image style="width:70rpx; height:70rpx;" src="../../images/up1.png"></image>
-</view> -->

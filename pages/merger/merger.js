@@ -39,34 +39,10 @@ Page({
     //isplay: false,
     //audioYear: 2018,
     banners: [
-      //{
-      //   "url": "cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/accountpublicitybanner.jpeg",
-      //   "bind": "saveOfficialQRCode"
-      // },
-      // {
-      //   "url": "../../images/tm_korea-min.jpg",
-      //   "bind": "saveOfficialQRCode"
-      // },
-      // {
-      //   "url": "cloud://tmassistant-5275ad.746d-tmassistant-5275ad-1258071577/images/posters/robot_banner_900x600-min.png",
-      //   "bind": "gotoRobot"
-      // },
-      // {
-      //   "url": "../../images/dashangzhichi_banner-min.jpeg",
-      //   "bind": "gotoGeizan"
-      // },
       {
         "url": "cloud://tmassistant-5275ad.746d-tmassistant-5275ad-1258071577/images/tmbanner.jpeg",
         "bind": "gotoGeizan"
       }
-      // {
-      //   "url": "cloud://tmassistant-5275ad.746d-tmassistant-5275ad/images/TEDtalk2.jpeg",
-      //   "bind": "saveOfficialQRCode"
-      // }
-      // {
-      //   "url": "https://746d-tmassistant-5275ad-1258071577.tcb.qcloud.la/images/bilingualSpeak.jpeg?sign=559732267d212043dba93a6e0023d99f&t=1565749963",
-      //   "bind": "toBilingualSpeak"
-      // }
     ],
     banner_height: 50,
     scrollTop: 0,
@@ -198,10 +174,6 @@ Page({
         path: 'pages/knowledge/knowledge'
       })
     } else if (options.detail.target.id == "topics") {
-      // wx.navigateToMiniProgram({
-      //   appId: 'wx4c4b54bc609bd79e',
-      //   path: 'pages/index/index?challenge=true'
-      // })
       wx.navigateTo({
         url: '/pages/tm/jixing/jixing',
       })
@@ -397,21 +369,11 @@ Page({
   },
 
   gotoGeizan: function (options) {
-    // wx.navigateToMiniProgram({
-    //   appId: 'wx18a2ac992306a5a4',
-    //   path: 'pages/apps/largess/detail?id=LYFYxTFDv9E%3D'
-    // })
     wx.previewImage({
       current: 'https://6261-backup-osmic-1258071577.tcb.qcloud.la/images/personal/zanshang.jpeg', // 当前显示图片的http链接
       urls: ["https://6261-backup-osmic-1258071577.tcb.qcloud.la/images/personal/zanshang.jpeg"] // 需要预览的图片http链接列表
     })
   },
-
-  // gotoEggs: function (options) {
-  //   wx.navigateTo({
-  //     url: "/pages/tm/eggs/eggs",
-  //   })
-  // },
 
   getToNavi: function (options) {
     console.log(options)
@@ -750,30 +712,6 @@ Page({
     // this.getArticles()
   },
 
-  // onPageScroll: function(ev) {
-  //   var that = this
-  //   wx.createSelectorQuery().select("#top").boundingClientRect(
-  //     function (res) {
-  //       // 避免线上报错 Cannot read property 'top' of null
-  //       if(res){
-  //         let top = res.top
-  //         // console.log("距离顶部：" + top)
-  //         if(top < -600){
-  //           that.setData({
-  //             upflag: true
-  //           })
-  //         }
-
-  //         if(top > -600){
-  //           that.setData({
-  //             upflag: false
-  //           })
-  //         }
-  //       }
-  //     }
-  //   ).exec()
-  // },
-
   changetype: function(options) {
     // changetype一次性获取所有数据
     this.setData({
@@ -841,21 +779,6 @@ Page({
         if(that.data.currentId != "all"){
           select_type = that.data.currentId
         }
-
-        // wx.cloud.callFunction({
-        //   name: "getYouLike", 
-        //   data: {
-        //     type: select_type
-        //   },
-        //   success: function(res){
-        //     console.log(res.result)
-        //     that.setData({
-        //       guessYouLike: res.result.data.reverse()
-        //     })
-        //     // 在首页不需要加载提示
-        //     wx.hideLoading()
-        //   }
-        // })
       }
     })
   },
@@ -933,216 +856,6 @@ Page({
     })
   },
 
-  // scrolltxt: function() {
-  //   var that = this;
-  //   var length = that.data.length; //滚动文字的宽度
-  //   var windowWidth = that.data.windowWidth; //屏幕宽度
-  //   if (length > windowWidth) {
-  //     var interval = setInterval(function() {
-  //       var maxscrollwidth = length + that.data.marquee_margin; //滚动的最大宽度，文字宽度+间距，如果需要一行文字滚完后再显示第二行可以修改marquee_margin值等于windowWidth即可
-  //       var crentleft = that.data.marqueeDistance;
-  //       if (crentleft < maxscrollwidth) { //判断是否滚动到最大宽度
-  //         that.setData({
-  //           marqueeDistance: crentleft + that.data.marqueePace
-  //         })
-  //       } else {
-  //         //console.log("替换");
-  //         that.setData({
-  //           marqueeDistance: 0 // 直接重新滚动
-  //         });
-  //         clearInterval(interval);
-  //         that.scrolltxt();
-  //       }
-  //     }, that.data.interval);
-  //   } else {
-  //     that.setData({
-  //       marquee_margin: "1000"
-  //     }); //只显示一条不滚动右边间距加大，防止重复显示
-  //   }
-  // },
-
-  // egg: function (options) {
-  //   var isShow = false;
-
-  //   if (options.currentTarget["dataset"].id == "egg1") {
-  //     //彩蛋已经打开, 标记为egg1
-  //     if (this.data.eggs["egg1"]) {
-  //       wx.navigateTo({
-  //         url: "/pages/volItem/volItem",
-  //       })
-  //     } else {
-  //       isShow = true
-  //     }
-  //   } else if (options.currentTarget["dataset"].id == "egg3") {
-  //     //彩蛋已经打开, 标记为egg3
-  //     if (this.data.eggs["egg3"]) {
-  //       wx.showModal({
-  //         title: '空彩蛋',
-  //         showCancel: false,
-  //         content: '这个彩蛋的惊喜之处就在于，它是个空彩蛋！！！惊不惊喜，意不意外\n（我知道你很想扁我）',
-  //         confirmText: '还能咋办',
-  //         confirmColor: '#ff7f50',
-  //         success: function (res) {
-
-  //         }
-  //       })
-  //     } else {
-  //       isShow = true
-  //     }
-  //   } else if (options.currentTarget["dataset"].id == "egg2") {
-  //     //彩蛋已经打开, 标记为egg2
-  //     if (this.data.eggs["egg2"]) {
-  //       wx.navigateTo({
-  //         url: '/pages/tm/acronym/acronym',
-  //       })
-  //     } else {
-  //       isShow = true
-  //     }
-  //   }
-
-  //   if (isShow) {
-  //     //彩蛋还未打开，给提示是否打开
-  //     var that = this
-
-  //     wx.showModal({
-  //       title: '解锁彩蛋',
-  //       content: '观看激励广告解锁此彩蛋，一旦解锁永久有效；\n打开彩蛋，后果自负，概不负责。',
-  //       cancelText: '我就不',
-  //       confirmText: '立即解锁',
-  //       confirmColor: '#ff7f50',
-  //       success: function (res) {
-  //         if (res.confirm) {
-  //           // 在页面中定义激励视频广告
-  //           let videoAd = null
-
-  //           // 在页面onLoad回调事件中创建激励视频广告实例
-  //           if (wx.createRewardedVideoAd) {
-  //             videoAd = wx.createRewardedVideoAd({
-  //               adUnitId: 'adunit-83fb3cf4237d8f94'
-  //             })
-  //             videoAd.onLoad(() => {})
-  //             videoAd.onError((err) => {})
-  //             videoAd.onClose((status) => {
-  //               console.log(status)
-  //               if (status && status.isEnded || status === undefined) {
-  //                 if (!videoAd) return
-  //                 videoAd.offClose()
-  //                 // 正常播放结束，下发奖励
-  //                 // continue you code
-
-  //                 let new_eggs = that.data.eggs
-
-  //                 if (options.currentTarget["dataset"].id) {
-  //                   new_eggs[options.currentTarget["dataset"].id] = true
-  //                 }
-
-  //                 that.setData({
-  //                   eggs: new_eggs
-  //                 })
-
-  //                 console.log("openId: " + app.globalData.openId)
-  //                 db.collection('checkin').where({
-  //                   openid: app.globalData.openId
-  //                 }).get({
-  //                   success: function (res) {
-  //                     if (res.data.length == 0) {
-  //                       console.log(res)
-  //                       // 未有过记录
-  //                       db.collection('checkin').add({
-  //                         data: ({
-  //                           checkin: 0,
-  //                           openid: app.globalData.openId,
-  //                           created_at: util.formatTime(new Date()),
-  //                           rewardedvideo: 0,
-  //                           eggs: new_eggs
-  //                         }),
-  //                       })
-  //                     } else {
-  //                       // 已有记录
-  //                       db.collection('checkin').doc(res.data[0]._id).update({
-  //                         data: {
-  //                           // egg: db.command.push(options.currentTarget["dataset"].id)
-  //                           eggs: new_eggs
-  //                         },
-  //                         success: res => {
-  //                           console.log(res)
-  //                           videoAd.offClose(res => {
-  //                             console.log("关闭")
-  //                           })
-  //                         }
-  //                       })
-  //                     }
-  //                   }
-  //                 })
-  //               } else {
-  //                 // 播放中途退出，进行提示
-  //               }
-  //             })
-  //           }
-
-  //           // 用户触发广告后，显示激励视频广告
-  //           if (videoAd) {
-  //             videoAd.show().catch(() => {
-  //               // 失败重试
-  //               videoAd.load()
-  //                 .then(() => videoAd.show())
-  //                 .catch(err => {
-  //                   console.log('激励视频 广告显示失败')
-  //                 })
-  //             })
-  //           }
-  //         }
-  //       }
-  //     })
-
-  //     wx.showModal({
-  //       content: "观看激励广告解锁此彩蛋，一旦解锁永久有效；无论彩蛋内容如何，概不接受意见。",
-  //       showCancel: true,
-  //       cancelText: '不，我忍得住',
-  //       confirmText: '立即解锁',
-  //       confirmColor: '#ff7f50',
-  //       success: function (res) {
-  //         if (res.confirm) {
-  //           // 在页面中定义激励视频广告
-  //           let videoAd = null
-
-  //           // 在页面onLoad回调事件中创建激励视频广告实例
-  //           if (wx.createRewardedVideoAd) {
-  //             videoAd = wx.createRewardedVideoAd({
-  //               adUnitId: 'adunit-83fb3cf4237d8f94'
-  //             })
-  //             videoAd.onLoad(() => {})
-  //             videoAd.onError((err) => {})
-  //             videoAd.onClose((status) => {
-  //               if (status && status.isEnded || status === undefined) {
-  //                 // 正常播放结束，下发奖励
-  //                 // continue you code
-  //                 wx.navigateTo({
-  //                   url: '/pages/volItem/volItem',
-  //                 })
-  //               } else {
-  //                 // 播放中途退出，进行提示
-  //               }
-  //             })
-  //           }
-
-  //           // 用户触发广告后，显示激励视频广告
-  //           if (videoAd) {
-  //             videoAd.show().catch(() => {
-  //               // 失败重试
-  //               videoAd.load()
-  //                 .then(() => videoAd.show())
-  //                 .catch(err => {
-  //                   console.log('激励视频 广告显示失败')
-  //                 })
-  //             })
-  //           }
-  //         }
-  //       }
-  //     })
-  //   }
-  // },
-
   /**
    * 生命周期函数--监听页面隐藏
    */
@@ -1217,48 +930,6 @@ Page({
   onReachBottom: function () {
     this.updateRec()
   },
-  // onReachBottom: function () {
-  //   var that = this
-  //   // 还有数据可以加载
-  //   if (this.data.hasMoreData) {
-  //     that.setData({
-  //       pageNum: that.data.pageNum + 1
-  //     })
-  //     const _ = db.command
-  //     db.collection("guessYouLike").where({
-  //       type: _.elemMatch(_.eq("rec"))
-  //       }).orderBy("_id", "desc")
-  //       .skip(that.data.pageNum * that.data.pageSize)
-  //       .limit(that.data.pageSize)
-  //       .get({
-  //         success(res) {
-  //           var list = []
-  //           if (res.data.length != 0) {
-  //             // 还有未加载的数据
-  //             console.log("还有未加载的数据")
-  //             list = that.data.guessYouLike.concat(res.data)
-  //             that.setData({
-  //               guessYouLike: list,
-  //               hasMoreData: true
-  //             })
-  //           } else {
-  //             // 所有数据已经加载完
-  //             console.log("所有数据已经加载完")
-  //             list = that.data.guessYouLike.concat(res.data)
-  //             that.setData({
-  //               guessYouLike: list,
-  //               hasMoreData: false
-  //             })
-  //           }
-  //         }
-  //       })
-  //     // end
-  //   } else {
-  //     wx.showToast({
-  //       title: '没有更多数据',
-  //     })
-  //   }
-  // },
 
   onShareAppMessage: function (res) {
     return {
